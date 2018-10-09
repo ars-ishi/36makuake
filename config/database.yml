@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: makuake_production
-  username: makuake
-  password: <%= ENV['MAKUAKE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
