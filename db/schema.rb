@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012102559) do
+ActiveRecord::Schema.define(version: 20181012104240) do
 
   create_table "promoter_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id", null: false
@@ -31,6 +31,27 @@ ActiveRecord::Schema.define(version: 20181012102559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_promoter_profiles_on_user_id"
+  end
+
+  create_table "send_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.boolean "main", default: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_ruby", null: false
+    t.string "first_name_ruby", null: false
+    t.integer "gender"
+    t.string "industry"
+    t.integer "birth_year"
+    t.string "phone_number", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "municipality", null: false
+    t.string "house_number", null: false
+    t.string "building"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_send_addresses_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,4 +83,5 @@ ActiveRecord::Schema.define(version: 20181012102559) do
   end
 
   add_foreign_key "promoter_profiles", "users"
+  add_foreign_key "send_addresses", "users"
 end
