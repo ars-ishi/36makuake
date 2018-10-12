@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012113434) do
+ActiveRecord::Schema.define(version: 20181012114549) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20181012113434) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_courses_on_project_id"
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.integer "payment_price"
+    t.text "send_address"
+    t.integer "payment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_orders_on_project_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "payment_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -148,6 +160,8 @@ ActiveRecord::Schema.define(version: 20181012113434) do
   add_foreign_key "course_images", "courses"
   add_foreign_key "course_questions", "courses"
   add_foreign_key "courses", "projects"
+  add_foreign_key "orders", "projects"
+  add_foreign_key "orders", "users"
   add_foreign_key "payment_methods", "users"
   add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users"
