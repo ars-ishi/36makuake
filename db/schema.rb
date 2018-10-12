@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012115131) do
+ActiveRecord::Schema.define(version: 20181012115623) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20181012115131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_courses_on_project_id"
+  end
+
+  create_table "order_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "order_detail_id", null: false
+    t.bigint "course_question_id", null: false
+    t.string "question"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_question_id"], name: "index_order_answers_on_course_question_id"
+    t.index ["order_detail_id"], name: "index_order_answers_on_order_detail_id"
   end
 
   create_table "order_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -172,6 +183,8 @@ ActiveRecord::Schema.define(version: 20181012115131) do
   add_foreign_key "course_images", "courses"
   add_foreign_key "course_questions", "courses"
   add_foreign_key "courses", "projects"
+  add_foreign_key "order_answers", "course_questions"
+  add_foreign_key "order_answers", "order_details"
   add_foreign_key "order_details", "courses"
   add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "projects"
