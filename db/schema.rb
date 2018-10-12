@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012104240) do
+ActiveRecord::Schema.define(version: 20181012105309) do
+
+  create_table "payment_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.boolean "credit_card", default: false
+    t.boolean "convenience", default: false
+    t.boolean "bank", default: false
+    t.boolean "net_bank", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_payment_methods_on_user_id"
+  end
 
   create_table "promoter_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id", null: false
@@ -82,6 +93,7 @@ ActiveRecord::Schema.define(version: 20181012104240) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "payment_methods", "users"
   add_foreign_key "promoter_profiles", "users"
   add_foreign_key "send_addresses", "users"
 end
