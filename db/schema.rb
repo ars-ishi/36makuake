@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012124058) do
+ActiveRecord::Schema.define(version: 20181012124837) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -92,6 +92,16 @@ ActiveRecord::Schema.define(version: 20181012124058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payment_methods_on_user_id"
+  end
+
+  create_table "project_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_comments_on_project_id"
+    t.index ["user_id"], name: "index_project_comments_on_user_id"
   end
 
   create_table "project_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -239,6 +249,8 @@ ActiveRecord::Schema.define(version: 20181012124058) do
   add_foreign_key "orders", "projects"
   add_foreign_key "orders", "users"
   add_foreign_key "payment_methods", "users"
+  add_foreign_key "project_comments", "projects"
+  add_foreign_key "project_comments", "users"
   add_foreign_key "project_images", "projects"
   add_foreign_key "project_likes", "projects"
   add_foreign_key "project_likes", "users"
