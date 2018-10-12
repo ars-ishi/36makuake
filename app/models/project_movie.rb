@@ -1,0 +1,2 @@
+class ProjectMovie < ApplicationRecord
+end
