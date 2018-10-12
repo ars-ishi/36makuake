@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012123425) do
+ActiveRecord::Schema.define(version: 20181012123747) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -119,6 +119,15 @@ ActiveRecord::Schema.define(version: 20181012123425) do
     t.index ["project_id"], name: "index_project_movies_on_project_id"
   end
 
+  create_table "project_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "project_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_tags_on_project_id"
+    t.index ["tag_id"], name: "index_project_tags_on_tag_id"
+  end
+
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
@@ -225,6 +234,8 @@ ActiveRecord::Schema.define(version: 20181012123425) do
   add_foreign_key "project_likes", "projects"
   add_foreign_key "project_likes", "users"
   add_foreign_key "project_movies", "projects"
+  add_foreign_key "project_tags", "projects"
+  add_foreign_key "project_tags", "tags"
   add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users"
   add_foreign_key "promoter_profiles", "users"
