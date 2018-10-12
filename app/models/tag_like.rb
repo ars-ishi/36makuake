@@ -1,0 +1,2 @@
+class TagLike < ApplicationRecord
+end

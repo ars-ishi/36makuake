@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012123747) do
+ActiveRecord::Schema.define(version: 20181012124058) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -186,6 +186,15 @@ ActiveRecord::Schema.define(version: 20181012123747) do
     t.index ["user_id"], name: "index_send_addresses_on_user_id"
   end
 
+  create_table "tag_likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tag_likes_on_tag_id"
+    t.index ["user_id"], name: "index_tag_likes_on_user_id"
+  end
+
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -240,4 +249,6 @@ ActiveRecord::Schema.define(version: 20181012123747) do
   add_foreign_key "projects", "users"
   add_foreign_key "promoter_profiles", "users"
   add_foreign_key "send_addresses", "users"
+  add_foreign_key "tag_likes", "tags"
+  add_foreign_key "tag_likes", "users"
 end
