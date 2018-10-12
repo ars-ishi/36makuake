@@ -31,13 +31,14 @@ Things you may want to cover:
 |------|----|-------|
 |role|string|default: 1, null: false, enum role: { 0:'admin', 1:'supporter', 2:'promoter' }|
 |name|string|index: true, null: false|
+|image|string|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |url|string|
 |location|string|
 |birth|integer|
 |gender|string|enum gender: { 1:'男', 2:'女' }|
-|instruction|text|
+|intruction|text|
 |admission|boolean|default: true|
 |news_isvalid|boolean|default: false|
 |report_isvalid|boolean|default: false|
@@ -122,6 +123,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, foreign_key: true|
+|category_id|reference|null: false, foreign_key: true|
 |name|string|null: false|
 |summary|text||
 |content|text|null: false|
@@ -132,6 +134,7 @@ Things you may want to cover:
 
 ### association
 - belongs_to :user
+- belongs_to :category
 - has_many   :courses, dependent: :destroy
 - has_many   :project_images, dependent: :destroy
 - has_many   :project_movies, dependent: :destroy
@@ -276,20 +279,7 @@ Things you may want to cover:
 |name|string|null: false|
 
 ### association
-- has_many   :project_categories, dependent: :destroy
-- has_many   :projects, through: :project_categories
-
-
-## project_categories table
-
-|Column|Type|Options|
-|------|----|-------|
-|project_id|reference|foreign_key: true|
-|category_id|reference|foreign_key: true|
-
-### association
-- belongs_to :project
-- belongs_to :category
+- has_many   :projects
 
 
 ## tags table
@@ -415,6 +405,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :project
 
+
 ## project_pickups table
 
 |Column|Type|Options|
@@ -441,6 +432,3 @@ Things you may want to cover:
 |------|----|-------|
 |title|integer||
 |content|text||
-
-### association
--
