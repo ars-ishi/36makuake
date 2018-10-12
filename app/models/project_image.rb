@@ -1,0 +1,2 @@
+class ProjectImage < ApplicationRecord
+end
