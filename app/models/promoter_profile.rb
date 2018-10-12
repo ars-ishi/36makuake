@@ -1,0 +1,2 @@
+class PromoterProfile < ApplicationRecord
+end
