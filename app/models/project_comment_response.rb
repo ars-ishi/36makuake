@@ -1,0 +1,2 @@
+class ProjectCommentResponse < ApplicationRecord
+end
