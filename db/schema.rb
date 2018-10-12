@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012110137) do
+ActiveRecord::Schema.define(version: 20181012110659) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(version: 20181012110137) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payment_methods_on_user_id"
+  end
+
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.string "name", null: false
+    t.text "summary"
+    t.text "content", null: false
+    t.integer "support_type", default: 1, null: false
+    t.time "deadline", null: false
+    t.integer "target_sales", default: 1, null: false
+    t.integer "total_sales", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_projects_on_category_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "promoter_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -100,6 +116,8 @@ ActiveRecord::Schema.define(version: 20181012110137) do
   end
 
   add_foreign_key "payment_methods", "users"
+  add_foreign_key "projects", "categories"
+  add_foreign_key "projects", "users"
   add_foreign_key "promoter_profiles", "users"
   add_foreign_key "send_addresses", "users"
 end
