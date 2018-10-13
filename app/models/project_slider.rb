@@ -1,0 +1,2 @@
+class ProjectSlider < ApplicationRecord
+end
