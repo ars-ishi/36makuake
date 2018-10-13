@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181013031630) do
+ActiveRecord::Schema.define(version: 20181013032728) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -147,6 +147,13 @@ ActiveRecord::Schema.define(version: 20181013031630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_project_movies_on_project_id"
+  end
+
+  create_table "project_pickups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_pickups_on_project_id"
   end
 
   create_table "project_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -315,6 +322,7 @@ ActiveRecord::Schema.define(version: 20181013031630) do
   add_foreign_key "project_likes", "projects"
   add_foreign_key "project_likes", "users"
   add_foreign_key "project_movies", "projects"
+  add_foreign_key "project_pickups", "projects"
   add_foreign_key "project_tags", "projects"
   add_foreign_key "project_tags", "tags"
   add_foreign_key "projects", "categories"

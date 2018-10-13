@@ -1,0 +1,2 @@
+class ProjectPickup < ApplicationRecord
+end
