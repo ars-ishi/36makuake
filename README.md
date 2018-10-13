@@ -210,7 +210,7 @@ Things you may want to cover:
 
 
 ### association
-- belongs_to :users
+- belongs_to :user
 - has_many   :order_details
 
 
@@ -227,7 +227,7 @@ Things you may want to cover:
 ### association
 - belongs_to :order
 - belongs_to :course
-- has_many   :order_answer
+- has_many   :order_answers
 
 
 ## order_answers table
@@ -334,7 +334,7 @@ Things you may want to cover:
 ### association
 - belongs_to :user
 - belongs_to :project
-- has_many   :project_comment_response, dependent: :destroy
+- has_many   :project_comment_responses, dependent: :destroy
 
 ## project_comment_responses table
 
