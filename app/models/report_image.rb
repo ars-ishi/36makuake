@@ -1,0 +1,2 @@
+class ReportImage < ApplicationRecord
+end

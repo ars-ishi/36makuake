@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181013021613) do
+ActiveRecord::Schema.define(version: 20181013022314) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -185,6 +185,14 @@ ActiveRecord::Schema.define(version: 20181013021613) do
     t.index ["user_id"], name: "index_promoter_profiles_on_user_id"
   end
 
+  create_table "report_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "report_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_report_images_on_report_id"
+  end
+
   create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "project_id"
     t.string "title"
@@ -281,6 +289,7 @@ ActiveRecord::Schema.define(version: 20181013021613) do
   add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users"
   add_foreign_key "promoter_profiles", "users"
+  add_foreign_key "report_images", "reports"
   add_foreign_key "reports", "projects"
   add_foreign_key "send_addresses", "users"
   add_foreign_key "tag_likes", "tags"
