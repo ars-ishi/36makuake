@@ -1,0 +1,2 @@
+class ReportLike < ApplicationRecord
+end
