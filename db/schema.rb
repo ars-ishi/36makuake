@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181013023104) do
+ActiveRecord::Schema.define(version: 20181013031630) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20181013023104) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_courses_on_project_id"
+  end
+
+  create_table "direct_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_direct_messages_on_project_id"
+    t.index ["user_id"], name: "index_direct_messages_on_user_id"
   end
 
   create_table "order_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -288,6 +298,8 @@ ActiveRecord::Schema.define(version: 20181013023104) do
   add_foreign_key "course_images", "courses"
   add_foreign_key "course_questions", "courses"
   add_foreign_key "courses", "projects"
+  add_foreign_key "direct_messages", "projects"
+  add_foreign_key "direct_messages", "users"
   add_foreign_key "order_answers", "course_questions"
   add_foreign_key "order_answers", "order_details"
   add_foreign_key "order_details", "courses"
