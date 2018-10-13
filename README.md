@@ -29,16 +29,20 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|role|string|default: 1, null: false, enum role: { 0:'admin', 1:'supporter', 2:'promoter' }|
+|role|integer|default: 1, null: false, enum role: { 0:'admin', 1:'supporter', 2:'promoter' }|
 |name|string|index: true, null: false|
 |image|string|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |url|string|
 |location|string|
-|birth|integer|
-|gender|string|enum gender: { 1:'男', 2:'女' }|
-|intruction|text|
+|birth_year|integer|
+|birth_month|integer|
+|birth_day|integer|
+|birth_isvalid|boolean|default: false|
+|gender|integer|enum gender: { 1:'男', 2:'女' }|
+|gender_isvalid|boolean|default: false|
+|introduction|text|
 |admission|boolean|default: true|
 |news_isvalid|boolean|default: false|
 |report_isvalid|boolean|default: false|
@@ -61,11 +65,12 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |business_entity|string|null: false|
 |corporate_name|string|null: false|
 |staff_name|string|null: false|
 |position|string||
+|email|string|null: false, default: ""|
 |phone_number|string|null: false|
 |postal_code|string|null: false|
 |location|string|null: false|
@@ -84,7 +89,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |main|boolean|default: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
@@ -108,7 +113,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |credit_card|boolean|default: false|
 |convenience|boolean|default: false|
 |bank|boolean|default: false|
@@ -122,8 +127,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|category_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |summary|text||
 |content|text|null: false|
@@ -155,13 +160,13 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|null: false, foreign_key: true|
+|project_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |content|text||
 |price|integer|null: false|
 |due_date|string||
 |stock|integer|null: false|
-|sales_type|integer|default:0, enum sales_type: { 0:'受付中', 1:'終了', 2:'商品化' }|
+|sales_type|integer|default:1, enum sales_type: { 1:'受付中', 2:'終了', 3:'商品化' }|
 
 ### association
 - belongs_to :project
@@ -174,7 +179,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|course_id|reference|foreign_key: true|
+|course_id|references|null: false, foreign_key: true|
 |image|string||
 
 ### association
@@ -185,8 +190,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|course_id|reference|foreign_key: true|
+|course_id|references|null: false, foreign_key: true|
 |content|string||
+|usable|boolean|default: true|
 
 ### association
 - belongs_to :course
@@ -196,8 +202,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|project_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|project_id|references|null: false, foreign_key: true|
 |payment_price|integer||
 |send_address|text||
 |payment|integer||
@@ -212,8 +218,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|order_id|reference|null: false, foreign_key: true|
-|course_id|reference|null: false, foreign_key: true|
+|order_id|references|null: false, foreign_key: true|
+|course_id|references|null: false, foreign_key: true|
 |order_quantity|integer|null: false|
 |unit_price|integer|null: false|
 |shipping_date|string||
@@ -228,8 +234,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|order_detail_id|reference|foreign_key: true|
-|course_question_id|reference|foreign_key: true|
+|order_detail_id|references|null: false, foreign_key: true|
+|course_question_id|references|null: false, foreign_key: true|
 |question|string||
 |answer|string||
 
@@ -242,7 +248,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
+|project_id|references|null: false, foreign_key: true|
 |image|string||
 
 ### association
@@ -253,7 +259,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
+|project_id|references|null: false, foreign_key: true|
 |movie|string||
 
 ### association
@@ -264,8 +270,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
-|user_id|reference|foreign_key: true|
+|project_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ### association
 - belongs_to :project
@@ -297,8 +303,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
-|tag_id|reference|foreign_key: true|
+|project_id|references|foreign_key: true|
+|tag_id|references|foreign_key: true|
 
 ### association
 - belongs_to :project
@@ -309,8 +315,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|foreign_key: true|
-|tag_id|reference|foreign_key: true|
+|user_id|references|foreign_key: true|
+|tag_id|references|foreign_key: true|
 
 ### association
 - belongs_to :user
@@ -321,8 +327,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
-|user_id|reference|foreign_key: true|
+|project_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 |content|string||
 
 ### association
@@ -334,7 +340,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_comment_id|reference|foreign_key: true|
+|project_comment_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 |content|string||
 
 ### association
@@ -345,7 +352,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
+|project_id|references|foreign_key: true|
 |title|string||
 |content|text||
 
@@ -361,7 +368,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|report_id|reference|foreign_key: true|
+|report_id|references|foreign_key: true|
 |image|string||
 
 ### association
@@ -372,8 +379,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|report_id|reference|foreign_key: true|
-|user_id|reference|foreign_key: true|
+|report_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 |content|string||
 
 ### association
@@ -385,8 +392,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|report_id|reference|foreign_key: true|
-|user_id|reference|foreign_key: true|
+|report_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ### association
 - belongs_to :report
@@ -397,8 +404,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|project_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|project_id|references|null: false, foreign_key: true|
 |content|text|null: false|
 
 ### association
@@ -410,7 +417,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
+|project_id|references|foreign_key: true|
 
 ### association
 - has_many   :projects
@@ -420,7 +427,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|project_id|reference|foreign_key: true|
+|project_id|references|foreign_key: true|
 
 ### association
 - has_many   :projects
@@ -430,5 +437,5 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|title|integer||
+|title|string||
 |content|text||
