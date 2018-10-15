@@ -1,0 +1,145 @@
+%footer.footer
+  .footer-in
+    .footer_bn_block
+      = link_to "https://www.makuake.com/apply/", class:"footer-apply-link" do
+        %div
+          %p.footer-apply-link-ttl-main 国内No.1
+          %p.footer-apply-link-ttl-sub クラウドファンディングサイト
+        %div
+          %p.footer-apply-link-btn 掲載の相談をする
+      = link_to "https://support.makuake.com/hc/ja", class:"footer-help-link" do
+        %i.footer-help-icon
+        %p Makuakeヘルプ
+        %svg.footer-help-link-arrow
+          %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+    .footer-column.footer-column--1
+      .footer-column-in.footer-column-in--1
+        %section.footer-column-project
+          %h5.footer-column-ttl プロジェクト
+          %ul.footer-link-block
+            %li.footer-link-block-list
+              = link_to "全てのプロジェクト", "https://www.makuake.com/discover/projects/search/", class:"footer-link-block-txt"
+            %li.footer-link-block-list
+              = link_to "New!", "https://www.makuake.com/discover/new", class:"footer-link-block-txt"
+            %li.footer-link-block-list
+              = link_to "もうすぐ終了", "https://www.makuake.com/discover/ending-soon", class:"footer-link-block-txt"
+            %li.footer-link-block-list
+              = link_to "支援金ランキング", "https://www.makuake.com/discover/most-funded", class:"footer-link-block-txt"
+            %li.footer-link-block-list
+              = link_to "今日のピックアップ", "https://www.makuake.com/discover/pickup", class:"footer-link-block-txt"
+            %li.footer-link-block-list
+              = link_to "ふるさと納税型", "https://www.makuake.com/discover/government", class:"footer-link-block-txt"
+        %section
+          %h5.footer-column-ttl ストア
+          %ul.footer-link-block
+            %li.footer-link-block-list
+              = link_to "全てのストア", "https://www.makuake.com/discover/store", class:"footer-link-block-txt"
+      .footer-column-in.footer-column-in--2
+        %section
+          %h5.footer-column-ttl
+            人気のタグ
+            %a.footer-link-tag{:href => "/discover/tags"}
+              すべて見る
+              %svg.footer-link-tag-arrow
+                %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          .footer-link
+            %ul.footer-link-block.footer-link-block--1
+              %li.footer-link-block-list= link_to "# 便利グッズ", "https://www.makuake.com/discover/tags/203/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# レストラン", "https://www.makuake.com/discover/tags/121/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# ガジェット", "https://www.makuake.com/discover/tags/8/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 映画", "https://www.makuake.com/discover/tags/13/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# プロダクト", "https://www.makuake.com/discover/tags/90/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# フード", "https://www.makuake.com/discover/tags/66/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 会員制", "https:/www.makuake.com/discover/tags/180/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 日本酒", "https:/www.makuake.com/discover/tags/158/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# ファッション", "https:/www.makuake.com/discover/tags/50/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 肉", "https:/www.makuake.com/discover/tags/77/", class:"footer-link-block-txt"
+            %ul.footer-link-block
+              %li.footer-link-block-list= link_to "# テクノロジー", "https:/www.makuake.com/discover/tags/81/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 日本製", "https:/www.makuake.com/discover/tags/184/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# リュック", "https:/www.makuake.com/discover/tags/52/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 音楽", "https:/www.makuake.com/discover/tags/105/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# アウトドア", "https:/www.makuake.com/discover/tags/134/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 子供", "https:/www.makuake.com/discover/tags/109/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 文房具", "https:/www.makuake.com/discover/tags/115/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# アニメ", "https:/www.makuake.com/discover/tags/3/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 伝統", "https:/www.makuake.com/discover/tags/183/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "# 腕時計", "https:/www.makuake.com/discover/tags/57/", class:"footer-link-block-txt"
+      .footer-column-in.footer-column-in--3
+        %section
+          %h5.footer-column-ttl カテゴリー
+          .footer-link
+            %ul.footer-link-block.footer-link-block--2
+              %li.footer-link-block-list= link_to "プロダクト", "https:/www.makuake.com/discover/categories/product/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "ファッション", "https:/www.makuake.com/discover/categories/fashion/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "フード", "https:/www.makuake.com/discover/categories/food/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "レストラン・バー", "https:/www.makuake.com/discover/categories/restaurant/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "テクノロジー", "https:/www.makuake.com/discover/categories/technology/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "コスメ・ビューティー", "https:/www.makuake.com/discover/categories/beauty/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "アート・写真", "https:/www.makuake.com/discover/categories/art/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "映画・映像", "https:/www.makuake.com/discover/categories/film/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "アニメ・マンガ", "https:/www.makuake.com/discover/categories/anime/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "音楽", "https:/www.makuake.com/discover/categories/music/", class:"footer-link-block-txt"
+            %ul.footer-link-block
+              %li.footer-link-block-list= link_to "ゲーム", "https:/www.makuake.com/discover/categories/game/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "演劇・パフォーマンス", "https:/www.makuake.com/discover/categories/dance/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "お笑い・エンタメ", "https:/www.makuake.com/discover/categories/entertainment/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "出版・ジャーナリズム", "https:/www.makuake.com/discover/categories/publication/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "教育", "https:/www.makuake.com/discover/categories/education/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "スポーツ", "https:/www.makuake.com/discover/categories/sports/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "スタートアップ", "https:/www.makuake.com/discover/categories/startup/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "地域活性化", "https:/www.makuake.com/discover/categories/region/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "社会貢献", "https:/www.makuake.com/discover/categories/contribution/", class:"footer-link-block-txt"
+              %li.footer-link-block-list= link_to "世界一周", "https:/www.makuake.com/discover/categories/worldtour/", class:"footer-link-block-txt"
+              %li.footer-link-block-list
+    .footer-column.footer-column--1
+      .footer-column-in.footer-column-in--1
+        %section
+          %h5.footer-column-ttl メニュー
+          %ul.footer-link-block
+            %li.footer-link-block-list= link_to "プロジェクトを掲載する", "https:/www.makuake.com/apply/", class:"footer-link-block-txt"
+            %li.footer-link-block-list= link_to "Makuake ガバメント", "https:/www.makuake.com/government", class:"footer-link-block-txt"
+            %li.footer-link-block-list= link_to "ヘルプ", "https://support.makuake.com/hc/ja", class:"footer-link-block-txt"
+            %li.footer-link-block-list= link_to "プレスリリース", "https:/www.makuake.com/pages/press/", class:"footer-link-block-txt"
+            %li.footer-link-block-list= link_to "お問い合わせ・取材受付", "https:/www.makuake.com/inquiries/add/", class:"footer-link-block-txt"
+            %li.footer-link-block-list= link_to "採用情報", "https://www.wantedly.com/companies/makuake/info", class:"footer-link-block-txt"
+            %li.footer-link-block-list= link_to "Makuake Incubation Studio", "http://mis.makuake.com/", class:"footer-link-block-txt"
+      .footer-column-in.footer-column-in--4
+        %section
+          %h5.footer-column-ttl オフィシャル
+          %ul.footer-sns-block
+            %li.footer-sns-block-list
+              = link_to "https://www.facebook.com/makuake", class:"footer-sns-icon footer-sns-icon--face", target:"_blank" do
+                %svg.footer-sns-icon--fill.footer-sns-icon--face-pos
+                  %use{"xlink:href" => "#icon-facebook-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                %span.footer-sns-text Facebook
+            %li.footer-sns-block-list
+              = link_to "https://twitter.com/makuake_ca", class:"footer-sns-icon footer-sns-icon--tw", target:"_blank" do
+                %svg.footer-sns-icon--fill.footer-sns-icon--tw-pos
+                  %use{"xlink:href" => "#icon-twitter-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                %span.footer-sns-text Makuake_ca
+            %li.footer-sns-block-list
+              = link_to "http://blog.makuake.com/posts/919350", class:"footer-sns-icon footer-sns-icon--line", target:"_blank" do
+                %svg.footer-sns-icon--fill.footer-sns-icon--line-pos
+                  %use{"xlink:href" => "#icon-line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                %span.footer-sns-text LINE@
+            %li.footer-sns-block-list
+              = link_to "https://www.instagram.com/makuake_official/", class:"footer-sns-icon footer-sns-icon--insta", target:"_blank" do
+                %svg.footer-sns-icon--fill.footer-sns-icon--insta-pos
+                  %use{"xlink:href" => "#icon-instagram-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                %span.footer-sns-text Instagram
+      .footer-column-in
+        %section
+          %h5.footer-column-ttl App
+          = link_to "https://itunes.apple.com/jp/app/makuake/id1274816320?mt=8", class:"footer-appstore-bn", target:"_blank" do
+            %svg.footer-appstore-svg
+              %use{"xlink:href" => "#app_store", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+    .footer-bottom
+      %div
+        .footer-bottom-copy
+          %small.footer-bottom-copy-txt Copyright © Makuake, Inc. All Rights Reserved.
+      %div
+        %ul.footer-bottom-link
+          %li= link_to "運営会社", "https://www.makuake.com/pages/company/", class:"footer-bottom-link-text"
+          %li= link_to "利用規約", "https://www.makuake.com/pages/term/", class:"footer-bottom-link-text"
+          %li= link_to "プライバシーポリシー", "https://www.makuake.com/pages/privacy/", class:"footer-bottom-link-text"

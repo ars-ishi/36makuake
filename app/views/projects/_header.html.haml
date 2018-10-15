@@ -1,0 +1,131 @@
+%body
+  #header
+    %header#headerIn
+      %a#siteId.siteId{:href => "/"}
+        %h1
+          %svg.makuake-logo
+            %title Makuake
+            %use{"xlink:href" => "#makuakelogo_pc", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %form#search_form.findHeaderForm{:action => "/discover/projects/", :method => "get"}
+        %input.findHeaderInput{:name => "keyword", :type => "text", :value => ""}/
+        %button#start_search.findFormHeaderSubmit{:type => "submit"}
+          .findFormHeaderSubmit-iconbox
+            %i.findFormHeaderSubmit-iconboxin
+              %svg.findFormHeaderSubmit-iconboxin--black
+                %use{"xlink:href" => "#icon-search_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %i.findFormHeaderSubmit-iconboxin
+              %svg.findFormHeaderSubmit-iconboxin--white
+                %use{"xlink:href" => "#icon-search_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          %span.findFormHeaderSubmit-txt 探す
+      / ログアウト
+      %nav#navigation
+        %ul.nav-header-box
+          %li
+            %a.header-link-apply{:href => "/apply/"} プロジェクトを掲載する
+          %li
+            .header-like-box
+              %a.header-like{:href => "/favorite/tag/", :onclick => ""}
+                %i
+                  %svg.like-heart
+                    %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                %p.like-heart-txt
+                  お気に入り
+                  / 通知
+                  / <i class="like-heart-txt-new">new</i>
+              .header-like-tooltip
+                .header-like-tooltip-box
+                  %i
+                    %svg.header-like-tooltip-icon
+                      %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                  %span.header-like-tooltip-new new
+                %p.header-like-tooltip-txt
+                  あなたのお気に入りを
+                  %br>/
+                  管理するページができました
+                %a.header-like-tooltip-link{:href => "/favorite/tag/"} 詳しくはこちら
+          %li
+            %a#login.header-btn-login{:href => "#modalBase", :rel => "leanModal"} ログイン
+          %li
+            %a#regist.header-btn-signin{:href => "#modalBase", :rel => "leanModal"} 新規登録
+      %input#staticurl{:type => "hidden", :value => "//s3-ap-northeast-1.amazonaws.com/static.makuake-ca.com"}/
+      %input#staticurl_makuake{:type => "hidden", :value => "//cdn-m.makuake.com/rev_2018/10/10/132936"}/
+      / ログイン
+      %nav#navigation02{:style => "display:none;"}
+        %ul.nav-header-box-after
+          %li
+            %a.header-link-apply-after{:href => "/apply/"} プロジェクトを掲載する
+          %li{"data-geenie-favorite-header--hasnot" => "", :style => "display: none"}
+            .header-like-box
+              %a.header-like-after{:href => "/favorite/tag/"}
+                %i
+                  %svg.like-heart-after
+                    %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                %span.like-heart-txt-new new
+              .header-like-tooltip
+                .header-like-tooltip-box
+                  %i
+                    %svg.header-like-tooltip-icon
+                      %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                  %span.header-like-tooltip-new
+                %p.header-like-tooltip-txt
+                  あなたのお気に入りを
+                  %br>/
+                  管理するページができました
+                %a.header-like-tooltip-link{:href => "/favorite/tag/"} 詳しくはこちら
+          %li{"data-geenie-favorite-header--has" => "", :style => "display: none"}
+            %a.header-like-after{:href => "/favorite/tag/"}
+              %i
+                %svg.like-heart-after
+                  %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              %span.like-after-num{"data-geenie-favorite-notification-has" => "", :style => "display:none;"}
+          %li
+            %a.header-mail-after{:href => "/my/message/"}
+              %i
+                %svg.mail-after
+                  %use{"xlink:href" => "#icon-mail_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              %span#unread_message_cnt.mail-after-num{:style => "display:none;"}
+          %li
+            #projectTips.header-bell-after
+              %i
+                %svg.bell-after
+                  %use{"xlink:href" => "#icon-bell_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              %span#unread_notification_cnt.bell-after-num{:style => "display:none;"}
+          %li
+            %img.user_image.link03After{:src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/imgItemBlank.jpg"}/
+      #toolTipsPjt
+        .toolTipsPjtIn
+          #notice-scroll.toolTipsPjt03
+            #notice_0.inMsHeader.clearfix{:style => "display:none;"}
+              .inMsLeft
+                %img{:alt => "", :height => "36", :name => "notice_img", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/imgItemBlank.jpg", :width => "36"}/
+                %span.posOrner{:style => "display:none;"} 実行者
+              .inMsRight
+                .inMsComment
+                  コメント
+                  %span.iMcBold> 太字
+                  クラウドファンディング
+                .inMsTimeHeader 1ヶ月以上
+            #show_more_notification
+              %a.notice-next.btncol_03{:href => "javascript:void(0);", :onclick => "api_notification.get_list(); return false;"} さらに読み込む
+            #loading_gif_notification.notice-next
+              %img{:height => "20", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/common_loading.gif", :width => "20"}/
+            %p.notNotice 現在、通知がありません
+      #myMenuBox
+        %ul.headerMyIconClick
+          %li.mypage
+            %a.myLink01{:href => "/my/"}
+              %div
+                %img.user_image.userImage02{:src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/imgItemBlank.jpg"}/
+              %div マイページ
+          %li#header_dashboard
+            %a.linkDash{:href => "#", :target => "_blank"}
+              %img.linkDashChild{:alt => "ダッシュボード", :height => "101", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/imgItemBlank.gif", :width => "180"}/
+              %p プロジェクト管理
+          %li.links
+            %a.links-mypage{:href => "/my/project/favorite/"} 支援・寄附したプロジェクト
+          %li.links
+            %a.links-mypage{:href => "/my/project/consumed/"} 購入履歴(ストア)
+          %li.links
+            %a.links-mypage{:href => "https://support.makuake.com/hc/ja/", :target => "_blank"} ヘルプ
+          %li.links
+            %a.links-mypage{:href => "/logout/"} ログアウト
