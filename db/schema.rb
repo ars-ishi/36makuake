@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181016050306) do
+ActiveRecord::Schema.define(version: 20181016063252) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(version: 20181016050306) do
     t.text "summary"
     t.text "content", null: false
     t.integer "support_type", default: 1, null: false
-    t.time "deadline", null: false
+    t.datetime "deadline", null: false
     t.integer "target_sales", default: 1, null: false
     t.integer "total_sales", default: 0, null: false
     t.datetime "created_at", null: false
