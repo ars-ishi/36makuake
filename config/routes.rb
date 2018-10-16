@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'projects#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+    resources :orders, only: [:new, :create]
+  end
+
+  resources :projects, only: [:index, :new, :create, :show] do
+    resources :courses, only: [:new, :create]
+  end
 end
