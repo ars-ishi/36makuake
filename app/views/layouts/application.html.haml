@@ -1,14 +1,15 @@
 !!!
 %html{:lang => "ja"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title クラウドファンディング - Makuake（マクアケ）：サイバーエージェントグループ
-    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css", :rel => "stylesheet"}/
-  %body
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"}
-    = render 'shared/svg'
-    = yield
+    %head
+        %link{:href => "//cdn-m.makuake.com/rev_2018/10/16/143133/img/favicon.ico", :rel => "shortcut icon"}/
+        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+        %title クラウドファンディング - Makuake（マクアケ）：サイバーエージェントグループ
+        %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+        = csrf_meta_tags
+        = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+        = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+        %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css", :rel => "stylesheet"}/
+    %body
+        %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"}
+        = render 'shared/svg'
+        = yield
