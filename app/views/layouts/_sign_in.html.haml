@@ -18,3 +18,7 @@
         = link_to "パスワードを忘れた方はこちら", new_password_path(:user)
       %p
         = link_to '新規登録はこちら', new_user_registration_path
+      %p
+        = link_to 'facebookログイン', user_facebook_omniauth_authorize_path
+      %p
+        = link_to 'twitterログイン', user_twitter_omniauth_authorize_path
