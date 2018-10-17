@@ -15,4 +15,10 @@ class Project < ApplicationRecord
   has_many   :users, through: :project_likes
   belongs_to :project_pickup
   belongs_to :project_slider
+
+  def bar
+    total_sales*100 / target_sales
+  end
+
+
 end
