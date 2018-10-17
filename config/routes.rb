@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :orders, only: [:new, :create]
   end
+
+  resources :projects, only: [:index, :new, :create, :show] do
+    resources :courses, only: [:new, :create, :show]
+  end
+  
   get 'users/:id/edit_omniauth' => 'users#edit_omniauth'
   patch 'users/:id/update_omniauth' => 'users#update_omniauth'
 end
