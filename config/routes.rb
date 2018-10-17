@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :projects, only: [:index, :new, :create, :show] do
-    resources :courses, only: [:new, :create]
+    resources :courses, only: [:new, :create, :show]
   end
 end
