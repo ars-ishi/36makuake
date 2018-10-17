@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "35makuake"
+set :application, "36makuake"
 set :repo_url, 'git@github.com:masuyu/36makuake.git'
 
 # Default branch is :master
