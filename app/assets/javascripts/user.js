@@ -41,3 +41,12 @@ $(function() {
     this.remove();
   });
 });
+
+// SNS認証で必要なダミーメールアドレスをリセット
+$(function() {
+  if (window.location.href.match(/\/users\/\d+\/edit_omniauth/)) {
+    $(document).ready(function(){
+      $('#omniauth_edit_email').val('');
+    });
+  }
+});
