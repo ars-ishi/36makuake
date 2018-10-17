@@ -20,7 +20,13 @@ class ProjectsController < ApplicationController
     @courses = Course.limit(5)
   end
 
-  def show
+
+  def new
   end
 
+  def create
+  end
+
+  def show
+  end
 end
