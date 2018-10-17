@@ -1,0 +1,27 @@
+- @pickups.first(8).each do |project|
+  %li.ProjectItem.ProjectItem--4column
+    %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
+      %article.pickup
+        .image
+          .image-overlay
+            - project.project_images.first(1).each do |image|
+              %img.image-thumbnail-m{:alt => "#{project.name}", :src => "#{image.image}"}/
+        / text
+        %h4.title #{project.name}
+        .attribute
+          .time
+            %svg.icon
+              %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            / time
+            %p #{Time.now.strftime("%j")}
+          .money
+            / money
+            %p
+              = number_with_delimiter("#{project.total_sales}")
+              円
+        .bar
+          .bar-background
+            / bar
+            .bar-foreground{:style => "width: #{project.bar}%;"}
+          / bar
+          .bar-percent #{project.bar}%

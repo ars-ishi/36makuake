@@ -1,0 +1,536 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+/* ============================================================
+   contentWrapper
+============================================================ */
+body{background: #f5f5f5;}
+.grayBase{background: #f5f5f5;}
+#contentWrapper {width: 1000px;margin: auto;padding:40px 0 60px 0;}
+#leftContent{float: left;width: 655px;margin-right: 35px;}
+#rightContent{float: left;width: 310px;}
+
+
+/* ============================================================
+   navigatoin
+============================================================ */
+.navA{width: 1000px;height: 40px;margin: 0 auto 30px auto;background: #fff;border-radius: 4px;border-bottom: 1px solid #e7e7e7;line-height: 39px;font-size: 12px;}
+.navA li{float: left;width:33%;text-align: center; border-right: 1px solid #d9d9d9;position: relative;}
+.navA li:last-child{border: none;}
+.navA .on{color: #05a1c6;}
+.navA .on:after{content:"";background:#4fc1e9;width:100%;height:3px;position:absolute;left:0;bottom: 0px;}
+
+/* ============================================================
+   return
+============================================================ */
+
+#checkArea {width: 655px;margin-bottom: 40px;}
+
+.ttlCheck{font-size: 18px; font-size: 1.8rem; /* text-indent: 38px; */line-height: 32px;margin-bottom: 11px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+
+.checkIn{width: 655px;background: white;border-radius: 4px;border-bottom: 2px solid #e7e7e7;}
+.checkIn dl{display: table;width: 100%;min-height: 60px;position: relative;border-bottom: 1px solid #efefef;}
+.checkIn dt{display: table-cell;vertical-align: middle;width: 160px;padding-left: 30px;background-color: #fbfbfb;/* font-weight: bold; */color:#505050;font-size: 13px;font-size: 1.3rem;line-height: 18px;border-right: 1px solid #ededed;}
+.checkIn dt input{margin-right: 8px;position: relative;top: -2px;}
+.checkIn dd{display: table-cell;vertical-align: middle;background: white;padding:10px 20px 10px 20px;line-height: 1.5em;font-size: 13px;font-size:1.3rem;margin-right:10px;height:60px;}
+.checkIn dd img{max-width: 100%;}
+.checkIn dl:last-child{border: none;}
+
+.formEroor{font-size: 13px; font-size: 1.3rem; color: red;margin-top: -15px;margin-bottom: 12px;}
+.formEroor li{line-height: 1.5;}
+
+.hyphen{position: absolute;bottom: 15px;right: 15px;font-size: 12px;font-size: 1.2rem;font-weight: bold;color: rgb(143, 143, 143);}
+.announce {
+color: #ed5565;
+font-size: 14px;
+font-size: 1.4rem;
+
+}
+
+
+
+/* ============================================================
+   Btn
+============================================================ */
+#nextBtnArea{margin-bottom: 35px;position: relative;text-align: center;}
+#nextBtnArea span{color: #f53a67;text-align: right;margin-bottom: 10px;display: block;font-size: 12px;}
+
+.checkBtn,.backBtn{
+display: block;
+border: none;
+cursor: pointer;
+outline: none;
+color: white;
+border-radius: 4px;
+font-size: 23px;
+padding: 0 80px;
+line-height: 64px;
+height: 64px;
+}
+
+.checkBtn {background: #f7c600;float: right;}
+.backBtn{margin-right: 15px;float: left;border-bottom: 2px solid #b7b7b7;background: #c8c8c8;}
+
+
+.backBtn:hover{background: #d5d5d5;}
+.backBtn:active,.checkBtn:active{position: relative;top: 2px;border-bottom: none;}
+.checkBtn:hover{opacity:0.8;text-decoration: none;}
+.checkBtn:disabled{
+color: #c7c7c7;
+cursor: default;
+background: #f7f7f7;
+border:1px solid #e3e3e3;
+}
+.checkBtn:disabled:hover{
+background: #f7f7f7;
+border:1px solid #e3e3e3;
+color: #c7c7c7;
+}
+.checkBtn-help{ clear: right; padding-top: 18px; }
+
+
+/* ============================================================
+   projectBox
+============================================================ */
+
+#pjtArea {width: 310px;margin-bottom: 35px;}
+
+.ttlpjt{font-size: 16px; font-size: 1.6rem; /* text-indent: 29px; */line-height: 32px;margin-bottom: 10px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+
+.ttlSuccess:after{content: "";position: absolute;top: -5px;left: -5px;background: url("../img/ttl_succes.png") no-repeat 0px 0px; width: 161px;height: 137px; z-index: 999;}
+.projectBox{width: 310px;height: 280px; position: relative; background: white;z-index: 1; border: 1px solid #ededed;border-radius: 4px; border-bottom: 2px solid #e7e7e7;}
+.projectBox:nth-of-type(3n){margin-right:0px;}
+.projectLink{display: inline-block;color: #333333;}
+.projectLink img{position: relative;  display: block;width: 308px;height: 173px;border: 4px 4px 0 0;}
+.projectLink img:hover{}
+
+.projectLink h2{width: 308px;padding: 10px 12px;font-size: 14px; font-size: 1.4rem; height: 48px;line-height: 1.2;margin-bottom: 8px;}
+.projectAside{width: 284px; position: relative;height: 46px;line-height: 46px;overflow: hidden;margin: auto;}
+.projectAside div{font-size: 12px; font-size: 1.2rem; }
+.projectThumb{position: absolute;display: block;width: 284px;height: 36px;}
+.projectThumbimg{}
+.projectThumb span{position: relative;left: 8px;top: -22px;}
+.projectTag{position: absolute;display: block;top: 19px;text-align: left;width: 221px;line-height: 17px;left: 62px;color: gray;}
+.projectTag:before{content:""; background: url("../img/icon_tag_24.gif") no-repeat 0px 0px; width:24px; height:24px; position:absolute;top: -3px;left: -22px;}
+.projectMoney{ width: 284px; margin:auto; line-height: 39px; height: 39px;position: relative;}
+.projectMoney dl{font-size: 12px; font-size: 1.2rem; position: relative;}
+.projectMoney dt{position: absolute;background: url("../img/icon_money_24.gif") no-repeat 0px 6px;text-indent: 26px;margin-right: 20px;color: gray;}
+.projectMoney dd{position: absolute; right: 0px;font-size: 19px; font-size: 1.9rem; }
+
+.projectGage{width: 284px;height: 28px;line-height: 28px; background: #d3d3d3; border-radius: 4px; overflow: hidden; margin: auto;}
+.projectGageIn{height: 28px;line-height: 28px; background: #bbf117;position: relative;-webkit-transition: all 0.4s ease;-moz-transition: all 0.4s ease;}
+.projectGageIn p{position: absolute; left: 15px; font-size: 16px; font-size: 1.6rem; top: 2px;width: 85px;}
+/*10月25日にイエローバーからグリーンに戻しました*/
+.projectGage02{width: 284px;height: 28px;line-height: 28px; background: #bbf117; border-radius: 4px; overflow: hidden; margin: auto;}
+
+.projectBottom{width: 284px;height: 47px;line-height: 47px;overflow: hidden;margin: auto;position: relative;}
+
+.projectSupporter{position: absolute;left: 0;}
+.projectSupporter dl{position: relative;width: 168px;height: 47px;line-height: 47px;}
+.projectSupporter dt{position: absolute;font-size: 12px;font-size: 1.2rem;width: 91px;background: url("../img/icon_supporter_24.gif") no-repeat -1px 11px;text-indent: 27px;margin-right: 20px;color: gray;}
+.projectSupporter dd{position: absolute;left: 92px;font-size: 19px;font-size: 1.9rem;width: 96px;}
+.projectTime{position: absolute;right: 0;}
+.projectTime dl{position: relative;width: 116px;height: 47px;line-height: 47px;}
+.projectTime dt{position: absolute;font-size: 12px;font-size: 1.2rem;text-indent: 9px;text-indent: 25px;margin-right: 20px;color: gray;}
+.projectTime dd{position: absolute;right: 1px;font-size: 19px;font-size: 1.9rem;}
+
+.iconTime{background: url("../img/icon_time_24.gif") no-repeat 0px 10px;}
+.iconTimeLimit{background: url("../img/icon_timelimit_24.gif") no-repeat 0px 10px;}
+.goodBtn_jq{ position: absolute; top: 162px; right: 8px; cursor: pointer; z-index: 50;}
+.goodBtn_jq:hover{top: 165px;}
+
+/* ============================================================
+   プロジェクト詳細コンテンツ(スポーツが増えた場合のみの対応)
+============================================================ */
+
+.notUnder{height: 276px;}
+.notUnder .projectAside{border: none;}
+
+
+/* ============================================================
+   payArea
+============================================================ */
+#payArea {width: 310px;margin-bottom: 35px;}
+
+.ttlpay{font-size: 16px; font-size: 1.6rem; /* text-indent: 29px; */line-height: 32px;margin-bottom: 10px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+.payBase{width: 310px;}
+.payBaseIn h4{font-size: 13px;font-size: 1.3rem;padding: 16px 0;font-weight: bold;/* border-bottom: 1px solid #ededed; */background: #FDFDFD;}
+.payBaseIn div{padding: 14px;font-size: 13px;font-size: 1.3rem;text-align: left;line-height: 1.5;}
+.payBaseIn{text-align: center; margin-bottom: 30px;/* background: white; */border-right: 4px;/* border-bottom: 2px solid #e7e7e7; */}
+
+.payBaseInCard{text-align: center;}
+
+
+
+
+
+
+
+/* ============================================================
+   促進
+============================================================ */
+.atndBase{width: 655px;
+background: white;
+border-radius: 4px;
+border-bottom: 2px solid #e7e7e7;
+padding: 12px;
+margin-bottom: 13px;
+}
+
+.errorText{font-size: 13px;
+
+color: #ed5565;
+text-align: center;
+margin-bottom: 30px;}
+
+.atndUp {
+margin-bottom: 17px;
+}
+
+.strg {
+color: #ed5565;
+border: solid 2px #ed5565;
+width: 57px;
+height: 32px;
+display: block;
+font-size: 12px;
+text-align: center;
+line-height: 29px;
+border-radius: 4px;
+float: left;
+font-weight: bold;
+}
+.strgR {
+font-size: 12px;
+margin-left: 66px;
+line-height: 1.2;
+padding-top: 2px;
+}
+
+.atndDo{}
+
+.atndDo label {
+display: block;
+text-align: center;
+cursor: pointer;
+background: #fffbed;
+border: 1px solid #edebe3;
+line-height: 39px;
+font-size: 12px;
+}
+
+.atndDo input{position: relative;margin-right: 5px;top: -1px;}
+
+#ck{}
+
+
+/* ============================================================
+   renewal
+============================================================ */
+.box{width: 1000px;margin: 0 auto 33px auto; background: #fff; border-radius: 4px;border-bottom: 2px solid #e7e7e7;}
+.boxA {background: #fcfcfc;border-bottom: 1px solid #ededed;padding: 22px 30px 20px 30px;}
+.ttl{font-size: 24px;}
+.boxB{padding: 30px;}
+
+.errorCheck {
+background: #f53a67;
+border-radius: 2px;
+margin-top: 10px;
+color: white;
+font-size: 12px;
+padding: 7px 10px;
+margin-bottom: 20px;
+}
+
+/*住所入力*/
+.boxF{width: 740px;border: 1px solid #e5e5e5;margin:30px auto;}
+.boxF dl {border-bottom: 1px solid #e5e5e5;display: table;table-layout: fixed;width: 740px;}
+.boxF dl:last-child{border-bottom: none;}
+.boxF dt{background: #fdfdfd;  width: 177px;border-right: 1px solid #e5e5e5;padding-left: 27px;display: table-cell;vertical-align: middle;}
+/*.boxF dl:nth-child(1) dd{padding-left: 24px;}*/
+.boxF dd{padding: 16px 20px 17px 24px;display: table-cell;vertical-align: middle;width: 561px;}
+
+.boxE{/*height: 40px;line-height: 40px;*/}
+
+.mr20{margin-right: 15px;}
+.polR{position: relative;left: 5px;}
+.formtextB {
+  height: 40px;
+border: 1px solid #d9d9d9;
+padding: 10px;
+border-radius: 2px;
+width: 190px;
+font-size: 14px;
+
+}
+
+.formtextD {
+  height: 40px;
+border: 1px solid #d9d9d9;
+padding: 10px;
+border-radius: 2px;
+width: 438px;
+font-size: 14px;
+
+}
+.formtextC {
+font-size: 12px;
+margin-right: 23px;
+}
+.formtextE{font-size: 12px;margin-right: 11px;}
+.icon_ok {
+display: block;
+width: 25px;
+height: 25px;
+background: url("../img/investment/icon_ok.png") no-repeat 0 0;
+position: relative;
+top: 8px;
+left: 2px;
+float: right;
+}
+
+.formRedError {
+height: 27px;
+background: #f53a67;
+border-radius: 2px;
+margin-top: 10px;
+color: white;
+font-size: 12px;
+line-height: 27px;
+padding-left: 10px;
+}
+
+.labelA{margin-right: 20px; cursor: pointer;}
+.labelA input{position: relative; top:-2px;}
+.mr0{margin-right: 0;}
+
+.boxG{font-size: 14px;line-height: 1.3;}
+.boxE{line-height: 1.4;}
+.boxE img{display: block;  max-width: 100%;}
+.boxH {border-bottom: 1px solid #e5e5e5;}
+.boxI{border-bottom: 1px solid #c8c8c8;
+height: 69px;
+line-height: 69px;
+padding-left: 20px;
+}
+.btnA {
+color: white;
+font-size: 12px;
+width: 60px;
+height: 21px;
+line-height: 21px;
+background: #4fc1e9;
+border-radius: 4px;
+display: block;
+text-align: center;
+margin-top: 5px;
+cursor: pointer;
+}
+
+.btnA:hover{background: #80d9f8; text-decoration: none;}
+.btnB{background: #bababa; pointer-events:none;}
+.btnC{
+  font-size: 16px;
+  width: 97px;
+  height: 37px;
+  border-radius: 4px;
+  background: #4fc1e9;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 37px;
+  position: relative;
+  left: 9px;
+  top: -3px;
+}
+.btnC:hover{text-decoration: none; opacity: 0.8;}
+
+
+/*カード*/
+.cardLabel{margin-right: 25px; float: left; cursor: pointer;}
+.cardLabel input[type="radio"] {
+position: relative;
+top: -27px;
+}
+.card_visa{background: url("../img/investment/card_visa.gif") no-repeat 0 0;width: 92px;height: 64px;
+display: inline-block;}
+.card_mas{background: url("../img/investment/card_mas.gif") no-repeat 0 0;width: 88px;height: 64px;
+display: inline-block;}
+
+.card_jcb{background: url("../img/investment/card_jcb.gif") no-repeat 0 0;width: 86px;height: 64px;
+display: inline-block;}
+
+
+.card_ame{background: url("../img/investment/card_ame.gif") no-repeat 0 0;width: 86px;height: 64px;
+display: inline-block;}
+
+
+
+.card_din{background: url("../img/investment/card_din.gif") no-repeat 0 0;width: 86px;height: 64px;
+display: inline-block;}
+
+
+/*モダールの中の住所*/
+.icon_addOK {
+display: table-cell;
+width: 74px;
+height: 31px;
+background: url("../img/investment/addcheck_ok.png") no-repeat 50% 50%;
+vertical-align: middle;
+}
+
+.icon_addNG {
+display: table-cell;
+width: 74px;
+height: 31px;
+background: url("../img/investment/addcheck_ng.png") no-repeat 50% 50%;
+vertical-align: middle;
+}
+
+.icon_addNot {
+display: table-cell;
+width: 74px;
+height: 31px;
+background: url("../img/investment/addcheck_not.png") no-repeat 50% 50%;
+vertical-align: middle;
+}
+
+.boxJ {
+display: table;
+padding: 16px 0;
+width: 100%;
+border-bottom: 1px solid #c8c8c8;
+cursor: pointer;
+}
+
+.boxJ02{
+  display: table;
+padding: 16px 0;
+width: 100%;
+border-bottom: 1px solid #c8c8c8;
+}
+
+.addList .boxJ:last-of-type{border-bottom: none;}
+.boxJ:hover{background: #ffffff;}
+.boxK {
+display: table-cell;
+vertical-align: middle;
+line-height: 1.3;
+width: 370px;
+font-size: 14px;
+}
+.boxL{display: table-cell;
+    vertical-align: middle;}
+.btnD {
+display: block;
+width: 39px;
+height: 22px;
+border-radius: 4px;
+background: #4fc1e9;
+text-align: center;
+line-height: 22px;
+color: #fff;
+font-size: 10px;
+}
+
+.btnD:hover{text-decoration: none; opacity: 0.8;}
+.textH {
+font-size: 13px;
+position: relative;
+top: -25px;
+left: 12px;
+}
+.textI{font-size: 12px;margin-left: 5px;}
+.textA{margin-top: 10px;}
+
+
+/*補足*/
+.boxHosoku {
+width: 1000px;
+margin: auto;
+padding: 30px 24px;
+right: 16px;
+border: 1px solid #e3e3e3;
+color: #5F5F5F;
+}
+.boxHosoku em{display: block;margin-bottom: 15px;}
+.boxHosoku p{font-size: 12px;line-height: 1.3;}
+.posMove {position: relative;left: 9px;top: -20px;}
+
+
+
+
+/*カード*/
+/*.upBase02In {text-align: center;padding: 11px 0;}*/
+
+
+/* ============================================================
+   ウィジェットのベース
+============================================================ */
+ #adrsChenge {
+    width: 500px;
+    display:none;
+    background: #FFF;
+    border-radius: 4px;
+    background: #f5f5f5;
+    top:10px !important;
+    overflow: hidden;
+    position:fixed !important;
+}
+
+
+#lean_overlay {
+position: fixed;
+z-index: 10000;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+background: #000;
+display: none;
+}
+
+.modal_close {
+position: absolute;
+top: 24px;
+right: 16px;
+display: block;
+width: 20px;
+height: 20px;
+background: url('../img/btn_form_close.png') no-repeat 0 0;
+z-index: 2;
+cursor: pointer;
+z-index: 9999;
+overflow: visible;
+}
+
+.posSet {
+top: 24px !important;
+right: 16px !important;
+}
+
+
+/*ローディングベース*/
+
+.loadingBase{}
+.loadingBase:after {
+content: "";
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background: url("../img/common_loading.gif") no-repeat center center rgba(0, 0, 0, 0.8);
+z-index: 10000;
+border-radius: 4px;
+}
+
+/* ============================================================
+    ここから新規追加　質問の回答
+============================================================ */
+.Question{word-wrap: break-word;margin-bottom: 5px;}
+.Answer{word-wrap: break-word;}
+.Question:before{content:"Q.";}
+.boxM{font-size:14px;margin-bottom:20px;line-height:1.3;}
+.boxM:last-child{margin-bottom:0;}

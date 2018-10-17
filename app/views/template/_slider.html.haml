@@ -1,0 +1,84 @@
+%div
+  .swiper-container.heroes.swiper-container-horizontal
+    / Additional required wrapper
+    .swiper-wrapper
+      / Slides
+      - @slider_project.each do |project|
+        .swiper-slide
+          %img.image-background{:alt => "#{project.name}", :src => "https://hayabusa.io/makuake/upload/hero/111/hero_bg_pc_111.png?format=png&ttl=31536000&version=1539307035&force&quality=95"}/
+          .HeroItem
+            .main--project
+              %a.link--project{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+                - project.project_images.each do |image|
+                  .img--project
+                    %img.image-thumbnail{:alt => "#{project.name}", :src => "#{image.image}"}/
+                  .title
+                    %p.title-inner--project{:style => "text-indent: 0;"} #{project.name}
+            .attribute
+              .time
+                %span.time-prefix 残り
+                %span.time-text #{project.deadline.strftime("%j")} 日
+              .money
+                %span.money-prefix 集まっている金額
+                %span.money-text
+                  = number_with_delimiter("#{project.total_sales}")
+                  円
+              .bar
+                .bar-background
+                  .bar-foreground{:style => "width: #{project.bar};"}
+                %span.bar-percent #{project.bar}%
+            .view-button
+              %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+                VIEW
+
+
+
+
+
+      .swiper-slide
+        %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/121/hero_bg_pc_121.png?format=png&ttl=31536000&version=1538378133&force&quality=95"}/
+        .HeroItem
+          .main--banner
+            %a.link--banner{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+              .img--banner
+                %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/121/hero_thumb_121.png?format=png&ttl=31536000&version=1538378133&force&width=520&height=292&quality=95"}/
+              .title
+                %p.title-inner--banner 東急ハンズ渋谷店2Aフロアに「プロデューサーズSTUDIO」がOPEN！
+          .view-button
+            %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+              VIEW
+      .swiper-slide
+        %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/85/hero_bg_pc_85.png?format=png&ttl=31536000&version=1535624113&force&quality=95"}/
+        .HeroItem
+          .main--banner
+            %a.link--banner{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+              .img--banner
+                %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/85/hero_thumb_85.jpg?format=jpg&ttl=31536000&version=1535624113&force&width=520&height=292&quality=95"}/
+              .title
+                %p.title-inner--banner アプリのプッシュ通知で『お得リターン＆開始終了プロジェクト』の見逃しをなくそう！
+          .view-button
+            %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+              VIEW
+      .swiper-slide
+        %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/7/hero_bg_pc_7.jpg?format=jpg&ttl=31536000&version=1535624113&force&quality=95"}/
+        .HeroItem
+          .main--banner
+            %a.link--banner{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+              .img--banner
+                %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/7/hero_thumb_7.png?format=png&ttl=31536000&version=1535624113&force&width=520&height=292&quality=95"}/
+              .title
+                %p.title-inner--banner Makuakeで「世の中をワクワクさせるようなプロジェクト」を掲載してみませんか
+          .view-button
+            %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+              VIEW
+    / If we need pagination
+    .swiper-pagination
+      %ul
+        %li 1
+        %li 2
+        %li 3
+        %li 4
+        %li 5
+        %li 6
+        %li 7
+        %li 8

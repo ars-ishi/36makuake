@@ -1,0 +1,168 @@
+// 画像ファイルの編集
+img.image-background{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+img.image-thumbnail{
+  width: 260px;
+  height: 146px;
+}
+
+.heroes {
+    height: 430px;
+    overflow: hidden;
+    position: relative;
+}
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.HeroItem {
+  height: 100%;
+  left: 0;
+  padding-top: 40px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.HeroItem .main--project {
+  color: #fff;
+  margin: auto;
+  margin-bottom: 36px;
+  width: 860px;
+  .link--project {
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    .img--project {
+      margin-right: 30px;
+    }
+    .title {
+      font-size: 30px;
+      line-height: 1.4;
+      position: relative;
+      .title-inner--project {
+        align-items: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,.11);
+        word-break: break-all;
+      }
+    }
+  }
+}
+
+// スライダー プロジェクト部分
+.HeroItem .attribute {
+  color: #fff;
+  display: flex;
+  font-size: 17px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 39px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.11);
+  width: 860px;
+
+  .time {
+    margin-right: 34px;
+    .time-prefix {
+      margin-right: 13px;
+      position: relative;
+      top: -2px;
+    }
+    .time-text{
+      font-size: 27px;
+    }
+  }
+  .money {
+    margin-right: 36px;
+    .money-prefix {
+      margin-right: 13px;
+      position: relative;
+      top: -2px;
+    }
+    .money-text {
+      font-size: 27px;
+    }
+  }
+}
+
+  .bar {
+  align-items: center;
+  display: flex;
+  .bar-background {
+    background: rgba(0,0,0,.3);
+    border-radius: 50px;
+    height: 6px;
+    margin-right: 16px;
+    overflow: hidden;
+    width: 40px;
+    .bar-foreground {
+      background: #bbf117;
+      border-radius: 40px;
+      height: 100%;
+      width: auto;
+    }
+  }
+  .bar-percent {
+    font-size: 27px;
+  }
+}
+
+.view-button {
+    text-align: center;
+    .view-button-link {
+      background-color: #fff;
+      border-radius: 2px;
+      box-shadow: 0 3px 6px rgba(0,0,0,.1);
+      color: #696969;
+      display: inline-block;
+      font-family: Open Sans,sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 15px 45px 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .2s ease;
+  }
+}
+
+// スライダー バナー部分
+.main--banner {
+  color: #fff;
+  margin: auto;
+  width: 860px;
+  .link--banner {
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin-top: -13px;
+    text-decoration: none;
+    .img--banner {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    .title {
+      font-size: 30px;
+      line-height: 1.4;
+      position: relative;
+      .title-inner--banner {
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,.11);
+        word-break: break-all;
+      }
+    }
+  }
+}

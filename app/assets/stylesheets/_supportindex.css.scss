@@ -1,0 +1,771 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+/* ============================================================
+   contentWrapper
+============================================================ */
+.grayBase{background: #f5f5f5;}
+#contentWrapper {width: 1000px;margin: auto;padding:31px 0 60px 0;}
+#leftContent{float: left;width: 655px;margin-right: 35px;}
+#rightContent{float: left;width: 310px;}
+
+
+/* ============================================================
+   navigatoin
+============================================================ */
+.navA{width: 1000px;height: 40px;margin: 0 auto 30px auto;background: #fff;border-radius: 4px;border-bottom: 1px solid #e7e7e7;line-height: 39px;font-size: 12px;}
+.navA li{float: left;width:33%;text-align: center; border-right: 1px solid #d9d9d9;position: relative;}
+.navA li:last-child{border: none;}
+.navA .on{color: #05a1c6;}
+.navA .on:after{content:"";background:#4fc1e9;width:100%;height:3px;position:absolute;left:0;bottom: 0px;}
+
+/* ============================================================
+   support
+============================================================ */
+#supportArea {
+width: 655px;
+margin-bottom: 5px;
+}
+
+.ttlSupport {
+font-size: 18px;
+font-size: 1.8rem;
+line-height: 32px;
+margin-bottom: 11px;
+font-weight: bold;
+letter-spacing: 1px;
+color: #333333;
+}
+
+.supportInAfter{width: 655px;border-bottom: 2px solid #e7e7e7;background: white; border-radius: 4px;margin-bottom: 40px;}
+.supportInAfter label{cursor: pointer;display: block;border-bottom: 1px solid #ededed;padding: 26px 20px; position: relative;}
+.supportInAfter ul li:last-child label{border: none;}
+
+p.returnList {
+  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 1.7em;
+  margin-left: 4px;
+}
+
+div.buyTime {
+  font-size: 12px;
+  font-size: 1.2rem;
+  color: #a5a5a5;
+  text-align: right;
+  margin-top: 15px;
+}
+
+p.txt_select {
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+
+
+
+
+
+
+/* ============================================================
+   return
+============================================================ */
+#returnArea {
+width: 655px;
+margin-bottom: 40px;
+}
+
+.ttlReturn {
+font-size: 18px;
+font-size: 1.8rem;
+/* text-indent: 34px; */
+line-height: 32px;
+margin-bottom: 11px;
+font-weight: bold;
+letter-spacing: 1px;
+color: #333333;
+}
+
+
+.returnIn{width: 655px;/* border: 2px solid #ededed; */border-bottom: 2px solid #e7e7e7;background: white; border-radius: 4px;}
+.returnIn dl{display: table;width: 100%;min-height: 65px;border-bottom: 1px solid #ededed;position: relative;}
+.returnIn dl:last-child{/* border: 2px solid #ededed; */}
+.returnIn dt{display: table-cell;vertical-align: middle;width: 215px;padding-left: 30px;background-color: #FFFBED;;border-right: 1px solid #ededed;/* font-weight: bold; */height: 60px;}
+.returnIn dt label{cursor:pointer;}
+
+.returnIn dt input{margin-right: 8px;position: relative;top: -2px;}
+.returnIn dd{display: table-cell;vertical-align: middle;background: white;line-height: 1.5em;padding: 10px;}
+
+.returnIn p{}
+.returnIn span{position: absolute;bottom: 15px;right: 15px;font-size: 12px;font-size: 1.2rem;font-weight: bold;color: rgb(143, 143, 143);}
+
+
+
+.returnError{font-size: 13px; font-size: 1.3rem; color: red;margin-top: -15px;margin-bottom: 12px;}
+.returnError li{line-height: 1.5;}
+
+.smalltext{font-size: 12px;
+  font-size: 1.2rem;
+margin-top: 4px;}
+/* ============================================================
+   returnafter
+============================================================ */
+.returnInAfter{width: 655px;/* border: 2px solid #ededed; */border-bottom: 2px solid #e7e7e7;background: white; border-radius: 4px;}
+.returnInAfter label{cursor: pointer;display: block;border-bottom: 1px solid #ededed;padding: 26px 20px; position: relative;}
+.returnInAfter ul li:last-child label{border: none;}
+.returnInAfter input{position: relative;top: -2px;margin-right: 8px;}
+
+.returnInAfter label:hover{background: #FFFBED;}
+
+.boxLeft {
+float: left;
+width: 130px;
+}
+.boxRight{
+    margin-left: 156px;
+}
+
+/*.returnInAfter strong{float: left;width: 170px;}
+.returnInAfter label>div{
+    float: right;
+    margin-left: 170px;
+}*/
+.returnInafTitle{
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.returnInafTxt{
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgb(104, 104, 104);
+}
+.bigText{font-weight: bold;font-size: 16px;margin-bottom: 5px;}
+.bigText02{font-weight: bold;font-size: 16px;padding-left: 23px;margin-bottom: 7px;}
+.smaText{font-size: 10px;padding-left: 24px;}
+.smaText02{margin-top: 10px;font-size: 13px;padding-left: 25px;color: #333333;}
+.smaText03{margin-top: 10px;font-size: 13px;padding-left: 24px;color: #ed5565;}
+.returnafImg {
+display: block;
+border-radius: 4px;
+width: 120px;
+margin: 12px 0 0 6px;
+}
+
+.checkReturn{
+  background: #FFFBED;
+}
+.checkReturn:before {
+content: "このリターンを選択中です";
+background: rgb(255, 180, 19);
+text-align: center;
+color: white;
+width: 132px;
+height: 20px;
+line-height: 20px;
+display: block;
+border-radius: 0 0 4px 4px;
+position: absolute;
+left: 18px;
+top: 0;
+font-size: 10px;
+}
+
+/* ============================================================
+   money
+============================================================ */
+#moneyArea {width: 655px;margin-bottom: 40px;}
+
+.ttlMoney{font-size: 18px; font-size: 1.8rem; /* text-indent: 36px; */line-height: 32px;margin-bottom: 11px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+
+.moneyCheckout{}
+.moneyIn{width: 655px;line-height: 54px;text-align: center;background: white;border-radius: 4px;border-bottom: 2px solid #e7e7e7;}
+.moneyInput{padding: 8px;font-size: 14px;font-size: 1.4rem;border: solid 1px #ccc;border-radius: 3px;background-color: #FFFBED;}
+.moneyInputFix{padding: 8px;font-size: 16px;font-size: 1.6rem;border: none;}
+.moneyIn span{margin-right: 15px;}
+.moneyStr{line-height: 20px;}
+
+.moneySmall {
+padding: 15px;
+line-height: 1.5;
+font-size: 14px;
+font-size: 1.4rem;
+text-align: left;
+border-top: 1px solid #ededed;
+}
+
+.moneyCaution {
+text-align: left;
+padding-left: 15px;
+padding-bottom: 15px;
+font-size: 1.3rem;
+color: #ed5565;
+}
+
+
+
+/* ============================================================
+   銀フリ
+============================================================ */
+.ginfuri {width: 655px;margin-bottom: 40px;}
+.ttlginfuri{font-size: 18px; font-size: 1.8rem; /* text-indent: 36px; */line-height: 32px;margin-bottom: 11px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+.ginfuriIn{width: 655px;height: 65px;line-height: 60px;text-align: center;background: white;border-radius: 4px 4px 0 0;border-bottom: 1px solid #ededed;}
+.ginfuriIn label{cursor: pointer;height: 100%;width: 163px;float: left;border-right: 1px solid #ededed;font-size: 14px;font-size: 1.4rem;background-color: #FFFBED;text-indent: 6px;}
+.ginfuriIn label:last-child{border: none;margin-right: 0;width: 166px;}
+
+.ginfuriIn label input{margin-right: 6px;position: relative;top: -2px;}
+
+.ginfuriIn label span{display: inline-block;text-indent: -9999px;}
+
+.ginfuriUnder{width: 655px;height: inherit;text-align: center;padding: 20px;background: white;border-radius: 0 0 4px 4px;  border-bottom: 2px solid #e7e7e7;border-top: 1px solid #FFFFFF;}
+
+.ginfuriInBDiv,.ginfuriInCDiv,.ginfuriInDDiv{display: none;}
+
+.ginfuriInCDiv p{ text-align: left;font-size: 14px;font-size: 1.4rem; line-height: 2;}
+
+.ginfuriInDDiv p{ text-align: left;font-size: 14px;font-size: 1.4rem; line-height: 2;}
+
+.ginfuriInCDiv .cyusyaku {
+line-height: 1.5;
+font-size: 13px;
+font-size: 1.3rem;
+
+margin-top: 13px;
+}
+
+.ginfuriInDDiv .cyusyaku {
+line-height: 1.5;
+font-size: 13px;
+font-size: 1.3rem;
+
+margin-top: 13px;
+}
+
+
+.notSlect{ background: rgb(250, 250, 250) !important;
+cursor: auto !important;}
+.notSlect input{display: none;}
+
+.genkinCyuusyaku{display: block;
+color: #ed5565;
+margin-bottom: 10px;
+font-size: 14px;
+font-size: 1.4rem;
+text-indent: 5px;}
+.paysy{text-align: center;}
+.paysy img{width: 80px; margin: auto;display: block;}
+
+
+/* ============================================================
+   cheers
+============================================================ */
+#cheersArea {width: 655px;}
+
+.ttlCheers{font-size: 18px; font-size: 1.8rem; /* text-indent: 38px; */line-height: 32px;margin-bottom: 11px;font-weight: bold;letter-spacing: 0.1em;color: #333333;}
+.cheersIn {width: 655px;margin-bottom: 35px;background: white;border-radius: 4px;padding-bottom: 15px;border-bottom: 2px solid #e7e7e7;}
+.cheersAns{padding: 15px;}
+.cheersAns .cheersBold{font-size: 14px; font-size: 1.4rem; margin-bottom: 17px;line-height: 1.5;}
+.cheersAns p{font-size: 13px;font-size: 1.3rem;}
+.cheersCaution {color: red;}
+.cheersComment{width: 100%;height: 246px;position: relative;}
+.cheersComment img{width: 100px;position: absolute;left: 20px;top: 20px;border-radius: 4px;}
+.textInput{padding: 6px;font-size: 16px;color: #333333;border: none;border-radius: 3px;position: absolute;left: 20px;top: 20px;background-color: #FFFBED;width: 612px;border: 1px solid #E9E2CB;}
+.cheerLeftArrow:before{/* content: ""; */ /* position:absolute; *//* border:16px solid transparent; *//* border-right: 22px solid #FFFBED; *//* left: 112px; *//* top: 45px; */}
+.countText{position: absolute;bottom:4px;right:20px;font-size: 13px;font-size: 1.3rem;}
+
+/* ============================================================
+   nextBtn
+============================================================ */
+#nextBtnArea{margin-bottom: 35px;position: relative;overflow: hidden;}
+.nextBtn {
+display: block;
+border: none;
+cursor: pointer;
+outline: none;
+position: relative;
+background: #f7c600;
+color: white;
+font-size: 24px;
+border-radius: 4px;
+line-height: 64px;
+height: 64px;
+padding: 0 120px;
+text-align: center;
+float: right;
+margin-bottom: 60px;
+}
+
+.nextBtn:hover{text-decoration: none;opacity:0.8;}
+.nextBtn:active{position: relative;top: 2px;border-bottom: none;}
+.nextInput{position: relative;left: 164px;top: 30px;width: 215px;}
+
+.nextInput a{margin-left:5px;}
+.chekboxPos{position: relative;top: -2px;}
+
+/* ============================================================
+   alert
+============================================================ */
+
+.alert{padding: 20px;border: 1px dotted rgb(185, 185, 185);width: 655px;}
+.alert h3{font-size: 18px;font-size: 1.8rem;margin-bottom: 15px;}
+.alert p{line-height: 1.5;font-size: 13px;font-size: 1.3rem;}
+
+.alert .announce{
+color: #ed5565;
+
+margin-top: 7px;
+
+}
+
+
+/* ============================================================
+   projectBox
+============================================================ */
+
+#pjtArea {width: 310px;margin-bottom: 35px;}
+
+.ttlpjt{font-size: 16px; font-size: 1.6rem; /* text-indent: 29px; */line-height: 32px;margin-bottom: 10px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+
+.ttlSuccess:after{content: "";position: absolute;top: -5px;left: -5px;background: url("../img/ttl_succes.png") no-repeat 0px 0px; width: 161px;height: 137px; z-index: 999;}
+.projectBox{width: 310px;height: 280px; position: relative; background: white;z-index: 1; border: 1px solid #ededed;border-radius: 4px; border-bottom: 2px solid #e7e7e7;}
+.projectBox:nth-of-type(3n){margin-right:0px;}
+.projectLink{display: inline-block;color: #333333;}
+.projectLink img{position: relative;  display: block;width: 308px;height: 173px;border: 4px 4px 0 0;}
+.projectLink img:hover{}
+
+.projectLink h2{width: 308px;padding: 10px 12px;font-size: 14px; font-size: 1.4rem; height: 48px;line-height: 1.2;margin-bottom: 8px;}
+.projectAside{width: 284px; position: relative;height: 46px;line-height: 46px;overflow: hidden;margin: auto;}
+.projectAside div{font-size: 12px; font-size: 1.2rem; }
+.projectThumb{position: absolute;display: block;width: 284px;height: 36px;}
+.projectThumbimg{}
+.projectThumb span{position: relative;left: 8px;top: -22px;}
+.projectTag{position: absolute;display: block;top: 19px;text-align: left;width: 221px;line-height: 17px;left: 62px;color: gray;}
+.projectTag:before{content:""; background: url("../img/icon_tag_24.gif") no-repeat 0px 0px; width:24px; height:24px; position:absolute;top: -3px;left: -22px;}
+.projectMoney{ width: 284px; margin:auto; line-height: 39px; height: 39px;position: relative;}
+.projectMoney dl{font-size: 12px; font-size: 1.2rem; position: relative;}
+.projectMoney dt{position: absolute;background: url("../img/icon_money_24.gif") no-repeat 0px 6px;text-indent: 26px;margin-right: 20px;color: gray;}
+.projectMoney dd{position: absolute; right: 0px;font-size: 19px; font-size: 1.9rem; }
+
+.projectGage{width: 284px;height: 28px;line-height: 28px; background: #d3d3d3; border-radius: 4px; overflow: hidden; margin: auto;}
+.projectGageIn{height: 28px;line-height: 28px; background: #bbf117;position: relative;-webkit-transition: all 0.4s ease;-moz-transition: all 0.4s ease;}
+.projectGageIn p{position: absolute; left: 15px; font-size: 16px; font-size: 1.6rem; top: 0;width: 85px;}
+/*10月25日にイエローバーからグリーンに戻しました*/
+.projectGage02{width: 284px;height: 28px;line-height: 28px; background: #bbf117; border-radius: 4px; overflow: hidden; margin: auto;}
+
+.projectBottom{width: 284px;height: 47px;line-height: 47px;overflow: hidden;margin: auto;position: relative;}
+
+.projectSupporter{position: absolute;left: 0;}
+.projectSupporter dl{position: relative;width: 168px;height: 47px;line-height: 47px;}
+.projectSupporter dt{position: absolute;font-size: 12px;font-size: 1.2rem;width: 91px;background: url("../img/icon_supporter_24.gif") no-repeat -1px 11px;text-indent: 27px;margin-right: 20px;color: gray;}
+.projectSupporter dd{position: absolute;left: 92px;font-size: 19px;font-size: 1.9rem;width: 96px;}
+.projectTime{position: absolute;right: 0;}
+.projectTime dl{position: relative;width: 116px;height: 47px;line-height: 47px;}
+.projectTime dt{position: absolute;font-size: 12px;font-size: 1.2rem;text-indent: 9px;text-indent: 25px;margin-right: 20px;color: gray;}
+.projectTime dd{position: absolute;right: 1px;font-size: 19px;font-size: 1.9rem;}
+
+.iconTime{background: url("../img/icon_time_24.gif") no-repeat 0px 10px;}
+.iconTimeLimit{background: url("../img/icon_timelimit_24.gif") no-repeat 0px 10px;}
+.goodBtn_jq{ position: absolute; top: 162px; right: 8px; cursor: pointer; z-index: 50;}
+.goodBtn_jq:hover{top: 165px;}
+
+/* ============================================================
+   プロジェクト詳細コンテンツ(スポーツが増えた場合のみの対応)
+============================================================ */
+
+.notUnder{height: 276px;}
+.notUnder .projectAside{border: none;}
+
+
+/* ============================================================
+   payArea
+============================================================ */
+#payArea {width: 310px;margin-bottom: 35px;}
+
+.ttlpay{font-size: 16px; font-size: 1.6rem; /* text-indent: 29px; */line-height: 32px;margin-bottom: 10px;font-weight: bold;letter-spacing: 1px;color: #333333;}
+.payBase{width: 310px;}
+.payBaseIn h4{font-size: 13px;font-size: 1.3rem;padding: 16px 0;font-weight: bold;/* border-bottom: 1px solid #ededed; */background: #fbfbfb;}
+.payBaseIn div{padding: 14px;font-size: 13px;font-size: 1.3rem;text-align: left;line-height: 1.5;}
+.payBaseIn{text-align: center; margin-bottom: 30px;/* background: white; */border-right: 4px;/* border-bottom: 2px solid #e7e7e7; */}
+
+.payBaseInCard{text-align: center;}
+
+
+
+
+
+
+
+.prTitle{
+    /* font-weight: bold; */
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+
+/*もっとみる*/
+
+.moreButton {
+color: white;
+background: rgb(150, 150, 150);
+display: block;
+width: 55px;
+text-align: center;
+border-radius: 2px;
+font-size: 11px;
+font-size: 1.1rem !important;
+cursor: pointer;
+letter-spacing: 1px;
+line-height: 22px;
+}
+.moreButton:hover{opacity:0.8;}
+
+
+
+
+
+
+.prText{
+    font-size: 14px;
+    font-size: 1.4rem;
+    display: none;
+    margin-top: 15px;
+}
+
+
+.prLimit{font-size: 12px;
+font-size: 1.2rem;
+font-weight: bold;
+color: rgb(143, 143, 143);text-align: right;}
+
+
+.prLimitTitle{font-size: 12px;
+font-size: 1.2rem;
+/* font-weight: bold; */
+color: rgb(143, 143, 143);}
+
+
+
+/* ============================================================
+   exvalidation Style
+============================================================ */
+
+/*  01   */
+  #firstForm table {
+    margin: 0 auto;
+    width: 1000px;
+  }
+  #firstForm table th,
+    #firstForm table td {
+      border: 4px solid #DFDFDF;
+      padding: 15px 14px;
+
+      background: white;
+}
+  #firstForm table th {
+      text-align: left;
+
+      background: #fafafa;
+      vertical-align: middle;
+      font-size: 14px;
+      font-size: 1.4rem;
+      color: #505050;
+      font-weight: bold;
+}
+
+  #firstForm table th span {
+        margin-left: .5em;
+        color: #f60;
+        font-weight: bold;
+      }
+
+    #firstForm table td {
+    width: 750px;
+    }
+
+      #firstForm table td input {
+        border: solid 2px #DBDBDB;
+        padding: 6px;
+
+        font-size: 12px;
+        font-size: 1.2rem;
+        border-radius: 3px;
+        width: 250px;
+        font-size: 14px;
+        font-size: 1.4rem;
+}
+
+
+      #firstForm table td .err {
+        background: #ed5565;
+      }
+      #firstForm table td .err input {
+        background: #f60;
+      }
+
+
+
+
+      #firstForm table td .after.err {
+        border-color: #ed5565;
+        background: #fff !important;
+      }
+      #firstForm table td .after.err input {
+        border-color: #f60;
+        background: #fff !important;
+      }
+
+
+      #firstForm table td label {
+        margin-right: 1em;
+      }
+      #firstForm table td label input {
+        margin-right: .3em;
+      }
+
+
+
+/*  02  */
+
+  #secondForm table {
+    margin: 0 auto;
+    width: 1000px;
+  }
+  #secondForm table th,
+    #secondForm table td {
+      border: 4px solid #ededed;
+      padding: 15px 14px;
+
+}
+  #secondForm table th {
+      text-align: left;
+
+      background: #fafafa;
+      vertical-align: middle;
+      color: #505050;
+      font-weight: bold;
+      font-size: 14px;
+      font-size: 1.4rem;
+}
+
+  #secondForm table th span {
+        margin-left: .5em;
+        color: #f60;
+        font-weight: bold;
+      }
+
+    #secondForm table td {
+    width: 750px;
+    }
+
+      #secondForm table td input {
+        border: solid 2px #DBDBDB;
+        padding: 6px;
+
+        font-size: 12px;
+        font-size: 1.2rem;
+        border-radius: 3px;
+        width: 250px;
+        font-size: 14px;
+        font-size: 1.4rem;
+}
+
+
+      #secondForm table td .err {
+        background: #ed5565;
+      }
+      #secondForm table td .err input {
+        background: #FF8F00;
+      }
+
+
+
+
+      #secondForm table td .after.err {
+        border-color: #ed5565;
+        background: #fff !important;
+      }
+      #secondForm table td .after.err input {
+        border-color: #ed5565;
+        background: #fff !important;
+      }
+
+
+      #secondForm table td label {
+        margin-right: 1em;
+      }
+      #secondForm table td label input {
+        margin-right: .3em;
+      }
+
+
+
+/* ============================================================
+   renewal
+============================================================ */
+.box{width: 1000px;margin: 0 auto 33px auto; background: #fff; border-radius: 4px;border-bottom: 2px solid #e7e7e7;}
+.boxA {background: #fcfcfc;border-bottom: 1px solid #ededed;padding: 22px 30px 20px 30px;}
+.linkA {font-size: 16px;color: #05a1c6;position: relative;left: 13px;top: -1px;}
+.linkB {font-size: 15px;color: #333333;position: relative;display:block;margin: 46px 0 25px 6px;}
+.imgA{display: block;margin-right: 30px;border-radius: 2px;}
+.imgA--product{ width: 460px; height: auto;}
+.ttl{font-size: 24px;word-wrap:break-word;}
+.boxB{padding: 30px;}
+.boxC{padding: 0 2px;}
+.boxE{margin-top: 28px;}
+.dTable{display: table;}
+.dTableCell{display: table-cell; vertical-align: top;}
+.txtA {font-size: 25px;margin: 7px 0 17px 0;display: block;position: relative;}
+.txtB {font-size: 19px;margin-bottom: 13px;line-height: 1.2;}
+.txtC {font-size: 14px;line-height: 2;margin-top: 28px;}
+.txtTax {font-size: 12px;margin-left: 5px;}
+.atnA {font-size: 14px;color: #6B6B6B;position: relative;left: 10px;top: -1px;}
+.atnB {font-size: 14px;color: #6B6B6B;margin: 8px 0 0 2px;}
+.hide{display: none;}
+.econ_mt {
+  font-size: 14px;
+  padding: 8px 10px;
+  margin-top: 16px;
+  border-radius: 4px;
+  color: #f53a67;
+  line-height: 1.4;
+  border: 1px solid #f53a67;
+}
+.navB {
+width: 750px;
+height: 40px;
+border: 1px solid #d9d9d9;
+border-radius: 2px;
+margin: auto;
+text-align: center;
+font-size: 14px;
+}
+.navB li {
+width: 20%;
+display: block;
+float: left;
+border-right: 1px solid #d9d9d9;
+cursor: pointer;
+height: 100%;
+padding-top: 13px;
+}
+
+.navB li:hover{ color: #fff; background: #4fc1e9;}
+.navB li:last-child{border:none;}
+.navBon{color: #fff; background: #4fc1e9;}
+.boxD{margin: 20px auto 0 auto;font-size: 20px;text-align: center;}
+.formtextA {height: 40px;border: 1px solid #d9d9d9;font-size: 24px;padding: 10px;border-radius: 2px;margin-right: 11px;width: 230px;margin-left: 14px;text-align: right;}
+.txtD{font-size: 20px;margin: 32px auto 9px auto;text-align: center;}
+.textE{font-size: 44px;position: relative;left: -15px;text-align: center;display: block;padding-left: 75px;}
+.textF {text-align: center;font-size: 15px;position: relative;left: -7px;}
+
+/*個々から決済種別選択*/
+.navC{width: 750px;border-radius: 2px;margin: auto;text-align: center;}
+.navC li {width: 25%;display: block;float: left;}
+.navC li label{border:1px solid #d9d9d9;border-right:none;}
+.navC li:last-child label{border-right:1px solid #d9d9d9;}
+.navC label {display: block;cursor: pointer;line-height: 60px;}
+.navC input[type="radio"]{display: none;}
+.btn_A:hover,.btn_B:hover,.btn_C:hover,.btn_D:hover{ color: #fff;background: #4fc1e9;}
+.btn_B_for,.btn_C_for,.btn_D_for{display: none;}
+.navCon{color: #fff; background: #4fc1e9;}
+
+.hikassei{background: #f7f7f7;color: #c7c7c7;pointer-events:none;}
+
+.navD{background: #f7f7f7;}
+.navD label{pointer-events:none;cursor: auto; }
+.navD li{color: #c7c7c7;}
+.navD .navCon{color: #fff;}
+.navD .navCon:hover{color: #fff; background: #4fc1e9;}
+.navD li:hover{ color: #c7c7c7;background: transparent;}
+
+.imgB {display: block;margin: 40px auto 14px auto;}
+.textG {font-size: 14px;line-height: 1.4;width: 580px;margin: auto;}
+.textH {font-size: 14px;line-height: 1.4;width: 580px;margin: auto;text-align: center;}
+/*補足*/
+.boxHosoku {
+width: 1000px;
+margin: auto;
+padding: 30px 24px;
+right: 16px;
+border: 1px solid #e3e3e3;
+color: #5F5F5F;
+}
+.boxHosoku em{display: block;margin-bottom: 15px;}
+.boxHosoku p{font-size: 12px;line-height: 1.3;}
+.posMove {position: relative;left: 9px;top: -20px;}
+
+
+
+
+/*カード*/
+.upBase02In {text-align: center;padding: 38px 0 11px 0;}
+.card_visa{background: url("../img/investment/card_visa.gif") no-repeat 0 0;width: 92px;height: 64px;
+display: inline-block;}
+.card_mas{background: url("../img/investment/card_mas.gif") no-repeat 0 0;width: 88px;height: 64px;
+display: inline-block;}
+.card_jcb{background: url("../img/investment/card_jcb.gif") no-repeat 0 0;width: 86px;height: 64px;
+display: inline-block;}
+.card_ame{background: url("../img/investment/card_ame.gif") no-repeat 0 0;width: 86px;height: 64px;
+display: inline-block;}
+
+.card_din{background: url("../img/investment/card_din.gif") no-repeat 0 0;width: 86px;height: 64px;
+display: inline-block;}
+
+/*海外版*/
+.cardLabel {
+margin-right: 25px;
+float: left;
+cursor: pointer;
+}
+.cardLabel input[type="radio"] {
+position: relative;
+top: -27px;
+}
+
+/* ============================================================
+   質問項追加
+============================================================ */
+.Qtextarea{width:940px;height:100px;padding:6px;resize:none;border:1px solid rgb(204, 204, 204);border-radius:3px;border-color:#d9d9d9;font-size:16px;color:rgb(87, 87, 87);}
+.choices{display:block;margin-bottom:18px;}
+.choices:last-child{margin-bottom:0;}
+.Question:before{content:"Q.";}
+.radioBtn{margin-right:5px;vertical-align:text-bottom;}
+#support_form .formError .formErrorContent{width:940px;margin: 10px auto 0;background-color:#f53a67;}
+
+/* ============================================================
+   EC商品購入時用
+============================================================ */
+.quantity_select{-webkit-appearance: none;-moz-appearance: none;appearance: none;vertical-align: text-bottom;border: 1px solid #ededed;width: 186px;height: 40px;font-size: 16px;text-indent: 10px;background-color: #fcfcfc;background: url("../img/my/my_icon01.png") right center no-repeat;background-size: 14px 9px;background-position: 158px 15px;}
+.quantity_select:-ms-expand{display: none;}
+/*赤文字*/
+#please_select{display: none;background: #f53a67;font-size: 13px;margin-top: 12px;color: white;padding: 8px 1em;border-radius: 2px;font-size: 11px;}
+#age_confirmed .age_confirmed_check {vertical-align: 2px;}
+
+/* ============================================================
+   移植
+============================================================ */
+
+.stock{font-size: 16px;color: #fb2a79;}
+.icon_shien {width: 16px;height: 16px;fill: #696969;position: relative;top: 3px;margin: 0 7px 0 0;}
+.icon_delivery {width: 16px;height: 16px;fill: #696969;position: relative;top: 3px;margin: 0 7px 0 0;flex-shrink: 0;}
+
+
+.productDescription {
+  font-size: 14px;
+  padding: 2px 32px 45px;
+  line-height: 2.2;
+}
+.boxDelivery, .boxShien {
+  display:flex;
+  margin-top: 12px;
+}
+.descriptionDelivery, .descriptionShien {
+  line-height: 24px;
+  padding-left: 6px;
+}
+.descriptionShienUpdated {
+  font-size: 11px;
+  line-height: 1.5;
+  margin-left: 29px;
+}

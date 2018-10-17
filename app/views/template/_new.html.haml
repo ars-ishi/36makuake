@@ -1,0 +1,10 @@
+- @new.first(8).each do |new|
+  %li.ProjectItem.ProjectItem--4column
+    %a.link.link--without-detail{:href => "https://www.makuake.com/project/higame/"}
+      %article
+        .image
+          .image-overlay.image-overlay--new
+            - new.project_images.first(1).each do |image|
+              %img.image-thumbnail-m{:alt => "#{new.name}", :src => "#{image.image}"}/
+        %h4.new_title.title #{new.name}
+

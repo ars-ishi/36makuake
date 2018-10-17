@@ -7,3 +7,119 @@
     = link_to '新規登録', new_user_registration_path, method: :get
   %p
     = link_to 'ログイン', new_user_session_path, method: :get
+/ ヘッダー
+= render 'shared/header'
+#wapper
+  / スライドショー
+  = render "template/slider"
+  / メインコンテンツ
+  .popular-base
+    %section.CatchCopy
+      %h2.title 新たなチャレンジを応援しよう。
+      %p.description 世の中を良くする新しいチャレンジが毎日続々と登場。
+    / 閲覧履歴
+    %section.watched-section.headline
+      .Title
+        %h3.subject
+          閲覧履歴
+          %a.TitleLink{:href => "/favorite/watched/"}
+            すべて見る
+            %svg.arrow
+              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %ul.watched.articles
+        %li.watched-item
+          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
+            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
+
+        %li.watched-item
+          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
+            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
+        %li.watched-item
+          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
+            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
+        %li.watched-item
+          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
+            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
+        %li.watched-item
+          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
+            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
+
+    / ピックアップ
+    %section.ProjectPickup.headline
+      .Title
+        %h3.subject
+          今日のピックアップ
+          %a.TitleLink{:href => "/discover/pickup"}
+            すべて見る
+            %svg.arrow
+              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %ul.projects.articles
+
+        = render "template/pickup"
+    / New
+    %section.ProjectNew.headline
+      .Title
+        %h3.subject
+          New!
+          %a.TitleLink{:href => "/discover/new"}
+            すべて見る
+            %svg.arrow
+              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %ul.projects.articles
+        = render "template/new"
+    / 活動レポート
+    %section.CommunicationsOwner.headline
+      .Title
+        %h3.subject
+          活動レポート
+          %a.TitleLink{:href => "/report/"}
+            すべて見る
+            %svg.arrow
+              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %ul.communications.articles
+        = render "template/report"
+    / 応援コメント
+    %section.CommunicationsSupporter.headline
+      .Title
+        %h3.subject 応援コメント
+      %ul.communications.articles
+        = render "template/comment"
+    / 人気のコース
+    %section.returns-section.headline
+      .Title
+        %h3.subject 人気のコース
+      %ul.returns.articles
+        = render "template/hot_course"
+    / ストア
+    %section.StorePickup.headline
+      .Title
+        %h3.subject
+          ストア
+          %a.TitleLink{:href => "/discover/store"}
+            すべて見る
+            %svg.arrow
+              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %ul.projects.articles
+        = render "template/store"
+    / Makuakeブログ
+    %section.BlogArticle.headline
+      .Title
+        %h3.subject
+          Makuakeブログ
+          %a.TitleLink{:href => "http://blog.makuake.com"}
+            すべて見る
+            %svg.arrow
+              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %ul.articles.articles
+        = render "template/blog"
+    / Makuakeコンテンツ
+    %section.MakuakeContent.headline
+      %ul.contents.articles
+        = render "template/news"
+        = render "template/news"
+        = render "template/news"
+/ Pagetopボタン
+#page-top_jq{:style => "display:black"}
+  %a{:href => "#wrap"} page top
+/ フッター
+= render 'shared/footer'

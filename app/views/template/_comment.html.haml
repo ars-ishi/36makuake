@@ -1,0 +1,10 @@
+- @comments.each do |comment|
+  %li.CommunicationItem
+    %article
+      %a.project-link{:href => "https://www.makuake.com/project/pie/communication/supporter/"}
+        - comment.project.project_images.each do |image|
+          %img.image-thumbnail-s{:alt => "#{comment.project.name}", :src => "#{image.image}"}/
+          %h4.posted #{comment.content}
+      .user
+        %img.user-image{:alt => "#{comment.project.user.name}", :src => "#{comment.project.user.image}"}/
+        %p.user-name #{comment.project.user.name}
