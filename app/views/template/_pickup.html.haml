@@ -16,7 +16,9 @@
             %p #{Time.now.strftime("%j")}
           .money
             / money
-            %p #{project.total_sales}円
+            %p
+              = number_with_delimiter("#{project.total_sales}")
+              円
         .bar
           .bar-background
             / bar
