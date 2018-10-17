@@ -1,8 +1,10 @@
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/pie/communication/supporter/"}
-      %img.image-thumbnail-s{:alt => "目盛りを読んだり記録する手間なし！身体の計測、測定業務の効率UP。メジャーPIE", :src => "https://hayabusa.io/makuake/upload/project/5010/main_5010.png?fit=scale&format=png&ttl=31536000&version=1537409390&force&width=368&height=206&quality=95"}/
-      %h4.posted ダイエットに使いたい！とても楽しみにしています！！
-    .user
-      %img.user-image{:alt => "sake2645", :src => "https://hayabusa.io/makuake/upload/user/166462/main_166462.jpg?fit=scale&format=jpg&ttl=31536000&version=1539419381&force&width=130&height=130&quality=95"}/
-      %p.user-name sake2645
+- @comments.each do |comment|
+  %li.CommunicationItem
+    %article
+      %a.project-link{:href => "https://www.makuake.com/project/pie/communication/supporter/"}
+        - comment.project.project_images.each do |image|
+          %img.image-thumbnail-s{:alt => "#{comment.project.name}", :src => "#{image.image}"}/
+          %h4.posted #{comment.content}
+      .user
+        %img.user-image{:alt => "#{comment.project.user.name}", :src => "#{comment.project.user.image}"}/
+        %p.user-name #{comment.project.user.name}
