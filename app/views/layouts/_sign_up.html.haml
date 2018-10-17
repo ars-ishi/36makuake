@@ -1,0 +1,48 @@
+#sign_up.sign_up{ style: "display:none;"}
+  %h2 メールアドレスで新規登録
+  = form_for(:user, :url => registration_path(:user)) do |f|
+    .field
+      = f.label :email do
+        メールアドレス
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: 'email', required: 'required', id: 'user_email_signup_modal'
+    .field
+      = f.label :email_confirm do
+        確認
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: 'email_confirm', required: 'required', id: 'user_email_confirm_signup_modal', onInput: "mailValidates(this, 'user_email_signup_modal')"
+    .field
+      = f.label :name do
+        ユーザー名
+        %em ※全角・半角英数字3-20文字
+      %br/
+      = f.text_field :name, autofocus: true, autocomplete: 'name', required: 'required', id: 'user_name_signup_modal'
+    .field
+      = f.label :password do
+        パスワード
+      - if @minimum_password_length
+        %em ※半角英数字#{@minimum_password_length}文字以上
+      %br/
+      = f.password_field :password, autocomplete: 'password', required: 'required', minlength: 6, id: 'user_password_signup_modal'
+    .field
+      = f.label :password_confirmation do
+        確認
+      %br/
+      = f.password_field :password_confirmation, autocomplete: 'password_confirmation', required: 'required', minlength: 6, id: 'user_password_confirmation_signup_modal', onInput: "passValidates(this, 'user_password_signup_modal')"
+    .field
+      %label{for: 'agree_signup_modal' }
+        %input#agree_signup_modal{ autocomplete: 'off', name: 'agreement', required: 'required', type: 'checkbox', value: '' }
+        -# 利用規約は現状本物のサイトを開いていますが、余裕があればページ作ってwindow.openのパスを変更してください。
+        = link_to '利用規約', 'javascript:agreementWindow();'
+        %span に同意する
+    .actions
+      = f.submit "新規登録"
+    %div
+      %p
+        = link_to "パスワードを忘れた方はこちら", new_password_path(:user)
+      %p
+        = link_to 'ログインはこちら', new_user_session_path
+      %p
+        = link_to 'facebookログイン', user_facebook_omniauth_authorize_path
+      %p
+        = link_to 'twitterログイン', user_twitter_omniauth_authorize_path

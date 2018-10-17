@@ -1,0 +1,24 @@
+#sign_in.sign_in{ style: "display:none;"}
+  %h2 ログイン
+  = form_for(:user, :url => session_path(:user)) do |f|
+    .field
+      = f.label :email do
+        メールアドレス
+      %br/
+      = f.email_field :email, id: 'user_email_signin_modal', required: 'required'
+    .field
+      = f.label :password do
+        パスワード
+      %br/
+      = f.password_field :password, id: 'user_password_signin_modal', required: 'required', minlength: 6
+    .field
+    = f.submit 'ログイン'
+    %div
+      %p
+        = link_to "パスワードを忘れた方はこちら", new_password_path(:user)
+      %p
+        = link_to '新規登録はこちら', new_user_registration_path
+      %p
+        = link_to 'facebookログイン', user_facebook_omniauth_authorize_path
+      %p
+        = link_to 'twitterログイン', user_twitter_omniauth_authorize_path

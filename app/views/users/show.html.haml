@@ -1,0 +1,11 @@
+-# ユーザー機能確認のためリンクおいてます。あとで編集してください。
+%h1 ユーザーのshowページです
+- if user_signed_in?
+  %p
+    = link_to 'ログアウト', destroy_user_session_path, method: :delete
+  %p
+    = link_to 'プロフィール編集', edit_user_path(current_user.id)
+%p
+  = @user.name
+%p
+  = @user.email

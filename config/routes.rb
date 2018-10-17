@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'projects#index'
   resources :users do
     resources :orders, only: [:new, :create]
+    get 'edit_omniauth' => 'users#edit_omniauth'
+    patch 'update_omniauth' => 'users#update_omniauth'
   end
 
   resources :projects, only: [:index, :new, :create, :show] do
