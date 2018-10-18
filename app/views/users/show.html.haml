@@ -9,3 +9,13 @@
   = @user.name
 %p
   = @user.email
+
+- if can? :promoter, current_user
+  %p プロモーター用view
+  -# プロモーターだけに表示したい内容は、"if can? :promoter, current_user"内に入れてください。一般ユーザーには表示されません。ただしadminユーザーには見れます。
+
+- if can? :supporter, current_user
+  %p 一般ユーザー用view
+  %p
+    = link_to 'プロジェクト掲載の相談をする', root_path
+  -# 一般ユーザーだけに表示したい内容は、"if can? :supporter, current_user"内に入れてください。プロモーターには表示されません。ただしadminユーザーには見れます。
