@@ -30,7 +30,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |role|integer|default: 1, null: false, enum role: { 0:'admin', 1:'supporter', 2:'promoter' }|
-|name|string|index: true, null: false|
+|name|string|index: true|
 |image|string|
 |email|string|null: false, unique: true|
 |password|string|null: false|
@@ -49,8 +49,8 @@ Things you may want to cover:
 |tag_isvalid|boolean|default: false|
 
 ### association
-- has_one  :promoter_profile, dependent: :destroy
-- has_many :send_addresses, dependent: :destroy
+- has_one  :promoter_profile, dependent: :destroy, class_name: PromoterProfile
+- has_many :send_addresses, dependent: :destroy, class_name: SendAddress
 - has_one  :payment_method
 - has_many :project_likes, dependent: :destroy
 - has_many :projects, through: :project_likes
@@ -136,6 +136,7 @@ Things you may want to cover:
 |deadline|time|null: false|
 |target_sales|integer|default:1, null: false|
 |total_sales|integer|default:0, null: false|
+|thumbnail|string|
 
 ### association
 - belongs_to :user
@@ -152,8 +153,8 @@ Things you may want to cover:
 - has_many   :project_comment_responses, through: :project_comments
 - has_many   :project_likes, dependent: :destroy
 - has_many   :users, through: :project_likes
-- belongs_to :project_pickup
-- belongs_to :project_slider
+- has_one    :project_pickup, dependent: :destroy, class_name: ProjectPickup
+- has_one    :project_slider, dependent: :destroy, class_name: ProjectSlider
 
 
 ## courses table
@@ -196,6 +197,7 @@ Things you may want to cover:
 
 ### association
 - belongs_to :course
+- has_many   :course_question_answers, dependent: :destroy
 
 
 ## orders table
@@ -420,7 +422,7 @@ Things you may want to cover:
 |project_id|references|foreign_key: true|
 
 ### association
-- has_many   :projects
+- belongs_to :projects
 
 
 ## project_sliders table
@@ -430,7 +432,7 @@ Things you may want to cover:
 |project_id|references|foreign_key: true|
 
 ### association
-- has_many   :projects
+- belongs_to :projects
 
 
 ## informations table
@@ -439,3 +441,14 @@ Things you may want to cover:
 |------|----|-------|
 |title|string||
 |content|text||
+
+
+## course_question_answers table
+
+|Column|Type|Options|
+|------|----|-------|
+|course_question_id|references|foreign_key: true|
+|content|text||
+
+### association
+- belongs_to :course_question
