@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181018070344) do
+ActiveRecord::Schema.define(version: 20181018071144) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20181018070344) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bg_image"
     t.index ["project_id"], name: "index_project_sliders_on_project_id"
   end
 
