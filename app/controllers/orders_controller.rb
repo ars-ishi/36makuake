@@ -8,6 +8,24 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+  #以下決済処理
+  @amount = 500
+  #JSライブラリからトークンを受け取る処理
+  customer = Stripe::Customer.create(
+    :email => params[:stripeEmail],
+    :source  => params[:stripeToken]
+  )
+  #決済処理
+  charge = Stripe::Charge.create(
+    :customer    => customer.id,
+    :amount      => @amount,
+    :description => 'Rails Stripe customer',
+    :currency    => 'usd'
+  )
+  rescue Stripe::CardError => e
+  flash[:error] = e.message
+  redirect_to new_charge_path
   end
 
 private
