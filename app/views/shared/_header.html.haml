@@ -84,7 +84,7 @@
           %li.links
             %a.links-mypage{:href => "https://support.makuake.com/hc/ja/", :target => "_blank"} ヘルプ
           %li.links
-            %a.links-mypage{:href => ""} ログアウト
+            = link_to 'ログアウト', destroy_user_session_path, class:"links-mypage", method: :delete
     - else
       / ログアウト
       %nav#navigation
@@ -113,8 +113,8 @@
                   管理するページができました
                 %a.header-like-tooltip-link{:href => "/favorite/tag/"} 詳しくはこちら
           %li
-            %a#login.header-btn-login{:href => "#modalBase", :rel => "leanModal"} ログイン
+            = link_to 'ログイン', '#sign_in', {class: 'sign_in header-btn-login', id: "login"}
           %li
-            %a#regist.header-btn-signin{:href => "#modalBase", :rel => "leanModal"} 新規登録
+            = link_to '新規登録', '#sign_up', {class: 'sign_up header-btn-signin', id: "regist"}
       %input#staticurl{:type => "hidden", :value => "//s3-ap-northeast-1.amazonaws.com/static.makuake-ca.com"}/
       %input#staticurl_makuake{:type => "hidden", :value => "//cdn-m.makuake.com/rev_2018/10/10/132936"}/
