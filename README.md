@@ -29,7 +29,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|role|integer|default: 1, null: false, enum role: { 0:'admin', 1:'supporter', 2:'promoter' }|
+|role|integer|default: 1, null: false, enum role: { admin: 0, supporter: 1, promoter: 2 }|
 |name|string|index: true|
 |image|string|
 |email|string|null: false, unique: true|
@@ -40,7 +40,7 @@ Things you may want to cover:
 |birth_month|integer|
 |birth_day|integer|
 |birth_isvalid|boolean|default: false|
-|gender|integer|enum gender: { 1:'男', 2:'女' }|
+|gender|integer|enum gender: { male: 1, female: 2 }|
 |gender_isvalid|boolean|default: false|
 |introduction|text|
 |admission|boolean|default: true|
@@ -49,14 +49,14 @@ Things you may want to cover:
 |tag_isvalid|boolean|default: false|
 
 ### association
-- has_one  :promoter_profile, dependent: :destroy, class_name: PromoterProfile
-- has_many :send_addresses, dependent: :destroy, class_name: SendAddress
+- has_one  :promoter_profile, dependent: :destroy
+- has_many :send_addresses, dependent: :destroy
 - has_one  :payment_method
 - has_many :project_likes, dependent: :destroy
 - has_many :projects, through: :project_likes
 - has_many :direct_messages, dependent: :destroy
 - has_many :projects, through: :direct_messages
-- has_many :orders, dependent: :destroy
+- has_many :orders
 - has_many :report_likes, dependent: :destroy
 - has_many :report, through: :report_likes
 
@@ -132,7 +132,7 @@ Things you may want to cover:
 |name|string|null: false|
 |summary|text||
 |content|text|null: false|
-|support_type|integer|null: false, default: 1, enum support_type: { 1:'all_in', 2:'all_or_nothing' }|
+|support_type|integer|null: false, default: 1, enum support_type: { all_in: 1, all_or_nothing: 2 }|
 |deadline|time|null: false|
 |target_sales|integer|default:1, null: false|
 |total_sales|integer|default:0, null: false|
@@ -167,7 +167,7 @@ Things you may want to cover:
 |price|integer|null: false|
 |due_date|string||
 |stock|integer|null: false|
-|sales_type|integer|default:1, enum sales_type: { 1:'受付中', 2:'終了', 3:'商品化' }|
+|sales_type|integer|default:1, enum sales_type: { open: 1, close: 2, store: 3 }|
 
 ### association
 - belongs_to :project
@@ -422,7 +422,7 @@ Things you may want to cover:
 |project_id|references|foreign_key: true|
 
 ### association
-- belongs_to :projects
+- belongs_to :project
 
 
 ## project_sliders table
@@ -432,7 +432,7 @@ Things you may want to cover:
 |project_id|references|foreign_key: true|
 
 ### association
-- belongs_to :projects
+- belongs_to :project
 
 
 ## informations table
