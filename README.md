@@ -430,6 +430,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |project_id|references|foreign_key: true|
+|bg_image|string|
 
 ### association
 - belongs_to :project
