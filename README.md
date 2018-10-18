@@ -133,7 +133,7 @@ Things you may want to cover:
 |summary|text||
 |content|text|null: false|
 |support_type|integer|null: false, default: 1, enum support_type: { all_in: 1, all_or_nothing: 2 }|
-|deadline|time|null: false|
+|deadline|datetime|null: false|
 |target_sales|integer|default:1, null: false|
 |total_sales|integer|default:0, null: false|
 |thumbnail|string|
