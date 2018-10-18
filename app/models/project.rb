@@ -13,8 +13,10 @@ class Project < ApplicationRecord
   has_many   :project_comment_responses, through: :project_comments
   has_many   :project_likes, dependent: :destroy
   has_many   :users, through: :project_likes
-  belongs_to :project_pickup
-  belongs_to :project_slider
+  has_one    :project_pickup, dependent: :destroy
+  has_one    :project_slider, dependent: :destroy
+
+  enum support_type: { all_in: 1, all_or_nothing: 2 }
 
   def bar
     total_sales*100 / target_sales
