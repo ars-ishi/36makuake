@@ -170,20 +170,28 @@
             %dl
               %dt 支援金額
               %dd
-                .boxE
-                  【金額】 (税込)
+                .boxOrder
+                  = @course.price.to_s(:delimited)
+                  円 (税込)
             %dl
               %dt コース内容
               %dd
                 .boxG
-                  セールスコピーが入ります。
+                  = @course.content
             %dl
               %dt
                 お届け先
                 %a.btnA{:href => "#adrsChenge", :rel => "leanModal"} 変更する
               %dd
-                .boxE
-                ここに住所が入ります。
+                .boxOrder
+                = @address.first_name + " " +@address.last_name
+                %br>/
+                = @address.postal_code
+                %br>/
+                = @address.municipality + @address.house_number
+                %br>/
+                電話番号
+                = " " + @address.phone_number
         #nextBtnArea.clearfix
           %input.checkBtn{:type => "button", :value => "カード情報の入力へ"}/
         .boxHosoku
