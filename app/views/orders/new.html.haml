@@ -145,17 +145,7 @@
               %br/
             .boxL
               %a.btnD{:href => "/investment/ship/1566563/441123/"} 編集
-    %form{:action => "/investment/confirm/update/", :method => "post", :name => "invesmtent_temporary_address"}
-    :javascript
-      $('.address').click(function() {
-          $("div.addList div.boxJ i").addClass("icon_addNG");
-          $(this).children("i").removeClass("icon_addNG");
-          $(this).children("i").addClass("icon_addOK");
-          user_addressbook_id = $(this).children("i").data("user_addressbook_id");
-          $("#adrsChenge").addClass("loadingBase");
-          $(location).attr("href", "/investment/confirm/update/1566563/"+user_addressbook_id+"/");
-      });
-    / main
+  = form_for [@user, @order] do |f|
     .grayBase
       #contentWrapper.clearfix
         %nav.navA
@@ -192,8 +182,8 @@
                 %br>/
                 電話番号
                 = " " + @address.phone_number
-        #nextBtnArea.clearfix
-          %input.checkBtn{:type => "button", :value => "カード情報の入力へ"}/
+        .clearfix
+          %script{"class" => "stripe-button", "data-amount" => "500", "data-description" => "お支払い情報", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-currency" => "jpy", "data-locale" => "ja", :src => "https://checkout.stripe.com/checkout.js", "data-label" => "カード情報を入力へ"}
         .boxHosoku
           %div
             %em ご確認お願いします
@@ -201,8 +191,6 @@
               このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の12月26日 23:59までに支払いを完了した時点で、支援が成立します。
               %br/
               ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
-        %form{:action => "", :method => ""}
-          %input{:name => "", :type => "hidden", :value => ""}/
 
     %input#investment_data_store{"data-geenie-is-self-support" => "", :type => "hidden"}/
     %p#page-top_jq{:style => "display: none;"}
