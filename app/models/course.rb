@@ -4,5 +4,5 @@ class Course < ApplicationRecord
   has_many   :course_questions, dependent: :destroy
   has_many   :order_details
 
-  enum sales_type: { open: 1, close: 2, store: 3 }
+  enum sales_type: { open: 1, close: 2, is_store: 3 }
 end

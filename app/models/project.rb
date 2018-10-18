@@ -4,8 +4,6 @@ class Project < ApplicationRecord
   has_many   :courses, dependent: :destroy
   has_many   :project_images, dependent: :destroy
   has_many   :project_movies, dependent: :destroy
-  has_many   :project_categories, dependent: :destroy
-  has_many   :categories, through: :project_categories
   has_many   :project_tags, dependent: :destroy
   has_many   :tags, through: :project_tags
   has_many   :reports, dependent: :destroy
