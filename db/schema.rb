@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181016063252) do
+ActiveRecord::Schema.define(version: 20181018065024) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20181016063252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_images_on_course_id"
+  end
+
+  create_table "course_question_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "course_question_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_question_id"], name: "index_course_question_answers_on_course_question_id"
   end
 
   create_table "course_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -319,6 +327,7 @@ ActiveRecord::Schema.define(version: 20181016063252) do
   end
 
   add_foreign_key "course_images", "courses"
+  add_foreign_key "course_question_answers", "course_questions"
   add_foreign_key "course_questions", "courses"
   add_foreign_key "courses", "projects"
   add_foreign_key "direct_messages", "projects"
