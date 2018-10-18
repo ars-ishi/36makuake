@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    projects = Project.all
+
+    projects = Project.all.includes(:project_images)
     @slider = []
     sliders = ProjectSlider.all
     sliders.each do |slider|
@@ -11,13 +12,13 @@ class ProjectsController < ApplicationController
       @slider_project << projects.find(slider.project_id)
     end
 
-
-    @projects = Project.all
-    @pickups =Project.all
+    @projects = Project.all.includes(:project_images)
+    @pickups =Project.all.includes(:project_images)
     @new = Project.order("created_at DESC")
     @reports = Report.limit(5).includes(project: :user,project: :project_images)
-    @comments = ProjectComment.limit(5)
-    @courses = Course.limit(5)
+    @comments = ProjectComment.limit(5).includes(project: :user,project: :project_images)
+    @courses = Course.limit(5).includes(project: :user,project: :project_images)
+
   end
 
 
