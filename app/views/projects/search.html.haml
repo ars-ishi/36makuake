@@ -1,0 +1,236 @@
+/ ヘッダー
+= render 'shared/header'
+.grayBase
+  .layout-block
+    .nav-block
+      %dl.nav-block-dl
+        %dt.nav-block-dt プロジェクト
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/projects/search/"} 全てのプロジェクト
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/new"} New!
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/ending-soon"} もうすぐ終了
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/most-funded"} 支援金ランキング
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/pickup"} 今日のピックアップ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/government"} ふるさと納税型
+      %dl.nav-block-dl
+        %dt.nav-block-dt ストア
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/store"} 全てのストア
+      %dl.nav-block-dl
+        %dt.nav-block-dt
+          人気のタグ
+          %a.nav-block-tag{:href => "/discover/tags"} 全てのタグ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/203/"} # 便利グッズ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/121/"} # レストラン
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/8/"} # ガジェット
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/13/"} # 映画
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/90/"} # プロダクト
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/66/"} # フード
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/180/"} # 会員制
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/158/"} # 日本酒
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/50/"} # ファッション
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/77/"} # 肉
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/81/"} # テクノロジー
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/184/"} # 日本製
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/52/"} # リュック
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/105/"} # 音楽
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/134/"} # アウトドア
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/109/"} # 子ども
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/115/"} # 文房具
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/3/"} # アニメ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/183/"} # 伝統
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/tags/57/"} # 腕時計
+      %dl.nav-block-dl
+        %dt.nav-block-dt カテゴリー
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/product/"} プロダクト
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/fashion/"} ファッション
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/food/"} フード
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/restaurant/"} レストラン・バー
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/technology/"} テクノロジー
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/beauty/"} コスメ・ビューティー
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/art/"} アート・写真
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/film/"} 映画・映像
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/anime/"} アニメ・マンガ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/music/"} 音楽
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/game/"} ゲーム
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/dance/"} 演劇・パフォーマンス
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/entertainment/"} お笑い・エンタメ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/publication/"} 出版・ジャーナリズム
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/education/"} 教育
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/sports/"} スポーツ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/startup/"} スタートアップ
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/region/"} 地域活性化
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/contribution/"} 社会貢献
+        %dd.nav-block-dd
+          %a.nav-link{:href => "/discover/categories/worldtour/"} 世界一周
+    / ーーーーーーーーーーーーー 検索結果ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    .project-block
+      %section
+        .ttl-block
+          .ttl-block-txt
+            %h2.ttlDetails 全てのプロジェクト
+        %ul.pj-box-ul
+          = render 'template/project'
+
+          %li.pj-box-li
+            .media
+              %article
+                %a.media-up.ttlNewIcon{:href => "/project/mukawa/"}
+                  %img.media-up-thumb{:alt => "地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！", :height => "142", :src => "//hayabusa.io/makuake/upload/project/5176/main_5176.fit-scale.png?width=252&height=142&quality=95&version=1539922460&format=png&ttl=31536000&force", :width => "252"}/
+                  %h3.media-up-ttl 地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！
+                .media-middle
+                  .media-middle-time
+                    %i
+                      %svg.media-middle-time-icon
+                        %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 14日
+                  .media-middle-money
+                    %i
+                      %svg.media-middle-money-icon
+                        %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 20,000円
+                .media-low
+                  .media-low-bar-gray
+                    .media-low-bar-green{:style => "width:3%;"}
+                  .media-low-bar-num 3%
+
+
+          %li.pj-box-li
+            .media
+              %article
+                %a.media-up.ttlNewIcon{:href => "/project/mukawa/"}
+                  %img.media-up-thumb{:alt => "地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！", :height => "142", :src => "//hayabusa.io/makuake/upload/project/5176/main_5176.fit-scale.png?width=252&height=142&quality=95&version=1539922460&format=png&ttl=31536000&force", :width => "252"}/
+                  %h3.media-up-ttl 地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！
+                .media-middle
+                  .media-middle-time
+                    %i
+                      %svg.media-middle-time-icon
+                        %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 14日
+                  .media-middle-money
+                    %i
+                      %svg.media-middle-money-icon
+                        %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 20,000円
+                .media-low
+                  .media-low-bar-gray
+                    .media-low-bar-green{:style => "width:3%;"}
+                  .media-low-bar-num 3%
+
+
+          %li.pj-box-li
+            .media
+              %article
+                %a.media-up.ttlNewIcon{:href => "/project/mukawa/"}
+                  %img.media-up-thumb{:alt => "地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！", :height => "142", :src => "//hayabusa.io/makuake/upload/project/5176/main_5176.fit-scale.png?width=252&height=142&quality=95&version=1539922460&format=png&ttl=31536000&force", :width => "252"}/
+                  %h3.media-up-ttl 地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！
+                .media-middle
+                  .media-middle-time
+                    %i
+                      %svg.media-middle-time-icon
+                        %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 14日
+                  .media-middle-money
+                    %i
+                      %svg.media-middle-money-icon
+                        %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 20,000円
+                .media-low
+                  .media-low-bar-gray
+                    .media-low-bar-green{:style => "width:3%;"}
+                  .media-low-bar-num 3%
+
+          %li.pj-box-li
+            .media
+              %article
+                %a.media-up.ttlNewIcon{:href => "/project/mukawa/"}
+                  %img.media-up-thumb{:alt => "地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！", :height => "142", :src => "//hayabusa.io/makuake/upload/project/5176/main_5176.fit-scale.png?width=252&height=142&quality=95&version=1539922460&format=png&ttl=31536000&force", :width => "252"}/
+                  %h3.media-up-ttl 地震から立ち直りたい！むかわ町復興イベント「ししゃもまつり」応援サポーター募集！
+                .media-middle
+                  .media-middle-time
+                    %i
+                      %svg.media-middle-time-icon
+                        %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 14日
+                  .media-middle-money
+                    %i
+                      %svg.media-middle-money-icon
+                        %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p 20,000円
+                .media-low
+                  .media-low-bar-gray
+                    .media-low-bar-green{:style => "width:3%;"}
+                  .media-low-bar-num 3%
+        .pagiBase
+          %ul.clearfix
+            %li
+            %li
+            %li
+              %a.pageStay 1
+            %li
+              %a{:href => "/discover/projects/search/2/"} 2
+            %li
+              %a{:href => "/discover/projects/search/3/"} 3
+            %li
+              %a{:href => "/discover/projects/search/4/"} 4
+            %li
+              %a{:href => "/discover/projects/search/5/"} 5
+            %li.interval
+              %a{:href => "/discover/projects/search/10/"} 10
+            %li.interval
+              %a{:href => "/discover/projects/search/20/"} 20
+            %li.interval
+              %a{:href => "/discover/projects/search/30/"} 30
+            %li
+              %a.pageRight{:href => "/discover/projects/search/2/", :rel => "next"}
+            %li
+              %a.pageRightLast{:href => "/discover/projects/search/327"}
+
+/ Pagetopボタン
+
+/ フッター
+= render 'shared/footer'
