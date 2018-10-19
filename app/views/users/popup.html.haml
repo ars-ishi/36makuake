@@ -1,0 +1,50 @@
+= render 'shared/header'
+#wrapperMypage
+  / contentWrapper
+  #contentWrapper.clearfix
+    = render 'sidenavi'
+    / rightContentMain
+    #rightContentMain
+      / section01
+      %section#socialDetails
+        %h2.ttlMail メール通知設定
+        %form{:action => "", :method => "POST"}
+          .mailIn
+            %dl
+              %dt ニュースレター購読
+              %dd
+                %label{:for => "news_1"}
+                  %input#news_1.radio{:checked => "checked", :name => "has_newsletter", :type => "radio", :value => "1"}/
+                  %span.select 購読する
+                %label{:for => "news_2"}
+                  %input#news_2.radio{:name => "has_newsletter", :type => "radio", :value => "0"}/
+                  %span.select02 購読しない
+                %span.note (解除後にも２,３回届く可能性があります)
+            %dl
+              %dt 活動レポート通知
+              %dd
+                %label{:for => "project_update_1"}
+                  %input#project_update_1{:checked => "checked", :name => "has_mail_supporter", :type => "radio", :value => "1"}/
+                  %span.select 受け取る
+                %label{:for => "project_update_2"}
+                  %input#project_update_2{:name => "has_mail_supporter", :type => "radio", :value => "0"}/
+                  %span.select02 受け取らない
+            %dl
+              %dt Myタグの新着通知
+              %dd
+                %label{:for => "mail_tag_enable"}
+                  %input#mail_tag_enable{:checked => "checked", :name => "tag_disabled", :type => "radio", :value => "1"}/
+                  %span.select 受け取る
+                %label{:for => "mail_tag_disable"}
+                  %input#mail_tag_disable{:name => "tag_disabled", :type => "radio", :value => "0"}/
+                  %span.select02 受け取らない
+          %input.updateBtn02{:type => "submit", :value => "更新"}/
+          %input{:name => "fuel_csrf_token", :type => "hidden", :value => "c7e81259b4f2d74145d948ac64c2f512c8940b4f817e035cd14037c11432cf0418c48b02ba26f7799f49049adcab4483c420fb6e9c978e453a5683a384a1acb7"}/
+        / ./section01
+      / ./rightContentMain
+    / ./contentWrapper
+/ Pagetopボタン
+%p#page-top_jq{:style => "display: none;"}
+  %a{:href => "#wrap"} PAGE TOP
+/ フッター
+= render 'shared/footer'

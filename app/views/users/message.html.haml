@@ -1,0 +1,301 @@
+= render 'shared/header'
+#wrapperMypage
+  / contentWrapper
+  #contentWrapper.clearfix
+    = render 'sidenavi'
+    / rightContentMain
+    #rightContentMain.clearfix
+      %script{:src => "//cdn-m.makuake.com/rev_2018/10/10/132936/js/geenie/message/supporter.js"}
+      %script{:src => "//cdn-m.makuake.com/rev_2018/10/10/132936/js/geenie/message/owner_attach_img.js"}
+      .loadingBase_msg{:style => "display: none;"}
+        .loadbg
+        .loadingbox
+          .loadingboxIn
+            %img{:alt => "", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/owner/load_an.gif"}/
+            %p Loading...
+      .tabNavigation
+        %h2.messageTop_h2 メッセージ
+        %ul.selection
+          %li.all{"data-is_read" => "", :style => "display: list-item;"}
+          %li.unopen{"data-is_read" => "0", :style => "display: none;"}
+      .tabContentMainMypage.clearfix
+        %input#from_url_thread_id{:type => "hidden", :value => ""}/
+        %input#limit{:type => "hidden", :value => "100"}/
+        %input#message_limit{:type => "hidden", :value => "10"}/
+        %input#next_thread_page{:type => "hidden", :value => "2"}/
+        %input#next_message_page{:type => "hidden", :value => "2"}/
+        #no_data_thread.result_msg_thread{:style => "margin: 10px 10px 10px 10px; display:none;"}
+          まだメッセージはありません。
+          %br/
+          プロジェクト実行者に質問がある場合は、
+          %br/
+          プロジェクトページにある【実行者にお問い合わせ】からメッセージをお送りください。
+        #no_more_thread.result_msg_thread{:style => "margin: 10px 10px 10px 10px; display:none;"} すべてのデータを表示しました。
+        #no_read_data_thread.result_msg_thread{:style => "margin: 10px; display: none;"} 未読メッセージはありません。
+        .dmLeft_cover{:style => "height: 0px;"}
+          #shrink_loading.loading_allWhite{:style => "display: none;"}
+          .dmLeft
+            .dmLeftScroll
+              %ul.userList.message--open.BorderNone.b-rightNone
+                %li.userArea.loadAfter{"data-project_id" => "2020", "data-thread_id" => "127439"}
+                  .userL
+                    %img{:src => "//hayabusa.io/makuake/upload/user/regist2016/07/19/138080/main_138080.fit-scale.jpg?version=1477876369&format=jpg&ttl=31536000&force&width=36&height=36&quality=70"}/
+                  .mailComment
+                    #is_read_127439.is_read
+                    .date 2017.07.05
+                    .exchangeNum 4
+                    .userR
+                      .mailtitle.mailArea いびきのない快眠で明日のハイパフォーマンスを。鼻腔挿入デバイス【ナステント】
+                      .subtitle.mailArea セブン・ドリーマーズ・ラボラトリーズ株式
+                      .description.mailArea
+                        松尾光佳様
+                        ご支援いただいたお客様へ  重要なお知らせ【再々送】
+
+                        去る3月17日に「ご支援のお客様へ  重要なお知らせ」という連絡をさせていただきました。こちらはお客様への返金対応のお知らせになりますので、ご返信頂いていないお客様に再度ご連絡させていただいております。
+                        お手数ではございますが、内容をご確認上、必要事項をご返信ください。
+                        なお、8月4日（金）までにご連絡いただいた方のみご返金さしあげます。その後はアナウンスをしませんのでご注意ください
+
+                        \---------------------------------
+                        謹啓  日頃は、格別なるご厚情を賜わり厚く御礼申し上げます。
+                        この度は「ナステント1week（仮）」へのご支援を頂きまして、誠にありがとうございます。本日は皆様に大事なお知らせがございます。
+
+                        ご支援頂きました「ナステント1week（仮）」の開発は順調に終了いたしました。しかしながら、ご支援を頂きました皆様への製品のお届けを中止し、ご返金させて頂きたく存じます。
+
+                        この背景と致しましては、既にご案内をさせて頂いております既存製品「ナステント クラシック」の自主回収と販売再開に向けて、監督官庁と協議してまいりました。結果、ナステントをご使用頂く為には、医師の指導を受けて頂き、指示書を入手して頂くことが必要となりました。今回ご支援頂きました「ナステント1week（仮）」も同様に、医師の指導を受けて頂き、指示書を入手して頂くことが必要でございます。これは、ご支援頂く際の条件と相違します。
+                        このようなことから、「ナステント1week（仮）」のお届けを中止し、ご返金させて頂く判断を致しました。ご支援頂きました皆様には誠に申し訳ございませんが、何卒、ご高配の上、ご理解賜りますようお願い申し上げます。
+
+                        つきましては、ご返金にあたりお客様の口座番号をご返信ください。
+
+                        ■返信事項
+                        ・お名前/口座名義（ﾌﾘｶﾞﾅ）/銀行名/支店名/口座番号
+
+                        ■注意事項
+                        ・返金は銀行振込とさせていただきます。
+                        ・手数料は弊社にて負担致します。
+                        ・返信事項をご記入の上、ご返信ください。
+                        ・お試し4本セットを発送させていただきました10,000円、20,000円、100,000円コースのお客様の返金額はお試し4本セットの2,000円分を引いた額の返金となりますので、ご了承ください。
+                        ・上記の必要事項をMakuakeのメッセージにてご連絡ください。
+
+                        ご支援頂きました皆様には、大変ご迷惑をおかけ致しまして、誠に申し訳ございません。お手数ではございますが、ご返信頂きますよう、何卒宜しくお願い申し上げます。
+                        以上
+
+                        セブンドリーマーズラボラトリーズ株式会社
+                        Makuake担当
+                %li.userArea.loadAfter{"data-project_id" => "1483", "data-thread_id" => "57308"}
+                  .userL
+                    %img{"data-hayabusa-src" => "/upload/user/90089/main_90089.fit-scale.png?version=1505097903&format=png&ttl=31536000&force", :height => "36", :src => "//hayabusa.io/makuake/upload/user/90089/main_90089.fit-scale.png?version=1505097903&format=png&ttl=31536000&force&width=36&height=36&quality=70", :width => "36"}/
+                  .mailComment
+                    #is_read_57308.is_read
+                    .date 2017.04.14
+                    .exchangeNum 5
+                    .userR
+                      .mailtitle.mailArea C by favyがヨーロッパに負けない国産ムール貝の食べ放題会員を募集します！
+                      .subtitle.mailArea C by favy(シーバイファビー)
+                      .description.mailArea
+                        ━━━━━━━━━━━━━━━━━━━━━━━━
+                        西新宿『C by favy』は、4月21日(金)に
+                        時間無制限で肉も魚も野菜も1,000円で食べ放題の
+                        "日本一お得な立ち飲みバル"に生まれ変わります！
+                        ━━━━━━━━━━━━━━━━━━━━━━━
+
+                        西新宿『C by favy』をいつもご利用いただきありがとうございます。
+
+                        3月よりリニューアルオープン期間のため休店とさせていただいておりました
+                        西新宿『C by favy』ですが来週4月21日(金)18：00に
+                        リニューアルオープンの運びとなりましたことをご報告させていただきます。
+
+                        リニューアルオープン後の『C by favy』は、
+                        1,000円で時間無制限で肉も魚も野菜も食べ放題の
+                        "日本一お得な立ち飲みバル"に生まれ変わります。
+                        （店内にはハイチェアーなども含め半分程座れるお席もご用意しています！）
+
+                        リニューアルオープンに先駆けて【本日15：00】よりMakuakeにて、
+
+                        ・「Makuake限定！食べ放題チケット」
+                        （1,000円食べ放題とドリンク1杯引換券がついてたった1,000円！の超お得なチケットです）
+                        ・「無制限飲み放題会員」
+                        （1ヶ月間毎日、何杯でも無料でお酒が飲める驚きの会員権です）
+
+                        などの募集を開始！
+                        Makuakeでしか購入できない特典ですので本日15：00に
+                        ぜひ以下のURLをチェックしてみてくださいね〜っ！！
+                        （売り切れ次第終了となりますのでぜひお早めに！）
+
+                        ※ムール貝会員をご支援いただいた皆様にはフライングで優先的に
+                        ご案内を差し上げてますので15：00以降にアクセスをお願いいたします！
+
+                        ↓Makuake限定特典はこちらからチェック↓
+                        http://www.makuake.com/project/cbyfavy03/
+                        ※本日15：00以降にアクセス可能となります！
+
+                        リニューアルオープン後、1,000円食べ放題メニューの中に
+                        あのムール貝もメニューインしております！（1時間毎などにできたてのものを提供）
+                        ぜひリニューアル後も『C by favy』へお立ち寄りください！
+
+                        リニューアルオープン後も『C by favy』を何卒よろしくお願いいたします。
+
+                        C by favy
+            #moreMessage.moreArea_wrap
+              #more_thread_button.more.moreArea1{:style => "display:none;"} もっとみる
+              #thread_loading_button.more.moreArea1_load{:style => "display:none;"}
+        .dmRight_cover.clearfix
+          .dmRight.visible.b-none{:style => "position: relative; bottom: 0px; top: 0px; height: 25216px;"}
+            #message_loading.loading{:style => "display: none;"}
+            #message_detail
+      .img-preview__modal{:style => "display: none;"}
+        .modal__overlay
+          .modal__contents
+            .modal__contents__img
+              %svg.icon-close
+                %use{"xlink:href" => "#icon-close", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              %img/
+      / ▼▼▼hogan.js▼▼▼
+      / スレッドテンプレート
+      %script#template_supporter_thread{:type => "text/template"}
+        :cdata
+          {{#threads_data}}
+
+          <li class="userArea loadAfter" data-project_id="{{project_id}}" data-thread_id="{{thread_id}}">
+          <div class="userL">
+          {{#add_hayabusa_query}}
+          <img src="" data-hayabusa-src="{{hogan_staticurl_hayabusa_cdn}}{{created_user_image}}" width="36" height="36" />
+          {{/add_hayabusa_query}}
+          </div>
+          <div class="mailComment">
+          {{!未読}}
+          <div id="is_read_{{thread_id}}" class="is_read {{#is_supporter_not_read}}still{{/is_supporter_not_read}}"></div>
+          {{!日付}}
+          <div class="date">{{fuzzy_time}}</div>
+          {{!メッセージやり取り件数}}
+          <div class="exchangeNum">{{send_count}}</div>
+          <div class="userR">
+          <div class="mailtitle mailArea">{{project_title}}</div>
+          <div class="subtitle mailArea">{{created_user_name}}</div>
+          <div class="description mailArea">{{thread_body}}</div>
+          </div>
+          </div>
+          </li>
+          {{/threads_data}}
+      / メッセージ上部テンプレート
+      %script#template_supporter_message_header{:type => "text/template"}
+        :cdata
+          <div class="thread_top clearfix">
+          <table>
+          <td>
+          {{#is_supporter_not_read}}
+          <span class="returnBack" data-thread_id="{{thread_id}}" data-is_read="{{supporter_is_read}}">既読に戻す</span>
+          {{/is_supporter_not_read}}
+          {{^is_supporter_not_read}}
+          <span class="returnBack" data-thread_id="{{thread_id}}" data-is_read="{{supporter_is_read}}">未読に戻す</span>
+          {{/is_supporter_not_read}}
+          </td>
+          </tr>
+          </table>
+          <p class="thread_top_title">
+          <a href="/project/{{project_code}}/" target="_blank">{{project_title}}</a>
+          </p>
+          </div>
+          <div class="msBaseOver">
+          <div class="dmRightUp">
+          <div id="more_message_button" class="moreArea2" style="display: none;">過去のメッセージを見る</div>
+          <div id="more_message_loading" class="moreArea2_load" style="display: none;"></div>
+          <div id="message_list">
+      / メッセージ中身テンプレート
+      %script#template_supporter_message_body{:type => "text/template"}
+        :cdata
+          {{#messages_data}}
+          {{#is_manager_message}}
+          {{!実行者メッセージ}}
+          <div class="msBase clearfix" data-message_id="{{message_id}}">
+          <div class="upMs clearfix">
+          <div class="leftMs">
+          <a href="/member/index/{{manager_user_id}}/" target="_blank">
+          {{#add_hayabusa_query}}
+          <img src="" data-hayabusa-src="{{staticurl_hayabusa_cdn}}{{user_image}}" alt="{{user_name}}" width="36" height="36" />
+          {{/add_hayabusa_query}}
+          </a>
+          </div>
+          <div class="leftMs">
+          <div class="name">{{user_name}}</div>
+          <div class="time">{{created_at_format}}</div>
+          </div>
+          </div>
+          <div>
+          <div class="text__wrapper">
+          <span class="textMs ownturnMs grayArrow">{{{body}}}
+          {{#has_file}}
+          <ul>
+          {{#files}}
+          <li class="attached_img">
+          {{#add_hayabusa_query}}
+          <img src="" data-hayabusa-src="{{compressed_file_path}}" width="130" data-original="{{file_path}}">
+          {{/add_hayabusa_query}}
+          <div class="attached_img__mask">
+          <div class="attached_img__caption">
+          <svg class="attached_img__caption__zoomin"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zoomin"></use></svg>
+          <span>プレビュー</span>
+          </div>
+          </div>
+          </li>
+          {{/files}}
+          </ul>
+          {{/has_file}}
+          </span>
+          </ul>
+          </div>
+          </div>
+          </div>
+          {{/is_manager_message}}
+          {{#is_supporter_message}}
+          {{!サポーターメッセージ}}
+          <div class="msBase ownturn clearfix">
+          <div class="upMs clearfix">
+          <div class="rightMs">
+          <a href="/my/" target="_blank">
+          {{#add_hayabusa_query}}
+          <img src="" data-hayabusa-src="{{staticurl_hayabusa_cdn}}{{user_image}}" alt="{{user_name}}" width="36" height="36" />
+          {{/add_hayabusa_query}}
+          </a>
+          </div>
+          <div class="rightMs">
+          <div class="name">{{user_name}}</div>
+          <div class="time">{{created_at_format}}</div>
+          </div>
+          </div>
+          <div>
+          <p class="textMs ownturnMs greenArrow">{{{body}}}</p>
+          </div>
+          </div>
+          {{/is_supporter_message}}
+          {{/messages_data}}
+      / メッセージ下部テンプレート
+      %script#template_supporter_message_footer{:type => "text/template"}
+        :cdata
+          </div>
+          </div>
+          </div>
+          {{!サポーターは常に返信可能、実行者はサポーターの返信に対して返信可能}}
+          <div class="dmRightDown_wrap">
+          <div id="write" class="dmRightDown">
+          <textarea name="comments" id="send_body" cols="41" rows="6" class="msInput" maxlength="2000" placeholder="2,000文字まで"></textarea>
+          <input type="hidden" id="send_mode" name="send_mode" value="talk">
+          <input type="hidden" id="project_id" name="project_id" value="{{project_id}}">
+          <input type="hidden" id="thread_id" name="thread_id" value="{{thread_id}}">
+          <div class="btn-area">
+          <div class="counter">
+          <span class="js-cnt">0</span>
+          <span>/ 2000</span>
+          </div>
+          <input type="button" class="sendBtnMs02_load" id="send_msg_loading">
+          <input type="button" class="sendBtnMs02" id="send_msg_button" value="送信">
+          </div>
+          </div>
+          </div>
+          {{!./右側のやりとり部分の下のメッセージ入力}}
+    / ./rightContentMain
+  / ./contentWrapper
+/ Pagetopボタン
+%p#page-top_jq{:style => "display: none;"}
+  %a{:href => "#wrap"} PAGE TOP
+/ フッター
+= render 'shared/footer'
