@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+/* ============================================================
+   contentWrapper
+============================================================ */
+
+#contentWrapper {
+  width: 1000px;
+}
+
+/* ============================================================
+   コンテンツの右メイン
+============================================================ */
+
+#rightContentMain {
+  float: left;
+  width: 745px;
+  margin-left: 35px;
+  margin-top: 23px;
+}
+
+#profileDetails {
+  width: 745px;
+}
+
+.formEroor {
+  font-size: 13px;
+  font-size: 1.3rem;
+  color: #ed5565;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   profile
+============================================================ */
+
+#profileDetails {
+  width: 745px;
+  margin-bottom: 40px;
+}
+
+.ttlProfile {
+  font-size: 22px;
+  /* text-indent: 38px; */
+  line-height: 32px;
+  margin-bottom: 10px;
+  /* font-weight: bold; */
+  /* letter-spacing: 0.1em; */
+  color: #333333;
+}
+
+.profileIn {
+  width: 745px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 30px;
+  border-bottom: none;
+  dl {
+    display: table;
+    width: 100%;
+    min-height: 60px;
+    position: relative;
+  }
+  dt {
+    display: table-cell;
+    vertical-align: middle;
+    width: 190px;
+    padding-left: 20px;
+    background-color: #fdfdfd;
+    border-right: 1px solid #e5e5e5;
+    color: #505050;
+    font-size: 13px;
+    line-height: 18px;
+    border-bottom: 1px solid #e5e5e5;
+    height: 60px;
+    input {
+      margin-right: 8px;
+      position: relative;
+      top: -2px;
+    }
+  }
+  dd {
+    display: table-cell;
+    vertical-align: middle;
+    background: white;
+    padding: 10px 0px 10px 20px;
+    line-height: 1.5em;
+    font-size: 13px;
+    font-size: 1.3rem;
+    margin-right: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    height: 60px;
+  }
+  p {
+    font-size: 20px;
+    font-size: 20rem;
+    color: #ed5565;
+    float: right;
+    line-height: 40px;
+  }
+}
+
+.filesize {
+  display: block;
+  font-size: 12px;
+  font-size: 1.2rem;
+  color: #ed5565;
+}
+
+.profileIn dt span {
+  font-size: 14px;
+  font-size: 1.4rem;
+  color: #ed5565;
+  margin-left: 10px;
+}
+
+.new {
+  color: #9d9d9d;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 25px;
+}
+
+.now {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 25px;
+  display: block;
+}
+
+.editAlert {
+  color: #ed5565;
+  font-size: 10px;
+  font-size: 1.0rem;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.passwordLink {
+  font-size: 10px;
+  font-size: 1.0rem;
+  line-height: 30px;
+  margin-left: 10px;
+}
+
+.profileIn img {
+  margin-left: 10px;
+  float: left;
+}
+
+.infoInput01, .infoInput02 {
+  padding: 10px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+}
+
+.infoInput01 {
+  width: 200px;
+  margin-bottom: 8px;
+}
+
+.infoInput02 {
+  width: 300px;
+  margin-bottom: 8px;
+}
+
+.radio {
+  margin-right: 150px;
+}
+
+.selectInput {
+  font-size: 12px;
+  font-size: 1.2rem;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  margin: 10px 10px 10px 0px;
+}
+
+.filetInput {
+  margin: 10px auto 10px 0px;
+}
+
+.infoInput, .infoInput03 {
+  padding: 10px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  background-color: #fffbda;
+  float: left;
+}
+
+.infoInput {
+  width: 200px;
+}
+
+.infoInput03 {
+  width: 400px;
+  margin-bottom: 100px;
+  &:first-child {
+    margin-bottom: 100px;
+  }
+}
+
+.textEdit {
+  padding: 6px;
+  font-size: 13px;
+  color: rgb(87, 87, 87);
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  position: relative;
+  left: 10px;
+  background-color: #fff;
+  margin-left: -10px;
+}
+
+#search_results span {
+  position: absolute;
+  left: 420px;
+  top: 22px;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+.edit {
+  text-align: right;
+  a {
+    text-align: right;
+    padding-right: 30px;
+    /* font-weight: bold; */
+    /* font-size: 1.4rem; */
+    font-size: 14px;
+    &:after {
+      /* content:""; */
+      width: 24px;
+      height: 24px;
+      background: url("../../img/icon_tag_24_03.gif") no-repeat 0 -3px;
+      position: absolute;
+      right: 60px;
+    }
+  }
+}
+
+.editing {
+  font-size: 18px;
+}
+
+/* ============================================================
+   Btn
+============================================================ */
+
+.updateBtn {
+  display: block;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  background: #21bde1;
+  color: white;
+  font-size: 13px;
+  /* font-weight: bold; */
+  border-radius: 2px;
+  font-size: 1.3rem;
+  padding: 0px 25px 0px 25px;
+  line-height: 35px;
+  height: 35px;
+  /* letter-spacing: 0.1rem; */
+  &:hover {
+    background: #4dcae7;
+  }
+}
+
+/* ============================================================
+   withdrow
+============================================================ */
+
+#withdrawArea {
+  /* width: 709px; */
+}
+
+.withdraw {
+  text-align: right;
+  display: block;
+  /* color: #666666; */
+  position: relative;
+  &:after {
+    /* content:""; */
+    width: 36px;
+    height: 36px;
+    background: url("../../img/icon_arrow_36.gif") no-repeat 0 0;
+    position: absolute;
+    right: -35px;
+    top: -10px;
+  }
+}
+
+/* email変更ボタンの文言変更に伴い幅変更 */
+
+.mailChangeSave {
+  padding: 0 18px;
+}
