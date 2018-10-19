@@ -16,7 +16,7 @@
             .attribute
               .time
                 %span.time-prefix 残り
-                %span.time-text #{project.deadline.strftime("%j")} 日
+                %span.time-text #{project.time_limit}
               .money
                 %span.money-prefix 集まっている金額
                 %span.money-text
@@ -24,7 +24,7 @@
                   円
               .bar
                 .bar-background
-                  .bar-foreground{:style => "width: #{project.bar};"}
+                  .bar-foreground{:style => "width: #{project.bar}%;"}
                 %span.bar-percent #{project.bar}%
             .view-button
               %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
