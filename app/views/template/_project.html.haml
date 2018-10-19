@@ -1,0 +1,25 @@
+- @projects.each do |project|
+  %li.pj-box-li
+    .media
+      %article
+        %a.media-up.ttlNewIcon{:href => "/project/mukawa/"}
+          %img.media-up-thumb{:alt => "#{project.name}", :height => "142", :src => "#{project.thumbnail}", :width => "252"}/
+          %h3.media-up-ttl #{project.name}
+        .media-middle
+          .media-middle-time
+            %i
+              %svg.media-middle-time-icon
+                %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %p
+              #{project.time_limit}
+          .media-middle-money
+            %i
+              %svg.media-middle-money-icon
+                %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %p
+              = number_with_delimiter("#{project.total_sales}")
+              円
+        .media-low
+          .media-low-bar-gray
+            .media-low-bar-green{:style => "width:#{project.bar};"}
+          .media-low-bar-num #{project.bar}%
