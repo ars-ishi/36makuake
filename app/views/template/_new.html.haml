@@ -4,7 +4,6 @@
       %article
         .image
           .image-overlay.image-overlay--new
-            - new.project_images.first(1).each do |image|
-              %img.image-thumbnail-m{:alt => "#{new.name}", :src => "#{image.image}"}/
+            %img.image-thumbnail-m{:alt => "#{new.name}", :src => "#{new.thumbnail}"}/
         %h4.new_title.title #{new.name}
 
