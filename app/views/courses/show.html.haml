@@ -91,8 +91,6 @@
         %form#support_form{:action => "/users/#{current_user.id}/orders/new", :method => "GET"}
           %input{:name => "project_id", :type => "hidden", :value => @course.project_id }/
           %input{:name => "course_id", :type => "hidden", :value => @course.id }/
-          %input{:name => "product_id", :type => "hidden", :value => ""}/
-          %input{:name => "add_money", :type => "hidden", :value => "0"}/
           %section.box
             .boxA
               %h2.ttl 選択中のコース
