@@ -147,6 +147,18 @@
               %a.btnD{:href => "/investment/ship/1566563/441123/"} 編集
   = form_for [@user, @order] do |f|
     .grayBase
+      = f.hidden_field :project_id, value: @order.project_id
+      = f.hidden_field :send_address, value: @address.id
+      = f.hidden_field :payment, value: "card"
+      = f.hidden_field :payment_price, value: @course.price
+      = f.fields_for :order_details do |detail|
+        = detail.hidden_field :course_id, value: @course.id
+        = detail.hidden_field :order_quantity, value: "1"
+        = detail.hidden_field :shipping_date, value: @shippingTime
+        = detail.hidden_field :unit_price, value: @course.price
+      = f.hidden_field :course_question_id, value: @answer.course_question_id
+      = f.hidden_field :answer, value: @answer.answer
+      = f.hidden_field :question, value: @answer.question
       #contentWrapper.clearfix
         %nav.navA
           %ul.clearfix
@@ -174,7 +186,7 @@
                 %a.btnA{:href => "#adrsChenge", :rel => "leanModal"} 変更する
               %dd
                 .boxOrder
-                = @address.first_name + " " +@address.last_name
+                = @fullName
                 %br>/
                 = @address.postal_code
                 %br>/
@@ -183,7 +195,7 @@
                 電話番号
                 = " " + @address.phone_number
         .clearfix
-          %script{"class" => "stripe-button", "data-amount" => "500", "data-description" => "お支払い情報", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-currency" => "jpy", "data-locale" => "ja", :src => "https://checkout.stripe.com/checkout.js", "data-label" => "カード情報を入力へ"}
+          %script{"class" => "stripe-button", "data-amount" => @course.price, "data-description" => "お支払い情報", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-currency" => "jpy", "data-locale" => "ja", :src => "https://checkout.stripe.com/checkout.js", "data-label" => "カード情報を入力へ"}
         .boxHosoku
           %div
             %em ご確認お願いします
