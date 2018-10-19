@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ============================================================
+ プロジェクト カード
+============================================================ */
+
+/* 枠 */
+.pj-box-ul{display: -webkit-flex;display: flex;-webkit-flex-wrap: wrap;flex-wrap: wrap;margin-bottom: 20px;}
+.pj-box-li{margin-bottom: 30px;}
+.pj-box-li:not(:nth-child(3n)){margin-right: 20px;}
+
+/* プロジェクト個別 */
+/* 上の段 */
+.media{background: white;width: 252px;border-radius: 4px;overflow: hidden;position: relative;height: 320px;}
+.media-up{color: #525252;display: block;position: relative;}
+.ttlNewIcon:before {content: "New!";position: absolute;width: 100%;height: 24px;background: rgba(255, 210, 1, 0.8);z-index: 1;top: 118px;text-align: center;line-height: 25px;color: white;font-weight: bold;letter-spacing: 1px;}
+.media-up:hover .media-up-thumb{opacity:.9;}
+.media-up-ttl {line-height: 1.8;font-size: 15px;padding: 11px 14px 0;}
+.media-up-thumb {display: block;border-radius: 2px 2px 0 0;width: 252px;height: 142px;}
+
+/* 中 */
+.media-middle{position: absolute;bottom: 42px;width: 100%;font-size: 15px;color: #525252;}
+.media-middle-time{display: -webkit-flex;display: flex;position: absolute;left: 14px;bottom: 0;}
+.media-middle-time-icon{width: 15px;height: 15px;fill: #b3b3b3;margin-right: 7px;}
+.media-middle-money{display: -webkit-flex;display: flex;position: absolute;right: 14px;bottom: 0;}
+.media-middle-money-icon{width: 15px;height: 15px;fill: #b3b3b3;margin-right: 8px;}
+
+/* 下 */
+.media-low{display: -webkit-flex;display: flex;-webkit-align-items: center;align-items: center;padding: 0 14px;-webkit-justify-content: space-between;justify-content: space-between;width: 100%;position: absolute;bottom: 16px;width: 100%;height: 13px;}
+.media-low-bar-gray{height: 5px;background: #e6e6e6;border-radius: 100px;overflow: hidden;-webkit-flex-grow: 1;flex-grow: 1;}
+.media-low-bar-green{height: 100%;background: #BBF117;border-radius: 0 6px 6px 0;}
+.media-low-bar-num{font-size: 13px;color: #7b7b7b;margin-left: 15px;}
+

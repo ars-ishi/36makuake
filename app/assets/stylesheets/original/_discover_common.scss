@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ============================================================
+   コンテンツ枠
+============================================================ */
+.grayBase {background: #f5f5f5;padding-bottom: 140px;}
+#contentWrapper{width: 1000px;margin: auto;}
+.layout-block {display: -webkit-flex;display: flex;padding-top: 60px;width: 1000px;margin: auto;}
+.project-block{width: 796px;}
+
+/* ============================================================
+ ナビゲーション
+============================================================ */
+.nav-block {width: 204px;position: relative;top: -2px;}
+.nav-block-dl{font-size: 14px;font-weight: bold;-webkit-font-smoothing: antialiased;margin-bottom: 34px;}
+.nav-block-dt{color: #424242;margin-bottom: 3px;line-height: 1.9;}
+.nav-block-dd{line-height: 1.9;}
+.nav-link{color: #888888;font-size: 13px;}
+.nav-link:hover{color: #4AB3DF; text-decoration: none;}
+
+/* 全てのタグ */
+.nav-block-tag{padding-left: 14px;position: relative;cursor: pointer;}
+.nav-block-tag:before{content: "";position: absolute;width: 2px;height: 16px;background: #bdbdbd;left: 5px;top: 1px;}
+.nav-block-tag{color: #424242;}
+.nav-block-tag:hover{color: #4AB3DF;text-decoration: none;}
+
+/* ============================================================
+ タイトル
+============================================================ */
+.ttl-block{display: -webkit-flex;display: flex;-webkit-justify-content: space-between;justify-content: space-between;margin-bottom: 38px;}
+.ttl-block-txt{display: -webkit-flex;display: flex;font-size: 26px;}
+.ttl-add-tag{border: none;outline: none;background: transparent;color: #4AB3DF;font-size: 18px;padding: 0;cursor: pointer;margin: 0 0 0 19px;position: relative;top: 1px;}
+.ttl-add-tag:hover{opacity: .7;}
+
