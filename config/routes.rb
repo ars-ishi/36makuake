@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root 'projects#index'
   resources :users do
     resources :orders, only: [:new, :create]
+    member do
+      get :invest
+      get :message
+      get :popup
+      get :leave
+    end
   end
 
   resources :projects, only: [:index, :new, :create, :show] do
