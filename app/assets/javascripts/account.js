@@ -46,6 +46,7 @@ $(function() {
   if (window.location.href.match(/\/users\/\d+\/edit_omniauth/)) {
     $(document).ready(function(){
       $('#omniauth_edit_email').val('');
+      $('#omniauth_edit_email_confirm').val('');
     });
   }
 });
