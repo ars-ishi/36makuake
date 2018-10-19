@@ -1,15 +1,40 @@
-%h2 ログイン
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email do
-      メールアドレス
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", required: 'required'
-  .field
-    = f.label :password do
-      パスワード
-    %br/
-    = f.password_field :password, autocomplete: "current-password", required: 'required', minlength: 6
-  .actions
-    = f.submit "ログイン"
-= render "devise/shared/links"
+= render 'shared/header'
+.grayBase
+  = devise_error_messages!
+  %section.login__outer.login__outer-padding
+    %p.modal03__title ログイン
+    = link_to new_user_registration_path, class: 'btnLogin03' do
+      新規会員登録はこちら
+      %svg.btnLogin03-icon
+        %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+    .modal03__block.modal03__block-bottom
+      -# SNSログイン
+      .modal03__leftblock
+        %p.modal03__block__title SNSでログイン
+        = link_to user_facebook_omniauth_authorize_path, class: 'registFacebook' do
+          %svg.registsns__icon
+            %use{"xlink:href" => "#icon-facebook", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          Facebook
+        = link_to user_twitter_omniauth_authorize_path, class: 'registTwitter' do
+          %svg.registsns__icon
+            %use{"xlink:href" => "#icon-twitter-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          Twitter
+      -# メールアドレス登録
+      .modal03__rightblock
+        %p.modal03__block__title Makuake IDでログイン
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .kurumi
+            = f.label :email, class: 'note' do
+              メールアドレス
+            = f.email_field :email, autofocus: true, autocomplete: "email", required: 'required', class: 'loginForm'
+          .kurumi
+            = f.label :password, class: 'note' do
+              パスワード
+              %p.notes ※半角英数字6文字以上
+            = f.password_field :password, autocomplete: "current-password", required: 'required', minlength: 6, class: 'loginForm'
+          .modal03__btn__block
+            = f.submit "ログイン", class: 'btnRegit03 btncol_03'
+            -# = link_to new_password_path(:user), class: 'modal03__forgetPass' do
+            -#   パスワードを忘れた方はこちら
+            -#   %svg.modal03__forgetPass-icon
+            -#     %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
