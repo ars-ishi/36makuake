@@ -2,22 +2,22 @@ class ProjectsController < ApplicationController
   def index
 
     projects = Project.all.includes(:project_images)
-    @slider = []
+    @sliders = []
     sliders = ProjectSlider.limit(5)
     sliders.each do |slider|
-      @slider << slider
+      @sliders << slider
     end
     @slider_project = []
-    @slider.each do |slider|
+    @sliders.each do |slider|
       @slider_project << projects.find(slider.project_id)
     end
 
-    @projects = Project.all.includes(:project_images)
-    @pickups =Project.limit(8).includes(:project_images)
+    @projects = Project.all
+    @pickups =Project.limit(8)
     @new = Project.limit(8).order("created_at DESC")
-    @reports = Report.limit(5).includes(project: :user,project: :project_images)
-    @comments = ProjectComment.limit(5).includes(project: :user,project: :project_images)
-    @courses = Course.limit(5).includes(project: :user,project: :project_images)
+    @reports = Report.limit(5).includes(project: :user)
+    @comments = ProjectComment.limit(5).includes(project: :users)
+    @courses = Course.limit(5)
 
   end
 
