@@ -373,6 +373,7 @@ font-size: 24px;
 text-align: center;
 line-height: 66px;
 left :0;
+transition: 0.5s;
 }
 
 .modal_logout {
@@ -466,4 +467,3 @@ left :0;
 .btncol_06:hover{background: #f76185;text-decoration: none;}
 /*非活性*/
 .btncol_07{background: #f7f7f7;color: #c7c7c7;border:1px solid #e3e3e3;}
-
