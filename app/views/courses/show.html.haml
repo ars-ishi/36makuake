@@ -95,71 +95,71 @@
           %section.box
             .boxA
               %h2.ttl 選択中のコース
-             .boxB.dTable
-               .dTableCell
-                 %img.imgA{:alt => @course.name, :height => "165", :src => @image, :width => "280"}/
-               .boxC.dTableCell
-                 %em.txtA
-                   = @course.price
-                   円コース
-                   %span.txtTax (税込)
-                 %p.txtB
-                   = @course.name
-                 %p.stock
-                   残り
-                   = @course.stock
-                   個
-                 .boxE
-                   .boxShien
-                     %svg.icon_shien
-                       %use{"xlink:href" => "#icon-user-03", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                       / 次の支援者数は決済システム実装後にインスタンス変数で表示できるようにする。
-                     %p.descriptionDelivery 【ここに支援者数】
-                   .boxDelivery
-                     %svg.icon_delivery
-                       %use{"xlink:href" => "#icon-case", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                     %p.descriptionShien
-                       = @course.due_date
-                 %p.txtC.js-return-desc
-                   %span.hide
-                     = @course.content
-                   %span.omit
-                     = @course.content
-                   / ここまでコース詳細欄
-                   / コースの質問のレンダー
-           - if @questions
-             = render partial: 'courseTemplate/question', collection: @questions
-           .clearfix
-             %input.nextBtn{:type => "submit", :value => "次へ"}/
-         .boxHosoku
-           %div
-             %em ご確認お願いします
-             %p
-               このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の
-               までに支払いを完了した時点で、支援が成立します。
-               %br/
-               ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
-         %input#redirect_url{:name => "redirect_url", :type => "hidden", :value => "/investment/skip/"}/
-     %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/common.js", :type => "text/javascript"}
-     :javascript
-       function get_questions() {
-           var ret = [];
-           i = 0;
-           return ret;
-       }
-     %p#page-top_jq{:style => "display: none;"}
-       %a{:href => "#wrap"} PAGE TOP
-     %footer.footer{"data-gtm-vis-first-on-screen-657891_163" => "151789", "data-gtm-vis-has-fired-657891_163" => "1", "data-gtm-vis-recent-on-screen-657891_163" => "151789", "data-gtm-vis-total-visible-time-657891_163" => "100"}
-       .footer-in
-         .footer-bottom
-           %div
-             .footer-bottom-copy
-               %small.footer-bottom-copy-txt Copyright © Makuake, Inc. All Rights Reserved.
-           %div
-             %ul.footer-bottom-link
-               %li
-                 %a.footer-bottom-link-text{:href => "/pages/company/"} 運営会社
-               %li
-                 %a.footer-bottom-link-text{:href => "/pages/term/"} 利用規約
-               %li
-                 %a.footer-bottom-link-text{:href => "/pages/privacy/"} プライバシーポリシー
+            .boxB.dTable
+              .dTableCell
+                %img.imgA{:alt => @course.name, :height => "165", :src => @image, :width => "280"}/
+              .boxC.dTableCell
+                %em.txtA
+                  = @course.price
+                  円コース
+                  %span.txtTax (税込)
+                %p.txtB
+                  = @course.name
+                %p.stock
+                  残り
+                  = @course.stock
+                  個
+                .boxE
+                  .boxShien
+                    %svg.icon_shien
+                      %use{"xlink:href" => "#icon-user-03", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                      / 次の支援者数は決済システム実装後にインスタンス変数で表示できるようにする。
+                    %p.descriptionDelivery 【ここに支援者数】
+                  .boxDelivery
+                    %svg.icon_delivery
+                      %use{"xlink:href" => "#icon-case", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                    %p.descriptionShien
+                      = @course.due_date
+                %p.txtC.js-return-desc
+                  %span.hide
+                    = @course.content
+                  %span.omit
+                    = @course.content
+                  / ここまでコース詳細欄
+                  / コースの質問のレンダー
+          - if @questions
+            = render partial: 'courseTemplate/question', collection: @questions
+          .clearfix
+            %input.nextBtn{:type => "submit", :value => "次へ"}/
+        .boxHosoku
+          %div
+            %em ご確認お願いします
+            %p
+              このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の
+              までに支払いを完了した時点で、支援が成立します。
+              %br/
+              ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
+        %input#redirect_url{:name => "redirect_url", :type => "hidden", :value => "/investment/skip/"}/
+    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/common.js", :type => "text/javascript"}
+    :javascript
+      function get_questions() {
+          var ret = [];
+          i = 0;
+          return ret;
+      }
+    %p#page-top_jq{:style => "display: none;"}
+      %a{:href => "#wrap"} PAGE TOP
+    %footer.footer{"data-gtm-vis-first-on-screen-657891_163" => "151789", "data-gtm-vis-has-fired-657891_163" => "1", "data-gtm-vis-recent-on-screen-657891_163" => "151789", "data-gtm-vis-total-visible-time-657891_163" => "100"}
+      .footer-in
+        .footer-bottom
+          %div
+            .footer-bottom-copy
+              %small.footer-bottom-copy-txt Copyright © Makuake, Inc. All Rights Reserved.
+          %div
+            %ul.footer-bottom-link
+              %li
+                %a.footer-bottom-link-text{:href => "/pages/company/"} 運営会社
+              %li
+                %a.footer-bottom-link-text{:href => "/pages/term/"} 利用規約
+              %li
+                %a.footer-bottom-link-text{:href => "/pages/privacy/"} プライバシーポリシー
