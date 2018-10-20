@@ -1,0 +1,22 @@
+%h1 メールアドレスとお名前の登録をお願いします。
+= form_for (current_user), url: {controler: "users", action: "update_omniauth" }, html: {id: 'omniauth_edit', class: 'omniauth_edit'} do |f|
+  .field
+    .field-label
+      = f.label :name do
+        ユーザー名
+    .field-input
+      = f.text_field :name, autofocus: true, required: 'required'
+  .field
+    .field-label
+      = f.label :email do
+        メールアドレス
+    .field-input
+      = f.email_field :email, autofocus: true, required: 'required', id: 'omniauth_edit_email', class: 'omniauth_edit_email'
+  .field
+    %label{for: 'agree_signup_modal' }
+      %input#agree_omniauth_edit{ autocomplete: 'off', name: 'agreement', required: 'required', type: 'checkbox', value: '' }
+      -# 利用規約は現状本物のサイトを開いていますが、余裕があればページ作ってwindow.openのパスを変更してください。
+      = link_to '利用規約', 'javascript:agreementWindow();'
+      %span に同意する
+  .actions
+    = f.submit "登録する", action: '', class: 'btn'

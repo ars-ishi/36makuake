@@ -54,6 +54,7 @@
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
       %ul.projects.articles
+
         = render "template/pickup"
     / New
     %section.ProjectNew.headline
@@ -66,13 +67,6 @@
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
       %ul.projects.articles
         = render "template/new"
-        = render "template/new"
-        = render "template/new"
-        = render "template/new"
-        = render "template/new"
-        = render "template/new"
-        = render "template/new"
-        = render "template/new"
     / 活動レポート
     %section.CommunicationsOwner.headline
       .Title
@@ -84,30 +78,18 @@
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
       %ul.communications.articles
         = render "template/report"
-        = render "template/report"
-        = render "template/report"
-        = render "template/report"
-        = render "template/report"
     / 応援コメント
     %section.CommunicationsSupporter.headline
       .Title
         %h3.subject 応援コメント
       %ul.communications.articles
         = render "template/comment"
-        = render "template/comment"
-        = render "template/comment"
-        = render "template/comment"
-        = render "template/comment"
     / 人気のコース
     %section.returns-section.headline
       .Title
         %h3.subject 人気のコース
       %ul.returns.articles
-        = render "template/hot"
-        = render "template/hot"
-        = render "template/hot"
-        = render "template/hot"
-        = render "template/hot"
+        = render "template/hot_course"
     / ストア
     %section.StorePickup.headline
       .Title
@@ -119,9 +101,6 @@
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
       %ul.projects.articles
         = render "template/store"
-        = render "template/store"
-        = render "template/store"
-        = render "template/store"
     / Makuakeブログ
     %section.BlogArticle.headline
       .Title
@@ -132,9 +111,6 @@
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
       %ul.articles.articles
-        = render "template/blog"
-        = render "template/blog"
-        = render "template/blog"
         = render "template/blog"
     / Makuakeコンテンツ
     %section.MakuakeContent.headline

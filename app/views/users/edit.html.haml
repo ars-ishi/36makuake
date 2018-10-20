@@ -337,3 +337,30 @@
   %a{:href => "#wrap"} page top
 / フッター
 = render 'shared/footer'
+-# ユーザー機能確認のためリンクおいてます。あとで編集してください。
+-# %h1 ユーザーのeditページです
+-# %p
+-#   %p#username
+-#   = current_user.name
+-#   %p edit
+-# = form_for(current_user) do |f|
+-#   .field
+-#     .field-label
+-#       = f.label :name do
+-#         ユーザー名
+-#     .field-input
+-#       = f.text_field :name, autofocus: true
+-#   .field
+-#     .field-label
+-#       = f.label :image do
+-#         プロフィール写真
+-#     .field-input
+-#       = f.text_field :image, autofocus: true
+-#   .field
+-#     .field-label
+-#       = f.label :email do
+-#         メールアドレス
+-#     .field-input
+-#       = f.email_field :email
+-#   .actions
+-#     = f.submit "Update", class: 'btn'

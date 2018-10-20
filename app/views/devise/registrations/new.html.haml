@@ -1,0 +1,63 @@
+= render 'shared/header'
+.grayBase
+  = devise_error_messages!
+  %section.login__outer.login__outer-padding
+    %p.modal03__title 新規登録
+    = link_to new_user_session_path, class: 'btnLogin03' do
+      ログインはこちら
+      %svg.btnLogin03-icon
+        %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+    %p.modal03__title-recomend ＼約1分で登録でき、Makuakeを楽しめます!／
+    .modal03__block.modal03__block-bottom
+      -# SNSログイン
+      .modal03__leftblock
+        %p.modal03__block__title SNSでログイン
+        = link_to user_facebook_omniauth_authorize_path, class: 'registFacebook' do
+          %svg.registsns__icon
+            %use{"xlink:href" => "#icon-facebook", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          Facebook
+        = link_to user_twitter_omniauth_authorize_path, class: 'registTwitter' do
+          %svg.registsns__icon
+            %use{"xlink:href" => "#icon-twitter-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          Twitter
+      -# メールアドレス登録
+      .modal03__rightblock
+        %p.modal03__block__title メールアドレスで新規登録
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .kurumi
+            = f.label :email, class: 'note' do
+              メールアドレス
+            = f.email_field :email, autofocus: true, autocomplete: 'email', required: 'required', class: 'loginForm'
+          .kurumi
+            = f.label :email_confirm, class: 'note note--textright' do
+              確認
+            = f.email_field :email, autofocus: true, autocomplete: 'email_confirm', required: 'required', class: 'loginForm', id: 'user_email_confirm', onInput: "mailValidates(this, 'user_email')"
+          .kurumi
+            = f.label :name, class: 'note' do
+              ユーザー名
+              %p.notes ※20文字以内
+            = f.text_field :name, autofocus: true, autocomplete: 'name', required: 'required', class: 'loginForm'
+          .kurumi
+            = f.label :password, class: 'note' do
+              パスワード
+              - if @minimum_password_length
+                %p.notes ※半角英数字#{@minimum_password_length}文字以上
+            = f.password_field :password, autocomplete: 'password', required: 'required', minlength: 6, class: 'loginForm'
+          .kurumi
+            = f.label :password_confirmation, class: 'note note--textright' do
+              確認
+            = f.password_field :password_confirmation, autocomplete: 'password_confirmation', required: 'required', minlength: 6, class: 'loginForm', onInput: "passValidates(this, 'user_password')"
+          .modal03__agreeBase
+            %label{for: 'agree', class: 'modal03__agreeBase-label' }
+              %input#agree.modal03__checkbox{ autocomplete: 'off', name: 'agreement', required: 'required', type: 'checkbox', value: '' }
+              -# 利用規約は現状本物のサイトを開いていますが、余裕があればページ作ってwindow.openのパスを変更してください。
+              .agree-check
+                .agree-check__link
+                  = link_to '利用規約', 'javascript:agreementWindow();'
+                  %span に同意する
+          .modal03__btn__block
+            = f.submit "新規登録", class: 'btnRegit03 btncol_03'
+            -# = link_to new_password_path(:user), class: 'modal03__forgetPass' do
+            -#   パスワードを忘れた方はこちら
+            -#   %svg.modal03__forgetPass-icon
+            -#     %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}

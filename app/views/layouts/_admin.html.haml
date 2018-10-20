@@ -1,0 +1,4 @@
+- if can? :admin, current_user
+  .admin_area
+    %span adminユーザーでログイン中です
+    = link_to '管理ページへ', '/admin/'

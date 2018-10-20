@@ -1,19 +1,8 @@
 %body
-  = render 'svg'
-
-  %noscript
-    %iframe{:height => "0", :src => "//www.googletagmanager.com/ns.html?id=GTM-TRFW8F", :style => "display:none;visibility:hidden", :width => "0"}
-  :javascript
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TRFW8F');
-
+  = render 'shared/svg'
   %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/notification.js"}
   %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/header.js"}
   %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/attention_header.js"}
-
   %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/project/tabNavigation.js", :type => "text/javascript"}
   :javascript
     $(document).ready(function(){
@@ -452,7 +441,7 @@
                   %use{"xlink:href" => "#icon-facebook-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %div
                 %p Facebookでシェア
-            %a.share-btn-twitter{:href => "http://twitter.com/share?url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgeoriem7%26utm_medium%3Dsns_share_tw&text=%E5%BF%99%E3%81%97%E3%81%84%E6%9C%9D%E3%81%AB%EF%BC%81%E9%80%9A%E5%8B%A4%E5%87%BA%E5%BC%B5%E3%81%A8%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%81%E5%A4%A7%E5%AE%B9%E9%87%8F%E8%BB%BD%E9%87%8F%E3%81%AE3WAY%E3%83%9C%E3%83%87%E3%82%A3%E3%83%90%E3%83%83%E3%82%B0Georiem&hashtags=Makuake&via=makuake_ca", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank"}
+            %a.share-btn-twitter{:href => "/", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank"}
               %div
                 %svg.share-icon-twitter
                   %use{"xlink:href" => "#icon-twitter-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}

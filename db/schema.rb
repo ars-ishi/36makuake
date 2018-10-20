@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181013045347) do
+ActiveRecord::Schema.define(version: 20181018071144) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "name", null: false
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20181013045347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_images_on_course_id"
+  end
+
+  create_table "course_question_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.bigint "course_question_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_question_id"], name: "index_course_question_answers_on_course_question_id"
   end
 
   create_table "course_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -167,6 +175,7 @@ ActiveRecord::Schema.define(version: 20181013045347) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bg_image"
     t.index ["project_id"], name: "index_project_sliders_on_project_id"
   end
 
@@ -186,11 +195,12 @@ ActiveRecord::Schema.define(version: 20181013045347) do
     t.text "summary"
     t.text "content", null: false
     t.integer "support_type", default: 1, null: false
-    t.time "deadline", null: false
+    t.datetime "deadline", null: false
     t.integer "target_sales", default: 1, null: false
     t.integer "total_sales", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "thumbnail"
     t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
@@ -297,7 +307,7 @@ ActiveRecord::Schema.define(version: 20181013045347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 1, null: false
-    t.string "name", default: "user_name", null: false
+    t.string "name"
     t.string "image"
     t.string "url"
     t.string "location"
@@ -312,11 +322,14 @@ ActiveRecord::Schema.define(version: 20181013045347) do
     t.boolean "news_isvalid", default: false
     t.boolean "report_isvalid", default: false
     t.boolean "tag_isvalid", default: false
+    t.string "uid", default: "", null: false
+    t.string "provider", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "course_images", "courses"
+  add_foreign_key "course_question_answers", "course_questions"
   add_foreign_key "course_questions", "courses"
   add_foreign_key "courses", "projects"
   add_foreign_key "direct_messages", "projects"

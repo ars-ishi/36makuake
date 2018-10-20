@@ -1,7 +1,9 @@
-%li.ProjectItem.ProjectItem--4column
-  %a.link.link--without-detail{:href => "https://www.makuake.com/project/higame/"}
-    %article
-      .image
-        .image-overlay.image-overlay--new
-          %img.image-thumbnail-m{:alt => "片手で運べる、究極の万能ミニPC！ゲームもクリエイティブも大活躍「HiGame」", :src => "https://hayabusa.io/makuake/upload/project/5134/main_5134.jpg?fit=scale&format=jpg&ttl=31536000&version=1539313271&force&width=464&height=260&quality=95"}/
-      %h4.new_title.title 片手で運べる、究極の万能ミニPC！ゲームもクリエイティブも大活躍「HiGame」
+- @new.each do |new|
+  %li.ProjectItem.ProjectItem--4column
+    %a.link.link--without-detail{:href => "https://www.makuake.com/project/higame/"}
+      %article
+        .image
+          .image-overlay.image-overlay--new
+            %img.image-thumbnail-m{:alt => "#{new.name}", :src => "#{new.thumbnail}"}/
+        %h4.new_title.title #{new.name}
+

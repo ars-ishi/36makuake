@@ -50,8 +50,9 @@
           支援・寄附・購入
         %dd
           %a{:href => "/users/#{current_user.id}/invest"} 支援・寄附したプロジェクト
-        -# %dd
-        -#   %a{:href => "/my/project/consumed/"} 購入履歴(ストア)
+        %dd
+          -# %a{:href => "/my/project/consumed/"} 購入履歴(ストア)
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
         %dd
           %a{:href => "/users/#{current_user.id}/message"} メッセージ
           %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
@@ -441,3 +442,24 @@
   %a{:href => "#wrap"} page top
 / フッター
 = render 'shared/footer'
+-# ユーザー機能確認のためリンクおいてます。あとで編集してください。
+-# %h1 ユーザーのshowページです
+-# - if user_signed_in?
+-#   %p
+-#     = link_to 'ログアウト', destroy_user_session_path, method: :delete
+-#   %p
+-#     = link_to 'プロフィール編集', edit_user_path(current_user.id)
+-# %p
+-#   = @user.name
+-# %p
+-#   = @user.email
+
+-# - if can? :promoter, current_user
+-#   %p プロモーター用view
+  -# プロモーターだけに表示したい内容は、"if can? :promoter, current_user"内に入れてください。一般ユーザーには表示されません。ただしadminユーザーには見れます。
+
+-# - if can? :supporter, current_user
+-#   %p 一般ユーザー用view
+-#   %p
+-#     = link_to 'プロジェクト掲載の相談をする', root_path
+  -# 一般ユーザーだけに表示したい内容は、"if can? :supporter, current_user"内に入れてください。プロモーターには表示されません。ただしadminユーザーには見れます。

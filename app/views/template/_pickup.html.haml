@@ -1,149 +1,27 @@
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      / text
-      %h4.title
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          / time
-          %p 00日
-        .money
-          / money
-          %p 000,000円
-      .bar
-        .bar-background
+- @pickups.each do |project|
+  %li.ProjectItem.ProjectItem--4column
+    %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
+      %article.pickup
+        .image
+          .image-overlay
+            %img.image-thumbnail-m{:alt => "#{project.name}", :src => "#{project.thumbnail}"}/
+        / text
+        %h4.title #{project.name}
+        .attribute
+          .time
+            %svg.icon
+              %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            / time
+            %p
+            #{project.time_limit}
+          .money
+            / money
+            %p
+              = number_with_delimiter("#{project.total_sales}")
+              円
+        .bar
+          .bar-background
+            / bar
+            .bar-foreground{:style => "width: #{project.bar}%;"}
           / bar
-          .bar-foreground{:style => "width: 75%;"}
-        / bar
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
-%li.ProjectItem.ProjectItem--4column
-  %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
-    %article.pickup
-      .image
-        .image-overlay
-          %img.image-thumbnail-m{:alt => "デニムだけどデニムじゃない新素材。ジーニストの為の魅惑のインディゴブルー財布", :src => "https://hayabusa.io/makuake/upload/project/4951/main_4951.png?fit=scale&format=png&ttl=31536000&version=1536714012&force&width=464&height=260&quality=95"}/
-      %h4.title test
-      .attribute
-        .time
-          %svg.icon
-            %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          %p 00日
-        .money
-          %p 000,000円
-      .bar
-        .bar-background
-          .bar-foreground{:style => "width: 75%;"}
-        .bar-percent 75%
+          .bar-percent #{project.bar}%

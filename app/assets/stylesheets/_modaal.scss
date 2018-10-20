@@ -1,0 +1,14 @@
+$modaal-close-hover-color: #afb7bc;
+
+.modaal-container {
+	border-radius: 5px;
+}
+
+.modaal-close {
+	&:hover {
+		outline: none;
+		background: rgba(#fff, 0);
+		&:before,
+		&:after { background: $modaal-close-hover-color; }
+	}
+}
