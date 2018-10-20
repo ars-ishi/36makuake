@@ -1,0 +1,785 @@
+@charset "UTF-8";
+
+/* ============================================================
+   contentWrapper
+============================================================ */
+
+#contentWrapper {
+  width: 1000px;
+}
+
+/* ============================================================
+   コンテンツの右メイン
+============================================================ */
+
+#rightContentMain {
+  float: left;
+  width: 745px;
+  margin-left: 35px;
+  margin-top: 23px;
+}
+
+#projectDetails {
+  width: 745px;
+}
+
+/* ============================================================
+   コンテンツの右メイン
+============================================================ */
+
+#rightContentMain {
+  float: left;
+  width: 745px;
+  margin-left: 35px;
+}
+
+#projectDetails, #projectDetails02 {
+  width: 745px;
+}
+
+.ttlDetails {
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 15px;
+  position: relative;
+  color: #333333;
+}
+
+/* ============================================================
+   プロジェクト詳細コンテンツ
+============================================================ */
+
+.DeteilIn {
+  width: 745px;
+  background: #dbdbdb;
+  height: auto;
+  padding-bottom: 1px;
+  margin-bottom: 30px;
+  .moneyArea:last-of-type {
+    margin-bottom: 0px;
+  }
+}
+
+.ttlSuccess:after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/ttl_succes.png") no-repeat 0px 0px;
+  width: 161px;
+  height: 137px;
+  z-index: 999;
+}
+
+.projectBox {
+  width: 745px;
+  height: 175px;
+  border: 1px solid #DBDBDB;
+  position: relative;
+  margin-right: 35px;
+  margin-bottom: -1px;
+  background: white;
+  z-index: 1;
+  &:nth-of-type(3n) {
+    margin-right: 0px;
+  }
+}
+
+.projectLinkMypage {
+  display: inline-block;
+  color: #333333;
+  &:hover {
+    opacity: 0.8;
+  }
+  img {
+    position: relative;
+    display: block;
+    width: 308px;
+    height: 173px;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.projectFooter {}
+
+.projectLinkMypage h2 {
+  font-size: 14px;
+  line-height: 1.3;
+  overflow: hidden;
+  margin-bottom: 8px;
+  position: absolute;
+  left: 324px;
+  background: white;
+  top: 4px;
+  overflow: hidden;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.projectAside {
+  width: 403px;
+  position: absolute;
+  height: 42px;
+  line-height: 46px;
+  overflow: hidden;
+  border-bottom: 1px solid #ededed;
+  left: 324px;
+  top: 44px;
+  a {
+    font-size: 12px;
+    font-size: 1.2rem;
+  }
+}
+
+.projectThumb {
+  position: absolute;
+  display: block;
+  height: 37px;
+}
+
+.projectThumbimg {}
+
+.projectThumb span {
+  position: relative;
+  left: 8px;
+  top: -22px;
+}
+
+.projectTag {
+  position: absolute;
+  display: block;
+  top: 19px;
+  text-align: left;
+  left: 65px;
+  line-height: 17px;
+  color: gray;
+  &:before {
+    content: "";
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_tag_24.gif") no-repeat 0px 0px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: -3px;
+    left: -23px;
+  }
+}
+
+.projectMoney {
+  width: 403px;
+  line-height: 36px;
+  height: 39px;
+  position: absolute;
+  top: 84px;
+  left: 321px;
+  dl {
+    font-size: 12px;
+    font-size: 1.2rem;
+    position: relative;
+  }
+  dt {
+    position: absolute;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_money_24.gif") no-repeat 0px 5px;
+    text-indent: 26px;
+    margin-right: 20px;
+    color: gray;
+    letter-spacing: 0.1em;
+  }
+  dd {
+    position: absolute;
+    right: 0px;
+    font-size: 19px;
+    font-size: 1.9rem;
+  }
+}
+
+.projectGage {
+  width: 403px;
+  height: 28px;
+  line-height: 28px;
+  background: #d3d3d3;
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 16px;
+  top: 117px;
+}
+
+.projectGageIn {
+  height: 28px;
+  line-height: 28px;
+  background: #bbf117;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  p {
+    position: absolute;
+    left: 15px;
+    font-size: 16px;
+    font-size: 1.6rem;
+    top: 0px;
+    width: 85px;
+  }
+}
+
+/*10月25日にイエローバーからグリーンに戻しました*/
+
+.projectGage02 {
+  width: 403px;
+  height: 28px;
+  line-height: 28px;
+  background: #bbf117;
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 16px;
+  top: 117px;
+}
+
+.projectBottom {
+  width: 403px;
+  height: 47px;
+  line-height: 47px;
+  overflow: hidden;
+  margin: auto;
+  position: absolute;
+  right: 16px;
+  bottom: -10px;
+}
+
+.projectSupporter {
+  position: absolute;
+  left: 0;
+  dl {
+    position: relative;
+    width: 207px;
+    height: 47px;
+    line-height: 47px;
+  }
+  dt {
+    position: absolute;
+    font-size: 12px;
+    font-size: 1.2rem;
+    width: 90px;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_supporter_24.gif") no-repeat 0px 11px;
+    text-indent: 28px;
+    margin-right: 20px;
+    color: gray;
+  }
+  dd {
+    position: absolute;
+    right: 0;
+    font-size: 19px;
+    font-size: 1.9rem;
+    width: 110px;
+  }
+}
+
+.projectTime {
+  position: absolute;
+  right: 0;
+  dl {
+    position: relative;
+    width: 115px;
+    height: 47px;
+    line-height: 47px;
+  }
+  dt {
+    position: absolute;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-indent: 9px;
+    text-indent: 25px;
+    margin-right: 20px;
+    color: gray;
+  }
+  dd {
+    position: absolute;
+    right: 0;
+    font-size: 19px;
+    font-size: 1.9rem;
+  }
+}
+
+.iconTime {
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_time_24.gif") no-repeat 0px 11px;
+}
+
+.iconTimeLimit {
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_timelimit_24.gif") no-repeat 0px 11px;
+}
+
+.goodBtn_jq {
+  position: absolute;
+  top: 162px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 50;
+  &:hover {
+    top: 165px;
+  }
+}
+
+/* ============================================================
+   プロジェクト詳細コンテンツ(スポーツが増えた場合のみの対応)
+============================================================ */
+
+.notUnder {
+  .projectLink h2 {
+    line-height: 2;
+    top: 10px;
+  }
+  .projectAside {
+    border-bottom: none;
+    top: 123px;
+  }
+}
+
+/* ============================================================
+   支援したプロジェクト・購入した商品が０件の場合
+============================================================ */
+
+.no-content {
+  padding: 29px 32px 32px;
+  background: #f5f5f5;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.discover-btn {
+  margin-top: 16px;
+  display: inline-block;
+  width: 240px;
+  height: 44px;
+  line-height: 42px;
+  border-radius: 2px;
+}
+
+.ttlDetailsNo {
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ============================================================
+   プロジェクト活動レポート
+============================================================ */
+
+.reportArea {
+  width: 717px;
+  height: auto;
+  margin: 0 auto 22px auto;
+  background: white;
+  position: relative;
+  &:before {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img_arrow.png") no-repeat 0 0;
+    top: -17px;
+    content: "";
+    left: 20px;
+  }
+}
+
+.archiveBase {
+  width: 480px;
+  height: 275px;
+}
+
+.archivePhoto:hover {
+  opacity: 0.9;
+}
+
+.archiveBase article:last-of-type {
+  border: none;
+}
+
+.archive {
+  padding: 10px 10px 8px 10px;
+  dl {}
+  dt {
+    float: left;
+    width: 134px;
+  }
+  dd {
+    margin-left: 135px;
+    width: 562px;
+  }
+}
+
+.archivePlofileLink {
+  position: relative;
+  top: 0px;
+  display: inline-block;
+  width: 245px;
+}
+
+.archivePlofile {
+  height: 36px;
+  position: relative;
+  margin-bottom: 1px;
+  img {
+    float: left;
+    display: block;
+    margin-right: 7px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.archiveUser {
+  font-size: 13px;
+  font-size: 1.3rem;
+  position: relative;
+  top: 7px;
+}
+
+.archivePlofileLink img:hover {}
+
+.archiveDate {
+  font-size: 10px;
+  font-size: 1.0rem;
+  font-weight: bold;
+  text-align: right;
+  position: relative;
+  top: -26px;
+}
+
+.archiveText {
+  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  a {
+    color: rgb(78, 78, 78);
+    font-weight: bold;
+  }
+}
+
+.archiveMoreLink {
+  text-align: right;
+  font-size: 14px;
+  font-size: 1.4rem;
+  margin-top: 10px;
+  padding-right: 20px;
+}
+
+/* ============================================================
+   支援エリア
+============================================================ */
+
+.moneyArea {
+  width: 743px;
+  height: auto;
+  margin: 0 auto 1px auto;
+  background: white;
+  position: relative;
+}
+
+.moneyAreaIn {
+  padding: 20px;
+}
+
+.moneyAreaInTitle {
+  border-left: 5px solid #F7C600;
+  margin-bottom: 16px;
+  padding: 10px 12px 15px 12px;
+}
+
+.moneyArea--flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.moneyArea--flex--r {
+  margin-right: 30px;
+}
+
+.money-title--ttl {
+  font-size: 14px;
+  color: #6f6f6f;
+  margin-bottom: 6px;
+}
+
+.money-title--name {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.money-title--num {
+  font-size: 20px;
+}
+
+.money__statement {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+.money-title--num-mg {
+  margin-bottom: 0;
+}
+
+.return-desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #515151;
+}
+
+.buyTime {
+  border-left: 2px outset #e0e0e0;
+}
+
+.question {
+  line-height: 1.6;
+  border: 2px solid #f6f6f6;
+  padding: 9px 16px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.question-title {
+  font-weight: bold;
+}
+
+.question span {
+  display: block;
+}
+
+.ginfuriYet {
+  display: inline-block;
+  background: #f53a67;
+  font-size: 12px;
+  text-align: center;
+  text-indent: 0;
+  color: white;
+  line-height: 31px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  padding: 0 18px;
+}
+
+/* ============================================================
+  領収書
+============================================================ */
+
+.receipt {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  right: 30px;
+  background: #f7c600;
+  color: white;
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 15px 36px;
+  margin: 20px 8px 0 auto;
+  text-align: center;
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.receiptGray {
+  display: inline-block;
+  border: none;
+  outline: none;
+  right: 30px;
+  background: #c8c8c8;
+  color: white;
+  font-size: 14px;
+  padding: 15px 36px;
+  border-radius: 2px;
+  margin: 20px 8px 0 auto;
+  text-align: center;
+}
+
+/* ============================================================
+  住所変更ボタン
+============================================================ */
+
+.chageAd {
+  display: inline-block;
+  border: none;
+  outline: none;
+  right: 30px;
+  background: #f7c600;
+  color: white;
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 15px 29px;
+  margin: 15px 8px 0 auto;
+  text-align: center;
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+}
+
+.chageAd-gray {
+  display: inline-block;
+  border: none;
+  outline: none;
+  right: 30px;
+  background: #c8c8c8;
+  color: white;
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 15px 29px;
+  margin: 15px 8px 0 auto;
+  text-align: center;
+}
+
+/* ============================================================
+  ボタンが押せない時の注意事項
+============================================================ */
+
+.information-aboutbtn-box {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  .information-aboutbtn:not(:nth-last-of-type(1)) {
+    margin-bottom: 10px;
+  }
+}
+
+.information-aboutbtn {
+  display: table;
+}
+
+.information-aboutbtn-ttl {
+  color: #8c8c8c;
+  display: table-cell;
+  width: 157px;
+}
+
+.information-aboutbtn-txt {
+  display: table-cell;
+}
+
+/* ============================================================
+  注文ID  お届け予定 購入日
+============================================================ */
+
+.order-info {
+  background: #F6F6F6;
+  color: #5d5d5d;
+  font-size: 13px;
+  padding: 15px 0;
+  margin-bottom: 16px;
+  display: inline-block;
+  span {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ============================================================
+  リターン本文 もっと見る
+============================================================ */
+
+.hide {
+  display: none;
+}
+
+/* ============================================================
+  モーダルウインドウ
+============================================================ */
+
+.newReceiptBox {
+  width: 560px;
+  padding: 35px;
+  border-radius: 4px;
+  background: #f4f4f4;
+  display: block;
+  position: fixed;
+  opacity: 1;
+  z-index: 11000;
+  left: 50%;
+  margin-left: -280px;
+  top: 50px;
+}
+
+.modal_close_receipt {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url('https://cdn-m.makuake.com/rev_2018/10/17/141852/btn_form_close.png') no-repeat 0 0;
+  z-index: 2;
+  cursor: pointer;
+  z-index: 9999;
+  overflow: visible;
+}
+
+.oshirase {
+  font-size: 30px;
+  margin: 25px auto 30px auto;
+  color: rgb(75, 75, 75);
+  text-align: center;
+}
+
+.bunsho {
+  text-align: center;
+}
+
+.reciptText {
+  width: 260px;
+  height: 50px;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  background: white;
+  font-size: 15px;
+  color: #333333;
+  padding: 10px;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.btnOff {
+  display: block;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  right: 30px;
+  background: #21bde1;
+  color: white;
+  font-size: 16px;
+  border-radius: 2px;
+  line-height: 47px;
+  height: 47px;
+  width: 210px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+.overlayreceipt {
+  position: fixed;
+  z-index: 10000;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.6;
+  display: none;
+}
+
+.iconNowOnSale {
+  position: absolute;
+  right: 0;
+  width: 72px;
+  height: 22px;
+  font-size: 12px;
+  background-color: #fb2a79;
+  color: white;
+  border-radius: 2px;
+  line-height: 22px;
+  margin-top: 12px;
+  text-align: center;
+  font-weight: bold;
+}

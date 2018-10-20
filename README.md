@@ -29,8 +29,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|role|integer|default: 1, null: false, enum role: { admin: 0, supporter: 1, promoter: 2 }|
-|name|string|index: true|
+|role|integer|default: 1, null: false, enum role: { 0:'admin', 1:'supporter', 2:'promoter' }|
+|name|string|index: true, null: false|
 |image|string|
 |email|string|null: false, unique: true|
 |password|string|null: false|
@@ -40,7 +40,7 @@ Things you may want to cover:
 |birth_month|integer|
 |birth_day|integer|
 |birth_isvalid|boolean|default: false|
-|gender|integer|enum gender: { male: 1, female: 2 }|
+|gender|integer|enum gender: { 1:'男', 2:'女' }|
 |gender_isvalid|boolean|default: false|
 |introduction|text|
 |admission|boolean|default: true|
@@ -56,7 +56,7 @@ Things you may want to cover:
 - has_many :projects, through: :project_likes
 - has_many :direct_messages, dependent: :destroy
 - has_many :projects, through: :direct_messages
-- has_many :orders
+- has_many :orders, dependent: :destroy
 - has_many :report_likes, dependent: :destroy
 - has_many :report, through: :report_likes
 
@@ -132,11 +132,10 @@ Things you may want to cover:
 |name|string|null: false|
 |summary|text||
 |content|text|null: false|
-|support_type|integer|null: false, default: 1, enum support_type: { all_in: 1, all_or_nothing: 2 }|
-|deadline|datetime|null: false|
+|support_type|integer|null: false, default: 1, enum support_type: { 1:'all_in', 2:'all_or_nothing' }|
+|deadline|time|null: false|
 |target_sales|integer|default:1, null: false|
 |total_sales|integer|default:0, null: false|
-|thumbnail|string|
 
 ### association
 - belongs_to :user
@@ -153,8 +152,8 @@ Things you may want to cover:
 - has_many   :project_comment_responses, through: :project_comments
 - has_many   :project_likes, dependent: :destroy
 - has_many   :users, through: :project_likes
-- has_one    :project_pickup, dependent: :destroy, class_name: ProjectPickup
-- has_one    :project_slider, dependent: :destroy, class_name: ProjectSlider
+- belongs_to :project_pickup
+- belongs_to :project_slider
 
 
 ## courses table
@@ -167,7 +166,7 @@ Things you may want to cover:
 |price|integer|null: false|
 |due_date|string||
 |stock|integer|null: false|
-|sales_type|integer|default:1, enum sales_type: { open: 1, close: 2, store: 3 }|
+|sales_type|integer|default:1, enum sales_type: { 1:'受付中', 2:'終了', 3:'商品化' }|
 
 ### association
 - belongs_to :project
@@ -197,7 +196,6 @@ Things you may want to cover:
 
 ### association
 - belongs_to :course
-- has_many   :course_question_answers, dependent: :destroy
 
 
 ## orders table
@@ -422,7 +420,7 @@ Things you may want to cover:
 |project_id|references|foreign_key: true|
 
 ### association
-- belongs_to :project
+- has_many   :projects
 
 
 ## project_sliders table
@@ -430,10 +428,9 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |project_id|references|foreign_key: true|
-|bg_image|string|
 
 ### association
-- belongs_to :project
+- has_many   :projects
 
 
 ## informations table
@@ -442,14 +439,3 @@ Things you may want to cover:
 |------|----|-------|
 |title|string||
 |content|text||
-
-
-## course_question_answers table
-
-|Column|Type|Options|
-|------|----|-------|
-|course_question_id|references|foreign_key: true|
-|content|text||
-
-### association
-- belongs_to :course_question

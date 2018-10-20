@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
 
   end
 
-
   def new
   end
 
@@ -29,5 +28,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
+  end
+
+
+  def search
+    @projects =  Project.all
   end
 end
