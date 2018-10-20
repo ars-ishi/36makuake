@@ -31,7 +31,7 @@ class Project < ApplicationRecord
       return "#{days} 日"
     elsif  hour > 0 && days == 0
       return "#{hour} 時間"
-    elsif minute > 0 && days == 0
+    elsif minute > 0 && days == 0 && hour == 0
       return "#{minute-1} 分"
     else
       return "終了"
