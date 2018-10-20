@@ -146,7 +146,7 @@ iframe[name="google_conversion_frame"]{display: none;}
 
 /* マイページへの導線ツールチップ マイページ プロジェクト管理 支援したプロジェクト 購入履歴ストア ヘルプ　ログアウト */
 #myMenuBox{display: none;width: 1000px;margin: auto;position: relative;font-size: 14px;}
-#myMenuBox .headerMyIconClick{height: auto;border: 1px solid #e4e4e4;box-shadow: rgba(12, 3, 7, 0.14902) 0px 0px 13px 0px;position: absolute;right: -15px;top:66px;z-index: 20;background-color: #ffffff;border-radius: 2px;width: 260px;}
+#myMenuBox .headerMyIconClick{height: auto;border: 1px solid #e4e4e4;box-shadow: rgba(12, 3, 7, 0.14902) 0px 0px 13px 0px;position: absolute;right: -15px;top:33px;z-index: 20;background-color: #ffffff;border-radius: 2px;width: 260px;}
 #myMenuBox .headerMyIconClick:before{content: "";width: 20px;border-color: #e4e4e4 transparent transparent;border-right: 5px solid transparent;border-style: solid;border-width: 12px;transform: rotateX(180deg);-webkit-transform: rotateX(180deg);position: absolute;right: 18px;top: -24px;-webkit-filter: drop-shadow(0px 4px 4px rgba(12, 3, 7, 0.14902));}
 #myMenuBox .headerMyIconClick:after{content: "";width: 10px;border-color: white transparent transparent;border-right: 5px solid transparent;border-style: solid;border-width: 12px;transform: rotateX(180deg);-webkit-transform: rotateX(180deg);position: absolute;right: 18px;top: -23px;}
 #myMenuBox .userImage02{width: 42px;height: 42px;margin-right: 14px;border-radius: 2px;}
@@ -170,10 +170,10 @@ iframe[name="google_conversion_frame"]{display: none;}
    ツールチップ
 ============================================================ */
 #toolTipsPjt{display: none;width: 1000px;margin: auto;position: relative;font-size: 14px;}
-.toolTipsPjtIn{width: 430px;height: auto;max-height: 403px;min-height: 45px;background:white;z-index: 1000;position: absolute;right: 35px;top:66px;border: 1px solid #e4e4e4;box-shadow: rgba(12, 3, 7, 0.14902) 0px 0px 13px 0px;color: #333333;border-bottom: 1px solid #e4e4e4;border-radius: 2px;overflow: hidden;}
-.toolTipsPjtIn .notNotice{display: none;text-align: center;padding: 20px 0;}
-#toolTipsPjt:before{content: "";width: 20px;border-color: #e4e4e4 transparent transparent;border-right: 5px solid transparent;border-style: solid;border-width: 12px;transform: rotateX(180deg);-webkit-transform: rotateX(180deg);position: absolute;right: 70px;top: -24px;-webkit-filter: drop-shadow(0px 2px 4px rgba(12, 3, 7, 0.14902));}
-#toolTipsPjt:after{content: "";width: 10px;border-color: white transparent transparent;border-right: 5px solid transparent;border-style: solid;border-width: 12px;transform: rotateX(180deg);-webkit-transform: rotateX(180deg);position: absolute;right: 70px;top: -23px;z-index: 1000;}
+.toolTipsPjtIn{width: 430px;height: auto;max-height: 403px;min-height: 45px;background:white;z-index: 100;position: absolute;right: 35px;top:33px;border: 1px solid #e4e4e4;box-shadow: rgba(12, 3, 7, 0.14902) 0px 0px 13px 0px;color: #333333;border-bottom: 1px solid #e4e4e4;border-radius: 2px;overflow: hidden;}
+.toolTipsPjtIn .notNotice{display: block;text-align: center;padding: 20px 0;}
+#toolTipsPjt:before{width: 20px;border-color: #e4e4e4 transparent transparent;border-right: 5px solid transparent;border-style: solid;border-width: 12px;transform: rotateX(180deg);-webkit-transform: rotateX(180deg);position: absolute;right: 70px;top: -24px;-webkit-filter: drop-shadow(0px 2px 4px rgba(12, 3, 7, 0.14902));}
+#toolTipsPjt:after{width: 10px;border-color: white transparent transparent;border-right: 5px solid transparent;border-style: solid;border-width: 12px;transform: rotateX(180deg);-webkit-transform: rotateX(180deg);position: absolute;right: 70px;top: -23px;z-index: 1000;}
  .toolTipsPjt02{
 width: 100%;
 height: 391px;
@@ -373,6 +373,7 @@ font-size: 24px;
 text-align: center;
 line-height: 66px;
 left :0;
+transition: 0.5s;
 }
 
 .modal_logout {
