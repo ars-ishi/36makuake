@@ -1,83 +1,83 @@
 !!!
-%html{:lang => "ja"}
+%html{lang: "ja"}
   %head
-    %meta{:charset => "UTF-8"}/
-    %meta{:content => "width=device-width", :name => "viewport"}/
-    %meta{:content => "E1E1FC54C2FA07FA57AEB0483B623C2E", :name => "msvalidate.01"}/
-    %meta{:content => "07d3c196d17034840db0ed61f2e170941e1f199cc5ad54534f02ed08ea020e1d4d6f683db2f7e2d7a1b9801ed6ba28c09f6693df3046f0eeeccba7dff39a5a62", :name => "fuel_csrf_token"}/
+    %meta{charset: "UTF-8"}/
+    %meta{content: "width=device-width", name: "viewport"}/
+    %meta{content: "E1E1FC54C2FA07FA57AEB0483B623C2E", name: "msvalidate.01"}/
+    %meta{content: "07d3c196d17034840db0ed61f2e170941e1f199cc5ad54534f02ed08ea020e1d4d6f683db2f7e2d7a1b9801ed6ba28c09f6693df3046f0eeeccba7dff39a5a62", name: "fuel_csrf_token"}/
     %title =@course.name
-    %link{:href => "https://www.makuake.com/investment/select/georiem7/41094/", :rel => "canonical"}/
-    %link{:href => "//cdn-m.makuake.com/rev_2018/10/12/143228/css/jquery-ui.min.css", :rel => "stylesheet"}/
-    %link{:href => "//cdn-m.makuake.com/rev_2018/10/12/143228/css/login_regist.css", :rel => "stylesheet"}/
+    %link{href: "https://www.makuake.com/investment/select/georiem7/41094/", rel: "canonical"}/
+    %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/jquery-ui.min.css", rel: "stylesheet"}/
+    %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/login_regist.css", rel: "stylesheet"}/
     <script src="//cdn-m.makuake.com/rev_2018/10/12/143228/js/html5.js"></script>
-    %script{:async => "", :src => "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
-    %script{:async => "", :src => "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
-    %script{:async => "", :src => "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
-    %script{:async => "", :src => "https://connect.facebook.net/en_US/fbevents.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/pc/dest/js/app.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/selectivizr-min.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/hogan-3.0.2.min.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/common.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/me/favorite.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/gtm_data_layer.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/userstatus.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.investment.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_regist.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exchecker-ja.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exvalidation.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_logout.js"}
+    %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
+    %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
+    %script{async: "", src: "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
+    %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/pc/dest/js/app.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/selectivizr-min.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/hogan-3.0.2.min.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/common.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/me/favorite.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/gtm_data_layer.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/userstatus.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.investment.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_regist.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exchecker-ja.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exvalidation.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_logout.js"}
   %body
     = render "shared/svg"
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/notification.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/header.js"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/attention_header.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/notification.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/header.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/attention_header.js"}
     #header
       %header#headerIn
-        %a#siteId.siteId{:href => "/"}
+        %a#siteId.siteId{href: "/"}
           %h1
             %svg.makuake-logo
               %title Makuake
               %use{"xlink:href" => "#makuakelogo_pc", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-      %link{:href => "//cdn-m.makuake.com/rev_2018/10/12/143228/css/header_mail_alert.css", :rel => "stylesheet"}/
-      %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/email_auth.js"}
+      %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/header_mail_alert.css", rel: "stylesheet"}/
+      %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/email_auth.js"}
       .alertMail_wrap
-        .alert_mail.alertMailCheck{:style => "display: none;"}
+        .alert_mail.alertMailCheck{style: "display: none;"}
           %span.alert_case01.Batsu01 ×
           %p
             リターンに関する連絡をとれるよう、メールアドレスをご確認ください。
             %span#header_sent_email_auth_adress>
             に確認メールを送信しました。
-          %a#header_email_auth_resend_mail.reSendBtn{:href => "#"} 確認メールを再送信
-          #header_email_auth_alert_loading.reSendBtn{:style => "display: none;"}
-            %img{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/img/common_loading.gif"}/
-          %a.alertMailCh{:href => "/my/settings/profile/email/"} 登録メールアドレスの変更
-          %a.alertMailEx{:href => "https://support.makuake.com/hc/ja/articles/115002461791", :target => "_blank"} 詳しい説明
-        .alert_mail.alertMailCheck.alertMailCheckBounce{:style => "display: none;"}
+          %a#header_email_auth_resend_mail.reSendBtn{href: "#"} 確認メールを再送信
+          #header_email_auth_alert_loading.reSendBtn{style: "display: none;"}
+            %img{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/img/common_loading.gif"}/
+          %a.alertMailCh{href: "/my/settings/profile/email/"} 登録メールアドレスの変更
+          %a.alertMailEx{href: "https://support.makuake.com/hc/ja/articles/115002461791", target: "_blank"} 詳しい説明
+        .alert_mail.alertMailCheck.alertMailCheckBounce{style: "display: none;"}
           %span.alert_case02.Batsu01 ×
           %p
             %span#header_current_email_adress> masujazzcat@gmail.com
             は何らかの原因でメールが弾かれたため、実行者からの重要な連絡を受け取ることができません。メールアドレスの変更をお願いします。
-          %a.reSendBtn{:href => "/my/settings/profile/email/"} 登録メールアドレスの変更
-          %a.alertMailDetail{:href => "https://support.makuake.com/hc/ja/articles/115002471132", :target => "_blank"} 詳しい説明
-        .alert_yellow.alertMailChange{:style => "display: none;"}
+          %a.reSendBtn{href: "/my/settings/profile/email/"} 登録メールアドレスの変更
+          %a.alertMailDetail{href: "https://support.makuake.com/hc/ja/articles/115002471132", target: "_blank"} 詳しい説明
+        .alert_yellow.alertMailChange{style: "display: none;"}
           %span.alert_case03.Batsu02.header_email_auth_alert_close_class ×
           .changeText
             確認用メールを
             %span#header_sent_email_adress>
             へ送信しました。
-        .alert_yellow.alertAuthenticated{:style => "display: none;"}
+        .alert_yellow.alertAuthenticated{style: "display: none;"}
           %span.success Success!
           %span.alert_case04.Batsu02.header_email_auth_alert_close_class ×
           .authenticatedText
             【ユーザーのメールアドレス】
             %span#header_current_email_adress>
             を認証しました。
-        .alert_yellow.alertFailed{:style => "display: none;"}
+        .alert_yellow.alertFailed{style: "display: none;"}
           %span.failed Failed
           %span.alert_case05.Batsu01.header_email_auth_alert_close_class ×
           .failedText メールアドレスの認証に失敗しました。ボタンの有効期限が切れています。
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/select.js", :type => "text/javascript"}
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/ellipses.js"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/select.js", type: "text/javascript"}
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/ellipses.js"}
     / main
     .grayBase
       #contentWrapper.clearfix
@@ -86,17 +86,17 @@
             %li.on 1.コースのオプション選択
             %li 2.申込み内容の確認
             %li 3.完了
-        %a.linkB{:href => "/project/georiem7/#returnTitleText"} 前のページへ戻る
+        %a.linkB{href: "/project/georiem7/#returnTitleText"} 前のページへ戻る
         / ここからコース詳細欄
-        %form#support_form{:action => "/users/#{current_user.id}/orders/new", :method => "GET"}
-          %input{:name => "project_id", :type => "hidden", :value => @course.project_id }/
-          %input{:name => "course_id", :type => "hidden", :value => @course.id }/
+        %form#support_form{action: "/users/#{current_user.id}/orders/new", method: "GET"}
+          %input{name: "project_id", type: "hidden", value: @course.project_id }/
+          %input{name: "course_id", type: "hidden", value: @course.id }/
           %section.box
             .boxA
               %h2.ttl 選択中のコース
             .boxB.dTable
               .dTableCell
-                %img.imgA{:alt => @course.name, :height => "165", :src => @image, :width => "280"}/
+                %img.imgA{alt: @course.name, height: "165", src: @image, width: "280"}/
               .boxC.dTableCell
                 %em.txtA
                   = @course.price
@@ -129,7 +129,7 @@
           - if @questions
             = render partial: 'courseTemplate/question', collection: @questions
           .clearfix
-            %input.nextBtn{:type => "submit", :value => "次へ"}/
+            %input.nextBtn{type: "submit", value: "次へ"}/
         .boxHosoku
           %div
             %em ご確認お願いします
@@ -138,8 +138,8 @@
               までに支払いを完了した時点で、支援が成立します。
               %br/
               ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
-        %input#redirect_url{:name => "redirect_url", :type => "hidden", :value => "/investment/skip/"}/
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/common.js", :type => "text/javascript"}
+        %input#redirect_url{name: "redirect_url", type: "hidden", value: "/investment/skip/"}/
+    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/common.js", type: "text/javascript"}
     :javascript
       function get_questions() {
           var ret = [];
@@ -147,8 +147,8 @@
 
           return ret;
       }
-    %p#page-top_jq{:style => "display: none;"}
-      %a{:href => "#wrap"} PAGE TOP
+    %p#page-top_jq{style: "display: none;"}
+      %a{href: "#wrap"} PAGE TOP
     %footer.footer{"data-gtm-vis-first-on-screen-657891_163" => "151789", "data-gtm-vis-has-fired-657891_163" => "1", "data-gtm-vis-recent-on-screen-657891_163" => "151789", "data-gtm-vis-total-visible-time-657891_163" => "100"}
       .footer-in
         .footer-bottom
@@ -158,8 +158,8 @@
           %div
             %ul.footer-bottom-link
               %li
-                %a.footer-bottom-link-text{:href => "/pages/company/"} 運営会社
+                %a.footer-bottom-link-text{href: "/pages/company/"} 運営会社
               %li
-                %a.footer-bottom-link-text{:href => "/pages/term/"} 利用規約
+                %a.footer-bottom-link-text{href: "/pages/term/"} 利用規約
               %li
-                %a.footer-bottom-link-text{:href => "/pages/privacy/"} プライバシーポリシー
+                %a.footer-bottom-link-text{href: "/pages/privacy/"} プライバシーポリシー
