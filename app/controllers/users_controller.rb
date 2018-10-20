@@ -8,13 +8,26 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
+  def invest
+  end
+
+  def message
+  end
+
+  def popup
+  end
+
+  def destroy
+  end
+
   def update_omniauth
-    @test = omniauth_params
-    @email = omniauth_params[:email]
-    @name = omniauth_params[:name]
-    user = current_user
-    unless user.update( name: omniauth_params[:name], email: omniauth_params[:email] )
-      redirect_to user_edit_omniauth_path(current_user), alert: 'メールアドレスがすでに使用されています。'
+    if current_user.update( name: omniauth_params[:name], email: omniauth_params[:email] )
+      redirect_to root_path, notice: 'ログインしました'
+    else
+      redirect_to user_edit_omniauth_path(current_user), alert: '使用できないメールアドレスです'
     end
   end
 
