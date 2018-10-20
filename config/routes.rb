@@ -18,4 +18,7 @@ Rails.application.routes.draw do
     resources :courses, only: [:new, :create, :show]
     collection{ get "search" }
   end
+
+  get 'pages/privacy' => 'pages#privacy'
+  get 'pages/term' => 'pages#term'
 end
