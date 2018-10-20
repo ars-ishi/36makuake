@@ -32,6 +32,6 @@ class ProjectsController < ApplicationController
 
 
   def search
-    @projects =  Project.all
+    @projects =  Project.page(params[:page]).per(15)
   end
 end
