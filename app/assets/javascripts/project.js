@@ -18,6 +18,10 @@ $(function() {
     $("#toolTipsPjt").css("display","none");
    }
   })
+  $("#wrapper").on("click",function(){
+    $("#toolTipsPjt").css("display","none");
+    $("#myMenuBox").css("display","none");
+  })
 
 
   //page-topボタン
