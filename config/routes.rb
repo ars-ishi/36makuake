@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   root 'projects#index'
   resources :users do
     resources :orders, only: [:new, :create]
+    member do
+      get :invest
+      get :message
+      get :popup
+      get :leave
+    end
     get 'edit_omniauth' => 'users#edit_omniauth'
     patch 'update_omniauth' => 'users#update_omniauth'
   end

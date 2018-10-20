@@ -8,6 +8,21 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
+  def invest
+  end
+
+  def message
+  end
+
+  def popup
+  end
+
+  def destroy
+  end
+
   def update_omniauth
     @test = omniauth_params
     @email = omniauth_params[:email]
