@@ -1,108 +1,43 @@
 #wrapperMypage
-  / profileArea
-  #profileArea
-    #profileInArea.clearfix
-      #profileLeft
-        .file_area
-          %form#upload_image{:action => "/my/upload/", :enctype => "multipart/form-data", :method => "post"}
-            %input#upload_1{:enctype => "multipart/form-data", :name => "file_data1", :type => "file"}/
-            %input.updateBtn{:style => "display:none", :type => "submit", :value => "更新"}/
-      #profileRight
-        #profileNameArea
-          .nameAndSns.clearfix
-            .nameAndSnsLeft
-              %span#yourName
-                おとなのビスコ
-            .nameAndSnsRight
-              %ul.alertIconsSns
-                %li
-                  %a.mailAlert{:href => "/my/message/"}
-                    %img{:alt => "", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/icon_mail_48.gif"}/
-        .newsListArea
-          .oneSection
-            .oneSection01
-              2018/05/28
-            .oneSection02
-              %a{:href => "/information/detail/92/"} 【重要】Makuakeガバメント開始に伴う利用規約変更のお知らせ
-          .oneSection
-            .oneSection01
-              2018/05/25
-            .oneSection02
-              %a{:href => "/information/detail/91/"}
-                【重要】6/2(土) 深夜システムメンテナンスのお知らせ
-          .oneSection
-            .oneSection01
-              2018/03/09
-            .oneSection02
-              %a{:href => "/information/detail/90/"}
-                【重要】3/17(土) 深夜システムメンテナンスのお知らせ
-        .archiveMoreLink
-          %a.iconArrow24{:href => "/information/"}
-            お知らせ一覧を見る
-  / ./profileArea
   / contentWrapper
-  #contentWrapperMypage.clearfix
-    / sideNavi
-    #sideNavi
-      %dl.sideNaviOne
-        %dt.sideNaviTitle.sideIconSupt
-          支援・寄附・購入
-        %dd
-          %a{:href => "/users/#{current_user.id}/invest"} 支援・寄附したプロジェクト
-        %dd
-          -# %a{:href => "/my/project/consumed/"} 購入履歴(ストア)
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-        %dd
-          %a{:href => "/users/#{current_user.id}/message"} メッセージ
-          %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
-      %dl.sideNaviOne
-        %dt.sideNaviTitle.sideIconAcnt
-          アカウント情報
-        %dd
-          %a{:href => "/users/#{current_user.id}/edit"} プロフィール編集
-        %dd
-          %a{:href => "/users/#{current_user.id}/popup"} メール通知設定
-    / ./sideNavi
+  #contentWrapper.clearfix
+    = render 'sidenavi'
     / rightContentMain
     #rightContentMain
-      / section01l
-      %section#projectDetails
-        %h2.ttlDetails
-          支援・寄附したプロジェクト
-          %a.iconArrow24_02{:href => "/users/#{current_user.id}/invest/"}
-            支援・寄附したプロジェクト一覧へ
+      / section01
+      %section#profileDetails
+        %h2.ttlDetails 支援・寄附したプロジェクト
         / DeteilIn
-        .DeteilIn{"data-gtm-vis-first-on-screen-657891_277" => "251", "data-gtm-vis-first-on-screen-657891_294" => "243", "data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1", "data-gtm-vis-recent-on-screen-657891_277" => "251", "data-gtm-vis-recent-on-screen-657891_294" => "243", "data-gtm-vis-total-visible-time-657891_277" => "100", "data-gtm-vis-total-visible-time-657891_294" => "100"}
+        .DeteilIn{"data-gtm-vis-first-on-screen-657891_277" => "243", "data-gtm-vis-first-on-screen-657891_294" => "252", "data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1", "data-gtm-vis-recent-on-screen-657891_277" => "242", "data-gtm-vis-recent-on-screen-657891_294" => "252", "data-gtm-vis-total-visible-time-657891_277" => "100", "data-gtm-vis-total-visible-time-657891_294" => "100"}
           / 01 in
           %section.projectBox.ttlSuccess
             %a.projectLinkMypage{:href => "/project/kravas360/"}
               %img{:alt => "", :height => "198", :src => "//hayabusa.io/makuake/upload/project/4997/main_4997.fit-scale.png?width=308&height=198&quality=95&version=1537322473&format=png&ttl=31536000&force", :width => "308"}/
-              %h2
-                スマホに簡単装着！1ショットだけでぐるっと全方位３６０度カメラ！KRAVAS
+              %h2 スマホに簡単装着！1ショットだけでぐるっと全方位３６０度カメラ！KRAVAS
             %aside.projectAside
               %a.projectThumb{:href => "/member/index/438874/"}
                 %img{:alt => "", :height => "36", :src => "//hayabusa.io/makuake/upload/user/regist2018/09/04/438874/main_438874.fit-scale.jpg?width=36&height=36&quality=95&version=1536972481&format=jpg&ttl=31536000&force", :width => "36"}/
                 %span KRAVAS
-              %a.projectTag{:href => "/discover/categories/product/"}
-                プロダクト
+              %a.projectTag{:href => "/discover/categories/product/"} プロダクト
             .projectFooter
               .projectMoney
                 %dl
                   %dt 集まっている金額
-                  %dd 3,047,220円
+                  %dd 2,168,046円
               .projectGage
                 .projectGageIn{:style => "width: 100%;"}
-                  %p 1015%
+                  %p 722%
               .projectBottom
                 .projectSupporter
                   %dl
                     %dt 支援者
-                    %dd 611人
+                    %dd 460人
                 .projectTime
                   %dl
                     %dt.iconTime 残り
-                    %dd 終了
-          / /01 in
+                    %dd
+                      3日
+          / ./01 in
           / 03 in
           .moneyArea
             / 03-01
@@ -118,8 +53,7 @@
                     %p.money-title--ttl 商品単価
                     %p.money-title--num
                       4,374円
-                      %span.money__statement
-                        (税込)
+                      %span.money__statement (税込)
                   %div
                     %p.money-title--ttl 数量
                     %p.money-title--num.money-title--num-mg 1個
@@ -137,7 +71,7 @@
                   %br/
                   ・送料無料
                 %span.omit
-                  ・MAKUAKE限定10%
+                  ・MAKUAKE限定10%OFF（標準価格：4860円）
                   %br/
                   ・KRAVAS 360&amp;deg;VIEW レンズ iPhoneX用 もしくは iPhone7.8用、iPhone 7/8 plus 用１個
                   %br/
@@ -145,15 +79,15 @@
               .question
                 %p.question-title リターンの質問と回答
                 %span
-                  質問1&amp;nbsp
-                  iPhoneの種類をお選びください
+                  質問1 iPhoneの種類をお選びください
                 %span
                   回答1 iPhone 7/8 plus 用
               .receipt{"data-investment_id" => "798564", "data-payment_type" => "1", "data-project_id" => "4997", "data-return_id" => "40186"}
                 領収書を発行
-              %a.chageAd{:href => "/my/address/40186/798564/"}
-                お届け先を変更
+              %a.chageAd{:href => "/my/address/40186/798564/"} お届け先を変更
             / 03-01
+          / ./03 in
+          / 03 in
           .moneyArea
             / 03-01
             %section.moneyAreaIn
@@ -202,7 +136,6 @@
               %a.chageAd{:href => "/my/address/40186/798614/"} お届け先を変更
             / 03-01
           / ./03 in
-        / ./DeteilIn
         / DeteilIn
         .DeteilIn{"data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1"}
           / 01 in
@@ -231,8 +164,9 @@
                 .projectTime
                   %dl
                     %dt.iconTime 残り
-                    %dd 終了
-          / /01 in
+                    %dd
+                      終了
+          / ./01 in
           / 03 in
           .moneyArea
             / 03-01
@@ -321,11 +255,10 @@
                   %dt.information-aboutbtn-ttl お届け先を変更できない
                   %dd.information-aboutbtn-txt
                     実行者がリターン配送準備を進めている為、住所変更ができません。
-                    %br/
+                    %br>/
                     実行者へ直接メッセージにてお問い合わせください。
             / 03-01
           / ./03 in
-        / ./DeteilIn
         / DeteilIn
         .DeteilIn{"data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1"}
           / 01 in
@@ -354,8 +287,9 @@
                 .projectTime
                   %dl
                     %dt.iconTime 残り
-                    %dd 終了
-          / /01 in
+                    %dd
+                      終了
+          / ./01 in
           / 03 in
           .moneyArea
             / 03-01
@@ -416,49 +350,42 @@
               .chageAd-gray お届け先を変更
               .information-aboutbtn-box
                 %dl.information-aboutbtn
-                  %dt.information-aboutbtn-ttl
-                    領収書発行ができない
+                  %dt.information-aboutbtn-ttl 領収書発行ができない
                   %dd.information-aboutbtn-txt
                     入金完了後に、領収書の発行が可能となります。
                 %dl.information-aboutbtn
-                  %dt.information-aboutbtn-ttl
-                    お届け先を変更できない
+                  %dt.information-aboutbtn-ttl お届け先を変更できない
                   %dd.information-aboutbtn-txt
                     実行者がリターン配送準備を進めている為、住所変更ができません。
-                    %br/
+                    %br>/
                     実行者へ直接メッセージにてお問い合わせください。
             / 03-01
           / ./03 in
         / ./DeteilIn
-        -# %h2.ttlDetails 購入履歴(ストア)
-        -# .no-content
-        -#   %p.ttlDetailsNo 購入した商品はありません。
-        -#   %a.discover-btn.btncol_03{:href => "/discover/store"} 商品を探す
-    / ./rightContentMain
-/ ./contentWrapper
+      / section01
+      / pagenation
+      / ./pagenation
+    / rightContentMain
+  / ./contentWrapper
+#modal_list
+#overlay_my_project_favorite.overlayreceipt{:style => "display:none;"}
+#receipt_modal.modal.newReceiptBox{:style => "display:none;"}
+  %div{:id => "reciptBase overlay"}
+    %i.modal_close_receipt
+    %form{:action => "/receipt", :method => "post", :target => "_blank"}
+      %p.oshirase 領収書の宛名を入力してください
+      .bunsho
+        %input.reciptText{:name => "name", :type => "text", :value => ""}>/
+        様
+      %input.project_id{:name => "project_id", :type => "hidden", :value => ""}/
+      %input.return_id{:name => "return_id", :type => "hidden", :value => ""}/
+      %input.payment_type{:name => "payment_type", :type => "hidden", :value => ""}/
+      %input.investment_id{:name => "investment_id", :type => "hidden", :value => ""}/
+      %button.btnOff.issue 領収書を発行する
+%script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/receipt.js"}
+%script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/my/ellipses.js"}
 / Pagetopボタン
-#page-top_jq{:style => "display:black"}
-  %a{:href => "#wrap"} page top
+%p#page-top_jq{:style => "display: none;"}
+  %a{:href => "#wrap"} PAGE TOP
 / フッター
 = render 'shared/footer'
--# ユーザー機能確認のためリンクおいてます。あとで編集してください。
--# %h1 ユーザーのshowページです
--# - if user_signed_in?
--#   %p
--#     = link_to 'ログアウト', destroy_user_session_path, method: :delete
--#   %p
--#     = link_to 'プロフィール編集', edit_user_path(current_user.id)
--# %p
--#   = @user.name
--# %p
--#   = @user.email
-
--# - if can? :promoter, current_user
--#   %p プロモーター用view
-  -# プロモーターだけに表示したい内容は、"if can? :promoter, current_user"内に入れてください。一般ユーザーには表示されません。ただしadminユーザーには見れます。
-
--# - if can? :supporter, current_user
--#   %p 一般ユーザー用view
--#   %p
--#     = link_to 'プロジェクト掲載の相談をする', root_path
-  -# 一般ユーザーだけに表示したい内容は、"if can? :supporter, current_user"内に入れてください。プロモーターには表示されません。ただしadminユーザーには見れます。

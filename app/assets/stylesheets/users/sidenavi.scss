@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+/* ============================================================
+   マイページ以外のサイドナビゲーション
+============================================================ */
+
+.newMypage {
+  height: 60px;
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/bn_new_owner.png") no-repeat 0px 0px;
+  position: relative;
+  display: block;
+  margin-bottom: 25px;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+#sideNavi {
+  float: left;
+  width: 220px;
+}
+
+#profile {
+  width: 220px;
+  height: 259px;
+  img {
+    display: inline-block;
+    /*border: solid 4px #dedede; */
+    position: relative;
+    left: 20px;
+    top: 20px;
+    width: 175px;
+    height: 175px;
+    border-radius: 2px;
+  }
+}
+
+#profile a {
+  position: relative;
+  top: 38px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.sideNaviOne {
+  width: 220px;
+  margin-bottom: 40px;
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    width: 220px;
+    height: 3px;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/br_02.gif") no-repeat 0px 0px;
+    top: 0px;
+  }
+  dt {
+    line-height: 43px;
+    border-bottom: 1px solid #ededed;
+    font-size: 14px;
+    font-size: 1.4rem;
+    text-indent: 40px;
+    padding-top: 3px;
+    font-weight: bold;
+  }
+}
+
+.sideIconSupt {
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_supporter_24_02.gif") no-repeat 8px 13px #f5f5f5;
+}
+
+.sideIconPJT {
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_project_24_03.gif") no-repeat 8px 12px #f5f5f5;
+}
+
+.sideIconAcnt {
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_mypage_24.gif") no-repeat 8px 12px #f5f5f5;
+}
+
+.sideNaviOne {
+  dd {
+    line-height: 40px;
+    border-bottom: 1px solid #ededed;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-indent: 9px;
+    padding: 5px 0 5px 0;
+  }
+  a {
+    color: #333;
+    display: block;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_arrow_24_02.gif") no-repeat 190px 9px;
+    border-radius: 2px;
+    /*-webkit-transition:all 0.2s ease;-moz-transition:all 0.2s ease;-o-transition:all 0.2s ease;-ms-transition:all 0.2s ease;*/
+  }
+  p {
+    color: #afafaf;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_arrow_24_03.gif") no-repeat 190px 9px;
+  }
+  a:hover {
+    color: white;
+    text-decoration: none;
+    background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_arrow_24_04.gif") no-repeat 190px 9px #21bde1;
+  }
+}
+
+#sideNavi .sideNaviHover {
+  color: white;
+  text-decoration: none;
+  background: url("https://cdn-m.makuake.com/rev_2018/10/17/141852/img/icon_arrow_24_04.gif") no-repeat 190px 9px #0aa3c7;
+}
+
+.newMessage {
+  color: #fff;
+  border: 1px solid #fb2a79;
+  border-radius: 3px;
+  background-color: #fb2a79;
+  margin-left: 15px;
+  padding: 5px;
+  font-size: 11px;
+}
+
+/* ============================================================
+  新規プロジェクト開始ボタン
+============================================================ */
+
+.pjOpen {
+  display: block;
+  width: 220px;
+  height: 60px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 60px;
+  text-align: center;
+}

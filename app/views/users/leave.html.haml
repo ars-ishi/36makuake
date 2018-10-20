@@ -1,0 +1,66 @@
+#wrapperMypage
+  / contentWrapper
+  #contentWrapper.clearfix
+    = render 'sidenavi'
+    / rightContentMain
+    #rightContentMain
+      %section.innerSection
+        %h3 退会について
+        %p
+          いつもMakuakeをご利用頂き、誠にありがとうございます。
+          %br>/
+          下記事項をご確認の上、退会手続きを行なって下さい。
+      %section.innerSection
+        %h3 退会によってアクセス出来なくなるページ
+        %p 退会後は下記のページにアクセスできなくなります。
+        %p マイページ
+        %p メールBOX
+        %p Thank you動画閲覧ページ
+      %section.innerSection
+        %h3 支援者・寄附者になっている場合
+        %p
+          退会を行なってもプロジェクト支援・寄附をキャンセルすることは出来ません。→
+          %a{:href => "/users/#{current_user.id}/invest"}> 支援・寄附しているプロジェクト
+          を確認する。
+        %p
+          また
+          %a{:href => "https://support.makuake.com/hc/ja/articles/115002426711", :target => "_blank"}> 達成後支援型プロジェクト
+          の場合に、プロジェクトが失敗した場合に、退会をしてしまうと支援金の返却が行われません。支援金の返金が完了後、退会をお願いします。応援コメントも削除されません。
+        %p 過去支援したプロジェクトで住所等をご登録頂いた場合は、プロジェクト実行者側に住所等が提示されます。
+      %section.innerSection
+        %h3 その他注意点
+        %p 退会前と同一のメールアドレスを利用することは出来ません。
+        %p マイページの情報は全て非表示になります。
+      %section.innerSection
+        %h3 Makuakeについて
+        %p
+          Makuakeに対する、その他質問やご意見がある方は
+          %a{:href => "/inquiries/add/"}> こちら
+          へ。
+      %section.innerSection
+        %h3 退会のアンケートにご協力ください
+        %form{:action => "/my/leave/", :method => "post"}
+          .postInner
+            %input{:name => "reason_1", :type => "checkbox", :value => "アカウントを作り直したいから"}>/
+            アカウントを作り直したいから
+          .postInner
+            %input{:name => "reason_2", :type => "checkbox", :value => "つまらないから"}>/
+            つまらないから
+          .postInner
+            %input{:name => "reason_3", :type => "checkbox", :value => "カスタマーサポートの対応が悪いから"}>/
+            カスタマーサポートの対応が悪いから
+          .postInner
+            %input{:name => "reason_4", :type => "checkbox", :value => "その他"}>/
+            その他
+          %p よろしければご意見、ご不満をお聞かせ下さい。
+          %textarea.postArea{:cols => "50", :name => "comments", :rows => "8"}
+          %br/
+          %input{:name => "fuel_csrf_token", :type => "hidden", :value => "33e37ae7559af23930a9b85b44955086c9e1913bade384a63b72b8e834ef47dd90f7a4481763a0dd6b5f5ae8d79aef380ecd9b2993a3e9a20d42ffcf85ecf3c7"}/
+          %input.leaveBtn{:type => "submit", :value => "退会手続きへ"}/
+  / ./rightContentMain
+/ ./contentWrapper
+/ Pagetopボタン
+%p#page-top_jq{:style => "display: none;"}
+  %a{:href => "#wrap"} PAGE TOP
+/ フッター
+= render 'shared/footer'
