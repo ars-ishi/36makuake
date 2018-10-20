@@ -6,7 +6,7 @@ $(function() {
 
 // 利用規約をポップアップで表示
 function agreementWindow() {
-  window.open("https://www.makuake.com/pages/term/",
+  window.open("/pages/term",
   "agreementWindow",
   "width = 800, height = 800");
 }
