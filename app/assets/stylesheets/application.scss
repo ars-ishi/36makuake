@@ -1,13 +1,17 @@
-@import "reset";
-@import "common";
-@import "supportindex";
-@import "supportcheck";
+@import "original/reset";
+@import "original/common";
+@import "original/discover_common";
+@import "original/discover_project";
+@import "original/supportindex";
+@import "original/supportcheck";
 @import "order";
 
 @import "project-common";
 @import "modaal";
+@import "account";
 
 @import "modules/index";
 @import "modules/slider";
 @import "modules/template";
 @import "modules/footer";
+@import "modules/header";

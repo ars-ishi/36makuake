@@ -10,9 +10,12 @@ class User < ApplicationRecord
   has_many :projects, through: :project_likes
   has_many :direct_messages, dependent: :destroy
   has_many :projects, through: :direct_messages
-  has_many :orders, dependent: :destroy
+  has_many :orders
   has_many :report_likes, dependent: :destroy
   has_many :report, through: :report_likes
+
+  enum role: { admin: 0, supporter: 1, promoter: 2 }
+  enum gender: { male: 1, female: 2 }
 
   def self.find_for_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)

@@ -1,5 +1,3 @@
 class ProjectSlider < ApplicationRecord
-  has_many   :projects
-
-
+  belongs_to :project
 end

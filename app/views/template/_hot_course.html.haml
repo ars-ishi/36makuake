@@ -2,6 +2,5 @@
   %li.return-li
     %a.return-link{:href => "https://www.makuake.com/project/sesame/"}
       %article
-        - course.project.project_images.each do |image|
-          %img.image-thumbnail-s{:alt => "#{course.name}", :src => "#{image.image}"}/
-          %h4.return-item-title #{course.name}
+        %img.image-thumbnail-s{:alt => "#{course.name}", :src => "#{course.project.thumbnail}"}/
+        %h4.return-item-title #{course.name}

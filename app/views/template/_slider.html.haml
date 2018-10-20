@@ -3,21 +3,20 @@
     / Additional required wrapper
     .swiper-wrapper
       / Slides
-      - @slider_project.each do |project|
-        .swiper-slide
-          %img.image-background{:alt => "#{project.name}", :src => "https://hayabusa.io/makuake/upload/hero/111/hero_bg_pc_111.png?format=png&ttl=31536000&version=1539307035&force&quality=95"}/
+      - @slider_project.each_with_index do |project, i|
+        .swiper-slide.slide_filter
+          %img.image-background{:alt => "#{project.name}", :src => "#{@sliders[i].bg_image}"}/
           .HeroItem
             .main--project
               %a.link--project{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
-                - project.project_images.each do |image|
-                  .img--project
-                    %img.image-thumbnail{:alt => "#{project.name}", :src => "#{image.image}"}/
-                  .title
-                    %p.title-inner--project{:style => "text-indent: 0;"} #{project.name}
+                .img--project
+                  %img.image-thumbnail{:alt => "#{project.name}", :src => "#{project.thumbnail}"}/
+                .title
+                  %p.title-inner--project{:style => "text-indent: 0;"} #{project.name}
             .attribute
               .time
                 %span.time-prefix 残り
-                %span.time-text #{project.deadline.strftime("%j")} 日
+                %span.time-text #{project.time_limit}
               .money
                 %span.money-prefix 集まっている金額
                 %span.money-text
@@ -25,7 +24,7 @@
                   円
               .bar
                 .bar-background
-                  .bar-foreground{:style => "width: #{project.bar};"}
+                  .bar-foreground{:style => "width: #{project.bar}%;"}
                 %span.bar-percent #{project.bar}%
             .view-button
               %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}

@@ -1,14 +1,13 @@
-%h1 プロジェクトのindexページです
-- if user_signed_in?
-  %p
-    = link_to 'ログアウト', destroy_user_session_path, method: :delete
-- else
-  %p
-    = link_to '新規登録', new_user_registration_path, method: :get
-  %p
-    = link_to 'ログイン', new_user_session_path, method: :get
+/ %h1 プロジェクトのindexページです
+/ - if user_signed_in?
+/   %p
+/     = link_to 'ログアウト', destroy_user_session_path, method: :delete
+/ - else
+/   %p
+/     = link_to '新規登録', new_user_registration_path, method: :get
+/   %p
+/     = link_to 'ログイン', new_user_session_path, method: :get
 / ヘッダー
-= render 'shared/header'
 #wapper
   / スライドショー
   = render "template/slider"
@@ -118,8 +117,3 @@
         = render "template/news"
         = render "template/news"
         = render "template/news"
-/ Pagetopボタン
-#page-top_jq{:style => "display:black"}
-  %a{:href => "#wrap"} page top
-/ フッター
-= render 'shared/footer'
