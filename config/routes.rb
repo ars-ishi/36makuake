@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :new, :create, :show] do
     resources :courses, only: [:new, :create, :show]
   end
+
+  get 'pages/privacy' => 'pages#privacy'
+  get 'pages/term' => 'pages#term'
 end
