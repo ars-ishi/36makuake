@@ -20,14 +20,21 @@ class Project < ApplicationRecord
     total_sales*100 / target_sales
   end
 
-
+  def new_project
+    days = Time.now.strftime("%j").to_i - created_at.strftime("%j").to_i
+  end
 
 
   def time_limit
+     years = deadline.strftime("%Y").to_i - Time.now.strftime("%Y").to_i
      days = deadline.strftime("%j").to_i - Time.now.strftime("%j").to_i
      hour = deadline.strftime("%H").to_i - Time.now.strftime("%H").to_i
      minute = deadline.strftime("%M").to_i - Time.now.strftime("%M").to_i
-    if days > 1
+    if years > 1
+      days = days + Time.now.strftime("%j").to_i
+      return "#{days} 日"
+    elsif
+      days > 1
       return "#{days} 日"
     elsif  hour > 0 && days == 0
       return "#{hour} 時間"
