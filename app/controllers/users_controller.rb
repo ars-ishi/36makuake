@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   before_action :move_to_email_registration, only: [:show]
 
+  def index
+    @users =  User.all
+    respond_to do |format|
+        format.html
+        format.json
+    end
+  end
+
   def show
     @user = current_user
   end
