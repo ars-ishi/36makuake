@@ -20,15 +20,15 @@
           %h5.footer-column-ttl プロジェクト
           %ul.footer-link-block
             %li.footer-link-block-list
-              = link_to "全てのプロジェクト", "/projects/search/", class:"footer-link-block-txt"
+              = link_to "全てのプロジェクト",discovers_path, class:"footer-link-block-txt"
             %li.footer-link-block-list
-              = link_to "New!", "https://www.makuake.com/discover/new", class:"footer-link-block-txt"
+              = link_to "New!",new_discover_path, class:"footer-link-block-txt"
             %li.footer-link-block-list
-              = link_to "もうすぐ終了", "https://www.makuake.com/discover/ending-soon", class:"footer-link-block-txt"
+              = link_to "もうすぐ終了",soon_discovers_path, class:"footer-link-block-txt"
             %li.footer-link-block-list
-              = link_to "支援金ランキング", "https://www.makuake.com/discover/most-funded", class:"footer-link-block-txt"
+              = link_to "支援金ランキング",ranking_discovers_path, class:"footer-link-block-txt"
             %li.footer-link-block-list
-              = link_to "今日のピックアップ", "https://www.makuake.com/discover/pickup", class:"footer-link-block-txt"
+              = link_to "ピックアップ", pickup_discovers_path, class:"footer-link-block-txt"
             %li.footer-link-block-list
               = link_to "ふるさと納税型", "https://www.makuake.com/discover/government", class:"footer-link-block-txt"
         %section

@@ -1,0 +1,65 @@
+%dl.nav-block-dl
+  %dt.nav-block-dt プロジェクト
+  %dd.nav-block-dd
+    = link_to "全てのプロジェクト",discovers_path, class:"nav-link"
+  %dd.nav-block-dd
+    = link_to "New!",new_discover_path, class:"nav-link"
+  %dd.nav-block-dd
+    = link_to "もうすぐ終了",soon_discovers_path, class:"nav-link"
+  %dd.nav-block-dd
+    = link_to "支援金ランキング",ranking_discovers_path, class:"nav-link"
+  %dd.nav-block-dd
+    = link_to "ピックアップ", pickup_discovers_path, class:"nav-link"
+  %dd.nav-block-dd
+    %a.nav-link{:href => "https://www.makuake.com/discover/government"} ふるさと納税型
+%dl.nav-block-dl
+  %dt.nav-block-dt ストア
+  %dd.nav-block-dd
+    %a.nav-link{:href => "https://www.makuake.com/discover/store"} 全てのストア
+%dl.nav-block-dl
+  %dt.nav-block-dt
+    人気のタグ
+    %a.nav-block-tag{:href => "/discover/tags"} 全てのタグ
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/203/"} # 便利グッズ
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/121/"} # レストラン
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/8/"} # ガジェット
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/13/"} # 映画
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/90/"} # プロダクト
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/66/"} # フード
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/180/"} # 会員制
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/158/"} # 日本酒
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/50/"} # ファッション
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/77/"} # 肉
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/81/"} # テクノロジー
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/184/"} # 日本製
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/52/"} # リュック
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/105/"} # 音楽
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/134/"} # アウトドア
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/109/"} # 子ども
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/115/"} # 文房具
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/3/"} # アニメ
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/183/"} # 伝統
+  %dd.nav-block-dd
+    %a.nav-link{:href => "/discover/tags/57/"} # 腕時計
+%dl.nav-block-dl
+  %dt.nav-block-dt カテゴリー
+  = render "shared/categories"

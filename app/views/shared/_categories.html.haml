@@ -1,0 +1,3 @@
+- @categories.each do |category|
+  %dd.nav-block-dd
+    = link_to "#{category.name}", discover_path("#{category.id}"), class:"nav-link"

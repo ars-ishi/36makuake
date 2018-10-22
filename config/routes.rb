@@ -19,6 +19,17 @@ Rails.application.routes.draw do
     collection{ get "search" }
   end
 
+  resources :discovers, only: [:index, :new, :show] do
+    collection do
+      get :soon
+      get :pickup
+      get :ranking
+    end
+    member do
+      get :categories
+    end
+  end
+
   get 'pages/privacy' => 'pages#privacy'
   get 'pages/term' => 'pages#term'
 end

@@ -6,7 +6,12 @@
         %svg.makuake-logo
           %title Makuake
           %use{"xlink:href" => "#makuakelogo_pc", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-    %form#search_form.findHeaderForm{:action => "/discover/projects/", :method => "get"}
+
+    / # = form_tag(search_projects_path, class: "findHeaderForm",:method => 'get') do
+    / #   = text_field_tag "search",nil, class: "findHeaderInput"
+    / #   = submit_tag '探す', class: "findFormHeaderSubmit"
+
+    %form#search_form.findHeaderForm{:action => "/projects/search/", :method => "get"}
       %input.findHeaderInput{:name => "keyword", :type => "text", :value => ""}/
       %button#start_search.findFormHeaderSubmit{:type => "submit"}
         .findFormHeaderSubmit-iconbox
@@ -17,6 +22,8 @@
             %svg.findFormHeaderSubmit-iconboxin--white
               %use{"xlink:href" => "#icon-search_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
         %span.findFormHeaderSubmit-txt 探す
+
+
     - if user_signed_in?
       / ログイン
       %nav#navigation02
