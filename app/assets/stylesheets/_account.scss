@@ -1,3 +1,7 @@
+.gray_base {
+  background: #f5f5f5;
+}
+
 .login__outer {
   width: 100%;
   max-width: 1000px;
@@ -42,6 +46,7 @@
     text-align: center;
     color: #333333;
     display: block;
+    width: 200px;
   }
   .btnLogin03-icon {
     width: 11px;
