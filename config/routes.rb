@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     collection{ get "search" }
   end
 
-  resources :discovers, only: [:index, :new, :show] do
+  resources :discovers, only: [:index, :new] do
     collection do
       get :soon
       get :pickup
