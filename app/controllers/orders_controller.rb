@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @fullName = Order.full_name(@address.last_name, @address.first_name)
     @course = Course.find_by(new_course_params.values)
     @shippingTime = Time.zone.now
+    render layout: false
   end
 
   def create
