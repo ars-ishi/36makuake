@@ -1,0 +1,153 @@
+= javascript_include_tag 'https://ajaxzip3.github.io/ajaxzip3.js', 'data-turbolinks-track': 'reload', charset: 'UTF-8'
+.gray_base
+  .content-apply
+    .content-apply__title プロジェクト掲載のお申し込み
+    .content-apply__main
+      .main__caption プロジェクト掲載に関する相談、質問などを以下相談内容の例文を元にご相談ください。（返信は3営業日程度を目安としております）
+      .main__apply-form
+        = form_for [@user, @promoter] do |f|
+          .apply-form__field
+            .field-checkbox
+              .checkbox-label
+                = f.radio_button :business_entity, '法人', required: 'required', id:'promoter_profile_business_entity_corporation'
+                = f.label :business_entity, 'corporation', value: 'corporation' do
+                  法人
+              .checkbox-label
+                = f.radio_button :business_entity, '個人', id:'promoter_profile_business_entity_individual'
+                = f.label :business_entity, 'individual', value: 'individual' do
+                  個人
+          .apply-form__field
+            = f.label :corporate_name do
+              .field-title
+                企業名
+                %span.required 必須
+            = f.text_field :corporate_name, required: 'required', class: 'field-input', placeholder: '例）株式会社Div'
+          .apply-form__field
+            = f.label :staff_name do
+              .field-title
+                担当者名
+                %span.required 必須
+            = f.text_field :staff_name, required: 'required', class: 'field-input', placeholder: '例）幕開太郎'
+          .apply-form__field
+            = f.label :position do
+              .field-title
+                役職名
+            = f.text_field :position, class: 'field-input', placeholder: '例）代表取締役社長'
+          .apply-form__field
+            = f.label :email do
+              .field-title
+                メールアドレス
+                %span.required 必須
+            = f.email_field :email, required: 'required', autocomplete: 'email', class: 'field-input', placeholder: '例）test@gmail.com'
+          .apply-form__field
+            = f.label :phone_number do
+              .field-title
+                ご連絡が繋がりやすい電話番号
+                %span.field-title-sub （半角数字・ハイフン無し）
+                %span.required 必須
+            = f.telephone_field :phone_number, required: 'required', class: 'field-input', placeholder: '例）09012345678', maxlength: 11
+          .apply-form__field
+            = f.label :postal_code do
+              .field-title
+                郵便番号
+                %span.field-title-sub （半角数字・ハイフン無し）
+                %span.required 必須
+            = f.text_field :postal_code, required: 'required', class: 'field-input', placeholder: '例）1501234', minlength: 7, onkeyup: "AjaxZip3.zip2addr(this,'','promoter_profile[location]','promoter_profile[location]')"
+          .apply-form__field
+            = f.label :location do
+              .field-title
+                所在地
+                %span.required 必須
+            = f.text_field :location, required: 'required', class: 'field-input', placeholder: '例）大阪府大阪市北区中崎西2-4-43'
+          .apply-form__field
+            = f.label :representative do
+              .field-title
+                企業の代表者名
+                %span.field-title-sub （個人の場合はご自身のお名前）
+                %span.required 必須
+            = f.text_field :representative, required: 'required', class: 'field-input', placeholder: '例）幕開二郎'
+          .apply-form__field
+            = f.label :website do
+              .field-title
+                企業ホームページ
+            = f.text_field :website, class: 'field-input', placeholder: '例）https://di-v.co.jp/'
+          .apply-form__field
+            = f.label :category do
+              .field-title
+                実施したいプロジェクトのカテゴリ
+                %span.required 必須
+            .field-select
+              = f.select :category, @categories.map{ |t| [t.name] }, { include_blank: '選択してください' }, required: true
+          .apply-form__field
+            .field-title
+              Makuake or クラウドファンディングを知ったきっかけ
+              %span.required 必須
+            .field-checkbox
+              .checkbox-label
+                = f.radio_button :questionnaire, 'Facebook広告/Twitter広告', required: 'required', id: 'promoter_profile_questionnaire_sns_ad'
+                = f.label :questionnaire, 'sns_ad', value: 'sns_ad' do
+                  Facebook広告/Twitter広告
+              .checkbox-label
+                = f.radio_button :questionnaire, 'SNSでの友人のシェア/リツイート', id: 'promoter_profile_questionnaire_sns_share'
+                = f.label :questionnaire, 'sns_share', value: 'sns_share' do
+                  SNSでの友人のシェア/リツイート
+              .checkbox-label
+                = f.radio_button :questionnaire, 'Webメディアの記事(ギズモード、週刊アスキー、ITmediaなど)', id: 'promoter_profile_questionnaire_web_media'
+                = f.label :questionnaire, 'web_media', value: 'web_media' do
+                  Webメディアの記事(ギズモード、週刊アスキー、ITmediaなど)
+              .checkbox-label
+                = f.radio_button :questionnaire, 'テレビ・ラジオ', id: 'promoter_profile_questionnaire_mass_media'
+                = f.label :questionnaire, 'mass_media', value: 'mass_media' do
+                  テレビ・ラジオ
+              .checkbox-label
+                = f.radio_button :questionnaire, '書籍', id: 'promoter_profile_questionnaire_book'
+                = f.label :questionnaire, 'book', value: 'book' do
+                  書籍
+              .checkbox-label
+                = f.radio_button :questionnaire, '雑誌', id: 'promoter_profile_questionnaire_magazine'
+                = f.label :questionnaire, 'magazine', value: 'magazine' do
+                  雑誌
+              .checkbox-label
+                = f.radio_button :questionnaire, '新聞', id: 'promoter_profile_questionnaire_newspaper'
+                = f.label :questionnaire, 'newspaper', value: 'newspaper' do
+                  新聞
+              .checkbox-label
+                = f.radio_button :questionnaire, '友達・知人', id: 'promoter_profile_questionnaire_friend'
+                = f.label :questionnaire, 'friend', value: 'friend' do
+                  友達・知人
+              .checkbox-label
+                = f.radio_button :questionnaire, 'その他', id: 'promoter_profile_questionnaire_other'
+                = f.label :questionnaire, 'other', value: 'other' do
+                  その他
+          .apply-form__field
+            .field-title
+              現在のプロジェクトの状況
+              %span.required 必須
+            .field-checkbox
+              .checkbox-label
+                = f.radio_button :progress, 'プロジェクト内容・リターンもイメージできていて、すぐにでもページ制作に取り掛かれる', required: 'required', id: 'promoter_profile_progress_almost_fixed'
+                = f.label :progress, 'almost_fixed', value: 'almost_fixed' do
+                  プロジェクト内容・リターンもイメージできていて、すぐにでもページ制作に取り掛かれる
+              .checkbox-label
+                = f.radio_button :progress, '詳細は決まっていないので、相談して決めたい', id: 'promoter_profile_progress_want_consult'
+                = f.label :progress, 'want_consult', value: 'want_consult' do
+                  詳細は決まっていないので、相談して決めたい
+              .checkbox-label
+                = f.radio_button :progress, '何から取り掛かっていいか、わからない', id: 'promoter_profile_progress_not_decided'
+                = f.label :progress, 'not_decided', value: 'not_decided' do
+                  何から取り掛かっていいか、わからない
+          .apply-form__field
+            = f.label :content do
+              .field-title
+                相談内容
+                %span.field-title-sub （最大1000文字）
+                %span.required 必須
+            = f.text_area :content, required: 'required', class: 'field-textarea', maxlength: 1000
+          .apply-form__field
+            %label{for: 'agree' }
+              %input#agree{ autocomplete: 'off', name: 'agree', required: 'required', type: 'checkbox', value: '' }
+              .field-agree
+                = link_to '利用規約', 'javascript:agreementWindow();'
+                %span を確認し、自己または自己の役員および従業員が利用規約で規定する暴力団等並びに反社会的勢力等に該当しないことを表明し、保証します。
+          .apply-form__field
+            = f.submit "確認して送信", class: 'field-btn'
