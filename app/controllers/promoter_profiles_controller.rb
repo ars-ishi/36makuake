@@ -10,6 +10,7 @@ class PromoterProfilesController < ApplicationController
   def create
     @promoter_profile = PromoterProfile.new(promoter_profile_params)
     if @promoter_profile.save
+      PromoterApplyMailer.send_when_create(current_user).deliver
       flash.now[:notice] = 'お申し込みを受け付けました。'
       render 'create'
     else
@@ -28,6 +29,7 @@ class PromoterProfilesController < ApplicationController
   def update
     @promoter_profile = PromoterProfile.find(params[:id])
     if @promoter_profile.update(promoter_profile_update_params)
+      PromoterApplyMailer.send_when_create(current_user).deliver
       flash.now[:notice] = 'お申し込みを受け付けました。'
       render 'create'
     else
