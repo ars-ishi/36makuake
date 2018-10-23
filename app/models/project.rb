@@ -21,7 +21,13 @@ class Project < ApplicationRecord
   end
 
   def new_project
+    year = Time.now.strftime("%Y").to_i - created_at.strftime("%Y").to_i
     days = Time.now.strftime("%j").to_i - created_at.strftime("%j").to_i
+    if year > 0
+      days = days + created_at.strftime("%j").to_i
+    else
+      return days
+    end
   end
 
 
@@ -30,7 +36,7 @@ class Project < ApplicationRecord
      days = deadline.strftime("%j").to_i - Time.now.strftime("%j").to_i
      hour = deadline.strftime("%H").to_i - Time.now.strftime("%H").to_i
      minute = deadline.strftime("%M").to_i - Time.now.strftime("%M").to_i
-    if years > 1
+    if years > 0
       days = days + Time.now.strftime("%j").to_i
       return "#{days} 日"
     elsif
