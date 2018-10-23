@@ -65,11 +65,7 @@ function mailFormatValidates(id) {
       dataType: 'json'
     })
     .done(function(user_emails) {
-      var emails = []
-      user_emails.forEach(function(user_info){
-        emails.push(user_info.email);
-      });
-      if ( emails.indexOf(emailVal) > 0 ) {
+      if ( user_emails.indexOf(emailVal) > 0 ) {
         email.setCustomValidity('使用できないメールアドレスです');
       }
       else {
