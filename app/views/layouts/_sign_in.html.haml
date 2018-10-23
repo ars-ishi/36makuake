@@ -1,7 +1,7 @@
 #sign_in.sign_in{ style: "display:none;"}
   %section.login__outer
     %p.modal03__title ログイン
-    = link_to new_user_registration_path, class: 'btnLogin03' do
+    = link_to '#sign_up', class: 'btnLogin03 sign_up close_sign_in' do
       新規登録はこちら
       %svg.btnLogin03-icon
         %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -24,12 +24,12 @@
           .kurumi
             = f.label :email, class: 'note' do
               メールアドレス
-            = f.email_field :email, id: 'user_email_signin_modal', required: 'required', class: 'loginForm'
+            = f.email_field :email, id: 'user_email_signin_modal', required: 'required', class: 'loginForm', autocomplete: 'email'
           .kurumi
             = f.label :password, class: 'note' do
               パスワード
               %p.notes ※半角英数字6文字以上
-            = f.password_field :password, id: 'user_password_signin_modal', required: 'required', minlength: 6, class: 'loginForm'
+            = f.password_field :password, id: 'user_password_signin_modal', autocomplete: 'current-password', required: 'required', minlength: 6, class: 'loginForm'
           .modal03__btn__block
             = f.submit 'ログイン', class: 'btnRegit03 btncol_03'
             -# = link_to new_password_path(:user), class: 'modal03__forgetPass' do
