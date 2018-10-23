@@ -1,6 +1,6 @@
 - @pickups.each do |project|
   %li.ProjectItem.ProjectItem--4column
-    %a.link.pickup{:href => "https://www.makuake.com/project/quadstar3/"}
+    = link_to project_path(project.id), class:"link pickup" do
       %article.pickup
         .image
           .image-overlay

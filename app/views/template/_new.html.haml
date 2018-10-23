@@ -1,6 +1,6 @@
 - @new.each do |new|
   %li.ProjectItem.ProjectItem--4column
-    %a.link.link--without-detail{:href => "https://www.makuake.com/project/higame/"}
+    = link_to project_path(new.id), class:"link link--without-detail" do
       %article
         .image
           .image-overlay.image-overlay--new
