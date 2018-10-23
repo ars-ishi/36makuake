@@ -90,3 +90,21 @@ function passFormatValidates(id) {
     pass.setCustomValidity('6文字以上で半角英数字をそれぞれ1種類以上含めてください');
   }
 };
+
+// プロモーター申請フォームのバリデーション
+$(document).on('turbolinks:load', function(){
+  function promoterFormValidates(id, format, alert) {
+    $(`#${ id }`).on('keyup', function() {
+      var input = document.getElementById(id);
+      var inputVal = input.value;
+      if (format.test(inputVal)) {
+        input.setCustomValidity('');
+      } else {
+        input.setCustomValidity(alert);
+      }
+    });
+  };
+  promoterFormValidates('promoter_profile_phone_number', /^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/, 'ハイフンなし10桁or11桁の電話番号を入力してください');
+  promoterFormValidates('promoter_profile_postal_code', /^\d{7}$/, 'ハイフンなし7桁の数字で入力してください');
+  promoterFormValidates('promoter_profile_email', /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/, 'メールアドレスの形式が正しくありません');
+});
