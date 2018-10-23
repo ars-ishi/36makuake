@@ -1,6 +1,6 @@
 - @courses.each do |course|
   %li.return-li
-    %a.return-link{:href => "https://www.makuake.com/project/sesame/"}
+    = link_to project_path(course.project_id), class:"return-link" do
       %article
         %img.image-thumbnail-s{:alt => "#{course.name}", :src => "#{course.project.thumbnail}"}/
         %h4.return-item-title #{course.name}

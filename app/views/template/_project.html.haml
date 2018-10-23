@@ -3,7 +3,7 @@
     .media
       %article
         - if project.new_project < 7
-          %a.media-up.ttlNewIcon{:href => "/project/mukawa/"}
+          = link_to project_path(project.id), class:"media-up ttlNewIcon" do
             %img.media-up-thumb{:alt => "#{project.name}", :height => "142", :src => "#{project.thumbnail}", :width => "252"}/
             %h3.media-up-ttl #{project.name}
           .media-middle
@@ -25,7 +25,7 @@
               .media-low-bar-green{:style => "width:#{project.bar};"}
             .media-low-bar-num #{project.bar}%
         - else
-          %a.media-up{:href => "/project/mukawa/"}
+          = link_to project_path(project.id), class:"media-up" do
             %img.media-up-thumb{:alt => "#{project.name}", :height => "142", :src => "#{project.thumbnail}", :width => "252"}/
             %h3.media-up-ttl #{project.name}
           .media-middle
