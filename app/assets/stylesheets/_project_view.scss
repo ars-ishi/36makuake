@@ -1,0 +1,515 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ============================================================
+   大枠
+============================================================ */
+.grayBase {background: #f5f5f5;}
+#main{width: 1000px;margin:auto;height: auto; padding: 50px 0;}
+#leftContent{width: 655px;margin-right: 35px;float: left; }
+#leftContentMain {padding: 20px;border-radius: 4px;background: #ffffff;}
+#rightContent{width: 310px;float: left;}
+
+/* ============================================================
+    実行者最新投稿表示エリア
+============================================================ */
+.owner-latest_title{display: inline-block;font-size: 20px;}
+.owner-latest_date{margin-left: 12px;margin-top: 2px;font-size: 13px;display: inline-block;vertical-align: text-top;color: #a5a5a5;}
+.owner-latest__more{color: #9e9e9e;float: right;}
+.owner-latest__more:hover{text-decoration: none;opacity: 0.6;}
+.right-arrow{fill: #C8CCD1;width: 12px;height: 12px;vertical-align: middle;}
+.right-arrow_inner{fill: #C8CCD1;width: 12px;height: 12px;display: inline-block;}
+.owner-latest_balloon{
+ display: flex;display: -webkit-flex;justify-content: center;-webkit-justify-content: center;align-items: center;-webkit-align-items:center;position: relative;height: 76px;margin-top: 18px;border-radius: 4px;border: 1px solid #F2F2F2;background-color: #fff;}
+.owner-latest_balloon_triangle{position: absolute;width: 0;height: 0;top: 75px;left: 10px;border-top: 11px solid #F2F2F2;border-left: 11px solid transparent;border-right: 11px solid transparent;}
+.owner-latest_balloon_triangle2{position: absolute;width: 0;height: 0;top: 74px;left: 11px;border-top: 10px solid #fff;border-left: 10px solid transparent;border-right: 10px solid transparent;}
+.balloon-wrapper:hover{text-decoration: none;}
+.icon-arrow-right{width: 14px;height: 14px;margin-bottom: 30px;display: inline-block;fill: #BDBDBD;}
+.owner-latest_balloon--nopost{margin-top: 20px;border-radius: 4px;border: 1px solid #F2F2F2;background-color: #ECECEC;}
+.owner-latest-post{width: 616px;height: 74px;display: inline-block;padding: 12px 0px;font-size: 14px;line-height: 1.8;color: #808080;overflow: hidden;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
+.owner-latest-post:hover{text-decoration: none;opacity: .7;}
+.owner-latest-post--nopost{width: 480px;padding: 12px;font-size: 14px;line-height: 1.8;color: #AFAFAF;display: inline-block;}
+.owner-info{position: relative;margin-top: 24px;margin-left: 2px;margin-bottom: 34px;display: flex;display: -webkit-flex-;}
+.owner-info--nopost{position: relative;margin-top: 24px;margin-bottom: 36px;display: flex;display: -webkit-flex-;}
+.owner-info_name-wrapper{margin-left: 14px;}
+.owner-info_name {display: table-cell;vertical-align: middle;max-width: 310px;height: 40px;padding-bottom: 4px;margin-left: 14px;position: relative;top: 3px;}
+.owner-info_name:hover{text-decoration: none;opacity:.6;}
+.owner-info_thumb{border-radius: 4px;width: 40px;height: 40px;}
+.owner-line-divider{position: absolute;right: 132px;width: 1px;height: 18px;background-color: #C8CCD1;}
+.owner-contact{padding-top: 12px;}
+.owner-contact_icon:hover{text-decoration: none;opacity: .7;}
+.owner-contact ul{position: absolute;right: 134px;display: flex;display: -webkit-flex;}
+.owner-contact ul li{margin-right: 9px;}
+.owner-contact_message{position: absolute;right: 100px;height: 18px;width: 18px;fill: #FFA600;}
+.owner-contact_ask{position: absolute;right: 2px;display: block;width: 130px;height: 20px;cursor: pointer;}
+.owner-contact_ask:hover{opacity: .6;text-decoration: none;}
+.owner-contact_title{position: absolute;width: 92px;right: 0px;top: 3px;font-size: 13px;color: #FF8F00;}
+.owner-contact_icon_fb{width: 16px;height: 16px;margin-right: 3px;fill: #3C5A96;}
+.owner-contact_icon_twitter{width: 16px;height: 16px;margin-right: 3px;fill: #59ADEB;}
+.owner-contact_icon_link{width: 16px;height: 16px;margin-right: 3px;fill: #515151;}
+
+/* ============================================================
+    要約
+============================================================ */
+.story_title {font-size: 20px;margin-bottom: 26px;margin-top: 50px;color: #000;}
+.summaryContainer {position: relative;padding: 28px 28px 30px 26px;border-radius: 4px;background: #ffffff;}
+.summaryItem {position: relative;padding-left: calc(21px + 14px);font-size: 15px;line-height: 1.6;font-weight: bold;counter-increment: li;-webkit-font-smoothing: antialiased;}
+.summaryItem:not(:last-child) {margin-bottom: 24px;}
+.summaryItem::before {content: counter(li);display: block;position: absolute;left: 0;top: 1px;background-color: #FFB314;color: #fff;font-size: 14px;line-height: 1.7;font-weight: bold;text-align: center;width: 24px;height: 24px;border-radius: 13px;font-family: 'lucida grande';-webkit-font-smoothing: antialiased;text-indent: 1px;}
+.summaryItem strong { color: #F5A623; }
+.triangleAfterSummary {width: 0;height: 0;border-style: solid;border-width: 20px 15px 0 15px;border-color: #d8d8d8 transparent transparent transparent;margin: 20px auto;}
+
+
+/* ============================================================
+    左側プロジェクト紹介部分
+============================================================ */
+.leftText{font-size: 16px;line-height: 1.8;margin-bottom: 15px;word-wrap: break-word;}
+.leftText img{max-width: 100%;}
+.leftTextColor{color:#333;}
+.blueBig{font-weight: bold;font-size: 18px;font-size: 1.8rem;color: rgb(47, 130, 255);}
+.pinkBig{font-size: 25px;font-size: 2.5rem;color: #fb2a79;font-weight: bold;}
+.orengeBig{font-size: 45px;font-size: 4.5rem;color: rgb(255, 92, 0);line-height: 1.2;font-weight: bold;}
+.projectiniframe{width: 607px !important; height: 341px !important;}
+.bold{font-weight: bold;} /*プロジェクト紹介本文の太字指定に使用するクラス*/
+.government {padding: 20px 40px 34px;border-bottom: 3px solid #dcdcdc;margin-bottom: 30px;}
+.government-link{display: block;}
+.government-link:hover{opacity: .8;}
+.government-image{display: block;max-width: 100%;}
+/*BRバグ*/
+br{letter-spacing: 0;}
+
+/* ============================================================
+  左側コンテンツビデオ
+============================================================ */
+.videoIn{position: relative;cursor: pointer;width: 690px;height: 388px;}
+#media {position: relative;width: 690px;height: 388px;display: flex;justify-content: center;align-items: center;background-color: #f8f8f8;}
+.slideshowImg {max-height: 388px;}
+#btn-playBase{position: absolute;width: 690px;height: 388px;}
+#btn-play {position: absolute;left: 50%;top: 50%;width: 110px;height: 58px;line-height: 54px;background: rgba(0, 0, 0, 0.82);text-align: center;color: #ffffff;font-size: 18px;font-weight: bold;border-radius: 6px;margin-left: -52px;margin-top: -29px;border: 3px solid #ffffff;text-indent: 2px;}
+.videoIn:hover #btn-play{background: #ffe500;}
+
+
+/* ============================================================
+   Youtube
+============================================================ */
+.movieMoveBase{-webkit-transition:all 0.4s ease;-moz-transition:all 0.4s ease;-o-transition:all 0.4s ease;-ms-transition:all 0.4s ease;}
+.movieMove {position: fixed;right: 50%;margin-right: 250px;font-size: 12px;width: 250px;height: 140px;-webkit-transition: all 0.4s ease;-moz-transition: all 0.4s ease;-o-transition: all 0.4s ease;-ms-transition: all 0.4s ease;background: rgba(0, 0, 0, 0.8);padding: 4px;border-radius: 0 2px 0 0;bottom: 0;z-index: 180;}
+.movieReturn {background: rgba(0, 0, 0, 0.8);position: fixed;right: 50%;margin-right: 451px;bottom: 140px;cursor: pointer;color: #ffffff;width: 49px;height: 22px;text-align: center;font-size: 10px;display: none;line-height: 23px;border-radius: 2px 2px 0 0;z-index: 170;}
+.movieReturn:hover{opacity:0.8;}
+
+/* ============================================================
+   ウィジェットのベース
+============================================================ */
+#iframeBase {width: 1100px;padding: 20px;display:none;background: #FFF;border-radius: 4px;box-shadow: 0 3px 0px #e3e4e8;background: #f5f5f5;top:500px !important;}
+#lean_overlay {position: fixed;z-index: 10000;top: 0px;left: 0px;height: 100%;width: 100%;background: #000;display: none;}
+.modal_close {position: absolute;top: -30px;right: 2px;display: block;width: 16px;height: 16px;cursor: pointer;z-index: 9999;overflow: visible;fill: #ffffff;}
+.modal_close:hover{opacity: 0.8;}
+
+/* ============================================================
+  ウィジェットリスト切り替え
+============================================================ */
+/*typeAbox以外を常にdisplay:none;*/
+.boxcDiplay > div:not(.typeA){display: none;}
+.boxcDiplay > div{background: #ffffff;
+padding: 20px;border-radius: 2px;-webkit-border-radius: 2px;-o-border-radius: 2px;-moz-border-radius: 2px;-ms-border-radius: 2px;}
+.tabs{width: 100%;border-radius: 2px;}
+.tabs li {display: inline-block;width: 150px;padding: 13px;text-align: center;font-size: 14px;background: #f7c600;cursor: pointer;position: relative;border-right: 1px solid #EAEEF0;border-radius: 4px 4px 0 0;margin-right: 10px;color: #ffffff;}
+.tabs li:hover{background: #f9d133;}
+.tabs li:last-child{border: none;}
+.baGray{background: #ffffff !important;color: #333333 !important;}
+.modal_text {margin-top: 20px;margin-bottom: 20px;}
+
+
+/* ============================================================
+  ウィジェットリスト
+============================================================ */
+.mb{margin-bottom: 20px;}
+.bnnerAreaInL{margin-right:20px;}
+.bnnerAreaInL,.bnnerAreaInR{float: left;}
+.wighetText310 {border: solid 1px #DBDBDB;border-radius: 3px;font-size: 14px;height: 184px;outline: none;padding: 15px;line-height: 1.8;width: 683px;margin-top: 104px;}
+.wighetText160 {border: solid 1px #DBDBDB;border-radius: 3px;font-size: 14px;height: 158px;outline: none;padding: 15px;line-height: 1.8;width: 831px;margin-top: 132px;}
+.wighetText460 {border: solid 1px #DBDBDB;border-radius: 3px;font-size: 14px;height: 206px;outline: none;padding: 15px;line-height: 1.8;width: 533px;margin-top: 0px;}
+.wighetText160_02 {border: solid 1px #DBDBDB;border-radius: 3px;font-size: 14px;height: 157px;outline: none;padding: 15px;line-height: 1.8;width: 831px;margin-top: 0;}
+.wighetText1000{border: solid 1px #DBDBDB;padding: 6px;font-size: 12px;border-radius: 3px;width: 100%;font-size: 14px;height: 134px;outline: none;padding: 15px;line-height: 1.8;}
+
+/* ============================================================
+  実行者に質問する
+============================================================ */
+#contact_me_box {position: absolute;top: 70px;background: #fff;border-radius: 4px;z-index: 10000;padding: 35px;left: 50%;margin: 0 0 0 -240px;}
+#contact_me_box_confirm{position: absolute;background: #f4f4f4;border-radius: 4px;z-index: 10000;width: 560px;padding: 35px;top: 50%;left: 50%;margin: -107px 0 0 -280px;}
+#contact_me_overlay{position: fixed;z-index: 9999;top: 0px;left: 0px;height: 100%;width: 100%;background: #000;display: none;opacity: 0.8;}
+.contact_me_ttl {font-size: 26px;margin: 0px auto 30px auto;color: rgb(75, 75, 75);text-align: center;}
+.contact_me_ttl02{width: 440px;margin: auto;font-size: 15px;margin-bottom: 10px;}
+#message_content {width: 440px;height: 200px;border: 1px solid #d8d8d8;border-radius: 4px;background: #fcfcfc;margin: auto;display: block;font-size: 15px;color: #333333;padding: 10px;resize: none;}
+
+.contact_me_count {width: 440px;margin: auto;font-size: 14px;text-align: right;margin-top: 12px;}
+#message_post,#url_confirm{display: block;border: none;cursor: pointer;outline: none;right: 0px;color: #ffffff;font-size: 18px;border-radius: 2px;line-height: 52px;width: 440px;background: #f7c600;position: relative;margin: 20px auto 10px auto;text-align: center;}
+#message_post:hover,#url_confirm:hover{opacity: 0.7;text-decoration: none;}
+.contact_me_modal_close{position: absolute;top: -32px;right: 0px;display: block;z-index: 2;cursor: pointer;z-index: 9999;overflow: visible;}
+.contact_me_modal_close_btn{width: 16px;height: 16px;fill: #ffffff;}
+.contact_me_modal_close:hover{opacity: 0.8;}
+#message_error {display: block;background: #ed5565;padding: 6px 10px;color: #ffffff;font-size: 11px;border-radius: 4px;width: 440px;margin: -17px auto 14px auto;}
+
+.contact_me_loadingBase{}
+.contact_me_loadingBase:after {content: "";position: absolute;width: 100%;height: 100%;top: 0;left: 0;background: url("../img/common_loading.gif") no-repeat center center rgba(0, 0, 0, 0.8);z-index: 10000;border-radius: 4px;}
+
+/* ============================================================
+   HERO
+============================================================ */
+.heroBase {background: #f5f5f5;height: 388px;margin-top: 16px;}
+.hero{width: 1000px;margin: auto;height: 388px;background: #fff;position: relative;}
+.pnumBase {width: 310px;height: 388px;position: absolute;background: #252525;right: 0;top: 0;}
+.pnumBaseUp{color: #ffffff;}
+
+/*サクセスアイコン notfunded funded*/
+.icon_success,.icon_notfunded,.icon_funded {display: block;width: 84px;height: 84px;position: absolute;top: -13px;z-index: 1;right: -18px;}
+
+@media screen and (max-width: 1000px){
+  .icon_success{
+    right: 0px;
+  }
+  .icon_notfunded{
+     right: 0px;
+  }
+  .icon_funded{
+     right: 0px;
+  }
+}
+
+/*金額*/
+.stMoney{position: absolute;left: 20px;top: 20px;width: 270px;}
+.stMoneyTtlIcon {width: 21px;height: 21px;fill: #FFFFFF;margin-right: 6px;}
+.stMoneyTtl {font-size: 17px;margin-bottom: 8px;}
+.stMoneyTtl span {position: relative;top: -3px;}
+
+/*日本版*/
+.stMoneyNum{text-align: right;font-size: 40px;margin-bottom: 16px;}
+
+/* 1億 */
+.stMoneyNum-million{ text-align: right;font-size: 36px;margin-bottom: 16px;padding-top: 4px;}
+
+/*海外版*/
+.stMoneyNumText_En{font-size: 16px;}
+.stMoneyGoal{text-align: right;font-size: 15px;}
+.stMoneyGoalEbi{text-align: right;font-size: 11px;}
+
+/*ゲージ*/
+.stbar {width: 270px;height: 31px;line-height: 31px;background: #d3d3d3;border-radius: 2px;overflow: hidden;position: absolute;top: 140px;left: 20px;}
+/*ゲージダークグリーンフル*/
+.stbarDarkGreen {width: 270px;height: 31px;line-height: 31px;background: #bbf117;border-radius: 2px;overflow: hidden;position: absolute;top: 140px;left: 20px;}
+
+/*ゲージライトグリーンフル*/
+.stbarLightGreen {width: 270px;height: 31px;line-height: 31px;background: #e2ff8c;border-radius: 2px;overflow: hidden;position: absolute;top: 140px;left: 20px;}
+.stbarin {height: 31px;line-height: 31px;background: #bbf117;position: relative;width: 0%;border-radius: 2px 0 0 2px;}
+.stbarin p {position: absolute;left: 12px;font-size: 14px;top: 1px;width: 85px;color: #333;}
+
+/*サポーター日数*/
+.stSupo{position: absolute;top: 202px;left: 20px;width: 270px;}
+.stSupoTtlIcon {width: 21px;height: 21px;fill: #FFFFFF;margin-right: 6px;}
+.stSupoTtl {font-size: 16px;margin-bottom: 8px;}
+.stSupoTtl span {position: relative;top: -4px;}
+.stSupoNum{text-align: right;font-size: 36px;margin-bottom: 16px;position: absolute;right: 0;top: -10px;}
+
+/* 残り日数　*/
+.stDay{position: absolute;top: 256px;left: 20px;width: 270px;}
+.stDayTtlIcon {width: 21px;height: 21px;fill: #FFFFFF;margin-right: 10px;}
+.stDayTtl {font-size: 16px;margin-bottom: 8px;}
+.stDayTtl span {position: relative;top: -4px;}
+.stDayNum{text-align: right;font-size: 36px;margin-bottom: 16px;position: absolute;right: 0;top: -8px;}
+
+/*海外版*/
+.stBackers_En{font-size: 16px; margin-left: 6px;}
+.stDayNumSpan_En{font-size: 16px;}
+
+/*コース申こみボタンを設置するエリア*/
+.pnumBaseDown {width: 290px;position: absolute;bottom: 10px;left: 10px;}
+
+#sienBtn {width: 290px;height: 76px;line-height: 78px;background: #ffba00;display: block;border-radius: 2px;color: #ffffff;text-decoration: none;font-size: 22px;text-align:center;}
+#sienBtn02 {width: 290px;height: 76px;background: #0cd6f4;display: block;border-radius: 2px;color: #ffffff;text-decoration: none;border-bottom: 3px solid #02bede;font-size: 14px;padding: 10px;text-align: center;}
+#sienBtn03 {display: block;border-radius: 2px;text-decoration: none;font-size: 20px;text-align: center;width: 300px;height: 56px;line-height: 58px;margin: 50px auto 0 auto;}
+.txt_thanks {font-size: 17px;margin-bottom: 5px;font-weight: bold;}
+#sienBtn:hover,#sienBtn02:hover {background-color: #ffc833;}
+#sienBtn03:hover{background:#f9d133;}
+#sienBtn03:active{border:none;top: 2px;}
+.shienEnd {width: 290px;height: 76px;line-height: 73px;background: #2F2F2F;border-radius: 2px;color: #fff;font-size: 24px;text-align: center;border: 2px solid rgb(82, 82, 82);}
+
+
+/* ============================================================
+   2014/10/17　PCリニューアル 新しいHERO下
+============================================================ */
+/*日本版*/
+.heroBtmBase {width: 1000px;position: relative;margin: auto;background: #ffffff;border-radius: 0 0 4px 4px;}
+.project_category{margin-bottom: 4px;}
+
+/*海外版*/
+.heroBtmBase_En {width: 1000px;position: relative;margin: auto;background: #ffffff;border-radius: 0 0 4px 4px;}
+
+/*日本版*/
+.heroBtmBaseUp{border-bottom: 1px solid #f2f2f2;padding: 28px 32px 31px;}
+
+/*海外版*/
+.heroBtmBaseUp_En{height: auto;border-bottom: 1px solid #f2f2f2;padding: 18px 30px 26px 30px;}
+
+.projectTtl {font-size: 27px; color: #333;line-height: 1.7;}
+
+.projectTag,.projectOwn {font-size: 14px;color: #676767;}
+
+.icon_tag {width: 15px;height: 15px;margin-right: 4px;position: relative;top: 2px;fill: #595959;}
+
+.icon-location{position: relative;top: 2px;width: 15px;height: 15px;fill: #595959;margin-right:1px;}
+
+.location-name{color: #646464;}
+
+.project-location{font-size: 14px;color: #646464;margin: 0 0 4px 20px;}
+
+.project-location a:hover{opacity: 0.8;color: #646464;}
+
+.project_category a:hover{opacity: 0.8;}
+
+.heroBtmBaseDown{height: 60px;position: relative;padding: 0px 30px;display: flex;display: -webkit-flex;align-items: center;-webkit-align-items:center;}
+
+.sns-wrapper{margin-left: auto;}
+
+.sns-wrapper a:hover{opacity: 0.8;text-decoration: none;}
+
+.sns-wrapper ul{display: flex;display: -webkit-flex;}
+
+.sns-wrapper li:not(:last-child){margin-right: 18px;}
+
+
+/*シェア導線*/
+.icon-facebook{width: 19px;height: 19px;fill:#3b5998;margin-right: 4px;}
+.icon-twitter{width: 20px;height: 20px;fill:#1b95e0;margin-right: 4px;}
+
+/* ウィジェット埋め込み */
+.icon-widget{position: relative;width: 20px;height: 20px;fill:#8f9692;margin-right: 6px;}
+.title-widget{position:relative;top: -4px;color: #8f9692;font-size: 14px;}
+
+/*海外版*/
+.goodBase_En{display: none;}
+.goodBaseIn_tab:hover{opacity: 0.72;}
+
+
+/* ============================================================
+    スライドショー
+============================================================ */
+
+
+#thumbnailList{margin-bottom:18px;display:flex;justify-content:start}
+.slideShowThumbnail{height:40px;width:calc(40px * (16/9));opacity:1;transition:opacity .2s ease-in-out;cursor:pointer}
+.slideShowThumbnail:not(:last-child){margin-right:24px}
+.slideShowThumbnail:hover{opacity:.8}
+.slideShowThumbnail.selected{opacity:.5}
+.slideShowThumbnail img{width:100%;height:100%;border-radius:2px}
+
+
+/* ============================================================
+    リターン一覧
+============================================================ */
+/*日本版*/
+.returnTtl {font-size: 20px;color: #000;margin-bottom: 11px;}
+
+/*海外版*/
+.returnTtlWidth_En {width: 181px;}
+
+/* ============================================================
+    EC商品一覧
+============================================================ */
+/*日本版*/
+.productTtl {font-size: 20px;color: #000;margin-bottom: 11px;}
+
+/*海外版*/
+/* TODO: */
+/*.returnTtlWidth_En {width: 181px;}*/
+
+/* ============================================================
+    ALL IN ALL OR NOTHINGの説明文
+============================================================ */
+.anoInfo {padding: 6px 0 7px 0;font-size: 12px;line-height: 1.8;border-radius: 4px;margin-bottom: 12px;color: #868686;}
+
+
+/* ============================================================
+    左側追従 facebook　twitter　支援ボタン
+============================================================ */
+#scrollContent {width: 95px;background: rgb(255, 255, 255);position: fixed;left: 50%;margin-left: -618px;top: 75px;padding: 5px;border-radius: 2px;z-index: 200;display: none;}
+#scrollShienBtnBase{border-top: 1px solid #ededed;margin-top: 14px;padding-top: 7px;margin-bottom: 3px;}
+.scrollShienBtn:hover{background:#f9d133;}
+.scrollShienBtn{display: block;border: none;border-radius: 0px;cursor: pointer;outline: none;background: #f7c600;color: #ffffff;font-size: 10px;border-radius: 2px;line-height: 37px;height: 37px;text-align: center;margin: 7px auto 10px auto;width: 73px;}
+
+.scrollShienBtn_En{display: block;border: none;border-radius: 0px;cursor: pointer;outline: none;background: #f7c600;color: #ffffff;font-size: 10px;border-radius: 2px;line-height: 37px;height: 37px;text-align: center;margin: 7px auto 10px auto;width:83px;}
+
+/* 日本版 */
+#scrollFb{margin-top: 12px;margin-left: 7px;}
+
+/*海外版*/
+#scrollFb_En{margin-left: 18px;margin-top: 10px;}
+
+/*日本版*/
+#scrollTw{margin-left: 5px;margin-top:10px;margin-bottom: 10px;}
+
+/*海外版*/
+#scrollTw_En{margin-left: 13px;margin-top: 8px;margin-bottom: 14px;}
+.scrollShienBtn:hover{text-decoration: none;}
+
+
+/* ============================================================
+   プロジェクトタグ
+============================================================ */
+.tagWrapper{margin-top: 15px;}
+.pjTag{display:inline-block;margin-right: 16px;font-size: 15px;color: #676767;}
+.pjTag:hover{opacity:.8;}
+
+/* ============================================================
+    支援するコースの各
+============================================================ */
+.kakusectionRight{width: 310px;margin-bottom: 40px;background: #FFFFFF;border-radius: 4px;}
+
+/* 日本版 */
+.lefth4RightBase {width: 310px;background: #FFFFFF;position: relative;padding: 18px 20px 18px 20px;box-shadow: 0 1px 0 0 #f2f2f2;border-left: 5px solid #F7C600;line-height: 1.6;}
+/*海外版*/
+.lefth4RightBase_En{width: 310px;background: #FFFFFF;position: relative;padding: 18px 20px 18px 20px;box-shadow: 0 1px 0 0 #f2f2f2;border-left: 5px solid #F7C600;line-height: 1.6;}
+/* 日本版 */
+.lefth4Right{position: relative;color: #000;font-size: 25px;}
+
+/*海外版*/
+.lefth4Right_En{position: relative;color: #000;font-size: 23px;}
+
+/* 日本版 */
+.lefth4RightNum p {color: #fb2a79;text-indent: 2px;font-size: 18px;}
+
+/* 海外版 */
+.lefth4RightNum_En p{color: #fb2a79;text-indent: 2px;font-size: 18px;}
+.lefth4Right:before {content: "";width: 36px;height: 36px;position: absolute;left: 14px;top: 6px;border-radius: 4px;}
+.lefth4Right:after {position: absolute;left: 50%; top: 100%;border: 9px solid transparent;border-top: 9px solid #9AA1A5;margin-left: -9px;width:13px;}
+
+.abstractSpan{font-size: 12px;margin-left: 5px;color: #585858;}
+
+.ProjectDetailInRight {padding:15px;display: block;color: #333;}
+.ProjectDetailInRight:hover {text-decoration: none;}
+
+/*売り切れ*/
+.ProjectDetailInRight02{padding:15px;display: block;color: #333;pointer-events:none;}
+
+.lefth5Right {font-size: 19px;margin-bottom: 15px;line-height: 1.4;}
+.detailAside02 {position: relative;border-top: 1px solid #f2f2f2;padding: 16px 0;border-radius: 0 0 4px 4px;}
+.detailAside02Uptext {font-size: 16px;}
+.icon_shien {width: 16px;height: 16px;fill: #696969;position: relative;top: 1px;margin: 0 7px 0 5px;}
+.detailAside03Uptext {font-size: 15px;margin-top: 10px;margin-bottom: 4px;}
+.icon_delivery {width: 16px;height: 16px;fill: #696969;position: relative;top: 1px;margin: 0 7px 0 5px;}
+.detailAside03UptextSubs {font-size: 11px;color: rgb(113, 113, 113);margin: 6px 0 0 35px;}
+.detailAside02downtext {margin-bottom: 20px;text-indent: 34px;color:#000;font-size: 14px;font-size: 1.4rem;}
+.photoSectionUp{margin-bottom: 15px;}
+.detailTextRight {font-size: 13px;line-height: 1.7;margin-bottom: 14px;color: #000000;border-top: 1px solid #f2f2f2;border-bottom: 1px solid #f2f2f2;padding: 16px 0;}
+.shienBtn {display: block;border: none;cursor: pointer;outline: none;right: 30px;background: #f7c600;color: #ffffff;font-size: 20px;border-radius: 2px;line-height: 60px;height: 60px;margin: 0 20px;text-align: center;}
+.shienBtn:hover{background:#f9d133;text-decoration: none;}
+.shienBtn02 {pointer-events: none;display: block;cursor: default;border: none;outline: none;background: #F5F5F5;color: #C1C1C1;font-size: 20px;border-radius: 2px;line-height: 60px;height: 60px;margin: 0 20px;text-align: center;}
+.shienBtn02:hover{text-decoration: none;}
+
+/* ============================================================
+   右側実行者への問い合わせ
+============================================================ */
+.anotherLinkArea {position: relative;background: #ffffff;width: 310px;height: 48px;margin-top: 40px;}
+.owner-contact_ask--02{display: flex;display: -webkit-flex;-webkit-justify-content: center;justify-content: center;-webkit-align-items: center;align-items: center;height: 100%;}
+.owner-contact_ask--02:hover{text-decoration: none;opacity: .8;}
+.owner-contact_message--02{width: 22px;height: auto;fill: #FFA600;margin-right: 12px;}
+.owner-contact_title--02{color: #FF8F00;}
+
+/* ============================================================
+    右側一番下の説明文
+============================================================ */
+.anoterInfo{margin-top: 20px;}
+.anoterInfo p{padding: 14px;font-size: 12px;border: 1px solid rgb(232, 232, 232);line-height: 1.5;color: rgb(132, 132, 132);}
+
+/* ============================================================
+    特商法
+============================================================ */
+.sct{text-align: right;margin-top: 14px;}
+.go-to-sct{color: #a5a5a5;font-size: 14px;}
+
+/* ============================================================
+   左側文章下のシェア枠
+============================================================ */
+.share-block{margin: 50px auto;display: -webkit-flex;display: flex;-webkit-justify-content: space-between;justify-content: space-between;}
+.share-btn-facebook,.share-btn-twitter{color: #ffffff;font-size: 18px;width: 310px;border-radius: 2px;height: 56px;text-align: center;line-height: 56px;display: -webkit-flex; display: flex;-webkit-justify-content: center; justify-content: center;}
+.share-btn-facebook:hover,.share-btn-twitter:hover{opacity: .9;text-decoration: none;}
+.share-btn-facebook{background: #39579A;}
+.share-btn-twitter{background: #50ABF1;}
+.share-icon-facebook,.share-icon-twitter{fill:#ffffff;width: 23px;height: 23px;position: relative;margin-right: 13px;top: 5px;}
+
+/* ============================================================
+    シェア(海外版のみ)
+============================================================ */
+#sheareSns li{float: left;}
+#iframeGet:hover{opacity: 0.8;}
+#snsFacebookShere,#snsTweeetShere,#snsAmebaShere,#snsHatebuShere{margin-right: 20px;}
+#snsGoogleShere{width: 73px;}
+
+/* ============================================================
+    応援コメント
+============================================================ */
+#supporting-comment{margin-top:48px;display:none;}
+#supporting-comment-title{padding: 0px 0 25px 0;font-size: 20px;text-align: left;}
+#supporting-comment-wrapper{background:#fff;}
+.supporting-comment-icon{width:40px;height:40px;border-radius:40px;}
+.supporting-comment-content{display:flex;padding:20px 24px;border-bottom: 1px solid #efefef;}
+.supporting-comment-content:hover{opacity:0.8;text-decoration:none;}
+.supporting-comment-name{display:inline-block;font-size:12px;color: #333;}
+.supporting-comment-date{display:inline-block;margin-left: 12px;font-size:11px;color: #969696;}
+.supporting-comment-message{font-size:15px;margin-top: 4px;line-height:1.6;color: #333;}
+.supporting-comment-right{margin-left:15px;margin-top:-4px;}
+.supporting-comment-more{background: #fff;text-align: center;padding: 20px;font-weight:bold;font-size: 14px;display:none;}
+
+/* ============================================================
+    ストア
+============================================================ */
+
+/* HERO上の通知枠　*/
+.store-information {display: flex;width: 1000px;height: 58px;line-height: 56px;border: 2px solid #FFB100;background: #ffffff;margin: 30px auto; -webkit-font-smoothing: antialiased; border-radius: 2px;}
+.store-information-title{letter-spacing: 2px;text-align: center;background: #FFB100;color: #ffffff;width: 120px;font-weight: bold;}
+.store-information-text{color: #5A5A5A;font-weight: bold;flex-grow: 1;text-align: center;}
+
+/* 商品一覧 */
+.store-title {font-size: 20px;color: #000;margin-bottom: 20px;}
+.store-header {font-size: 24px;color: #333;margin: 12px 0 32px;}
+
+.products{}
+.products .ProductItem{background: #fff;border-radius: 4px;overflow: hidden;position: relative;width: 310px;}
+.products .ProductItem:not(:last-child) {margin-bottom: 34px;}
+.products .content {color: #333;display: block;height: 100%;padding-bottom: 145px;}
+.products .image{position: relative;}
+.products .title{font-size: 17px;line-height: 1.8;padding: 20px 20px 0;}
+.products .schedule{font-size: 13px;line-height: 1.8;padding: 13px 20px 0;display: flex;color: #777777;}
+.products .attribute{align-items: center;display: flex;margin-bottom: 14px;}
+.products .button-buy{display: block;border-radius: 2px;background: #f7c600;height: 54px;line-height: 54px;text-align: center;color: #ffffff;cursor: pointer;font-size: 20px;}
+.products .button-soldout{display: block;border-radius: 2px;background: #F5F5F5;height: 54px;line-height: 54px;text-align: center;color: #A7A7A7;font-size: 20px;}
+.products .button-buy:hover{background: #f9d133;text-decoration: none;}
+.products .stock-few, .products .stock-normal, .products .stock-wait{flex: 1;font-size: 14px;}
+.products .stock-normal{color: #777777;}
+.products .stock-few {color: #f12e78;}
+.products .stock-wait{color: #949494;}
+.products .money{font-size: 24px;position: relative;top: -3px;}
+.products .money-suffix{font-size: 14px;margin-left: 6px;position: relative;top: 1px;}
+.products .image-thumbnail{display: block;height: auto;width: 100%;}
+.products .position{position: absolute;bottom: 24px;width: 100%;padding: 0 20px;}
+
+/* ストアタブ */
+.products--gridview {display: flex;flex-wrap: wrap;justify-content: start;}
+.products--gridview .ProductItem {margin: 17px 0 17px;}
+.products--gridview .ProductItem:not(:nth-child(3n)) {margin-right: 34px;}
+/* 詳細度の高いセレクタに対する打ち消し */
+.products--gridview .ProductItem:not(:last-child) {margin-bottom: 17px;}
+/* 最初の3個だけはmargin-top:0 */
+.products--gridview .ProductItem:nth-child(-n+3) {margin-top: 0;}
+
+/*特商法*/
+.store-sct {text-align: right;margin: 26px auto 30px;}
+.store-go-to-sct{ color: #707070;font-size: 14px;}
+.store-sct--gridview {margin: 7px 0;}
+
+/*ストアタブへのリンクボタン*/
+.link-store{display: block;border-radius: 2px;background: #f7c600;font-size: 14px;line-height: 50px;text-align: center;color: #ffffff;cursor: pointer;margin: 0 auto 30px;width: 222px;height: 50px;}
+.link-store:hover{background: #f9d133;text-decoration: none;}
+
+/*終了したことの通知*/
+.project-information{border-top: 1px solid #CFCFCF;padding-top: 70px;margin-bottom: 28px;}
+.project-information-text{background: #ffffff;padding: 20px 20px 18px 20px;font-size: 13px;line-height: 1.7;}

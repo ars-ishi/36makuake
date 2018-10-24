@@ -1,42 +1,5 @@
 %body
   = render 'shared/svg'
-  %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/notification.js"}
-  %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/header.js"}
-  %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/attention_header.js"}
-  %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/project/tabNavigation.js", :type => "text/javascript"}
-  :javascript
-    $(document).ready(function(){
-        $(window).scroll(function () {
-            if ( ($(this).scrollTop() > 540) && ($(".movieMoveBase").length) && ($(".movieReturn").length) ) {
-                $(".movieMoveBase").addClass('movieMove');   //iframeを移動させる
-                $(".movieReturn").show(100);  //しまうボタンを出す
-            } else if($(this).scrollTop() < 500 && $(".movieMoveBase").length ) {
-                $(".movieMoveBase").removeClass('movieMove');  // iframeを戻す
-                $(".movieReturn").hide();  //しまうボタンを消す
-            }
-        });
-
-            //しまうボタンを押したらこの要素自体を消去するので二度ともどれません　上のif判定で.movireRturnがある時のみ映像が左下にくるようになっています
-        $(".movieReturn").click(function(){
-            $(this).remove();
-            $(".movieMoveBase").removeClass('movieMove');
-        });
-    });
-  :javascript
-    $(document).ready(function(){
-            var num = $(".projectTtl").offset().top;
-        $(window).scroll(function () {
-
-            if( $(this).scrollTop() >= num){
-                $("#scrollContent").fadeIn(150);
-
-            } else if($(this).scrollTop() <= num){
-                $("#scrollContent").fadeOut(150);
-            }
-
-        });
-
-    });
   .toApplyLinkSide_Pos_Project
     %a.toApplyLinkSide{:href => "/apply/"}
       .toApplyLinkTxt
@@ -75,24 +38,27 @@
         ら
       .toApplyLinkBtn.btncol_03
   %input#is_shopping{:type => "hidden", :value => "0"}/
-  %input#project_id{:type => "hidden", :value => "5111"}/
+  %input#project_id{:type => "hidden", :value => "@project.id"}/
+
+
+
   .grayBase
     .tab_wrapper_box
       .tab_wrapper
         .tabNavigation
           %ul.tabNav_menu
             %li{"data-tab_type" => "project"}
-              %a.tabOn{:href => "/project/georiem7/"}
+              %a.tabOn{:href => "#"}
                 プロジェクト
             %li{"data-tab_type" => "owner"}
-              %a{:href => "/project/georiem7/communication/"}
+              %a{:href => "#"}
                 活動レポート
-                %i.tabnavicon.tabnavicon--yellow 0
+                %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
             %li{"data-tab_type" => "supporter"}
-              %a{:href => "/project/georiem7/communication/supporter/"}
+              %a{:href => "#"}
                 応援コメント
-                %i.tabnavicon.tabnavicon--yellow 8
-          .goodBase_tab{"data-geenie-project-id" => "5111"}
+                %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
+          .goodBase_tab
             %a.goodBaseIn_tab{"data-geenie-project-good" => "off"}
               %i.icon_heart_off_tab
                 %svg.icon_heart_off_tab-in
@@ -103,6 +69,9 @@
                 %svg.icon_heart_on_tab-in
                   %use{"xlink:href" => "#icon-heart_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span お気に入り追加中
+
+
+
     .heroBase
       %aside.hero
         #media
@@ -113,90 +82,45 @@
               };
             %img{:alt => "", :height => "388", :src => "#", :style => "cursor:default;", :width => "690"}/
         .pnumBase
+          - if @project.bar >= 100
+            %svg.icon_success
+              %use{"xlink:href" => "#icon-success", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
           .pnumBaseUp
             .stMoney
               %p.stMoneyTtl
                 %svg.stMoneyTtlIcon
                   %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                 %span 集まっている金額
-              %p.stMoneyNum{"data-investment-info-collected-money" => ""} 272,800円
-              %p.stMoneyGoal 目標金額 300,000円
+              %p.stMoneyNum{"data-investment-info-collected-money" => ""}
+                = number_with_delimiter("#{@project.total_sales}")
+                円
+              %p.stMoneyGoal
+                目標金額
+                = number_with_delimiter("#{@project.target_sales}")
+                円
             .stbar
-              .stbarin{"data-investment-info-percent-style" => "", :style => "width:90%;"}
-                %p{"data-investment-info-percent" => ""} 90%
+              .stbarin{"data-investment-info-percent-style" => "", :style => "width:#{@project.bar}%;"}
+                %p{"data-investment-info-percent" => ""} #{@project.bar}%
             .stSupo
               %p.stSupoTtl
                 %svg.stSupoTtlIcon
                   %use{"xlink:href" => "#icon-user-03", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                 %span 支援者
-              %p.stSupoNum{"data-investment-info-collected-supporter" => ""} 31人
+              %p.stSupoNum{"data-investment-info-collected-supporter" => ""} #{@supporters} 人
             .stDay
               %p.stDayTtl
                 %svg.stDayTtlIcon
                   %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                 %span 残り
               %p#last.timer.stDayNum
-                74
-                %span 日
-              :javascript
-                $(function() {
-                    timer();
-                });
-                function timer() {
-                    var now = Math.round((new Date()).getTime() / 1000);
-                    var end = 1545814800;
-                    var d = Math.floor((end-now)/(24*60*60));
-                    var h = Math.floor(((end-now)%(24*60*60))/(60*60));
-                    var remain_h = Math.floor((end - now) / (60 * 60));
-                    var m = Math.floor(((end-now)%(24*60*60))/60)%60;
-                    var s = Math.floor(((end-now)%(24*60*60)))%60%60;
-                    if( end - now < 0 ){
-                        $(".timer").html('終了');
-                    } else {
-
-                        if( remain_h <= 72 && remain_h > 1 ) {
-                            $(".timer").html(remain_h + '<span>時間</span>');
-                        }else if( d > 0 ) {
-                            $(".timer").html(d + '<span>日</span>');
-                        }else if( h > 0 ){
-                            $(".timer").html(h+'<span>時間</span>');
-                        }else if( m > 0 ){
-                            $(".timer").html(m+'<span>分</span>'+s+'<span>秒</span>');
-                            setTimeout('timer()', 1000);
-                        }else if( s > 0 ){
-                            $(".timer").html(s+'<span>秒</span>');
-                            setTimeout('timer()', 1000);
-                        }
-                    }
-                }
+                %span #{@project.time_limit}
           .pnumBaseDown
             %a#sienBtn{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
               %p 支援するコースを選択する
     .heroBtmBase
       %section
         .heroBtmBaseUp
-          :javascript
-            $(function(){
-                var defaultKeyVisual = $('#media').clone();
-                $('.slideShowThumbnail').on('click', function() {
-                    if ($(this).attr('class').split(' ').indexOf('keyVisualThumbnail') >= 0) {
-                        // タップしたサムネイルがキービジュアルだった場合は動画再生前の状態に戻す
-                        $('#media').remove();
-                        $('aside.hero').first().append(defaultKeyVisual.clone());
-                        bindVideoTap();
-                    } else {
-                        $('#media').html('<img class="slideshowImg" src="" alt="忙しい朝に！通勤出張と自由自在！大容量軽量の3WAYボディバッグGeoriem">');
-                    }
-                    var src = $(this).find('img').attr('src');
-                    src = src.replace(/width=(.*?)&/, 'width=690&');
-                    src = src.replace(/height=(.*?)&/, 'height=388&');
-                    src = src.replace(/fit=crop/, 'fit=max');
-                    $('.hero').find('img').attr('src', src);
-                    $(".slideShowThumbnail.selected").removeClass("selected");
-                    $(this).addClass("selected");
-                })
-            });
-          %h2.projectTtl 【プロジェクトタイトル】
+          %h2.projectTtl #{@project.name}
           / タグがあれば表示
           .tagWrapper
             %a.pjTag{:href => "/"}
@@ -205,90 +129,32 @@
           / タグがあれば表示
         .heroBtmBaseDown
           / カテゴリー表示
-          .project_category
-            %a.projectTag{:href => "/discover/categories/product/"}
-              %svg.icon_tag
+          .project-location
+            %a{:href => "/discover/locations/1/?from=location_project_page_1"}
+              %svg.icon-tag
                 %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              プロダクト
+              %span.location-name #{@project.category.name}
+          / .project_category
+          /   %a.projectTag{:href => "/discover/categories/contribution/"}
+          /     %svg.icon_tag
+          /       %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          /     社会貢献
+
+
           / ここまでカテゴリー表示
           .sns-wrapper
             %ul
               %li
-                .fb-like.fb_iframe_widget{"data-href" => "https://www.makuake.com/project/georiem7/", "data-layout" => "button_count", "data-send" => "false", "data-show-faces" => "false", "data-width" => "111", "fb-iframe-plugin-query" => "app_id=1407034392847669&container_width=0&href=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&layout=button_count&locale=ja_JP&sdk=joey&send=false&show_faces=false&width=111", "fb-xfbml-state" => "rendered"}
-                  %span{:style => "vertical-align: bottom; width: 95px; height: 20px;"}
-                    %iframe{:allow => "encrypted-media", :allowfullscreen => "true", :allowtransparency => "true", :frameborder => "0", :height => "1000px", :name => "fcac60eb82e8f", :scrolling => "no", :src => "https://www.facebook.com/v2.9/plugins/like.php?app_id=1407034392847669&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FtrnHszv6jVd.js%3Fversion%3D42%23cb%3Df1b68d2be8b2f1c%26domain%3Dwww.makuake.com%26origin%3Dhttps%253A%252F%252Fwww.makuake.com%252Ff3c445a7d5bed94%26relation%3Dparent.parent&container_width=0&href=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&layout=button_count&locale=ja_JP&sdk=joey&send=false&show_faces=false&width=111", :style => "border: none; visibility: visible; width: 95px; height: 20px;", :title => "fb:like Facebook Social Plugin", :width => "111px"}
-              %li
                 %iframe#twitter-widget-0.twitter-share-button.twitter-share-button-rendered.twitter-tweet-button{:allowtransparency => "true", "data-url" => "https://www.makuake.com/project/georiem7/?utm_source=georiem7&utm_medium=sns_share_tw", :frameborder => "0", :scrolling => "no", :src => "https://platform.twitter.com/widgets/tweet_button.1dcb9052029dec42394397b936b6c31a.ja.html#dnt=false&hashtags=Makuake&id=twitter-widget-0&lang=ja&original_referer=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&size=m&text=%E5%BF%99%E3%81%97%E3%81%84%E6%9C%9D%E3%81%AB%EF%BC%81%E9%80%9A%E5%8B%A4%E5%87%BA%E5%BC%B5%E3%81%A8%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%81%E5%A4%A7%E5%AE%B9%E9%87%8F%E8%BB%BD%E9%87%8F%E3%81%AE3WAY%E3%83%9C%E3%83%87%E3%82%A3%E3%83%90%E3%83%83%E3%82%B0Georiem&time=1539405615047&type=share&url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgeoriem7%26utm_medium%3Dsns_share_tw&via=makuake_ca", :style => "position: static; visibility: visible; width: 75px; height: 20px;", :title => "Twitter Tweet Button"}
-              %li
-                #___plusone_0{:style => "text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;"}
-                  %iframe#I0_1539405614967{"data-gapiattached" => "true", :frameborder => "0", :hspace => "0", :marginheight => "0", :marginwidth => "0", :name => "I0_1539405614967", "ng-non-bindable" => "", :scrolling => "no", :src => "https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&size=medium&annotation=none&hl=ja&origin=https%3A%2F%2Fwww.makuake.com&url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgoogle_project_top%26utm_medium%3Dsocial&gsrc=3p&ic=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.ja.6bUtEfjyfmA.O%2Fam%3DwQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJbTkH06wiALYafVpkT0212fnKsQ%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&id=I0_1539405614967&_gfid=I0_1539405614967&parent=https%3A%2F%2Fwww.makuake.com&pfname=&rpctoken=11695176", :style => "position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;", :tabindex => "0", :title => "G+", :vspace => "0", :width => "100%"}
-              %li
-                %iframe.hatena-bookmark-button-frame{:frameborder => "0", :height => "20", :scrolling => "no", :src => "javascript:false", :style => "width: 20px; height: 20px;", :title => "このエントリーをはてなブックマークに追加", :width => "20"}
+
               %li
                 %a.newJoin.js-iframe-call{:href => "#iframeBase", :rel => "leanModal"}
                   %svg.icon-widget
                     %use{"xlink:href" => "#icon-widget", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                   %span.title-widget 埋め込み
     .movieReturn{:style => "display: none;"} 戻す
+
     %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.min.js"}
-    :javascript
-      $(function() {
-
-          $(".js-iframe-call").click(function() {
-             $(".typeAfook").click();
-          });
-
-          $(".typeAfook").click(function(){
-              if ($("#typeAL").html().length < 1) {
-                  $("#typeAL").html('<iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:390px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/"></iframe>');
-              }
-              $(".boxcDiplay > div").hide();
-              $(".tabs li").removeClass("baGray");
-              $(".typeA").show();
-              $(this).addClass("baGray");
-          });
-
-          $(".typeBfook").click(function(){
-              if ($("#typeBL").html().length < 1) {
-                  $("#typeBL").html('<iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:420px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/length/"></iframe>');
-              }
-              $(".boxcDiplay > div").hide();
-              $(".tabs li").removeClass("baGray");
-              $(".typeB").show();
-              $(this).addClass("baGray");
-          });
-
-          $(".typeCfook").click(function(){
-              if ($("#typeCL").html().length < 1) {
-                  $("#typeCL").html('<iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:460px; height:200px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/wide/"></iframe>');
-              }
-              $(".boxcDiplay > div").hide();
-              $(".tabs li").removeClass("baGray");
-              $(".typeC").show();
-              $(this).addClass("baGray");
-          });
-
-          $(".typeDfook").click(function(){
-              if ($("#typeDL").html().length < 1) {
-                  $("#typeDL").html('<iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:160px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/square/"></iframe>');
-              }
-              $(".boxcDiplay > div").hide();
-              $(".tabs li").removeClass("baGray");
-              $(".typeD").show();
-              $(this).addClass("baGray");
-          });
-
-          $(".typeEfook").click(function(){
-              if ($("#typeEL").html().length < 1) {
-                  $("#typeEL").html('<iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:287px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/hero/"></iframe>');
-              }
-              $(".boxcDiplay > div").hide();
-              $(".tabs li").removeClass("baGray");
-              $(".typeE").show();
-              $(this).addClass("baGray");
-          });
-
-      });
     #iframeBase
       %svg.modal_close
         %use{"xlink:href" => "#icon-close"}
@@ -327,6 +193,7 @@
             #typeEL.mb
             %div
               %textarea.wighetText1000{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:287px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/hero/"&gt;&lt;/iframe&gt;
+
     #main.clearfix
       #leftContent
         .owner-latest
@@ -335,23 +202,28 @@
             %span more
             %svg.right-arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          .owner-latest_balloon--nopost
-            %span.owner-latest-post--nopost 最新の投稿はありません
+          - if @project.reports.length < 1
+            .owner-latest_balloon--nopost
+              %span.owner-latest-post--nopost 最新の投稿はありません #{@project.reports.length}
+          - else
+            .owner-latest_balloon
+              %span.owner-latest-post
+                = truncate("#{@project.reports.to_a.last.content}", length: 75, omission: "...")
+              %svg.right-arrow_inner
+                %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              .owner-latest_balloon_triangle
+              .owner-latest_balloon_triangle2
           / ここから会社情報
           .owner-info
-            %img.owner-info_thumb{:alt => "", :src => "/"}/
+            %img.owner-info_thumb{:alt => "#{@project.user.name}", :src => "#{@project.user.image}"}/
             .owner-info_name-wrapper
-              %a.owner-info_name{:href => "/"} 会社名
+              %a.owner-info_name{:href => "/"} #{@project.user.name}
             .owner-contact
               %ul
                 %li
                   %a.owner-contact_icon{:href => "http://www.facebook.com/Georiem.jp", :target => "_blank"}
                     %svg.owner-contact_icon_fb
                       %use{"xlink:href" => "#icon-facebook", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                %li
-                  %a.owner-contact_icon{:href => "http://merthans.co.jp/", :target => "_blank"}
-                    %svg.owner-contact_icon_link
-                      %use{"xlink:href" => "#icon-earth", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                 %li
                   %a.owner-contact_icon{:href => "https://buzip.net/kanagawa/merthans/", :target => "_blank"}
                     %svg.owner-contact_icon_link
@@ -382,60 +254,17 @@
                 %p.leftText　
                 %p.leftText　
                 %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
                 %p.leftText 【ここにProject内容】
           #supporting-comment
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper
-              = render 'template/projectComments'
+              = render "template/projectComments"
             .supporting-comment-more{:style => ""}
               %a#support-comment-link{:href => "/project/georiem7/communication/supporter/"} すべて見る
           %a#sienBtn03.btncol_03{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
             %p 支援するコースを選択する
           .share-block
-            %a.share-btn-facebook{:href => "http://www.facebook.com/share.php?u=https://www.makuake.com/project/georiem7/", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank"}
+            %a.share-btn-facebook{:href => "#", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank"}
               %div
                 %svg.share-icon-facebook
                   %use{"xlink:href" => "#icon-facebook-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -452,7 +281,10 @@
         %section
           %h3#returnTitleText.returnTtl 支援するコースを選択する
           .anoInfo
-            %p このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の12月26日 23:59までに支払いを完了した時点で、支援が成立します。
+            - if @project.support_type == 1
+              %p このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の#{@project.deadline.strftime("%m月%d日")} 23:59までに支払いを完了した時点で、支援が成立します。
+            - else
+              %p このプロジェクトはAll or Nothing形式です。プロジェクト終了日の#{@project.deadline.strftime("%m月%d日")} 23:59までに目標金額が達成となった時点で、支援が成立します。目標金額の達成後は、支払いを完了した時点で、支援が成立します。
           #return
             = render 'template/courses'
         .anotherLinkArea
@@ -463,29 +295,26 @@
         .anoterInfo
           %p
             「Makuake（マクアケ）」は、実行者の想いを支援によって実現するクラウドファンディングサイトです。このページは、
-            プロダクトカテゴリの
+            #{@project.category.name}カテゴリの
 
-            「忙しい朝に！通勤出張と自由自在！大容量軽量の3WAYボディバッグGeoriem」プロジェクト詳細ページです。
+            「#{@project.name}」プロジェクト詳細ページです。
         .sct
           %a.go-to-sct{:href => "https://www.makuake.com/project/georiem7/sct/"} 特定商取引法に基づく表記
       #scrollContent{:style => "display: none;"}
         / <a id="topBtn02" href=""><img src="//cdn-m.makuake.com/rev_2018/10/12/143228/img/btn_pagetop02.gif" alt=""></a>
-        #scrollFb
-          .fb-like.fb_iframe_widget{"data-href" => "https://www.makuake.com/project/georiem7/", "data-layout" => "box_count", "data-send" => "false", "data-show-faces" => "false", "data-width" => "71", "fb-iframe-plugin-query" => "app_id=1407034392847669&container_width=78&href=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&layout=box_count&locale=ja_JP&sdk=joey&send=false&show_faces=false&width=71", "fb-xfbml-state" => "rendered"}
-            %span{:style => "vertical-align: bottom; width: 72px; height: 40px;"}
-              %iframe{:allow => "encrypted-media", :allowfullscreen => "true", :allowtransparency => "true", :frameborder => "0", :height => "1000px", :name => "f2f5baf626861a", :scrolling => "no", :src => "https://www.facebook.com/v2.9/plugins/like.php?app_id=1407034392847669&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FtrnHszv6jVd.js%3Fversion%3D42%23cb%3Df2bf50b3bf691d8%26domain%3Dwww.makuake.com%26origin%3Dhttps%253A%252F%252Fwww.makuake.com%252Ff3c445a7d5bed94%26relation%3Dparent.parent&container_width=78&href=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&layout=box_count&locale=ja_JP&sdk=joey&send=false&show_faces=false&width=71", :style => "border: none; visibility: visible; width: 72px; height: 40px;", :title => "fb:like Facebook Social Plugin", :width => "71px"}
         #scrollTw
           %iframe#twitter-widget-1.twitter-share-button.twitter-share-button-rendered.twitter-tweet-button{:allowtransparency => "true", "data-url" => "https://www.makuake.com/project/georiem7/?utm_source=georiem7&utm_medium=sns_share_tw", :frameborder => "0", :scrolling => "no", :src => "https://platform.twitter.com/widgets/tweet_button.1dcb9052029dec42394397b936b6c31a.ja.html#dnt=false&hashtags=Makuake&id=twitter-widget-1&lang=ja&original_referer=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&size=m&text=%E5%BF%99%E3%81%97%E3%81%84%E6%9C%9D%E3%81%AB%EF%BC%81%E9%80%9A%E5%8B%A4%E5%87%BA%E5%BC%B5%E3%81%A8%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%81%E5%A4%A7%E5%AE%B9%E9%87%8F%E8%BB%BD%E9%87%8F%E3%81%AE3WAY%E3%83%9C%E3%83%87%E3%82%A3%E3%83%90%E3%83%83%E3%82%B0Georiem%20%7C%20%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%20-%20Makuake%EF%BC%88%E3%83%9E%E3%82%AF%E3%82%A2%E3%82%B1%EF%BC%89&time=1539405615049&type=share&url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgeoriem7%26utm_medium%3Dsns_share_tw&via=makuake_ca", :style => "position: static; visibility: visible; width: 75px; height: 20px;", :title => "Twitter Tweet Button"}
         #scrollShienBtnBase
           %a.scrollShienBtn{:href => "/investment/select/georiem7/", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;"} コースを選択
       #contact_me_overlay{:style => "display:none;"}
+
       #contact_me_box{:style => "display:none;"}
         .contact_me_modal_close
           %svg.contact_me_modal_close_btn
             %use{"xlink:href" => "#icon-close"}
         %p.contact_me_ttl 質問する
         %span#message_error{:style => "display:none;"}
-        %p.contact_me_ttl02 To:メルサンス合同会社
+        %p.contact_me_ttl02 To:#{@project.user.name}
         %textarea#message_content{:maxlength => "2000"}
         %p.contact_me_count
           %span#counter> 2000
@@ -498,46 +327,24 @@
       %input#project_id{:type => "hidden", :value => "5111"}/
     .bread-crumb-listBase
       %ul#bread-crumb-list.clearfix
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+        %li
           %a{:href => "/", :itemprop => "url"}>
             %span{:itemprop => "title"} TOP
            
           %i> &gt;
            
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          %a{:href => "/discover/projects/search/", :itemprop => "url"}>
+        %li
+          %a{:href => "/projects/search/", :itemprop => "url"}>
             %span{:itemprop => "title"} プロジェクト一覧
            
           %i> &gt;
            
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+        %li
           %a{:href => "/discover/categories/product/", :itemprop => "url"}>
-            %span{:itemprop => "title"} プロダクト
+            %span{:itemprop => "title"} #{@project.category.name}
            
           %i> &gt;
            
         %li{:itemscope => "itemscope", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
           %a{:href => "/project/georiem7/", :itemprop => "url"}
-            %span{:itemprop => "title"} 忙しい朝に！通勤出張と自由自在！大容量軽量の3WAYボディバッグGeoriem
-  %script{:id => "", :type => "text/javascript"}
-    :cdata
-      var yahoo_retargeting_id="JCXJENUYT8",yahoo_retargeting_label="";
-  %script{:id => "", :src => "//b92.yahoo.co.jp/js/s_retargeting.js", :type => "text/javascript"}
-  %script{:id => "", :type => "text/javascript"}
-    :cdata
-      setTimeout(function(){var k="",h=window.dataLayer;if(Array.isArray(h))for(key in h)k=h[key].userid?h[key].userid:k;!function m(a,f,c){function b(g,d){if(!f[g]){if(!a[g]){var e="function"==typeof require&&require;if(!d&&e)return e(g,!0);if(h)return h(g,!0);e=Error("Cannot find module '"+g+"'");throw e.code="MODULE_NOT_FOUND",e;}e=f[g]={exports:{}};a[g][0].call(e.exports,function(d){var e=a[g][1][d];return b(e?e:d)},e,e.exports,m,a,f,c)}return f[g].exports}for(var h="function"==typeof require&&require,
-      l=0;l<c.length;l++)b(c[l]);return b}({1:[function(a,f,c){var h="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(d){return typeof d}:function(d){return d&&"function"==typeof Symbol&&d.constructor===Symbol&&d!==Symbol.prototype?"symbol":typeof d},b=a("./config").settings;if("undefined"!=typeof window){a=function(d){function a(d){var a=new Treasure({host:b.td.host,writeKey:b.td.key,database:b.td.database});f(d,a)}function f(a,c){if("object"===("undefined"==typeof a?"undefined":h(a))){var e=
-      a.aid;if("undefined"==typeof e&&(e=null),c){var f={};f[b.td.microadAudienceIdColumn]=e;Object.keys(d).forEach(function(a){f[a]=d[a]});c.set(b.td.table,f);c.set("$global","td_global_id","td_global_id")}else console.log("table \x3d "+b.td.table),console.log(b.td.microadAudienceIdColumn+" \x3d "+e),Object.keys(d).forEach(function(a){console.log(a+" \x3d "+d[a])})}c&&c.trackPageview(b.td.table)}window.microadTd[b.callbackKey].sync=window.microadTd[b.callbackKey].sync||a;b.debug&&(window.microadTd[b.callbackKey].sync=
-      f);var c=g();document.body.appendChild(c);c.text='!function(t,e){if(void 0\x3d\x3d\x3de[t]){e[t]\x3dfunction(){e[t].clients.push(this),this._init\x3d[Array.prototype.slice.call(arguments)]},e[t].clients\x3d[];for(var r\x3dfunction(t){return function(){return this["_"+t]\x3dthis["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},s\x3d["addRecord","set","trackEvent","trackPageview","trackClicks","ready"],a\x3d0;a\x3cs.length;a++){var c\x3ds[a];e[t].prototype[c]\x3dr(c)}var n\x3ddocument.createElement("script");n.type\x3d"text/javascript",n.async\x3d!0,n.src\x3d("https:"\x3d\x3d\x3ddocument.location.protocol?"https:":"http:")+"//cdn.treasuredata.com/sdk/1.7.2/td.min.js";var i\x3ddocument.getElementsByTagName("script")[0];i.parentNode.insertBefore(n,i)}}("Treasure",this);';
-      c=g();document.body.appendChild(c);c.src=k+"//"+l(b)};window.microadTd=window.microadTd||{};window.microadTd[b.callbackKey]=window.microadTd[b.callbackKey]||{};window.microadTd[b.callbackKey].start=window.microadTd[b.callbackKey].start||a;var k=location.protocol,l=function(a){var b=a.api.encryption.url,d=a.api.encryption.code,c=a.api.encryption.version;a=a.api.encryption.callback;return b+"?code\x3d"+d+"\x26v\x3d"+c+"\x26cb\x3d"+a},g=function(){var a=document.createElement("script");return a.type=
-      "text/javascript",a.charset="UTF-8",a}}},{"./config":3}],2:[function(a,f,c){a=f.exports={};a.apiVersion="v1";a.tdHost="in.treasuredata.com"},{}],3:[function(a,f,c){a=a("./config.global");c="MA";var h="wAfDYNqni1s",b={host:a.tdHost,key:"7474/246c72eaa9eaa334cf7cf0c7c24dcabb5d9f15b2",database:"business_test_db",table:"makuake_access_log",microadAudienceIdColumn:"audience_id"};a.settings={callbackKey:c,api:{encryption:{code:h,url:"aid.send.microad.jp/aid",version:a.apiVersion,callback:"microadTd."+c+
-      ".sync"}},td:b,debug:!1};f.exports=a},{"./config.global":2}]},{},[1,2,3]);microadTd.MA.start({user_id:k})},2E3);
-  %script{:charset => "UTF-8", :src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/jquery.lazyload.js", :type => "text/javascript"}
-  :javascript
-    $(function () {
-        $('img.lazy').lazyload({
-            effect:      'fadeIn',
-        });
-    });
-  %p#page-top_jq{:style => "display: none;"}
-    %a{:href => "#wrap"} PAGE TOP
+            %span{:itemprop => "title"} #{@project.name}
