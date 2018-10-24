@@ -5,7 +5,7 @@
     .content-apply__main
       .main__caption プロジェクト掲載に関する相談、質問などを以下相談内容の例文を元にご相談ください。（返信は3営業日程度を目安としております）
       .main__apply-form
-        = form_for [@user, @promoter] do |f|
+        = form_for [current_user, @promoter_profile] do |f|
           .apply-form__field
             .field-checkbox
               .checkbox-label
