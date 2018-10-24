@@ -5,10 +5,11 @@
   .boxB.dTable
     %span#radio_26506.chkradio.errPosRight.after
       %label.choices
-        %input#radio_id_26506.radioBtn.radio_26506.errPosRight{name: "answer", type: "radio", value: "1"}>/
-        はい
-        %input{name: "question", type: "hidden", value: question.content }/
-        %input{name: "course_question_id", type: "hidden", value: question.id }/
+        - question.course_question_answers.each do |answer|
+          %input.radioBtn.errPosRight{name: "answer", type: "radio", value: answer.content}
+          =answer.content
+        %input{name: "question", type: "hidden", value: question.content }
+        %input{name: "course_question_id", type: "hidden", value: question.id }
     #err_radio_26506.formError.userformError.form_support_form.fixed{style: "display: none;"}
       .formErrorMsg.formErrorContent
       .formErrorArrow
