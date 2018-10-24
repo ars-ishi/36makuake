@@ -37,7 +37,6 @@ class ProjectsController < ApplicationController
     @supporters = @supporters.uniq.length
     @courses = @project.courses
     @comments = @project.project_comments.order("created_at DESC")
-
   end
 
 

@@ -115,8 +115,11 @@
               %p#last.timer.stDayNum
                 %span #{@project.time_limit}
           .pnumBaseDown
-            %a#sienBtn{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
-              %p 支援するコースを選択する
+            - if @project.time_limit == "終了"
+              .shienEnd 終了しました
+            - else
+              %a#sienBtn{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
+                %p 支援するコースを選択する
     .heroBtmBase
       %section
         .heroBtmBaseUp
@@ -134,11 +137,6 @@
               %svg.icon-tag
                 %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span.location-name #{@project.category.name}
-          / .project_category
-          /   %a.projectTag{:href => "/discover/categories/contribution/"}
-          /     %svg.icon_tag
-          /       %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          /     社会貢献
 
 
           / ここまでカテゴリー表示
@@ -249,16 +247,20 @@
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
               .leftText
-                %p.leftText 【ここにProject内容】
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText　
-                %p.leftText 【ここにProject内容】
+                #{@project.content}
           #supporting-comment
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper
-              = render "template/projectComments"
+              - @project.project_comments.order("created_at DESC").first(3).each do |comment|
+                %a.supporting-comment-content{:href => "/"}
+                  .supporting-comment-left
+                    %img.supporting-comment-icon{:src => "#{comment.user.image}"}/
+                  .supporting-comment-right
+                    %p.supporting-comment-name #{comment.user.name}
+                    %p.supporting-comment-date #{comment.created_at.strftime("%Y.%m.%d")}
+                    %p.supporting-comment-message
+                      #{comment.content}
+
             .supporting-comment-more{:style => ""}
               %a#support-comment-link{:href => "/project/georiem7/communication/supporter/"} すべて見る
           %a#sienBtn03.btncol_03{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
@@ -305,7 +307,7 @@
         #scrollTw
           %iframe#twitter-widget-1.twitter-share-button.twitter-share-button-rendered.twitter-tweet-button{:allowtransparency => "true", "data-url" => "https://www.makuake.com/project/georiem7/?utm_source=georiem7&utm_medium=sns_share_tw", :frameborder => "0", :scrolling => "no", :src => "https://platform.twitter.com/widgets/tweet_button.1dcb9052029dec42394397b936b6c31a.ja.html#dnt=false&hashtags=Makuake&id=twitter-widget-1&lang=ja&original_referer=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&size=m&text=%E5%BF%99%E3%81%97%E3%81%84%E6%9C%9D%E3%81%AB%EF%BC%81%E9%80%9A%E5%8B%A4%E5%87%BA%E5%BC%B5%E3%81%A8%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%81%E5%A4%A7%E5%AE%B9%E9%87%8F%E8%BB%BD%E9%87%8F%E3%81%AE3WAY%E3%83%9C%E3%83%87%E3%82%A3%E3%83%90%E3%83%83%E3%82%B0Georiem%20%7C%20%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%20-%20Makuake%EF%BC%88%E3%83%9E%E3%82%AF%E3%82%A2%E3%82%B1%EF%BC%89&time=1539405615049&type=share&url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgeoriem7%26utm_medium%3Dsns_share_tw&via=makuake_ca", :style => "position: static; visibility: visible; width: 75px; height: 20px;", :title => "Twitter Tweet Button"}
         #scrollShienBtnBase
-          %a.scrollShienBtn{:href => "/investment/select/georiem7/", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;"} コースを選択
+          %a.scrollShienBtn{:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;"} コースを選択
       #contact_me_overlay{:style => "display:none;"}
 
       #contact_me_box{:style => "display:none;"}

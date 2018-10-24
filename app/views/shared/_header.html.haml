@@ -24,8 +24,16 @@
       / ログイン
       %nav#navigation02
         %ul.nav-header-box-after
-          %li
-            %a.header-link-apply-after{:href => "/apply/"} プロジェクトを掲載する
+          -# %li
+          -#   %a.header-link-apply-after{:href => "/apply/"} プロジェクトを掲載する
+          - if can? :supporter, current_user
+            - if "#{controller.controller_name}" != "promoter_profiles"
+              - if current_user.promoter_profile == nil
+                %li
+                  = link_to 'プロジェクトを掲載する', new_user_promoter_profile_path(current_user), class: 'header-link-apply-after'
+              - else
+                %li
+                  = link_to 'プロジェクト掲載を再度申し込む', edit_user_promoter_profile_path(current_user, current_user.promoter_profile), class: 'header-link-apply-after'
           %li{"data-geenie-favorite-header--hasnot" => "", :style => "display: block"}
             .header-like-box
               %a.header-like-after{:href => "/favorite/tag/"}

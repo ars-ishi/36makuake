@@ -1,7 +1,8 @@
 $(function() {
 
 
-  //ボックスの表示
+
+  //ヘッダーのマイページボックスの表示
   $(".link03After").on("click",function(){
    if($("#myMenuBox").css("display") == "none"){
     $("#toolTipsPjt").css("display","none");
@@ -33,9 +34,11 @@ $(function() {
         if ($(this).scrollTop() > 100) {
         //ボタンの表示方法
             topBtn.fadeIn();
+            $(".tab_wrapper").addClass('tabNavigation_fixed');
         } else {
         //ボタンの非表示方法
             topBtn.fadeOut();
+            $(".tab_wrapper").removeClass('tabNavigation_fixed');
         }
     });
     //スクロールしてトップ
@@ -46,6 +49,19 @@ $(function() {
         return false;
     });
 });
+
+$(function() {
+    var num = $(".projectTtl").offset().top;
+    $(window).scroll(function () {
+
+        if( $(this).scrollTop() >= num){
+            $("#scrollContent").fadeIn(150);
+
+        } else if($(this).scrollTop() <= num){
+            $("#scrollContent").fadeOut(150);
+        }
+    });
+  });
 
 
   // スライダー
@@ -65,6 +81,10 @@ $(function() {
             },
     });
   });
-})
+
+
+
+});
+
 
 

@@ -11,7 +11,6 @@
     %a.ProjectDetailInRight{"data-investment-info-return-link-to-select-main" => "", :href => "/investment/select/georiem7/41094/"}
       %h5.lefth5Right #{course.name}
       .photoSectionUp
-        / アソシエーションをhas_oneに
         - course.course_images.each do |image|
           %img.lazy{:alt => "ここに画像", "data-original" => "/", :height => "165px", :src => "#{image.image}", :style => "display: inline;", :width => "280px"}/
       %p.detailTextRight

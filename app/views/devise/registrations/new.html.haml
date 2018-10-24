@@ -2,7 +2,7 @@
   = devise_error_messages!
   %section.login__outer.login__outer-padding
     %p.modal03__title 新規登録
-    = link_to new_user_session_path, class: 'btnLogin03' do
+    = link_to '#sign_in', class: 'btnLogin03 sign_in' do
       ログインはこちら
       %svg.btnLogin03-icon
         %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -26,26 +26,26 @@
           .kurumi
             = f.label :email, class: 'note' do
               メールアドレス
-            = f.email_field :email, autofocus: true, autocomplete: 'email', required: 'required', class: 'loginForm'
+            = f.email_field :email, autofocus: true, autocomplete: 'email', required: 'required', class: 'loginForm', id: 'user_email_base', onInput: "mailFormatValidates('user_email_base')"
           .kurumi
             = f.label :email_confirm, class: 'note note--textright' do
               確認
-            = f.email_field :email, autofocus: true, autocomplete: 'email_confirm', required: 'required', class: 'loginForm', id: 'user_email_confirm', onInput: "mailValidates(this, 'user_email')"
+            = f.email_field :email, autofocus: true, autocomplete: 'email_confirm', required: 'required', class: 'loginForm', id: 'user_email_confirm', onInput: "mailValidates(this, 'user_email_base')"
           .kurumi
             = f.label :name, class: 'note' do
               ユーザー名
-              %p.notes ※20文字以内
-            = f.text_field :name, autofocus: true, autocomplete: 'name', required: 'required', class: 'loginForm'
+              %p.notes ※3文字以上20文字以内
+            = f.text_field :name, autofocus: true, autocomplete: 'name', required: 'required', class: 'loginForm', minlength: 3, maxlength: 20
           .kurumi
             = f.label :password, class: 'note' do
               パスワード
               - if @minimum_password_length
                 %p.notes ※半角英数字#{@minimum_password_length}文字以上
-            = f.password_field :password, autocomplete: 'password', required: 'required', minlength: 6, class: 'loginForm'
+            = f.password_field :password, autocomplete: 'password', required: 'required', minlength: 6, class: 'loginForm', id: 'user_password_base', onInput: "passFormatValidates('user_password_base')"
           .kurumi
             = f.label :password_confirmation, class: 'note note--textright' do
               確認
-            = f.password_field :password_confirmation, autocomplete: 'password_confirmation', required: 'required', minlength: 6, class: 'loginForm', onInput: "passValidates(this, 'user_password')"
+            = f.password_field :password_confirmation, autocomplete: 'password_confirmation', required: 'required', minlength: 6, class: 'loginForm', onInput: "passValidates(this, 'user_password_base')"
           .modal03__agreeBase
             %label{for: 'agree', class: 'modal03__agreeBase-label' }
               %input#agree.modal03__checkbox{ autocomplete: 'off', name: 'agreement', required: 'required', type: 'checkbox', value: '' }

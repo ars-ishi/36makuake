@@ -1,6 +1,13 @@
 class UsersController < ApplicationController
   before_action :move_to_email_registration, only: [:show]
 
+  def index
+    respond_to do |format|
+        format.html
+        format.json { render json: User.pluck(:email) }
+    end
+  end
+
   def show
     @user = current_user
   end
