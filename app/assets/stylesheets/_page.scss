@@ -14,6 +14,16 @@
   }
 }
 
+.icon_success, .icon_notfunded, .icon_funded {
+    display: block;
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    top: -13px;
+    z-index: 1;
+    right: -18px;
+}
+
 .content-main {
   width: 70%;
   float: right;

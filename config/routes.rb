@@ -30,7 +30,6 @@ Rails.application.routes.draw do
       get :categories
     end
   end
-
   get 'pages/privacy' => 'pages#privacy'
   get 'pages/term' => 'pages#term'
 end
