@@ -1,13 +1,13 @@
 class PromoterProfilesController < ApplicationController
   def new
-    @promoter_profile = PromoterProfile.new
+    @promoter_profile = current_user.build_promoter_profile
     @categories = Category.all
     @promoter_profile.email = current_user.email
     consult_sample
   end
 
   def create
-      @promoter_profile = PromoterProfile.new(promoter_profile_params)
+      @promoter_profile = current_user.build_promoter_profile(promoter_profile_params)
       if @promoter_profile.save
         PromoterApplyMailer.send_when_create(current_user).deliver
         flash.now[:notice] = 'お申し込みを受け付けました。'
@@ -59,7 +59,7 @@ class PromoterProfilesController < ApplicationController
       :questionnaire,
       :progress,
       :content
-    ).merge(user_id: current_user.id)
+    )
   end
 
   def consult_sample
