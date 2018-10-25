@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :this_project, only: [:create]
+
   def new
     @order = Order.new(new_order_params)
     @order.order_details.build
@@ -7,24 +9,33 @@ class OrdersController < ApplicationController
     @usersAddresses = @user.send_addresses
     @address = Order.main_address(current_user.id)
     @fullName = Order.full_name(@address.last_name, @address.first_name)
-    @course = Course.find_by(new_course_params.values)
+    @course = Course.find(params[:course_id])
     @shippingTime = Time.zone.now
     render layout: false
   end
 
   def create
+    ##支援金合計の演算処理&更新処理
+    @project = this_project
+    @before_payment_total_sales = this_project.total_sales
+    @after_payment_total_sales  = @before_payment_total_sales.to_i + order_params[:payment_price].to_i
+    @project.update_total_sales(this_project, @after_payment_total_sales)
+
+    ##オーダーを保存する
     @order = Order.new(order_params)
     @order.save
     OrderAnswer.create(order_answer_params)
 
-    #以下決済処理
+    ##在庫を変更する演算処理&更新処理
+
+    ##決済処理
     @amount = order_params[:payment_price]
-    #JSライブラリからトークンを受け取る処理
+    ##JSライブラリからトークンを受け取りStripeへデータを保存する処理
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
     )
-    #決済処理
+    ##Stripe決済処理
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
@@ -41,10 +52,6 @@ private
     params.permit(:project_id, :user_id)
   end
 
-  def new_course_params
-    params.permit(:course_id)
-  end
-
   def new_order_answer_question_params
     params.permit(:question, :answer, :course_question_id)
   end
@@ -56,7 +63,7 @@ private
       :payment_price,
       :send_address,
       order_details_attributes: [:id, :order_quantity, :shipping_date, :unit_price, :course_id]
-    ).merge(user_id: params[:user_id])
+      ).merge(user_id: params[:user_id])
   end
 
   def order_answer_params
@@ -65,5 +72,9 @@ private
       :answer,
       :question
       ).merge(order_detail_id: @order.order_details[0].id)
+  end
+
+  def this_project
+    this_project = Project.find(order_params[:project_id])
   end
 end
