@@ -1,4 +1,46 @@
+//slider
+
+.timelimit{
+    margin-right: 30px;
+}
+
+.timelimit-prefix{
+    position: relative;
+    top: -2px;
+    margin-right: 13px;
+}
+
+.timelimit-text{
+    font-size: 27px
+}
+
+.link--project {
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    text-decoration: none;
+}
+
+
+
+.title-inner--project {
+    text-shadow: 0 1px 3px rgba(0,0,0,.11);
+    word-break: break-all;
+}
+
+.title-inner--project:hover {
+    border-bottom: 1px solid;
+}
+
+
+.link--project:hover{
+    text-decoration: none;
+}
+
 //仮のCSS
+
 .icon-tag {
     position: relative;
     top: 2px;
@@ -7,7 +49,6 @@
     fill: #595959;
     margin-right: 1px;
 }
-a:hover{text-decoration-color: #595959}
 
 .location-name {
     color: #646464;
