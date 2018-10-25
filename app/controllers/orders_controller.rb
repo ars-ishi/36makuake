@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :this_project, only: [:create]
   before_action :this_course,  only: [:create]
+  before_action :course_from_show, only: [:new]
 
   def new
     @order = Order.new(new_order_params)
@@ -10,7 +11,7 @@ class OrdersController < ApplicationController
     @usersAddresses = @user.send_addresses
     @address = Order.main_address(current_user.id)
     @fullName = Order.full_name(@address.last_name, @address.first_name)
-    @course = Course.find(params[:course_id])
+    @course = course_from_show
     @shippingTime = Time.zone.now
     render layout: false
   end
@@ -77,6 +78,10 @@ private
       :answer,
       :question
       ).merge(order_detail_id: @order.order_details[0].id)
+  end
+
+  def course_from_show
+    course_from_show = Course.find(params[:course_id])
   end
 
   def this_project
