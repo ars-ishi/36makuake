@@ -49,7 +49,9 @@ class Project < ApplicationRecord
     else
       return "終了"
     end
-
   end
 
+  def update_total_sales(project, total_sales)
+    project.update(total_sales: total_sales)
+  end
 end
