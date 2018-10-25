@@ -8,7 +8,7 @@
       .lefth4RightNum{:style => "color: #fb2a79; font-size: 18px; text-indent: 2px;"}
         %p
         残り#{course.stock}個
-    %a.ProjectDetailInRight{"data-investment-info-return-link-to-select-main" => "", :href => "/investment/select/georiem7/41094/"}
+    %a.ProjectDetailInRight{"data-investment-info-return-link-to-select-main" => "", :href => "/projects/#{@project.id}/courses/#{course.id}"}
       %h5.lefth5Right #{course.name}
       .photoSectionUp
         - course.course_images.each do |image|
@@ -31,6 +31,6 @@
         %a.shienBtn02{"data-investment-info-return-link-to-select-btn" => "sold-out", :href => "#"}
           在庫切れ
       - else
-        %a.shienBtn{"data-investment-info-return-link-to-select-btn" => "not-sold-out", :href => "/investment/select/georiem7/41094/", :style => ""}
+        %a.shienBtn{"data-investment-info-return-link-to-select-btn" => "not-sold-out", :href => "/projects/#{@project.id}/courses/#{course.id}", :style => ""}
           このコースに申込む
 
