@@ -8,7 +8,7 @@
       .lefth4RightNum{:style => "color: #fb2a79; font-size: 18px; text-indent: 2px;"}
         %p
         残り#{course.stock}個
-    %a.ProjectDetailInRight{"data-investment-info-return-link-to-select-main" => "", :href => "/projects/#{@project.id}/courses/#{course.id}"}
+    = link_to("/projects/#{@project.id}/courses/#{course.id}", class: "ProjectDetailInRight", "data-investment-info-return-link-to-select-main": "") do
       %h5.lefth5Right #{course.name}
       .photoSectionUp
         - course.course_images.each do |image|
@@ -28,9 +28,9 @@
         #{course.due_date}までにお届け予定です。
     %aside.detailAside02
       - if course.stock <= 0
-        %a.shienBtn02{"data-investment-info-return-link-to-select-btn" => "sold-out", :href => "#"}
+        = link_to("#", class: "shienBtn02", "data-investment-info-return-link-to-select-btn": "sold-out") do
           在庫切れ
       - else
-        %a.shienBtn{"data-investment-info-return-link-to-select-btn" => "not-sold-out", :href => "/projects/#{@project.id}/courses/#{course.id}", :style => ""}
+        = link_to("/projects/#{@project.id}/courses/#{course.id}", class: "shienBtn", "data-investment-info-return-link-to-select-btn": "not-sold-out", style: "") do
           このコースに申込む
 
