@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :this_project, only: [:create]
+  before_action :this_course,  only: [:create]
 
   def new
     @order = Order.new(new_order_params)
@@ -27,6 +28,10 @@ class OrdersController < ApplicationController
     OrderAnswer.create(order_answer_params)
 
     ##在庫を変更する演算処理&更新処理
+    @course = this_course
+    currenct_purchase_number = order_params[:order_details_attributes].values[0]['order_quantity']
+    after_payment_stock      = @course.stock.to_i - currenct_purchase_number.to_i
+    @course.update(stock: after_payment_stock)
 
     ##決済処理
     @amount = order_params[:payment_price]
@@ -76,5 +81,9 @@ private
 
   def this_project
     this_project = Project.find(order_params[:project_id])
+  end
+
+  def this_course
+    this_course = Course.find(order_params[:order_details_attributes].values[0]['course_id'])
   end
 end
