@@ -17,40 +17,43 @@ class OrdersController < ApplicationController
   end
 
   def create
-    ##支援金合計の演算処理&更新処理
-    @project = set_project
-    @before_payment_total_sales = set_project.total_sales
-    @after_payment_total_sales  = @before_payment_total_sales.to_i + order_params[:payment_price].to_i
-    @project.update_total_sales(set_project, @after_payment_total_sales)
-
-    ##オーダーを保存する
-    @order = Order.new(order_params)
-    @order.save
-    OrderAnswer.create(order_answer_params)
-
-    ##在庫を変更する演算処理&更新処理
-    @course = set_course
-    currenct_purchase_number = order_params[:order_details_attributes].values[0]['order_quantity']
-    after_payment_stock      = @course.stock.to_i - currenct_purchase_number.to_i
-    @course.update(stock: after_payment_stock)
-
-    ##決済処理
-    @amount = order_params[:payment_price]
-    ##JSライブラリからトークンを受け取りStripeへデータを保存する処理
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :source  => params[:stripeToken]
-    )
-    ##Stripe決済処理
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'jpy'
-    )
+    ApplicationRecord.transaction do
+      ##支援金合計の演算処理&更新処理
+      @project = set_project
+      @before_payment_total_sales = set_project.total_sales
+      @after_payment_total_sales  = @before_payment_total_sales.to_i + order_params[:payment_price].to_i
+      unless @project.update_total_sales(set_project, @after_payment_total_sales)
+        raise ActiveRecord::Rollback
+      end
+      ##オーダーを保存する
+      @order = Order.new(order_params)
+      @order.save!
+      if order_answer_params[:question].present?
+        OrderAnswer.create!(order_answer_params)
+      end
+      ##在庫を変更する演算処理&更新処理
+      @course = set_course
+      currenct_purchase_number = order_params[:order_details_attributes].values[0]['order_quantity']
+      after_payment_stock      = @course.stock.to_i - currenct_purchase_number.to_i
+      @course.update!(stock: after_payment_stock)
+      ##決済処理
+      @amount = order_params[:payment_price]
+      ##JSライブラリからトークンを受け取りStripeへデータを保存する処理
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken]
+      )
+      ##Stripe決済処理
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => @amount,
+        :description => 'Rails Stripe customer',
+        :currency    => 'jpy'
+      )
+    end
     rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    ActiveRecord::Rollback
   end
 
 private
