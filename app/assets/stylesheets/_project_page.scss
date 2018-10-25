@@ -24,7 +24,6 @@
 }
 
 
-
 .title-inner--project {
     text-shadow: 0 1px 3px rgba(0,0,0,.11);
     word-break: break-all;
@@ -37,6 +36,13 @@
 
 .link--project:hover{
     text-decoration: none;
+    filter:brightness(110%);
+}
+
+.view-button-link:hover{
+    background-color:#f8c700;
+    color:#fff;
+    text-decoration:none
 }
 
 //仮のCSS

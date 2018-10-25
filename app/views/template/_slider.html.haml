@@ -8,7 +8,7 @@
           %img.image-background{:alt => "#{project.name}", :src => "#{@sliders[i].bg_image}"}/
           .HeroItem
             .main--project
-              %a.link--project{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+              = link_to project_path(project.id), class:"link--project" do
                 .img--project
                   %img.image-thumbnail{:alt => "#{project.name}", :src => "#{project.thumbnail}"}/
                 .title
