@@ -7,359 +7,79 @@
       / section01
       %section#profileDetails
         %h2.ttlProfile プロフィール編集
-        .profileIn
-          %form{:action => "", :method => "post"}
-            %dl
-              %dt
-                ユーザー名
-                %a#name
-              %dd
-                %input#search_term.infoInput01{:maxlength => "20", :name => "user_name", :placeholder => "yourname", :type => "text", :value => "おとなのビスコ"}/
-                %span#search_results{:style => "display: none;"}
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "f64cc89bee67c57e029615ceca78b62e470b850984680addac331917573a9334b8fd0ac952e4263db9800fafc0729941badca83b70e0d8e3451ab062e1cdc31f"}/
-            %dl
-              %dt
-                プロフィール写真
-                %a#img
-              %dd
-                %input.filetInput{:name => "uploadfile", :type => "file"}/
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "b8ea03a7fedc0ff7039acd3a5d524033094ef9563509caf34e68b6cf03b6605d5bf6bff696786bc789a7ed4d95f54e727e8cc26e3311bc3ed971611688f56285"}/
-                %span.filesize
-                  ファイルサイズは1MB以下
-                  %br>/
-                  ファイル形式は jpeg、gif、png 形式のみ可
-            %dl
-              %dt
-                メールアドレス
-                %a#email
-              %dd
-                %span.new 現在のメールアドレス
-                %br/
-                %span.now gungun@bisco.com
-                %br/
-                %span.new 新しいメールアドレス
-                %br/
-                %input.infoInput02{:name => "email", :placeholder => "Email address", :type => "text", :value => ""}/
-                %span.editAlert 半角英数字のみ
-                %br/
-                %span.new 新しいメールアドレス（確認用）
-                %br/
-                %input.infoInput02{:name => "email_confirm", :oncontextmenu => "return false", :onkeydown => "if ((event.keyCode == 86 && event.ctrlKey) || (event.keyCode == 45 && event.shiftKey)) { return showMessage();}", :placeholder => "Email address", :type => "text", :value => ""}/
-                %span.editAlert コピー＆ペースト不可
-                %input.updateBtn.mailChangeSave{:type => "submit", :value => "変更を保存"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "ffe87492c6a11193a9f2996b7e1839d772e96509d7d75ef5c99652433ac14cde6a76d52b373691bd7f28b8173b31d75a175aaf0a2d3a5d3fb7c6fcfc07678796"}/
-            %dl
-              %dt
-                パスワード
-                %a#pass
-              %dd
-                %span.new 現在のパスワード
-                %br/
-                %input.infoInput01{:name => "password_old", :placeholder => "Password", :type => "password"}/
-                %a.passwordLink{:href => "/password/input/"} 現在のパスワードを忘れた方はこちらから
-                %br/
-                %span.new 新しいパスワード
-                %br/
-                %input#password.infoInput01{:name => "password_new", :placeholder => "Password", :type => "password"}/
-                %span.editAlert 6文字以上の半角英数字記号
-                %br/
-                %span.new 新しいパスワード(確認用)
-                %br/
-                %input.infoInput01{:name => "password_new_confirm", :placeholder => "Password", :type => "password"}/
-                %span#img01.editAlert コピー＆ペースト不可
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "1f9f65f83011fa760541a07d6cb098899196d585e840f57d5aad6f68d4fda6f49293b78b37ea4555b5cfd2415cc7f0ce77947bb5b62fcb06be85e74a512da526"}/
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-            %dl
-              %dt
-                URL
-              %dd
-                %input.infoInput02{:name => "url_1", :placeholder => "", :type => "text", :value => ""}/
-                %input.infoInput02{:name => "url_2", :placeholder => "", :type => "text", :value => ""}/
-                %input.infoInput02{:name => "url_3", :placeholder => "", :type => "text", :value => ""}/
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "3fe97373566bdcb33e759fa12149afbe5cccb13e9ceed6792fa807faf986de479dd2ebdd55101e04fd5964d0a2e50801a5d28d90e054a090d2e0f67ba8e43358"}/
-            %dl
-              %dt
-                現在地
-                %a#prefecture
-              %dd
-                %select.selectInput{:name => "prefecture"}
-                  %option{:value => "01"} 北海道
-                  %option{:value => "02"} 青森県
-                  %option{:value => "03"} 岩手県
-                  %option{:value => "04"} 宮城県
-                  %option{:value => "05"} 秋田県
-                  %option{:value => "06"} 山形県
-                  %option{:value => "07"} 福島県
-                  %option{:value => "08"} 茨城県
-                  %option{:value => "09"} 栃木県
-                  %option{:value => "10"} 群馬県
-                  %option{:value => "11"} 埼玉県
-                  %option{:value => "12"} 千葉県
-                  %option{:value => "13"} 東京都
-                  %option{:value => "14"} 神奈川県
-                  %option{:value => "15"} 新潟県
-                  %option{:value => "16"} 富山県
-                  %option{:value => "17"} 石川県
-                  %option{:value => "18"} 福井県
-                  %option{:value => "19"} 山梨県
-                  %option{:value => "20"} 長野県
-                  %option{:value => "21"} 岐阜県
-                  %option{:value => "22"} 静岡県
-                  %option{:value => "23"} 愛知県
-                  %option{:value => "24"} 三重県
-                  %option{:value => "25"} 滋賀県
-                  %option{:value => "26"} 京都府
-                  %option{:value => "27"} 大阪府
-                  %option{:value => "28"} 兵庫県
-                  %option{:value => "29"} 奈良県
-                  %option{:value => "30"} 和歌山県
-                  %option{:value => "31"} 鳥取県
-                  %option{:value => "32"} 島根県
-                  %option{:value => "33"} 岡山県
-                  %option{:value => "34"} 広島県
-                  %option{:value => "35"} 山口県
-                  %option{:value => "36"} 徳島県
-                  %option{:value => "37"} 香川県
-                  %option{:value => "38"} 愛媛県
-                  %option{:value => "39"} 高知県
-                  %option{:value => "40"} 福岡県
-                  %option{:value => "41"} 佐賀県
-                  %option{:value => "42"} 長崎県
-                  %option{:value => "43"} 熊本県
-                  %option{:value => "44"} 大分県
-                  %option{:value => "45"} 宮崎県
-                  %option{:value => "46"} 鹿児島県
-                  %option{:value => "47"} 沖縄県
-                %select.selectInput{:name => "is_living_place_published"}
-                  %option{:value => "1"} 公開する
-                  %option{:selected => "selected", :value => "0"} 公開しない
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "6e89e58f43f74bfb45257aa7cc0f46a596c69e5c30ea225d01a1f556b6a3de5266efc1b71429ee7d8fc33929c018c1fd93cc1d81f4ce24a2de609e7f1e95e736"}/
-            %dl
-              %dt
-                生年月日
-                %a#birth
-              %dd
-                %select#birth_year.selectInput{:name => "birth_year"}
-                  %option{:value => "2008"} 2008
-                  %option{:value => "2007"} 2007
-                  %option{:value => "2006"} 2006
-                  %option{:value => "2005"} 2005
-                  %option{:value => "2004"} 2004
-                  %option{:value => "2003"} 2003
-                  %option{:value => "2002"} 2002
-                  %option{:value => "2001"} 2001
-                  %option{:value => "2000"} 2000
-                  %option{:value => "1999"} 1999
-                  %option{:value => "1998"} 1998
-                  %option{:value => "1997"} 1997
-                  %option{:value => "1996"} 1996
-                  %option{:value => "1995"} 1995
-                  %option{:value => "1994"} 1994
-                  %option{:value => "1993"} 1993
-                  %option{:value => "1992"} 1992
-                  %option{:value => "1991"} 1991
-                  %option{:value => "1990"} 1990
-                  %option{:value => "1989"} 1989
-                  %option{:value => "1988"} 1988
-                  %option{:value => "1987"} 1987
-                  %option{:value => "1986"} 1986
-                  %option{:value => "1985"} 1985
-                  %option{:value => "1984"} 1984
-                  %option{:value => "1983"} 1983
-                  %option{:value => "1982"} 1982
-                  %option{:value => "1981"} 1981
-                  %option{:value => "1980"} 1980
-                  %option{:value => "1979"} 1979
-                  %option{:value => "1978"} 1978
-                  %option{:value => "1977"} 1977
-                  %option{:value => "1976"} 1976
-                  %option{:value => "1975"} 1975
-                  %option{:value => "1974"} 1974
-                  %option{:value => "1973"} 1973
-                  %option{:selected => "selected", :value => "1972"} 1972
-                  %option{:value => "1971"} 1971
-                  %option{:value => "1970"} 1970
-                  %option{:value => "1969"} 1969
-                  %option{:value => "1968"} 1968
-                  %option{:value => "1967"} 1967
-                  %option{:value => "1966"} 1966
-                  %option{:value => "1965"} 1965
-                  %option{:value => "1964"} 1964
-                  %option{:value => "1963"} 1963
-                  %option{:value => "1962"} 1962
-                  %option{:value => "1961"} 1961
-                  %option{:value => "1960"} 1960
-                  %option{:value => "1959"} 1959
-                  %option{:value => "1958"} 1958
-                  %option{:value => "1957"} 1957
-                  %option{:value => "1956"} 1956
-                  %option{:value => "1955"} 1955
-                  %option{:value => "1954"} 1954
-                  %option{:value => "1953"} 1953
-                  %option{:value => "1952"} 1952
-                  %option{:value => "1951"} 1951
-                  %option{:value => "1950"} 1950
-                  %option{:value => "1949"} 1949
-                  %option{:value => "1948"} 1948
-                  %option{:value => "1947"} 1947
-                  %option{:value => "1946"} 1946
-                  %option{:value => "1945"} 1945
-                  %option{:value => "1944"} 1944
-                  %option{:value => "1943"} 1943
-                  %option{:value => "1942"} 1942
-                  %option{:value => "1941"} 1941
-                  %option{:value => "1940"} 1940
-                  %option{:value => "1939"} 1939
-                  %option{:value => "1938"} 1938
-                  %option{:value => "1937"} 1937
-                  %option{:value => "1936"} 1936
-                  %option{:value => "1935"} 1935
-                  %option{:value => "1934"} 1934
-                  %option{:value => "1933"} 1933
-                  %option{:value => "1932"} 1932
-                  %option{:value => "1931"} 1931
-                  %option{:value => "1930"} 1930
-                  %option{:value => "1929"} 1929
-                  %option{:value => "1928"} 1928
-                  %option{:value => "1927"} 1927
-                  %option{:value => "1926"} 1926
-                  %option{:value => "1925"} 1925
-                  %option{:value => "1924"} 1924
-                  %option{:value => "1923"} 1923
-                  %option{:value => "1922"} 1922
-                  %option{:value => "1921"} 1921
-                  %option{:value => "1920"} 1920
-                  %option{:value => "1919"} 1919
-                  %option{:value => "1918"} 1918
-                  %option{:value => "1917"} 1917
-                  %option{:value => "1916"} 1916
-                  %option{:value => "1915"} 1915
-                  %option{:value => "1914"} 1914
-                  %option{:value => "1913"} 1913
-                  %option{:value => "1912"} 1912
-                  %option{:value => "1911"} 1911
-                  %option{:value => "1910"} 1910
-                年
-
-                %select#birth_month.selectInput{:name => "birth_month"}
-                  %option{:selected => "selected", :value => "1"} 1
-                  %option{:value => "2"} 2
-                  %option{:value => "3"} 3
-                  %option{:value => "4"} 4
-                  %option{:value => "5"} 5
-                  %option{:value => "6"} 6
-                  %option{:value => "7"} 7
-                  %option{:value => "8"} 8
-                  %option{:value => "9"} 9
-                  %option{:value => "10"} 10
-                  %option{:value => "11"} 11
-                  %option{:value => "12"} 12
-                月
-                %select#birth_day.selectInput{:name => "birth_day"}
-                  %option{:selected => "selected", :value => "1"} 1
-                  %option{:value => "2"} 2
-                  %option{:value => "3"} 3
-                  %option{:value => "4"} 4
-                  %option{:value => "5"} 5
-                  %option{:value => "6"} 6
-                  %option{:value => "7"} 7
-                  %option{:value => "8"} 8
-                  %option{:value => "9"} 9
-                  %option{:value => "10"} 10
-                  %option{:value => "11"} 11
-                  %option{:value => "12"} 12
-                  %option{:value => "13"} 13
-                  %option{:value => "14"} 14
-                  %option{:value => "15"} 15
-                  %option{:value => "16"} 16
-                  %option{:value => "17"} 17
-                  %option{:value => "18"} 18
-                  %option{:value => "19"} 19
-                  %option{:value => "20"} 20
-                  %option{:value => "21"} 21
-                  %option{:value => "22"} 22
-                  %option{:value => "23"} 23
-                  %option{:value => "24"} 24
-                  %option{:value => "25"} 25
-                  %option{:value => "26"} 26
-                  %option{:value => "27"} 27
-                  %option{:value => "28"} 28
-                  %option{:value => "29"} 29
-                  %option{:value => "30"} 30
-                  %option{:value => "31"} 31
-                日
-
-                %select.selectInput{:name => "is_birthday_published"}
-                  %option{:value => "1"} 公開する
-                  %option{:selected => "selected", :value => "0"} 公開しない
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "d713e68902f0ad786fb5da71ab5e6624cadc84753d5c2efc32e418203129f530a3ac81a7466fff5d84b6be80cbc8f50febf1c6d965706e616115d3231f156ead"}/
-            %dl
-              %dt
-                性別
-                %a#gender
-              %dd
-                %select.selectInput{:name => "gender"}
-                  %option{:value => "0"} 選択してください
-                  %option{:value => "1"} 女性
-                  %option{:selected => "selected", :value => "2"} 男性
-                  %option{:value => "3"} 他
-                %select.selectInput{:name => "is_gender_published"}
-                  %option{:value => "1"} 公開する
-                  %option{:selected => "selected", :value => "0"} 公開しない
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "30cd069f09f83a3bc7dd6ff56123099a24148c3fb637953054ff7f8ad4ecb006efcd2a933de4644a22729085dab8d52c4a258ed0cb7f7da2b4f9e2b6ae56d017"}/
-              %dd.edit
-                %a{:href => "/my/settings/profile/gender/"} 編集
-            %dl
-              %dt
-                自己紹介
-                %a#profile_edit
-              %dd
-                %textarea.textEdit{:cols => "50", :name => "profile", :placeholder => "ここにテキストを入力してください", :rows => "10"}
-                %input.updateBtn{:type => "submit", :value => "更新"}/
-                %input{:name => "fuel_csrf_token", :type => "hidden", :value => "823af889159c76f92e8cfd1694409fdf8d3afc56457e40c707b405d6c64f918ab8a9681be326951c6a5e23158ce1eb75f984a5d5e80e5edb08fc662124bef087"}/
-        / ./table
+        = form_for(@user) do |f|
+          %form
+            .profileIn
+              %dl
+                %dt
+                  ユーザー名
+                  %a#name
+                %dd
+                  = f.text_field :name, placeholder: 'yourname', autofocus: true, value: "#{current_user.name}", maxlength: '20', class: 'infoInput01'
+              %dl
+                %dt
+                  プロフィール写真
+                  %a#img
+                %dd
+                  %span 現在のプロフィール画像
+                  - if current_user.persisted? && current_user.image?
+                    %img{:alt => "", :height => "36", :src => "#{current_user.image}", :width => "36"}/
+                  - else
+                    = image_tag 'noimage.png', :height => "36", :width => "36"
+                  %br/
+                  %br/
+                  = f.file_field :image, class: 'filetInput', multipart: true, enctype: 'multipart/form-data'
+                  %span.filesize
+                    ファイルサイズは1MB以下
+                    %br>/
+                    ファイル形式は jpg、jpeg、gif、png 形式のみ可
+              %dl
+                %dt
+                  メールアドレス
+                  %a#email
+                %dd
+                  = f.text_field :email, placeholder: 'Email address', :value => "#{current_user.email}", class: 'infoInput02'
+                  %span.editAlert 半角英数字のみ
+              %dl
+                %dt
+                  URL
+                %dd
+                  = f.text_field :url, placeholder: 'url', class: 'infoInput02'
+              %dl
+                %dt
+                  現在地
+                  %a#prefecture
+                %dd
+                  = f.select :location, [['北海道','01'], ['青森県','02'], ['岩手県','03'], ['宮城県','04'], ['秋田県','05'], ['山形県','06'], ['福島県','07'], ['茨城県','08'], ['栃木県','09'], ['群馬県','10'], ['埼玉県','11'], ['千葉県','12'], ['東京都','13'], ['神奈川県','14'], ['新潟県','15'], ['富山県','16'], ['石川県','17'], ['福井県','18'], ['山梨県','19'], ['長野県','20'], ['岐阜県','21'], ['静岡県','22'], ['愛知県','23'], ['三重県','24'], ['滋賀県','25'], ['京都府','26'], ['大阪府','27'], ['兵庫県','28'], ['奈良県','29'], ['和歌山県','30'], ['鳥取県','31'], ['島根県','32'], ['岡山県','33'], ['広島県','34'], ['山口県','35'], ['徳島県','36'], ['香川県','37'], ['愛媛県','38'], ['高知県','39'], ['福岡県','40'], ['佐賀県','41'], ['長崎県','42'], ['熊本県','43'], ['大分県','44'], ['宮崎県','45'], ['鹿児島県','46'], ['沖縄県','47']], class: 'selectInput'
+              %dl
+                %dt
+                  生年月日
+                  %a#birth
+                %dd
+                  = f.select :birth_year, [['2008','2008'], ['2007','2007'], ['2006','2006'], ['2005','2005'], ['2004','2004'], ['2003','2003'], ['2002','2002'], ['2001','2001'], ['2000','2000'], ['1999','1999'], ['1998','1998'], ['1997','1997'], ['1996','1996'], ['1995','1995'], ['1994','1994'], ['1993','1993'], ['1992','1992'], ['1991','1991'], ['1990','1990'], ['1989','1989'], ['1988','1988'], ['1987','1987'], ['1986','1986'], ['1985','1985'], ['1984','1984'], ['1983','1983'], ['1982','1982'], ['1981','1981'], ['1980','1980'], ['1979','1979'], ['1978','1978'], ['1977','1977'], ['1976','1976'], ['1975','1975'], ['1974','1974'], ['1973','1973'], ['1972','1972'], ['1971','1971'], ['1970','1970'], ['1969','1969'], ['1968','1968'], ['1967','1967'], ['1966','1966'], ['1965','1965'], ['1964','1964'], ['1963','1963'], ['1962','1962'], ['1961','1961'], ['1960','1960'], ['1959','1959'], ['1958','1958'], ['1957','1957'], ['1956','1956'], ['1955','1955'], ['1954','1954'], ['1953','1953'], ['1952','1952'], ['1951','1951'], ['1950','1950']], class: 'selectInput'
+                  年
+                  = f.select :birth_month, [['1','1'], ['2','2'], ['3','3'], ['4','4'], ['5','5'], ['6','6'], ['7','7'], ['8','8'], ['9','9'], ['10','10'], ['11','11'], ['12','12']], class: 'selectInput'
+                  月
+                  = f.select :birth_day, [['1','1'], ['2','2'], ['3','3'], ['4','4'], ['5','5'], ['6','6'], ['7','7'], ['8','8'], ['9','9'], ['10','10'], ['11','11'], ['12','12'], ['13','13'], ['14','14'], ['15','15'], ['16','16'], ['17','17'], ['18','18'], ['19','19'], ['20','20'], ['21','21'], ['22','22'], ['23','23'], ['24','24'], ['25','25'], ['26','26'], ['27','27'], ['28','28'], ['29','29'], ['30','30'], ['31','31']], class: 'selectInput'
+                  日
+              %dl
+                %dt
+                  性別
+                  %a#gender
+                %dd
+                  = f.select :gender, [['男性','male'], ['女性','female']], class: 'selectInput'
+              %dl
+                %dt
+                  自己紹介
+                  %a#profile_edit
+                %dd
+                  = f.text_area :introduction, cols: '50', placeholder: 'ここにテキストを入力してください', rows: '10', class: 'textEdit'
+            = f.submit '更新', class: 'updateBtn02'
         #withdrawArea
           %a.withdraw{:href => "/users/#{current_user.id}/leave"} 退会はこちらから
-          -# = link_to "退会はこちらから", destroy_user_path(current_user), class: "btn"
         / ./section01
-      / ./rightContentMain
     / ./rightContentMain
 / ./contentWrapper
 / Pagetopボタン
-#page-top_jq{:style => "display:black"}
-  %a{:href => "#wrap"} page top
-/ フッター
-= render 'shared/footer'
--# ユーザー機能確認のためリンクおいてます。あとで編集してください。
--# %h1 ユーザーのeditページです
--# %p
--#   %p#username
--#   = current_user.name
--#   %p edit
--# = form_for(current_user) do |f|
--#   .field
--#     .field-label
--#       = f.label :name do
--#         ユーザー名
--#     .field-input
--#       = f.text_field :name, autofocus: true
--#   .field
--#     .field-label
--#       = f.label :image do
--#         プロフィール写真
--#     .field-input
--#       = f.text_field :image, autofocus: true
--#   .field
--#     .field-label
--#       = f.label :email do
--#         メールアドレス
--#     .field-input
--#       = f.email_field :email
--#   .actions
--#     = f.submit "Update", class: 'btn'
+%p#page-top_jq{:style => "display: none;"}
+  %a{:href => "#wrap"} PAGE TOP
