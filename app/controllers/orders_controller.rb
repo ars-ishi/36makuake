@@ -17,11 +17,9 @@ class OrdersController < ApplicationController
   end
 
   def create
+    ##支援金合計の演算処理&更新処理
+    set_project.update_total_sales(set_project, order_params[:payment_price])
     ApplicationRecord.transaction do
-      ##支援金合計の演算処理&更新処理
-      unless set_project.update_total_sales(set_project, order_params[:payment_price])
-        raise ActiveRecord::Rollback
-      end
       ##オーダーを保存する
       @order = Order.new(order_params)
       @order.save!
