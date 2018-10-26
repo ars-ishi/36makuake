@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :orders, only: [:new, :create]
     member do
+      get :edit_password
       get :invest
       get :message
       get :popup
+      get :consumed
       get :leave
     end
     get 'edit_omniauth' => 'users#edit_omniauth'
