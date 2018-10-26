@@ -30,7 +30,6 @@ class Project < ApplicationRecord
     end
   end
 
-
   def time_limit
      years = deadline.strftime("%Y").to_i - Time.now.strftime("%Y").to_i
      days = deadline.strftime("%j").to_i - Time.now.strftime("%j").to_i
