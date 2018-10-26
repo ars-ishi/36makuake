@@ -156,11 +156,17 @@
           / タグがあれば表示
         .heroBtmBaseDown
           / カテゴリー表示
-          .project-location
-            = link_to categories_discover_path(@project.category_id), class:"icon-tag" do
+          .project_category
+            = link_to categories_discover_path(@project.category_id), class:"projectTag" do
               %svg.icon-tag
                 %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span.location-name #{@project.category.name}
+          .project-location
+            = link_to "#" do
+              %svg.icon-location
+                %use{"xlink:href" => "#icon-location", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              %span.location-name 所在地
+
 
 
           / ここまでカテゴリー表示

@@ -27,8 +27,7 @@
                   .bar-foreground{:style => "width: #{project.bar}%;"}
                 %span.bar-percent #{project.bar}%
             .view-button
-              %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
-                VIEW
+              = link_to "VIEW", project_path(project.id), class:"view-button-link"
 
 
 
