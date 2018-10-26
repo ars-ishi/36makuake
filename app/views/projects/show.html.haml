@@ -158,7 +158,7 @@
         .heroBtmBaseDown
           / カテゴリー表示
           .project-location
-            = link_to "/discovers/#{@project.category.id}/categories",controller:"discover", class:"icon-tag" do
+            = link_to categories_discover_path(@project.category_id), class:"icon-tag" do
               %svg.icon-tag
                 %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span.location-name #{@project.category.name}
@@ -322,7 +322,6 @@
         .sct
           .go-to-sct 特定商取引法に基づく表記
       #scrollContent{:style => "display: none;"}
-        / <a id="topBtn02" href=""><img src="//cdn-m.makuake.com/rev_2018/10/12/143228/img/btn_pagetop02.gif" alt=""></a>
         #scrollShienBtnBase
           = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
       #contact_me_overlay{:style => "display:none;"}
@@ -347,21 +346,20 @@
     .bread-crumb-listBase
       %ul#bread-crumb-list.clearfix
         %li
-          = link_to "/" do
-            %span{:itemprop => "title"} TOP
-
-          %i> &gt;
-
-        %li
-          = link_to "プロジェクト一覧","/projects/search/"
-
-          %i> &gt;
-
-        %li
-          = link_to "#{@project.category.name}", "/discovers/#{@project.category.id}/categories"
+          = link_to "TOP", projects_path
            
           %i> &gt;
            
-        %li{:itemscope => "itemscope", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          = link_to "#{@project.name}","#{@project.id}"
+        %li
+          = link_to "プロジェクト一覧",search_projects_path
+           
+          %i> &gt;
+           
+        %li
+          = link_to "#{@project.category.name}", categories_discover_path(@project.category_id)
+           
+          %i> &gt;
+           
+        %li
+          = link_to "#{@project.name}",project_path(params[:id])
 
