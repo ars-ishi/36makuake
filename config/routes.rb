@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get :edit_password, :invest, :message, :popup, :consumed, :leave
     end
+    resources :promoter_profiles, only: [:new, :create, :show, :edit, :update]
     get 'edit_omniauth' => 'users#edit_omniauth'
     patch 'update_omniauth' => 'users#update_omniauth'
   end
@@ -16,6 +17,16 @@ Rails.application.routes.draw do
     collection{ get "search" }
   end
 
+  resources :discovers, only: [:index, :new] do
+    collection do
+      get :soon
+      get :pickup
+      get :ranking
+    end
+    member do
+      get :categories
+    end
+  end
   get 'pages/privacy' => 'pages#privacy'
   get 'pages/term' => 'pages#term'
 end

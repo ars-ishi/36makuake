@@ -28,10 +28,22 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
+    @orders = Order.where(project_id: params[:id])
+    @supporters = []
+    @orders.each do |order|
+      @supporters << order[:user_id]
+    end
+    @supporters = @supporters.uniq.length
+    @courses = @project.courses
+    @comments = @project.project_comments.order("created_at DESC")
   end
 
 
   def search
-    @projects =  Project.page(params[:page]).per(15)
+    @projects = Project.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(15).order("created_at DESC")
+    @categories = Category.order("id ASC")
   end
+
+
 end

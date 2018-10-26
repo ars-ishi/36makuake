@@ -5,10 +5,15 @@
     %meta{content: "width=device-width", name: "viewport"}/
     %meta{content: "E1E1FC54C2FA07FA57AEB0483B623C2E", name: "msvalidate.01"}/
     %meta{content: "07d3c196d17034840db0ed61f2e170941e1f199cc5ad54534f02ed08ea020e1d4d6f683db2f7e2d7a1b9801ed6ba28c09f6693df3046f0eeeccba7dff39a5a62", name: "fuel_csrf_token"}/
-    %title =@course.name
+    %title Makuake_clone
     %link{href: "https://www.makuake.com/investment/select/georiem7/41094/", rel: "canonical"}/
     %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/jquery-ui.min.css", rel: "stylesheet"}/
     %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/login_regist.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/commons/discover_common.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/supportindex.css", rel: "stylesheet"}/
     <script src="//cdn-m.makuake.com/rev_2018/10/12/143228/js/html5.js"></script>
     %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
     %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
@@ -16,21 +21,11 @@
     %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/pc/dest/js/app.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/selectivizr-min.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/hogan-3.0.2.min.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/common.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/me/favorite.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/gtm_data_layer.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/userstatus.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.investment.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_regist.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exchecker-ja.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exvalidation.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_logout.js"}
   %body
     = render "shared/svg"
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/notification.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/header.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/attention_header.js"}
 
     #header
       %header#headerIn
@@ -56,7 +51,7 @@
         .alert_mail.alertMailCheck.alertMailCheckBounce{style: "display: none;"}
           %span.alert_case02.Batsu01 ×
           %p
-            %span#header_current_email_adress> masujazzcat@gmail.com
+            %span#header_current_email_adress> =current_user.email
             は何らかの原因でメールが弾かれたため、実行者からの重要な連絡を受け取ることができません。メールアドレスの変更をお願いします。
           %a.reSendBtn{href: "/my/settings/profile/email/"} 登録メールアドレスの変更
           %a.alertMailDetail{href: "https://support.makuake.com/hc/ja/articles/115002471132", target: "_blank"} 詳しい説明
@@ -87,7 +82,7 @@
             %li.on 1.コースのオプション選択
             %li 2.申込み内容の確認
             %li 3.完了
-        %a.linkB{href: "/project/georiem7/#returnTitleText"} 前のページへ戻る
+        %a.linkB{href: "/projects/#{@course.project_id}"} 前のページへ戻る
         / ここからコース詳細欄
         %form#support_form{action: "/users/#{current_user.id}/orders/new", method: "GET"}
           %input{name: "project_id", type: "hidden", value: @course.project_id }/

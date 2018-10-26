@@ -2,7 +2,7 @@
   = devise_error_messages!
   %section.login__outer.login__outer-padding
     %p.modal03__title ログイン
-    = link_to new_user_registration_path, class: 'btnLogin03' do
+    = link_to '#sign_up', class: 'btnLogin03 sign_up' do
       新規会員登録はこちら
       %svg.btnLogin03-icon
         %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}

@@ -1,28 +1,36 @@
-%section#return41094.kakusectionRight
-  .lefth4RightBase
-    %h4.lefth4Right
-      【コース名が入ります】
-      %span.abstractSpan (税込)
-    .lefth4RightNum
-      %p{"data-investment-info-return-remain" => ""}
-      【残り個数が入ります】
-  %a.ProjectDetailInRight{"data-investment-info-return-link-to-select-main" => "", :href => "/investment/select/georiem7/41094/"}
-    %h5.lefth5Right 【セールスコピー】　
-    .photoSectionUp
-      %img.lazy{:alt => "ここに画像", "data-original" => "/", :height => "165px", :src => "/", :style => "display: inline;", :width => "280px"}/
-    %p.detailTextRight
-      【ここにコースの詳細情報を入れる】
-    %p.detailAside02Uptext
-      %svg.icon_shien
-        %use{"xlink:href" => "#icon-user-03", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-      = succeed "\u{304c}\u{652f}\u{63f4}\u{3057}\u{3066}\u{3044}\u{307e}\u{3059}\u{3002}" do
-        %span{"data-investment-info-return-supported-amount" => ""} 31人
-    %p.detailAside03Uptext
-      %svg.icon_delivery
-        %use{"xlink:href" => "#icon-case", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-      2019年01月末までにお届け予定です。
-  %aside.detailAside02
-    %a.shienBtn02{"data-investment-info-return-link-to-select-btn" => "sold-out", :href => "#", :style => "display:none;"}
-      在庫切れ
-    %a.shienBtn{"data-investment-info-return-link-to-select-btn" => "not-sold-out", :href => "/investment/select/georiem7/41094/", :style => ""}
-      このコースに申込む
+- @project.courses.each do |course|
+  %section#return41094.kakusectionRight
+    .lefth4RightBase
+      %h4.lefth4Right
+        = number_with_delimiter("#{course.price}")
+        円コース
+        %span.abstractSpan (税込)
+      .lefth4RightNum{:style => "color: #fb2a79; font-size: 18px; text-indent: 2px;"}
+        %p
+        残り#{course.stock}個
+    = link_to project_course_path(@project.id, course.id), class: "ProjectDetailInRight", "data-investment-info-return-link-to-select-main": "" do
+      %h5.lefth5Right #{course.name}
+      .photoSectionUp
+        - course.course_images.each do |image|
+          %img.lazy{:alt => "ここに画像", "data-original" => "/", :height => "165px", :src => "#{image.image}", :style => "display: inline;", :width => "280px"}/
+      %p.detailTextRight
+        #{course.content}
+
+      %p.detailAside02Uptext
+        %svg.icon_shien
+          %use{"xlink:href" => "#icon-user-03", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          %span{"data-investment-info-return-supported-amount" => ""}
+          = OrderDetail.where(course_id: course.id).length
+          人が支援しています。
+      %p.detailAside03Uptext
+        %svg.icon_delivery
+          %use{"xlink:href" => "#icon-case", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+        #{course.due_date}までにお届け予定です。
+    %aside.detailAside02
+      - if course.stock <= 0
+        = link_to("#", class: "shienBtn02", "data-investment-info-return-link-to-select-btn": "sold-out") do
+          在庫切れ
+      - else
+        = link_to project_course_path(@project.id, course.id), controller: "courses", class: "shienBtn", "data-investment-info-return-link-to-select-btn": "not-sold-out", style: "" do
+          このコースに申込む
+

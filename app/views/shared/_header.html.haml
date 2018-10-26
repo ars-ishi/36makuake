@@ -6,7 +6,8 @@
         %svg.makuake-logo
           %title Makuake
           %use{"xlink:href" => "#makuakelogo_pc", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-    %form#search_form.findHeaderForm{:action => "/discover/projects/", :method => "get"}
+
+    %form#search_form.findHeaderForm{:action => "/projects/search/", :method => "get"}
       %input.findHeaderInput{:name => "keyword", :type => "text", :value => ""}/
       %button#start_search.findFormHeaderSubmit{:type => "submit"}
         .findFormHeaderSubmit-iconbox
@@ -17,12 +18,22 @@
             %svg.findFormHeaderSubmit-iconboxin--white
               %use{"xlink:href" => "#icon-search_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
         %span.findFormHeaderSubmit-txt 探す
+
+
     - if user_signed_in?
       / ログイン
       %nav#navigation02
         %ul.nav-header-box-after
-          %li
-            %a.header-link-apply-after{:href => "/apply/"} プロジェクトを掲載する
+          -# %li
+          -#   %a.header-link-apply-after{:href => "/apply/"} プロジェクトを掲載する
+          - if can? :supporter, current_user
+            - if "#{controller.controller_name}" != "promoter_profiles"
+              - if current_user.promoter_profile == nil
+                %li
+                  = link_to 'プロジェクトを掲載する', new_user_promoter_profile_path(current_user), class: 'header-link-apply-after'
+              - else
+                %li
+                  = link_to 'プロジェクト掲載を再度申し込む', edit_user_promoter_profile_path(current_user, current_user.promoter_profile), class: 'header-link-apply-after'
           %li{"data-geenie-favorite-header--hasnot" => "", :style => "display: block"}
             .header-like-box
               %a.header-like-after{:href => "/favorite/tag/"}
@@ -74,9 +85,6 @@
                 %img.user_image.userImage02{:src => "#{current_user.image}"}/
               %div マイページ
           %li#header_dashboard
-            / %a.linkDash{:href => "#", :target => "_blank"}
-            /   %img.linkDashChild{:alt => "ダッシュボード", :height => "101", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/imgItemBlank.gif", :width => "180"}/
-            /   %p プロジェクト管理
           %li.links
             = link_to '支援・寄附したプロジェクト', invest_user_path(current_user), class:"links-mypage"
           %li.links

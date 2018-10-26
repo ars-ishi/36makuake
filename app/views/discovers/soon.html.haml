@@ -1,0 +1,12 @@
+.grayBase
+  .layout-block
+    .nav-block
+      = render 'shared/sidebar'
+    .project-block
+      %section
+        .ttl-block
+          .ttl-block-txt
+            %h2.ttlDetails もうすぐ終了
+        %ul.pj-box-ul
+          = render 'template/project'
+        = paginate(@projects)

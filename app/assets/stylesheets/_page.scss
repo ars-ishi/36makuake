@@ -1,3 +1,7 @@
+.gray_base {
+ background: #f5f5f5;
+}
+
 .content-wrapper {
   overflow:auto;
   padding: 40px 0;
@@ -8,6 +12,16 @@
     clear: both;
     content: "";
   }
+}
+
+.icon_success, .icon_notfunded, .icon_funded {
+    display: block;
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    top: -13px;
+    z-index: 1;
+    right: -18px;
 }
 
 .content-main {

@@ -4,6 +4,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :edit_password, :update, ]
   before_action :move_to_project_index, only: [:show, :edit, :edit_password, :update]
 
+  def index
+    respond_to do |format|
+        format.html
+        format.json { render json: User.pluck(:email) }
+    end
+  end
+
   def show
   end
 

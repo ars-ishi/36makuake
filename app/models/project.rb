@@ -20,14 +20,27 @@ class Project < ApplicationRecord
     total_sales*100 / target_sales
   end
 
-
+  def new_project
+    year = Time.now.strftime("%Y").to_i - created_at.strftime("%Y").to_i
+    days = Time.now.strftime("%j").to_i - created_at.strftime("%j").to_i
+    if year > 0
+      days = days + created_at.strftime("%j").to_i
+    else
+      return days
+    end
+  end
 
 
   def time_limit
+     years = deadline.strftime("%Y").to_i - Time.now.strftime("%Y").to_i
      days = deadline.strftime("%j").to_i - Time.now.strftime("%j").to_i
      hour = deadline.strftime("%H").to_i - Time.now.strftime("%H").to_i
      minute = deadline.strftime("%M").to_i - Time.now.strftime("%M").to_i
-    if days > 1
+    if years > 0
+      days = days + Time.now.strftime("%j").to_i
+      return "#{days} 日"
+    elsif
+      days > 1
       return "#{days} 日"
     elsif  hour > 0 && days == 0
       return "#{hour} 時間"
@@ -36,7 +49,11 @@ class Project < ApplicationRecord
     else
       return "終了"
     end
-
   end
 
+  def update_total_sales(project, order_sales)
+    before_payment_total_sales = project.total_sales
+    after_payment_total_sales  = before_payment_total_sales.to_i + order_sales.to_i
+    project.update(total_sales: after_payment_total_sales)
+  end
 end
