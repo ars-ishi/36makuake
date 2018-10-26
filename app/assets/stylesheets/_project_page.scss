@@ -45,7 +45,19 @@
     text-decoration:none
 }
 
+//template
+.return-li .return-link .return-item-title {
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 14px;
+  display: block;
+  min-height: 103px;
+}
+
 //仮のCSS
+.video-image{
+    z-index: 1000;
+}
 
 .icon-tag {
     position: relative;
