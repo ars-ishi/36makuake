@@ -94,7 +94,8 @@ function passFormatValidates(id) {
 // プロモーター申請フォームのバリデーション
 $(document).on('turbolinks:load', function(){
   function promoterFormValidates(id, format, alert) {
-    $(`#${ id }`).on('keyup', function() {
+    var form_id = '#' + id
+    $(form_id).on('keyup', function() {
       var input = document.getElementById(id);
       var inputVal = input.value;
       if (format.test(inputVal)) {
