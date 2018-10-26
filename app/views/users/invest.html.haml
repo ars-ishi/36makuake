@@ -367,23 +367,23 @@
       / ./pagenation
     / rightContentMain
   / ./contentWrapper
-#modal_list
-#overlay_my_project_favorite.overlayreceipt{:style => "display:none;"}
-#receipt_modal.modal.newReceiptBox{:style => "display:none;"}
-  %div{:id => "reciptBase overlay"}
-    %i.modal_close_receipt
-    %form{:action => "/receipt", :method => "post", :target => "_blank"}
-      %p.oshirase 領収書の宛名を入力してください
-      .bunsho
-        %input.reciptText{:name => "name", :type => "text", :value => ""}>/
-        様
-      %input.project_id{:name => "project_id", :type => "hidden", :value => ""}/
-      %input.return_id{:name => "return_id", :type => "hidden", :value => ""}/
-      %input.payment_type{:name => "payment_type", :type => "hidden", :value => ""}/
-      %input.investment_id{:name => "investment_id", :type => "hidden", :value => ""}/
-      %button.btnOff.issue 領収書を発行する
-%script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/receipt.js"}
-%script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/my/ellipses.js"}
+-# #modal_list
+-# #overlay_my_project_favorite.overlayreceipt{:style => "display:none;"}
+-# #receipt_modal.modal.newReceiptBox{:style => "display:none;"}
+-#   %div{:id => "reciptBase overlay"}
+-#     %i.modal_close_receipt
+-#     %form{:action => "/receipt", :method => "post", :target => "_blank"}
+-#       %p.oshirase 領収書の宛名を入力してください
+-#       .bunsho
+-#         %input.reciptText{:name => "name", :type => "text", :value => ""}>/
+-#         様
+-#       %input.project_id{:name => "project_id", :type => "hidden", :value => ""}/
+-#       %input.return_id{:name => "return_id", :type => "hidden", :value => ""}/
+-#       %input.payment_type{:name => "payment_type", :type => "hidden", :value => ""}/
+-#       %input.investment_id{:name => "investment_id", :type => "hidden", :value => ""}/
+-#       %button.btnOff.issue 領収書を発行する
+-# %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/receipt.js"}
+-# %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/my/ellipses.js"}
 / Pagetopボタン
-%p#page-top_jq{:style => "display: none;"}
-  %a{:href => "#wrap"} PAGE TOP
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'

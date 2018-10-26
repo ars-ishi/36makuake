@@ -1,22 +1,20 @@
 class UsersController < ApplicationController
   before_action :move_to_email_registration, only: [:show]
   before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :edit_password, :update, ]
+  before_action :move_to_project_index, only: [:show, :edit, :edit_password, :update]
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def edit_password
-    @user = User.find(params[:id])
   end
 
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       sign_in(@user, bypass: true) if current_user.id == @user.id
       redirect_to user_path(@user), notice: '更新しました'
@@ -41,12 +39,10 @@ class UsersController < ApplicationController
   end
 
   def update_omniauth
-    @test = omniauth_params
-    @email = omniauth_params[:email]
-    @name = omniauth_params[:name]
-    user = current_user
-    unless user.update( name: omniauth_params[:name], email: omniauth_params[:email] )
-      redirect_to user_edit_omniauth_path(current_user), alert: 'メールアドレスがすでに使用されています。'
+    if current_user.update( name: omniauth_params[:name], email: omniauth_params[:email] )
+      redirect_to root_path, notice: 'ログインしました'
+    else
+      redirect_to user_edit_omniauth_path(current_user), alert: '使用できないメールアドレスです'
     end
   end
 
@@ -65,6 +61,16 @@ class UsersController < ApplicationController
         redirect_to user_edit_omniauth_path(current_user), alert: '情報の登録をお願いします'
       end
     end
+  end
+
+  def move_to_project_index
+    unless current_user
+      redirect_to project_index_path(current_user)
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def user_params

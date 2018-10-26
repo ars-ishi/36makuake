@@ -6,7 +6,7 @@ $(function() {
 
 // 利用規約をポップアップで表示
 function agreementWindow() {
-  window.open("https://www.makuake.com/pages/term/",
+  window.open("/pages/term",
   "agreementWindow",
   "width = 800, height = 800");
 }
@@ -46,6 +46,7 @@ $(function() {
   if (window.location.href.match(/\/users\/\d+\/edit_omniauth/)) {
     $(document).ready(function(){
       $('#omniauth_edit_email').val('');
+      $('#omniauth_edit_email_confirm').val('');
     });
   }
 });

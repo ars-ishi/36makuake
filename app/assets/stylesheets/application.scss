@@ -6,15 +6,20 @@
 @import "original/supportcheck";
 @import "original/common_cancel_request";
 
+@import "order";
+
 @import "project-common";
 @import "modaal";
 @import "account";
+@import "page";
 
 @import "modules/index";
 @import "modules/slider";
 @import "modules/template";
 @import "modules/footer";
 @import "modules/header";
+@import "modules/pagination";
+
 
 
 @import "users/text.scss";

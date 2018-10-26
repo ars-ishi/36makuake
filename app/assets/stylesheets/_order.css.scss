@@ -1,0 +1,20 @@
+.boxOrder {
+  line-height: 1.4;
+}
+
+button.stripe-button-el {
+  margin-bottom: 35px;
+  padding: 0 80px;
+  height: 64px;
+  background-color: #f7c600 !important;
+  background-image: none;
+  float: right;
+}
+button.stripe-button-el>span {
+  color: #ffffff;
+  font-size: 23px;
+  height: 64px;
+  line-height: 64px;
+  background-color: #f7c600 !important;
+  background-image: none;
+}

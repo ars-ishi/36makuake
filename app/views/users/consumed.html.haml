@@ -201,6 +201,5 @@
             %a#url_confirm{:href => ""} 確認する
 / ./contentWrapper
 / Pagetopボタン
-#page-top_jq{:style => "display:black"}
-  %a{:href => "#wrap"} page top
-
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'

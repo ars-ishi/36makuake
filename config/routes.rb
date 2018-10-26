@@ -5,12 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :orders, only: [:new, :create]
     member do
-      get :edit_password
-      get :invest
-      get :message
-      get :popup
-      get :consumed
-      get :leave
+      get :edit_password, :invest, :message, :popup, :consumed, :leave
     end
     get 'edit_omniauth' => 'users#edit_omniauth'
     patch 'update_omniauth' => 'users#update_omniauth'
@@ -20,4 +15,7 @@ Rails.application.routes.draw do
     resources :courses, only: [:new, :create, :show]
     collection{ get "search" }
   end
+
+  get 'pages/privacy' => 'pages#privacy'
+  get 'pages/term' => 'pages#term'
 end

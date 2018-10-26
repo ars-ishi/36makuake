@@ -1,4 +1,3 @@
-= render 'shared/header'
 .grayBase
   = devise_error_messages!
   %section.login__outer.login__outer-padding
@@ -50,7 +49,6 @@
           .modal03__agreeBase
             %label{for: 'agree', class: 'modal03__agreeBase-label' }
               %input#agree.modal03__checkbox{ autocomplete: 'off', name: 'agreement', required: 'required', type: 'checkbox', value: '' }
-              -# 利用規約は現状本物のサイトを開いていますが、余裕があればページ作ってwindow.openのパスを変更してください。
               .agree-check
                 .agree-check__link
                   = link_to '利用規約', 'javascript:agreementWindow();'

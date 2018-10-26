@@ -9,18 +9,18 @@
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconSupt 支援・寄附・購入
     %dd
-      %a{:href => "/users/#{current_user.id}/invest"} 支援・寄附・購入
+      = link_to '支援・寄附したプロジェクト', invest_user_path(current_user)
     %dd
-      %a{:href => "/users/#{current_user.id}/consumed"} 購入履歴(ストア)
+      = link_to '購入履歴(ストア)', consumed_user_path(current_user)
     %dd
-      %a{:href => "/users/#{current_user.id}/message"} メッセージ
+      = link_to 'メッセージ', message_user_path(current_user)
       %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconAcnt アカウント情報
     %dd
-      %a{:href => "/users/#{current_user.id}/edit"} プロフィール編集
+      = link_to 'プロフィール編集', edit_user_path(current_user)
     %dd
-      %a{:href => "/users/#{current_user.id}/edit_password"} パスワード変更
+      = link_to 'パスワード変更', edit_password_user_path(current_user)
     %dd
-      %a{:href => "/users/#{current_user.id}/popup"} メール通知設定
+      = link_to 'メール通知設定', popup_user_path(current_user)
   / ./sideNavi

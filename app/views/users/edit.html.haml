@@ -76,10 +76,10 @@
                   = f.text_area :introduction, cols: '50', placeholder: 'ここにテキストを入力してください', rows: '10', class: 'textEdit'
             = f.submit '更新', class: 'updateBtn02'
         #withdrawArea
-          %a.withdraw{:href => "/users/#{current_user.id}/leave"} 退会はこちらから
+          = link_to '退会はこちらから', leave_user_path(current_user), class: 'withdraw'
         / ./section01
     / ./rightContentMain
 / ./contentWrapper
 / Pagetopボタン
-%p#page-top_jq{:style => "display: none;"}
-  %a{:href => "#wrap"} PAGE TOP
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'
