@@ -144,11 +144,17 @@
           / タグがあれば表示
         .heroBtmBaseDown
           / カテゴリー表示
+          .project_category
+            %a.projectTag{:href => "/discover/categories/food/"}
+              %svg.icon_tag
+                %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              フード
           .project-location
             %a{:href => "/discover/locations/1/?from=location_project_page_1"}
-              %svg.icon-tag
-                %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span.location-name #{@project.category.name}
+              %svg.icon-location
+                %use{"xlink:href" => "#icon-location", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+              %span.location-name 北海道
+
 
 
           / ここまでカテゴリー表示
