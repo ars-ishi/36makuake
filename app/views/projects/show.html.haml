@@ -9,7 +9,6 @@
           }
       });
   });
-
 %body
   = render 'shared/svg'
   .toApplyLinkSide_Pos_Project
@@ -88,11 +87,15 @@
       %aside.hero
         #media
           .videoIn
-            :javascript
-              var bindVideoTap = function(){
-                  return true;
-              };
-            %img{:alt => "", :height => "388", :src => "#", :style => "cursor:default;", :width => "690"}/
+            - if @project.project_movies.present?
+              .image_area.youtube{id:"#{@movie_id}"}
+                #btn-playBase
+                  #btn-play.r5 ▶ 再生
+                %img{:alt => "", :height => "388", :src => "http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg", :width => "690",style:"object-fit:cover;", class:"video-image"}/
+              .video_area
+            - else
+              .image_area
+                %img{:alt => "", :height => "388", :src => "#{@project.project_images.to_a[0].image}", :width => "690",style:"object-fit:contain;", class:"main-image"}/
         .pnumBase
           - if @project.bar >= 100
             %svg.icon_success
@@ -134,7 +137,17 @@
                 %p 支援するコースを選択する
     .heroBtmBase
       %section
+        / サムネイルの表示
         .heroBtmBaseUp
+          -if @project.project_images.length > 1
+            #thumbnailList
+              - if @project.project_movies.present?
+                - @project.project_movies.each do |movie|
+                  .slideShowThumbnail.movieThumbnail
+                    %img{alt:"movie",src: "http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",style:"object-fit:cover", class:"movieThumb"}
+              - @project.project_images.each do |image|
+                .slideShowThumbnail
+                  %img{art:"#{image.id}",src: "#{image.image}",style:"object-fit:cover", class:"imageThumb"}
           %h2.projectTtl #{@project.name}
           / タグがあれば表示
           .tagWrapper
@@ -249,12 +262,9 @@
           %h3.story_title このプロジェクトについて
           .summaryContainer
             %ol.summaryList
-              %li.summaryItem
-                キャッチコピーその１
-              %li.summaryItem
-                キャッチコピーその２
-              %li.summaryItem
-                キャッチコピーその３
+              - @summary.each do |sum|
+                %li.summaryItem
+                  #{sum}
           .triangleAfterSummary
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
@@ -310,7 +320,6 @@
           %p
             「Makuake（マクアケ）」は、実行者の想いを支援によって実現するクラウドファンディングサイトです。このページは、
             #{@project.category.name}カテゴリの
-
             「#{@project.name}」プロジェクト詳細ページです。
         .sct
           %a.go-to-sct{:href => "https://www.makuake.com/project/georiem7/sct/"} 特定商取引法に基づく表記
