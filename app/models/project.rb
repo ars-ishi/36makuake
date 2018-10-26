@@ -49,7 +49,11 @@ class Project < ApplicationRecord
     else
       return "終了"
     end
-
   end
 
+  def update_total_sales(project, order_sales)
+    before_payment_total_sales = project.total_sales
+    after_payment_total_sales  = before_payment_total_sales.to_i + order_sales.to_i
+    project.update(total_sales: after_payment_total_sales)
+  end
 end
