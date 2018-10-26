@@ -1,21 +1,26 @@
 / sideNavi
 #sideNavi
   #profile
-    %img{:alt => "", :height => "175", :src => "//hayabusa.io/makuake/upload/user/100500/main_100500.fit-scale.jpeg?width=175&height=175&quality=95&version=1539290507&format=jpeg&ttl=31536000&force", :width => "175"}/
-    = link_to "おとなのビスコ", user_path, class: "btn"
+    - if current_user.persisted? && current_user.image?
+      = image_tag current_user.image.url, height: '175', width: '175'
+    - else
+      = image_tag 'noimage.png'
+    = link_to "#{current_user.name}", user_path, class: "btn"
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconSupt 支援・寄附・購入
     %dd
-      %a{:href => "/users/#{current_user.id}/invest"} 支援・寄附・購入
-    -# %dd
-      -# = link_to "購入履歴(ストア)", store_user_path(current_user), class: "btn"
+      = link_to '支援・寄附したプロジェクト', invest_user_path(current_user)
     %dd
-      %a{:href => "/users/#{current_user.id}/message"} メッセージ
+      = link_to '購入履歴(ストア)', consumed_user_path(current_user)
+    %dd
+      = link_to 'メッセージ', message_user_path(current_user)
       %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconAcnt アカウント情報
     %dd
-      %a{:href => "/users/#{current_user.id}/edit"} プロフィール編集
+      = link_to 'プロフィール編集', edit_user_path(current_user)
     %dd
-      %a{:href => "/users/#{current_user.id}/popup"} メール通知設定
+      = link_to 'パスワード変更', edit_password_user_path(current_user)
+    %dd
+      = link_to 'メール通知設定', popup_user_path(current_user)
   / ./sideNavi

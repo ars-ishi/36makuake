@@ -59,7 +59,7 @@
                   %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span.like-after-num{"data-geenie-favorite-notification-has" => "", :style => "display:none;"}
           %li
-            %a.header-mail-after{:href => "/my/message/"}
+            %a.header-mail-after{:href => "/users/#{current_user.id}/message"}
               %i
                 %svg.mail-after
                   %use{"xlink:href" => "#icon-mail_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -80,15 +80,15 @@
       #myMenuBox
         %ul.headerMyIconClick
           %li.mypage
-            %a.myLink01{:href => "/my/"}
+            %a.myLink01{:href => "/users/#{current_user.id}"}
               %div
                 %img.user_image.userImage02{:src => "#{current_user.image}"}/
               %div マイページ
           %li#header_dashboard
           %li.links
-            %a.links-mypage{:href => "/my/project/favorite/"} 支援・寄附したプロジェクト
+            = link_to '支援・寄附したプロジェクト', invest_user_path(current_user), class:"links-mypage"
           %li.links
-            %a.links-mypage{:href => "/my/project/consumed/"} 購入履歴(ストア)
+            = link_to '購入履歴(ストア)', consumed_user_path(current_user), class:"links-mypage"
           %li.links
             %a.links-mypage{:href => "https://support.makuake.com/hc/ja/", :target => "_blank"} ヘルプ
           %li.links

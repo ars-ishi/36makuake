@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :orders, only: [:new, :create]
     member do
-      get :invest
-      get :message
-      get :popup
-      get :leave
+      get :edit_password, :invest, :message, :popup, :consumed, :leave
     end
     resources :promoter_profiles, only: [:new, :create, :show, :edit, :update]
     get 'edit_omniauth' => 'users#edit_omniauth'
