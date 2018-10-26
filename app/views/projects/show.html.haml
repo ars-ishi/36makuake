@@ -12,7 +12,7 @@
 %body
   = render 'shared/svg'
   .toApplyLinkSide_Pos_Project
-    %a.toApplyLinkSide{:href => "/apply/"}
+    =link_to "https://www.makuake.com/apply/", class:"toApplyLinkSide" do
       .toApplyLinkTxt
         プ
         %br>/
@@ -59,23 +59,22 @@
         .tabNavigation
           %ul.tabNav_menu
             %li{"data-tab_type" => "project"}
-              %a.tabOn{:href => "#"}
-                プロジェクト
+              = link_to "プロジェクト","#", class:"tabOn"
             %li{"data-tab_type" => "owner"}
-              %a{:href => "#"}
+              = link_to "#" do
                 活動レポート
                 %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
             %li{"data-tab_type" => "supporter"}
-              %a{:href => "#"}
+              = link_to "#" do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
           .goodBase_tab
-            %a.goodBaseIn_tab{"data-geenie-project-good" => "off"}
+            .goodBaseIn_tab
               %i.icon_heart_off_tab
                 %svg.icon_heart_off_tab-in
                   %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span お気に入りに追加
-            %a.goodBaseIn2_tab{"data-geenie-project-good" => "on", :style => "display:none;"}
+            .goodBaseIn2_tab{:style => "display:none;"}
               %i.icon_heart_on_tab
                 %svg.icon_heart_on_tab-in
                   %use{"xlink:href" => "#icon-heart_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -91,11 +90,12 @@
               .image_area.youtube{id:"#{@movie_id}"}
                 #btn-playBase
                   #btn-play.r5 ▶ 再生
-                %img{:alt => "", :height => "388", :src => "http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg", :width => "690",style:"object-fit:cover;", class:"video-image"}/
+                =image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",height:"388", width:"690",style:"object-fit:cover;",class:"video-image")
+                / {:alt => "", :height => "388", :src => "http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg", :width => "690",style:"object-fit:cover;", class:"video-image"}/
               .video_area
             - else
               .image_area
-                %img{:alt => "", :height => "388", :src => "#{@project.project_images.to_a[0].image}", :width => "690",style:"object-fit:contain;", class:"main-image"}/
+                =image_tag("#{@project.project_images.to_a[0].image}",height:"388", width:"690",style:"object-fit:contain;",class:"video-image")
         .pnumBase
           - if @project.bar >= 100
             %svg.icon_success
@@ -133,7 +133,7 @@
             - if @project.time_limit == "終了"
               .shienEnd 終了しました
             - else
-              %a#sienBtn{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
+              = link_to "#",{:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;",id:"sienBtn"} do
                 %p 支援するコースを選択する
     .heroBtmBase
       %section
@@ -144,21 +144,21 @@
               - if @project.project_movies.present?
                 - @project.project_movies.each do |movie|
                   .slideShowThumbnail.movieThumbnail
-                    %img{alt:"movie",src: "http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",style:"object-fit:cover", class:"movieThumb"}
+                    = image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",alt:"movie", style:"object-fit:cover",class:"movieThumb")
               - @project.project_images.each do |image|
                 .slideShowThumbnail
-                  %img{art:"#{image.id}",src: "#{image.image}",style:"object-fit:cover", class:"imageThumb"}
+                  = image_tag("#{image.image}",alt:"#{image.id}", style:"object-fit:cover",class:"imageThumb")
           %h2.projectTtl #{@project.name}
           / タグがあれば表示
           .tagWrapper
-            %a.pjTag{:href => "/"}
+            = link_to "#", class:"pjTag" do
               %span.tag #
               %span.tagName tag
           / タグがあれば表示
         .heroBtmBaseDown
           / カテゴリー表示
           .project-location
-            %a{:href => "/discover/locations/1/?from=location_project_page_1"}
+            = link_to "/discovers/#{@project.category.id}/categories",controller:"discover", class:"icon-tag" do
               %svg.icon-tag
                 %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span.location-name #{@project.category.name}
@@ -168,10 +168,7 @@
           .sns-wrapper
             %ul
               %li
-                %iframe#twitter-widget-0.twitter-share-button.twitter-share-button-rendered.twitter-tweet-button{:allowtransparency => "true", "data-url" => "https://www.makuake.com/project/georiem7/?utm_source=georiem7&utm_medium=sns_share_tw", :frameborder => "0", :scrolling => "no", :src => "https://platform.twitter.com/widgets/tweet_button.1dcb9052029dec42394397b936b6c31a.ja.html#dnt=false&hashtags=Makuake&id=twitter-widget-0&lang=ja&original_referer=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&size=m&text=%E5%BF%99%E3%81%97%E3%81%84%E6%9C%9D%E3%81%AB%EF%BC%81%E9%80%9A%E5%8B%A4%E5%87%BA%E5%BC%B5%E3%81%A8%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%81%E5%A4%A7%E5%AE%B9%E9%87%8F%E8%BB%BD%E9%87%8F%E3%81%AE3WAY%E3%83%9C%E3%83%87%E3%82%A3%E3%83%90%E3%83%83%E3%82%B0Georiem&time=1539405615047&type=share&url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgeoriem7%26utm_medium%3Dsns_share_tw&via=makuake_ca", :style => "position: static; visibility: visible; width: 75px; height: 20px;", :title => "Twitter Tweet Button"}
-
-              %li
-                %a.newJoin.js-iframe-call{:href => "#iframeBase", :rel => "leanModal"}
+                = link_to "#iframeBase",{rel:"leanModal"} do
                   %svg.icon-widget
                     %use{"xlink:href" => "#icon-widget", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                   %span.title-widget 埋め込み
@@ -221,7 +218,7 @@
       #leftContent
         .owner-latest
           %h3.owner-latest_title 実行者の最新投稿
-          %a.owner-latest__more{:href => "/project/georiem7/communication/"}
+          = link_to "#",class:"owner-latest__more" do
             %span more
             %svg.right-arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -240,19 +237,19 @@
           .owner-info
             %img.owner-info_thumb{:alt => "#{@project.user.name}", :src => "#{@project.user.image}"}/
             .owner-info_name-wrapper
-              %a.owner-info_name{:href => "/"} #{@project.user.name}
+              = link_to "#{@project.user.name}", "#"
             .owner-contact
               %ul
                 %li
-                  %a.owner-contact_icon{:href => "http://www.facebook.com/Georiem.jp", :target => "_blank"}
+                  .owner-contact_icon
                     %svg.owner-contact_icon_fb
                       %use{"xlink:href" => "#icon-facebook", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                 %li
-                  %a.owner-contact_icon{:href => "https://buzip.net/kanagawa/merthans/", :target => "_blank"}
+                  .owner-contact_icon
                     %svg.owner-contact_icon_link
                       %use{"xlink:href" => "#icon-earth", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-line-divider
-              %a.owner-contact_ask.open_contact_window{"data-location" => "/my/message/new/5111/"}
+              .owner-contact_ask.open_contact_window
                 %svg.owner-contact_message
                   %use{"xlink:href" => "#icon-mail", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                 %span.owner-contact_title 実行者へ問合せ
@@ -274,7 +271,7 @@
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper
               - @project.project_comments.order("created_at DESC").first(3).each do |comment|
-                %a.supporting-comment-content{:href => "/"}
+                = link_to "#", class:"supporting-comment-content" do
                   .supporting-comment-left
                     %img.supporting-comment-icon{:src => "#{comment.user.image}"}/
                   .supporting-comment-right
@@ -282,19 +279,20 @@
                     %p.supporting-comment-date #{comment.created_at.strftime("%Y.%m.%d")}
                     %p.supporting-comment-message
                       #{comment.content}
-
             .supporting-comment-more{:style => ""}
-              %a#support-comment-link{:href => "/project/georiem7/communication/supporter/"} すべて見る
-          %a#sienBtn03.btncol_03{:href => "#", :onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;"}
-            %p 支援するコースを選択する
+              = link_to "すべて見る", "#", id:"support-comment-link"
+
+
+
+          = link_to "支援するコースを選択する","#",{:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top-20 }, 800); return false;",id:"sienBtn03", class:"btncol_03"}
           .share-block
-            %a.share-btn-facebook{:href => "#", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank"}
+            = link_to "#",{:onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank",class:"share-btn-facebook"} do
               %div
                 %svg.share-icon-facebook
                   %use{"xlink:href" => "#icon-facebook-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %div
                 %p Facebookでシェア
-            %a.share-btn-twitter{:href => "/", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank"}
+            = link_to "#", {:onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;", :target => "blank", class:"share-btn-twitter"} do
               %div
                 %svg.share-icon-twitter
                   %use{"xlink:href" => "#icon-twitter-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -312,7 +310,7 @@
           #return
             = render 'template/courses'
         .anotherLinkArea
-          %a.owner-contact_ask--02.open_contact_window{"data-location" => "/my/message/new/5111/"}
+          .owner-contact_ask--02.open_contact_window
             %svg.owner-contact_message--02
               %use{"xlink:href" => "#icon-mail", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
             %span.owner-contact_title--02 実行者へ問合せ
@@ -322,13 +320,11 @@
             #{@project.category.name}カテゴリの
             「#{@project.name}」プロジェクト詳細ページです。
         .sct
-          %a.go-to-sct{:href => "https://www.makuake.com/project/georiem7/sct/"} 特定商取引法に基づく表記
+          .go-to-sct 特定商取引法に基づく表記
       #scrollContent{:style => "display: none;"}
         / <a id="topBtn02" href=""><img src="//cdn-m.makuake.com/rev_2018/10/12/143228/img/btn_pagetop02.gif" alt=""></a>
-        #scrollTw
-          %iframe#twitter-widget-1.twitter-share-button.twitter-share-button-rendered.twitter-tweet-button{:allowtransparency => "true", "data-url" => "https://www.makuake.com/project/georiem7/?utm_source=georiem7&utm_medium=sns_share_tw", :frameborder => "0", :scrolling => "no", :src => "https://platform.twitter.com/widgets/tweet_button.1dcb9052029dec42394397b936b6c31a.ja.html#dnt=false&hashtags=Makuake&id=twitter-widget-1&lang=ja&original_referer=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F&size=m&text=%E5%BF%99%E3%81%97%E3%81%84%E6%9C%9D%E3%81%AB%EF%BC%81%E9%80%9A%E5%8B%A4%E5%87%BA%E5%BC%B5%E3%81%A8%E8%87%AA%E7%94%B1%E8%87%AA%E5%9C%A8%EF%BC%81%E5%A4%A7%E5%AE%B9%E9%87%8F%E8%BB%BD%E9%87%8F%E3%81%AE3WAY%E3%83%9C%E3%83%87%E3%82%A3%E3%83%90%E3%83%83%E3%82%B0Georiem%20%7C%20%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%20-%20Makuake%EF%BC%88%E3%83%9E%E3%82%AF%E3%82%A2%E3%82%B1%EF%BC%89&time=1539405615049&type=share&url=https%3A%2F%2Fwww.makuake.com%2Fproject%2Fgeoriem7%2F%3Futm_source%3Dgeoriem7%26utm_medium%3Dsns_share_tw&via=makuake_ca", :style => "position: static; visibility: visible; width: 75px; height: 20px;", :title => "Twitter Tweet Button"}
         #scrollShienBtnBase
-          %a.scrollShienBtn{:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;"} コースを選択
+          = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
       #contact_me_overlay{:style => "display:none;"}
 
       #contact_me_box{:style => "display:none;"}
@@ -351,23 +347,21 @@
     .bread-crumb-listBase
       %ul#bread-crumb-list.clearfix
         %li
-          %a{:href => "/", :itemprop => "url"}>
+          = link_to "/" do
             %span{:itemprop => "title"} TOP
-           
+
           %i> &gt;
-           
+
         %li
-          %a{:href => "/projects/search/", :itemprop => "url"}>
-            %span{:itemprop => "title"} プロジェクト一覧
-           
+          = link_to "プロジェクト一覧","/projects/search/"
+
           %i> &gt;
-           
+
         %li
-          %a{:href => "/discover/categories/product/", :itemprop => "url"}>
-            %span{:itemprop => "title"} #{@project.category.name}
+          = link_to "#{@project.category.name}", "/discovers/#{@project.category.id}/categories"
            
           %i> &gt;
            
         %li{:itemscope => "itemscope", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          %a{:href => "/project/georiem7/", :itemprop => "url"}
-            %span{:itemprop => "title"} #{@project.name}
+          = link_to "#{@project.name}","#{@project.id}"
+
