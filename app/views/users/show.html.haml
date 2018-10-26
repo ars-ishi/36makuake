@@ -4,19 +4,36 @@
     #profileInArea.clearfix
       #profileLeft
         .file_area
-          %form#upload_image{:action => "/my/upload/", :enctype => "multipart/form-data", :method => "post"}
+          %form#upload_image{:action => "update", :enctype => "multipart/form-data", :method => "post"}
             %input#upload_1{:enctype => "multipart/form-data", :name => "file_data1", :type => "file"}/
             %input.updateBtn{:style => "display:none", :type => "submit", :value => "更新"}/
+
+          -# = form_for(@user) do |f|
+          -#   - if @user.persisted? && @user.image?
+          -#     = image_tag @user.image.url, class: 'upload_image'
+          -#     -# %label
+          -#     -#   = f.check_box :remove_image, '画像を削除'
+          -#   - else
+          -#     = image_tag 'noimage.png'
+          -#     -# = f.hidden_field :image_cache
+          -#   = f.file_field :image, class: 'upload_1'
+          -#   = f.submit '更新', class: 'updateBtn'
+
+          -# = image_tag @user.image.url, class: 'upload_image'
+          -# = form_for @user,:url => {:action => 'update'}, :html => {:multipart => true} do |f|
+          -#   = f.file_field :image, class: 'upload_1', enctype: 'multipart/form-data'
+          -#   = f.submit '更新', class: 'updateBtn'
+
       #profileRight
         #profileNameArea
           .nameAndSns.clearfix
             .nameAndSnsLeft
               %span#yourName
-                おとなのビスコ
+                = current_user.name
             .nameAndSnsRight
               %ul.alertIconsSns
                 %li
-                  %a.mailAlert{:href => "/my/message/"}
+                  %a.mailAlert{:href => "/users/#{current_user.id}/message"}
                     %img{:alt => "", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/icon_mail_48.gif"}/
         .newsListArea
           .oneSection
@@ -50,8 +67,7 @@
         %dd
           %a{:href => "/users/#{current_user.id}/invest"} 支援・寄附したプロジェクト
         %dd
-          -# %a{:href => "/my/project/consumed/"} 購入履歴(ストア)
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %a{:href => "/users/#{current_user.id}/consumed/"} 購入履歴(ストア)
         %dd
           %a{:href => "/users/#{current_user.id}/message"} メッセージ
           %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
@@ -60,6 +76,8 @@
           アカウント情報
         %dd
           %a{:href => "/users/#{current_user.id}/edit"} プロフィール編集
+        %dd
+          %a{:href => "/users/#{current_user.id}/edit_password"} パスワード変更
         %dd
           %a{:href => "/users/#{current_user.id}/popup"} メール通知設定
     / ./sideNavi
@@ -439,8 +457,6 @@
 / Pagetopボタン
 #page-top_jq{:style => "display:black"}
   %a{:href => "#wrap"} page top
-/ フッター
-= render 'shared/footer'
 -# ユーザー機能確認のためリンクおいてます。あとで編集してください。
 -# %h1 ユーザーのshowページです
 -# - if user_signed_in?
