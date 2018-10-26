@@ -91,11 +91,10 @@
                 #btn-playBase
                   #btn-play.r5 ▶ 再生
                 =image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",height:"388", width:"690",style:"object-fit:cover;",class:"video-image")
-                / {:alt => "", :height => "388", :src => "http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg", :width => "690",style:"object-fit:cover;", class:"video-image"}/
               .video_area
             - else
               .image_area
-                =image_tag("#{@project.project_images.to_a[0].image}",height:"388", width:"690",style:"object-fit:contain;",class:"video-image")
+                =image_tag("#{@project.project_images.to_a[0].image}",height:"388", width:"690",style:"object-fit:contain;",class:"main-image")
         .pnumBase
           - if @project.bar >= 100
             %svg.icon_success
