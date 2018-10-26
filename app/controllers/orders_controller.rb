@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
         :description => 'Rails Stripe customer',
         :currency    => 'jpy'
       )
+    render layout: false
     end
     rescue Stripe::CardError => e
     flash[:error] = e.message

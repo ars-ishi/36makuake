@@ -1,2 +1,156 @@
-.create
-  支払い完了！
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "UTF-8"}/
+    %meta{content: "width=device-width", name: "viewport"}/
+    %meta{content: "E1E1FC54C2FA07FA57AEB0483B623C2E", name: "msvalidate.01"}/
+    %meta{content: "667f9ec4a8a3ccfaf75391822432898779292be76a7a50068be8d64682492f381b55c0d0d2aa4886a2f731e9b75888dd3f312ea41fc5a7f33ca63b15cffa00d5", name: "fuel_csrf_token"}/
+    %title 決済 Makuake_clone
+    %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/commons/discover_common.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/supportsuccess.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/order.css", rel: "stylesheet"}/
+    %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
+    %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
+    %script{async: "", src: "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
+    %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
+    :javascript
+      function fuel_csrf_token()
+      {
+        if (document.cookie.length > 0)
+        {
+          var c_name = "fuel_csrf_token";
+          c_start = document.cookie.indexOf(c_name + "=");
+          if (c_start != -1)
+          {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";" , c_start);
+            if (c_end == -1)
+            {
+              c_end=document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+          }
+        }
+        return "";
+      }
+  %body
+    = render "shared/svg"
+    #header
+      %header#headerIn
+        %a#siteId.siteId{:href => "/"}
+          %h1
+            %svg.makuake-logo
+              %title Makuake
+              %use{"xlink:href" => "#makuakelogo_pc", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+    %script{:src => "//cdn-m.makuake.com/rev_2018/10/25/150018/js/geenie/investment/success/thankyou.js", :type => "text/javascript"}
+    %script{:src => "//cdn-m.makuake.com/rev_2018/10/25/150018/js/geenie/investment/success/tags.js", :type => "text/javascript"}
+    .grayBase
+      %section.hero
+        .hero-main
+          %img.hero-main--thumb{:alt => "天然鹿のドックフード「ネイトNeith: 究極ジビエ」で愛犬の喜ぶ姿が見たい！", :src => "//hayabusa.io/makuake/upload/project/5119/main_5119.fit-scale.png?width=252&height=142&quality=95&version=1539053111&format=png&ttl=31536000&force"}/
+          %h2.hero-main--caption あなたの支援が、プロジェクトを後押ししました！
+        .hero-sub
+          .hero-sub-wrapper
+            .hero-sub-before-support
+              %p{:class => "hero-sub__money—before"}> 164,950
+              円 (
+              %p.hero-sub__gauge-before> 54.9
+              \%)
+            %span.hero-sub__money__triangle
+            .hero-sub-after-support
+              %p{:class => "hero-sub__money—after"}> 167,600
+              円 (
+              %p.hero-sub__gauge-after> 55.8
+              \%)
+      .comment-box
+        .comment-box__header
+          %h2.comment-box__header__heading 応援コメントを投稿して、プロジェクトを盛り上げよう！
+          %p.comment-box__header__hint
+            投稿したコメントは
+            %a{:href => "/project/neith/communication/supporter/", :target => "_blank"}> プロジェクトページ
+            に表示されますので、個人情報は記載しないでください。
+        %section.comment-box__wrapper
+          .comment-box__contents
+            .left-side
+              %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "comment", :placeholder => "応援しています！頑張ってください！", :rows => ""}
+              .share-text
+                %span.share-text__contents.share-text__contents--twitter{:style => "display:none;"}
+                  天然鹿のドックフード「ネイトNeith: 究極ジビエ」で愛犬の喜ぶ姿が見たい！
+                  %br/
+                  https://www.makuake.com/project/neith/
+                  %br/
+                  \#Makuake @makuake_caさんから
+            .comment-box__bottom
+              .right-side__counter
+                %span.js-cnt 0
+                %span /140
+              %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
+              .submit-btn__loader{:style => "display:none;"}
+            .after-comment-box{:style => "display: none;"}
+              %p.after-comment-box__title THANK YOU!
+              %a.after-comment-box__pj-link{:href => "//"} 投稿したコメントへ
+              %p.app-dl-description
+                支援したプロジェクトの最新情報を
+                %br>/
+                受け取るにはアプリが便利です
+        %a.comment-box__back-to-pj{:href => "", :style => "display:none;"}
+          プロジェクトページへ
+          %svg.comment-box__back-to-pj__right-arrow
+            %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+        %section
+          %h2.tag-recommend-ttl あなたへおすすめのタグ
+          %p.tag-recommend-ttl-hint
+            興味のあるタグを登録しておくと、そのタグがつけられたプロジェクトの開始時に通知が届きます。
+            %br>/
+            気になるプロジェクトの見逃し防止におすすめです。
+          .tag-recommend-linkbox
+            %ul.tag-recommend-linkbox-ul
+              %li
+                %a.tag-recommend-linkbox-a{"data-tag-id" => "66"}
+                  %i>
+                  フード
+              %li
+                %a.tag-recommend-linkbox-a{"data-tag-id" => "164"}
+                  %i>
+                  ペット
+              %li
+                %a.tag-recommend-linkbox-a{"data-tag-id" => "165"}
+                  %i>
+                  犬
+              %li
+                %a.tag-recommend-linkbox-a{"data-tag-id" => "175"}
+                  %i>
+                  ギフト
+        .projectBoxBase
+          .pickup
+            %section
+              %h3.pickup-ttl おすすめのプロジェクト
+              %ul.pickup-project
+              -# ここからおすすめプロジェクト
+                %li
+                  %a.pickup-project-in-link{:href => "/project/jw-weekender/"}
+                    %section
+                      %img.pickup-thumb{:alt => "出張・旅行に最適！３ in １多機能バッグ 「JW Weekender」", "data-hayabusa-src" => "//hayabusa.io/makuake/upload/project/5116/main_5116.fit-scale.jpg?version=1539046980&format=jpg&ttl=31536000&force", :height => "388", :src => "//hayabusa.io/makuake/upload/project/5116/main_5116.fit-scale.jpg?version=1539046980&format=jpg&ttl=31536000&force&width=690&height=388&quality=70", :width => "690"}/
+                      %h4.pickup-project-title 出張・旅行に最適！３ in １多機能バッグ 「JW Weekender」
+                      -# ここまでおすすめプロジェクト
+            %p.pickup_toplink_block
+              %a.pickup_toplink{:href => "/"} トップページへ
+    %p#page-top_jq{:style => "display: none;"}
+      %a{:href => "#wrap"} PAGE TOP
+    %footer.footer
+      .footer-in
+        .footer-bottom
+          %div
+            .footer-bottom-copy
+              %small.footer-bottom-copy-txt Copyright © Makuake, Inc. All Rights Reserved.
+          %div
+            %ul.footer-bottom-link
+              %li
+                %a.footer-bottom-link-text{href: "/pages/company/"} 運営会社
+              %li
+                %a.footer-bottom-link-text{href: "/pages/term/"} 利用規約
+              %li
+                %a.footer-bottom-link-text{href: "/pages/privacy/"} プライバシーポリシー
