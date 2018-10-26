@@ -37,6 +37,12 @@ class ProjectsController < ApplicationController
     @supporters = @supporters.uniq.length
     @courses = @project.courses
     @comments = @project.project_comments.order("created_at DESC")
+    @summary= @project.summary.split(",")
+
+    if ProjectMovie.find_by(project_id: @project.id).present?
+      project_movie_path = ProjectMovie.find_by(project_id: @project.id).movie
+      @movie_id = project_movie_path.slice!(32..45)
+    end
   end
 
 
