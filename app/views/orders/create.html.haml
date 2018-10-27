@@ -8,14 +8,15 @@
     %title 決済 Makuake_clone
     %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
-    %link{href: "//css.36project.com/stylesheets/commons/discover_common.css", rel: "stylesheet"}/
-    %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportsuccess.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/order.css", rel: "stylesheet"}/
-    %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
+    %link{:href => "//cdn-m.makuake.com/rev_2018/10/16/143133/img/favicon.ico", :rel => "shortcut icon"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    = csrf_meta_tags
+    = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
     :javascript
       function fuel_csrf_token()
       {
@@ -65,6 +66,8 @@
               円 (
               %p.hero-sub__gauge-after> #{@bar}
               \%)
+
+
       .comment-box
         .comment-box__header
           %h2.comment-box__header__heading 応援コメントを投稿して、プロジェクトを盛り上げよう！
@@ -81,6 +84,8 @@
                 %span.js-cnt 0
                 %span /140
               %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
+
+
               .submit-btn__loader{:style => "display:none;"}
             .after-comment-box{:style => "display: none;"}
               %p.after-comment-box__title THANK YOU!
