@@ -4,8 +4,8 @@
     - if current_user.persisted? && current_user.image?
       = image_tag current_user.image.url, height: '175', width: '175'
     - else
-      = image_tag 'noimage.png'
-    = link_to "#{current_user.name}", user_path, class: "btn"
+      = image_tag 'http://image.36project.com/noimage.png'
+    = link_to "#{current_user.name}", user_path(current_user), class: "btn"
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconSupt 支援・寄附・購入
     %dd
@@ -20,7 +20,7 @@
     %dd
       = link_to 'プロフィール編集', edit_user_path(current_user)
     %dd
-      = link_to 'パスワード変更', edit_password_user_path(current_user)
+      = link_to 'パスワード変更', edit_user_registration_path
     %dd
       = link_to 'メール通知設定', popup_user_path(current_user)
   / ./sideNavi

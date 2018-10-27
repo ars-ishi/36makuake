@@ -8,14 +8,15 @@
     %title 決済 Makuake_clone
     %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
-    %link{href: "//css.36project.com/stylesheets/commons/discover_common.css", rel: "stylesheet"}/
-    %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportsuccess.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/order.css", rel: "stylesheet"}/
-    %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
+    %link{:href => "//cdn-m.makuake.com/rev_2018/10/16/143133/img/favicon.ico", :rel => "shortcut icon"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    = csrf_meta_tags
+    = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
     :javascript
       function fuel_csrf_token()
       {
@@ -50,44 +51,41 @@
     .grayBase
       %section.hero
         .hero-main
-          %img.hero-main--thumb{:alt => "天然鹿のドックフード「ネイトNeith: 究極ジビエ」で愛犬の喜ぶ姿が見たい！", :src => "//hayabusa.io/makuake/upload/project/5119/main_5119.fit-scale.png?width=252&height=142&quality=95&version=1539053111&format=png&ttl=31536000&force"}/
+          %img.hero-main--thumb{:alt => "", :src => "#{@project.thumbnail}"}/
           %h2.hero-main--caption あなたの支援が、プロジェクトを後押ししました！
         .hero-sub
           .hero-sub-wrapper
             .hero-sub-before-support
-              %p{:class => "hero-sub__money—before"}> 164,950
+              %p{:class => "hero-sub__money—before"}> #{(@project.total_sales) - (@order.payment_price)}
               円 (
-              %p.hero-sub__gauge-before> 54.9
+              %p.hero-sub__gauge-before> #{(@project.total_sales - @order.payment_price)*100 / @project.target_sales.to_f.round(1)}
               \%)
             %span.hero-sub__money__triangle
             .hero-sub-after-support
-              %p{:class => "hero-sub__money—after"}> 167,600
+              %p{:class => "hero-sub__money—after"}> #{@project.total_sales}
               円 (
-              %p.hero-sub__gauge-after> 55.8
+              %p.hero-sub__gauge-after> #{@bar}
               \%)
+
+
       .comment-box
         .comment-box__header
           %h2.comment-box__header__heading 応援コメントを投稿して、プロジェクトを盛り上げよう！
           %p.comment-box__header__hint
             投稿したコメントは
-            %a{:href => "/project/neith/communication/supporter/", :target => "_blank"}> プロジェクトページ
+            = link_to "プロジェクトページ", project_path("#{@project.id}"), target:"_blank"
             に表示されますので、個人情報は記載しないでください。
         %section.comment-box__wrapper
           .comment-box__contents
             .left-side
               %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "comment", :placeholder => "応援しています！頑張ってください！", :rows => ""}
-              .share-text
-                %span.share-text__contents.share-text__contents--twitter{:style => "display:none;"}
-                  天然鹿のドックフード「ネイトNeith: 究極ジビエ」で愛犬の喜ぶ姿が見たい！
-                  %br/
-                  https://www.makuake.com/project/neith/
-                  %br/
-                  \#Makuake @makuake_caさんから
             .comment-box__bottom
               .right-side__counter
                 %span.js-cnt 0
                 %span /140
               %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
+
+
               .submit-btn__loader{:style => "display:none;"}
             .after-comment-box{:style => "display: none;"}
               %p.after-comment-box__title THANK YOU!
@@ -107,35 +105,18 @@
             %br>/
             気になるプロジェクトの見逃し防止におすすめです。
           .tag-recommend-linkbox
-            %ul.tag-recommend-linkbox-ul
-              %li
-                %a.tag-recommend-linkbox-a{"data-tag-id" => "66"}
-                  %i>
-                  フード
-              %li
-                %a.tag-recommend-linkbox-a{"data-tag-id" => "164"}
-                  %i>
-                  ペット
-              %li
-                %a.tag-recommend-linkbox-a{"data-tag-id" => "165"}
-                  %i>
-                  犬
-              %li
-                %a.tag-recommend-linkbox-a{"data-tag-id" => "175"}
-                  %i>
-                  ギフト
         .projectBoxBase
           .pickup
             %section
               %h3.pickup-ttl おすすめのプロジェクト
               %ul.pickup-project
-              -# ここからおすすめプロジェクト
-                %li
-                  %a.pickup-project-in-link{:href => "/project/jw-weekender/"}
-                    %section
-                      %img.pickup-thumb{:alt => "出張・旅行に最適！３ in １多機能バッグ 「JW Weekender」", "data-hayabusa-src" => "//hayabusa.io/makuake/upload/project/5116/main_5116.fit-scale.jpg?version=1539046980&format=jpg&ttl=31536000&force", :height => "388", :src => "//hayabusa.io/makuake/upload/project/5116/main_5116.fit-scale.jpg?version=1539046980&format=jpg&ttl=31536000&force&width=690&height=388&quality=70", :width => "690"}/
-                      %h4.pickup-project-title 出張・旅行に最適！３ in １多機能バッグ 「JW Weekender」
-                      -# ここまでおすすめプロジェクト
+                - Project.order("RAND()").limit(3).each do |pro|
+                  %li
+                    = link_to project_path("#{pro.id}"), class:"pickup-project-in-link" do
+                      %section
+                        =image_tag("#{pro.thumbnail}",height:"388", width:"690",alt:"#{pro.name}",class:"pickup-thumb")
+                        %h4.pickup-project-title #{pro.name}
+
             %p.pickup_toplink_block
               %a.pickup_toplink{:href => "/"} トップページへ
     %p#page-top_jq{:style => "display: none;"}

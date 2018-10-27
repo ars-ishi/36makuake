@@ -17,16 +17,12 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def edit_password
-  end
-
-
   def update
     if @user.update(user_params)
       sign_in(@user, bypass: true) if current_user.id == @user.id
       redirect_to user_path(@user), notice: '更新しました'
     else
-      redirect_to edit_user_path(@user), alert: '更新に失敗しました。情報の再入力をお願いします'
+      flash.now[:error] = '失敗しました。情報の再入力をお願いします'
     end
   end
 
@@ -71,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def move_to_project_index
-    unless current_user
+    unless current_user.id == @user.id
       redirect_to project_index_path(current_user)
     end
   end
@@ -81,6 +77,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :image, :email, :password, :url, :location, :birth_year, :birth_month, :birth_day, :gender, :introduction)
+    params.require(:user).permit(:name, :image, :email, :password, :password_confirm, :current_password, :url, :location, :birth_year, :birth_month, :birth_day, :gender, :introduction)
   end
 end
