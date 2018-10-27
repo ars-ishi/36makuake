@@ -52,6 +52,12 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
+    invoke "unicorn:start"
+    on roles(fetch(:unicorn_roles)) do
+      within current_path do
+        info "unicorn restarting..."
+        execute :kill, "-s USR2", pid
+      end
+    end
   end
 end
