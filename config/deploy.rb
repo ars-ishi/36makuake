@@ -49,15 +49,29 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke "unicorn:start"
-    on roles(fetch(:unicorn_roles)) do
-      within current_path do
-        info "unicorn restarting..."
-        execute :kill, "-s USR2", pid
+    on roles(:app), in: :sequence, wait: 5 do
+      # unix command execute status;
+      # 0 : true
+      # 1 : false
+      old_env = capture(
+        "/usr/bin/test /home/.bash_profile -ot #{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid; echo $?"
+      )
+      old_ruby = capture(
+        "/usr/bin/test /home/.rbenv/versions/#{fetch(:rbenv_ruby)} -ot #{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid; echo $?"
+      )
+      if old_env == '0' && old_ruby == '0'
+        info 'env.yml and ruby version is old. restat unicorn.'
+        invoke 'unicorn:restart'
+      else
+        info 'env.yml or ruby version is new. stop and start(reload env.yml) unicorn.'
+        invoke 'unicorn:stop'
+        execute :sleep, fetch(:unicorn_stop_sleep_time)
+        invoke 'unicorn:start'
       end
     end
   end
-end
+
+  after :publishing, :restart
+en
