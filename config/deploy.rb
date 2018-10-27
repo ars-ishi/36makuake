@@ -74,4 +74,4 @@ namespace :deploy do
   end
 
   after :publishing, :restart
-en
+end
