@@ -29,7 +29,7 @@
                   - if current_user.persisted? && current_user.image?
                     %img{:alt => "", :height => "36", :src => "#{current_user.image}", :width => "36"}/
                   - else
-                    = image_tag 'noimage.png', :height => "36", :width => "36"
+                    = image_tag 'http://image.36project.com/noimage.png', :height => "36", :width => "36"
                   %br/
                   %br/
                   = f.file_field :image, class: 'filetInput', multipart: true, enctype: 'multipart/form-data'
