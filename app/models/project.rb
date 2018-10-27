@@ -20,6 +20,10 @@ class Project < ApplicationRecord
     total_sales*100 / target_sales
   end
 
+  def bar_f
+    (total_sales*100 / target_sales.to_f).round(1)
+  end
+
   def new_project
     year = Time.now.strftime("%Y").to_i - created_at.strftime("%Y").to_i
     days = Time.now.strftime("%j").to_i - created_at.strftime("%j").to_i
