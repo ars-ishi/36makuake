@@ -52,8 +52,10 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:stop'
-    execute :sleep, fetch(:unicorn_stop_sleep_time)
-    invoke 'unicorn:start'
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'unicorn:stop'
+      execute :sleep, fetch(:unicorn_stop_sleep_time)
+      invoke 'unicorn:start'
+    end
   end
 end
