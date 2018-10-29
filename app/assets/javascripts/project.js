@@ -1,6 +1,5 @@
+$(document).on('turbolinks:load', function() {
 $(function() {
-
-
 
   //ヘッダーのマイページボックスの表示
   $(".link03After").on("click",function(){
@@ -71,6 +70,7 @@ $(function() {
 
 
 
+  })
 });
 
 
