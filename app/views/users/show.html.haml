@@ -3,13 +3,20 @@
   %link{href: "//css.36project.com/stylesheets/users/text.css", rel: "stylesheet"}/
 #wrapperMypage
   / profileArea
-  #profileArea
-    #profileInArea.clearfix
+  #profileArea{style: 'height: 235px'}
+    #profileInArea.clearfix{style: 'height: 235px'}
       #profileLeft
         .file_area
-          %form#upload_image{:action => "update", :enctype => "multipart/form-data", :method => "post"}
-            %input#upload_1{:enctype => "multipart/form-data", :name => "file_data1", :type => "file"}/
-            %input.updateBtn{:style => "display:none", :type => "submit", :value => "更新"}/
+          - if current_user.persisted? && current_user.image?
+            = image_tag current_user.image.url, height: '175', width: '175', id: 'upload_image'
+          - else
+            = image_tag 'http://image.36project.com/noimage.png', id: 'upload_image'
+          %br/
+          %br/
+          = form_for @user,:url => {:action => 'update'}, :html => {:multipart => true} do |f|
+            = f.file_field :image, id: 'upload_1'
+            = f.submit '更新', class: 'updateBtn'
+          %br/
       #profileRight
         #profileNameArea
           .nameAndSns.clearfix
