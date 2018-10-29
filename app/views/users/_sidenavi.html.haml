@@ -2,9 +2,9 @@
 #sideNavi
   #profile
     - if current_user.persisted? && current_user.image?
-      = image_tag current_user.image.url, height: '175', width: '175'
+      = image_tag current_user.image.url, height: '175', width: '175', class: 'image_preview'
     - else
-      = image_tag 'http://image.36project.com/noimage.png'
+      = image_tag 'http://image.36project.com/noimage.png', class: 'image_preview'
     = link_to "#{current_user.name}", user_path(current_user), class: "btn"
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconSupt 支援・寄附・購入
