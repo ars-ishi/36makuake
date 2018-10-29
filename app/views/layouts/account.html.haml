@@ -1,0 +1,42 @@
+!!!
+%html{:lang => "ja"}
+    %head
+        %meta{"http-equiv":"Cache-Control", content: "max-age=60"}
+        %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+        %meta{:content => "noindex", :name => "robots"}
+        %title Makuake_clone by 36groupe
+        = csrf_meta_tags
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/reset.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/commons/common.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/commons/discover_common.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/commons/discover_project.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/commons/common_cancel_request.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/footer.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/header.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/index.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/pagination.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/slider.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/modules/template.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/project-common.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/project_view.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/project_page.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/account.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/project_page.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/page.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    '//css.36project.com/stylesheets/promoter.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    'https://use.fontawesome.com/releases/v5.0.6/css/all.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+        = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+        = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
+        = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js', 'data-turbolinks-track': 'reload'
+    %body
+        = render 'shared/svg'
+        = render partial: 'layouts/flash_message'
+        = render partial: 'layouts/account_area'
+        = render partial: 'shared/header'
+        = yield
+        = render partial: 'shared/footer'
+        = render partial: 'layouts/admin'
