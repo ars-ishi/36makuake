@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get :popup
       get :leave
     end
-    resources :promoter_profiles, only: [:new, :create, :show, :edit, :update]
+    resources :promoter_profiles, only: [:new, :create, :show, :edit, :update, :show]
     get 'edit_omniauth' => 'users#edit_omniauth'
     patch 'update_omniauth' => 'users#update_omniauth'
   end
