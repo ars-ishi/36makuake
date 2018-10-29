@@ -4,7 +4,7 @@ class ProjectCommentsController < ApplicationController
   end
 
   def create
-    @comment = ProjectComment.create
+    @comment = ProjectComment.create(comment_params)
   end
 
 end

@@ -60,7 +60,8 @@
             = form_tag("/projects/#{@project.id}/project_comments", method: :post) do
               .left-side
                 %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "content", :placeholder => "応援しています！頑張ってください！", :rows => ""}
-                = hidden_field :project_id, @project.id
+                = hidden_field_tag :user_id, current_user.id
+                = hidden_field_tag :project_id, @project.id
               .comment-box__bottom
                 .right-side__counter
                   %span.js-cnt 0
@@ -69,8 +70,8 @@
                 / %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
 
 
-              .submit-btn__loader{:style => "display:none;"}
-            .after-comment-box{:style => "display: none;"}
+              .submit-btn__loader{:style => "display:block;"}
+            .after-comment-box{:style => "display: block;"}
               %p.after-comment-box__title THANK YOU!
               %a.after-comment-box__pj-link{:href => "//"} 投稿したコメントへ
               %p.app-dl-description
