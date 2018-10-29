@@ -1,0 +1,7 @@
+%li.project-name
+  #{project.name}
+%ul.supporter-detail
+  - if Order.where(project_id: project.id).length != 0
+    = render partial: "promoter_profiles/supporter_detail", collection: Order.where(project_id: project.id), as: "order"
+  - else
+    %li.detail-long まだサポーターはいません。
