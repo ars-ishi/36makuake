@@ -17,4 +17,8 @@ class Course < ApplicationRecord
     attributed['content'].blank?
   end
 
+  def update_stock(current_course, count)
+    after_payment_stock      = current_course.stock.to_i - count.to_i
+    current_course.update!(stock: after_payment_stock)
+  end
 end

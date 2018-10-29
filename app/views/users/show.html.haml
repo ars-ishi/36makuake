@@ -7,7 +7,7 @@
     #profileInArea.clearfix
       #profileLeft
         .file_area
-          %form#upload_image{:action => "/my/upload/", :enctype => "multipart/form-data", :method => "post"}
+          %form#upload_image{:action => "update", :enctype => "multipart/form-data", :method => "post"}
             %input#upload_1{:enctype => "multipart/form-data", :name => "file_data1", :type => "file"}/
             %input.updateBtn{:style => "display:none", :type => "submit", :value => "更新"}/
       #profileRight
@@ -15,32 +15,33 @@
           .nameAndSns.clearfix
             .nameAndSnsLeft
               %span#yourName
-                おとなのビスコ
+                = current_user.name
             .nameAndSnsRight
               %ul.alertIconsSns
                 %li
-                  %a.mailAlert{:href => "/my/message/"}
+                  = link_to message_user_path(current_user), class: 'mailAlert' do
                     %img{:alt => "", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/icon_mail_48.gif"}/
         .newsListArea
           .oneSection
             .oneSection01
               2018/05/28
             .oneSection02
-              %a{:href => "/information/detail/92/"} 【重要】Makuakeガバメント開始に伴う利用規約変更のお知らせ
+              -# %a{:href => "/information/detail/92/"}
+              【重要】Makuakeガバメント開始に伴う利用規約変更のお知らせ
           .oneSection
             .oneSection01
               2018/05/25
             .oneSection02
-              %a{:href => "/information/detail/91/"}
-                【重要】6/2(土) 深夜システムメンテナンスのお知らせ
+              -# %a{:href => "/information/detail/91/"}
+              【重要】6/2(土) 深夜システムメンテナンスのお知らせ
           .oneSection
             .oneSection01
               2018/03/09
             .oneSection02
-              %a{:href => "/information/detail/90/"}
-                【重要】3/17(土) 深夜システムメンテナンスのお知らせ
+              -# %a{:href => "/information/detail/90/"}
+              【重要】3/17(土) 深夜システムメンテナンスのお知らせ
         .archiveMoreLink
-          %a.iconArrow24{:href => "/information/"}
+          -# %a.iconArrow24{:href => "/information/"}
             お知らせ一覧を見る
   / ./profileArea
   / contentWrapper
@@ -51,20 +52,21 @@
         %dt.sideNaviTitle.sideIconSupt
           支援・寄附・購入
         %dd
-          %a{:href => "/users/#{current_user.id}/invest"} 支援・寄附したプロジェクト
+          = link_to '支援・寄附したプロジェクト', invest_user_path(current_user)
         %dd
-          -# %a{:href => "/my/project/consumed/"} 購入履歴(ストア)
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+          = link_to '購入履歴(ストア)', consumed_user_path(current_user)
         %dd
-          %a{:href => "/users/#{current_user.id}/message"} メッセージ
+          = link_to 'メッセージ', message_user_path(current_user)
           %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
       %dl.sideNaviOne
         %dt.sideNaviTitle.sideIconAcnt
           アカウント情報
         %dd
-          %a{:href => "/users/#{current_user.id}/edit"} プロフィール編集
+          = link_to 'プロフィール編集', edit_user_path(current_user)
         %dd
-          %a{:href => "/users/#{current_user.id}/popup"} メール通知設定
+          = link_to 'パスワード変更', edit_password_user_path(current_user)
+        %dd
+          = link_to 'メール通知設定', popup_user_path(current_user)
     / ./sideNavi
     / rightContentMain
     #rightContentMain
@@ -72,8 +74,7 @@
       %section#projectDetails
         %h2.ttlDetails
           支援・寄附したプロジェクト
-          %a.iconArrow24_02{:href => "/users/#{current_user.id}/invest/"}
-            支援・寄附したプロジェクト一覧へ
+          = link_to '支援・寄附したプロジェクト一覧へ', invest_user_path(current_user), class: 'iconArrow24_02'
         / DeteilIn
         .DeteilIn{"data-gtm-vis-first-on-screen-657891_277" => "251", "data-gtm-vis-first-on-screen-657891_294" => "243", "data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1", "data-gtm-vis-recent-on-screen-657891_277" => "251", "data-gtm-vis-recent-on-screen-657891_294" => "243", "data-gtm-vis-total-visible-time-657891_277" => "100", "data-gtm-vis-total-visible-time-657891_294" => "100"}
           / 01 in
@@ -430,20 +431,11 @@
                     実行者がリターン配送準備を進めている為、住所変更ができません。
                     %br/
                     実行者へ直接メッセージにてお問い合わせください。
-            / 03-01
-          / ./03 in
-        / ./DeteilIn
-        -# %h2.ttlDetails 購入履歴(ストア)
-        -# .no-content
-        -#   %p.ttlDetailsNo 購入した商品はありません。
-        -#   %a.discover-btn.btncol_03{:href => "/discover/store"} 商品を探す
     / ./rightContentMain
 / ./contentWrapper
 / Pagetopボタン
 #page-top_jq{:style => "display:black"}
   %a{:href => "#wrap"} page top
-/ フッター
-= render 'shared/footer'
 -# ユーザー機能確認のためリンクおいてます。あとで編集してください。
 -# %h1 ユーザーのshowページです
 -# - if user_signed_in?

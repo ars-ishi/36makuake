@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :move_to_email_registration, only: [:show]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit, :edit_password, :update, ]
+  before_action :move_to_project_index, only: [:show, :edit, :edit_password, :update]
 
   def index
     respond_to do |format|
@@ -9,13 +12,22 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
   end
 
   def edit
   end
 
+  def edit_password
+  end
+
+
   def update
+    if @user.update(user_params)
+      sign_in(@user, bypass: true) if current_user.id == @user.id
+      redirect_to user_path(@user), notice: '更新しました'
+    else
+      redirect_to edit_user_path(@user), alert: '更新に失敗しました。情報の再入力をお願いします'
+    end
   end
 
   def invest
@@ -25,6 +37,9 @@ class UsersController < ApplicationController
   end
 
   def popup
+  end
+
+  def consumed
   end
 
   def destroy
@@ -55,4 +70,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def move_to_project_index
+    unless current_user
+      redirect_to project_index_path(current_user)
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :image, :email, :password, :url, :location, :birth_year, :birth_month, :birth_day, :gender, :introduction)
+  end
 end

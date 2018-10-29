@@ -52,6 +52,20 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @orders = Order.where(project_id: params[:id])
+    @supporters = []
+    @orders.each do |order|
+      @supporters << order[:user_id]
+    end
+    @supporters = @supporters.uniq.length
+    @courses = @project.courses
+    @comments = @project.project_comments.order("created_at DESC")
+    @summary= @project.summary.split(",")
+
+    if ProjectMovie.find_by(project_id: @project.id).present?
+      project_movie_path = ProjectMovie.find_by(project_id: @project.id).movie
+      @movie_id = project_movie_path.slice!(32..45)
+    end
   end
 
 
