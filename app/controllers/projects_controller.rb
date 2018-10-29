@@ -31,6 +31,7 @@ class ProjectsController < ApplicationController
       courses.course_images.new
       course_questions = courses.course_questions.new
       3.times {course_questions.course_question_answers.new}
+      render layout: 'account'
     else
       redirect_to root_path, alert: 'アクセスできないページです'
     end

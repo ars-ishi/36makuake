@@ -49,6 +49,7 @@ class PromoterProfilesController < ApplicationController
     else
       redirect_to root_path, alert: 'アクセスできないページです'
     end
+    render layout: 'account'
   end
 
   private
