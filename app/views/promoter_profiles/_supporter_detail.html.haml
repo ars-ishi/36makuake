@@ -1,0 +1,22 @@
+%li.detail
+  .detail__user-image
+    - if User.find(order.user_id).image.present?
+      = image_tag(User.find(order.user_id).image)
+    - else
+      = image_tag("http://image.36project.com/icon_yellow.png")
+  .detail__info
+    .info__user-name__label
+      %i.fas.fa-user
+      ユーザー名
+    .info__user-name
+      #{User.find(order.user_id).name}さん
+    .info__date__label
+      %i.far.fa-calendar
+      支援日
+    .info__date
+      #{order.created_at.strftime("%Y/%m/%d")}
+    .info__money__label
+      %i.fas.fa-dollar-sign
+      支援金額
+    .info__money
+      #{order.payment_price.to_s(:delimited)}円

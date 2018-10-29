@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :report_likes, dependent: :destroy
   has_many :report, through: :report_likes
+  has_many :projects
 
   enum role: { admin: 0, supporter: 1, promoter: 2 }
   enum gender: { male: 1, female: 2 }

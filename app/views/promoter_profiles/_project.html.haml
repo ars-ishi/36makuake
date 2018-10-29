@@ -1,0 +1,30 @@
+%li
+  = link_to project_path(project) do
+    = image_tag("http://image.36project.com/ttl_succes.png", class: "project-list-#{success_check(project)}")
+    .project-list__thumbbail
+      - if project.thumbnail.present?
+        = image_tag(project.thumbnail)
+      - else
+        = image_tag("http://image.36project.com/nothingimage.png")
+    .project-list__name
+      #{project.name}
+    .project-list__deadline
+      %span.label
+        %i.far.fa-calendar-check
+        終了日
+      #{project.deadline.strftime("%Y/%m/%d %H:%M")}
+    .project-list__target_sales
+      %span.label
+        %i.fas.fa-dollar-sign
+        目標金額
+      #{project.target_sales.to_s(:delimited)} 円
+    .project-list__total_sales
+      %span.label
+        %i.fas.fa-suitcase
+        集まった金額
+      #{project.total_sales.to_s(:delimited)} 円
+    .project-list__suportes
+      %span.label
+        %i.fas.fa-user
+        支援者数
+      #{supporter_array(project).uniq.length} 人
