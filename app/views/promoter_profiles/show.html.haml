@@ -1,0 +1,23 @@
+= stylesheet_link_tag    'https://use.fontawesome.com/releases/v5.0.6/css/all.css', media: 'all', 'data-turbolinks-track': 'reload'
+.gray_base
+  .content-promoter
+    .content-promoter__main
+      .promoter-management
+        .main__left-area
+          %ul
+            %li.left-area-list-active#projects-link
+              %i.fas.fa-th.list-icon
+              プロジェクト一覧
+            %li.left-area-list-inactive#supporters-link
+              %i.fas.fa-users.list-icon
+              サポーター一覧
+            %li
+              = link_to new_project_path do
+                %i.fas.fa-plus-square.list-icon
+                新規プロジェクト
+        .main__right-area#project-view
+          %ul.project-list
+            = render partial: "promoter_profiles/project", collection: @projects, as: "project"
+        .main__right-area.tab-area-inactive#supporter-view
+          %ul.supporter-list
+            = render partial: "promoter_profiles/supporter", collection: @projects, as: "project"
