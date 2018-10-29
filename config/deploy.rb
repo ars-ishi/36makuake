@@ -48,27 +48,13 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
-set :default_env, {"ENV1" => "VALUE1"}
 
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-
-  desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      invoke 'unicorn:restart'
-      with {"ENV1" => "VALUE1"} do
+      invoke 'unicorn:stop'
+      invoke 'unicorn:start'
     end
   end
-
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-
 end
