@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  if (window.location.href.match(/projects\/new/)) {
+  if (window.location.href.match(/projects\/new/) || window.location.href.match(/projects\/\d+\/courses\/new/)) {
     function imageUploadPreview(fieldId, imageId) {
       $(fieldId).change(
         function () {
@@ -23,6 +23,7 @@ $(document).on('turbolinks:load', function(){
     imageUploadPreview('#project_project_images_attributes_2_image', '.project-image-file-preview-2');
     imageUploadPreview('#project_project_images_attributes_3_image', '.project-image-file-preview-3');
     imageUploadPreview('#project_courses_attributes_0_course_images_attributes_0_image', '.course-image-file-preview');
+    imageUploadPreview('#course_course_images_attributes_0_image', '.course-image-file-preview');
     function inputCheck(inputId, iconId) {
       $(inputId).on('input', function() {
         if ($(inputId).val()) {
@@ -46,6 +47,12 @@ $(document).on('turbolinks:load', function(){
     inputCheck('#project_courses_attributes_0_due_date', '#check-project_courses_attributes_0_due_date');
     inputCheck('#project_courses_attributes_0_stock', '#check-project_courses_attributes_0_stock');
     inputCheck('#project_courses_attributes_0_course_images_attributes_0_image', '#check-project_courses_attributes_0_course_images_attributes_0_image');
+    inputCheck('#course_name', '#check-course_name');
+    inputCheck('#course_content', '#check-course_content');
+    inputCheck('#course_price', '#check-course_price');
+    inputCheck('#course_due_date', '#check-course_due_date');
+    inputCheck('#course_stock', '#check-course_stock');
+    inputCheck('#course_course_images_attributes_0_image', '#check-course_course_images_attributes_0_image');
     $(document).ready(function(){
       $('#project_support_type').val('');
       $('#project_target_sales').val('');
