@@ -1,7 +1,8 @@
 class CoursesController < ApplicationController
+  before_action :set_project, only: [:new, :create]
+
   def new
     if current_user.admin? || current_user.promoter?
-      @project = Project.find(params[:project_id])
       @course = @project.courses.new
       @course.course_images.new
       course_questions = @course.course_questions.new
@@ -14,9 +15,9 @@ class CoursesController < ApplicationController
 
   def create
     if current_user.admin? || current_user.promoter?
-      @course = Project.find(params[:project_id]).courses.new(courses_params)
+      @course = @project.courses.new(courses_params)
       if @course.save
-        redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'プロジェクトを追加しました。'
+        redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'コースを追加しました。'
       else
         flash.now[:alert] = 'コースを作成できませんでした。入力内容をご確認ください。'
         render 'new'
@@ -34,6 +35,7 @@ class CoursesController < ApplicationController
   end
 
   private
+
   def courses_params
    params.require(:course).permit(
      :name,
@@ -45,5 +47,9 @@ class CoursesController < ApplicationController
      course_images_attributes: [:image],
      course_questions_attributes: [:content, { course_question_answers_attributes: [:content] } ]
    )
+  end
+
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 end
