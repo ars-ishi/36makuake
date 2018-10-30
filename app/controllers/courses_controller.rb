@@ -1,29 +1,22 @@
 class CoursesController < ApplicationController
   before_action :set_project, only: [:new, :create]
+  before_action :auth_check, only: [:new, :create]
 
   def new
-    if current_user.admin? || current_user.promoter?
-      @course = @project.courses.new
-      @course.course_images.new
-      course_questions = @course.course_questions.new
-      3.times {course_questions.course_question_answers.new}
-      render layout: 'account'
-    else
-      redirect_to root_path, alert: 'アクセスできないページです'
-    end
+    @course = @project.courses.new
+    @course.course_images.new
+    course_questions = @course.course_questions.new
+    3.times {course_questions.course_question_answers.new}
+    render layout: 'account'
   end
 
   def create
-    if current_user.admin? || current_user.promoter?
-      @course = @project.courses.new(courses_params)
-      if @course.save
-        redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'コースを追加しました。'
-      else
-        flash.now[:alert] = 'コースを作成できませんでした。入力内容をご確認ください。'
-        render 'new'
-      end
+    @course = @project.courses.new(courses_params)
+    if @course.save
+      redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'コースを追加しました。'
     else
-      redirect_to root_path, alert: 'アクセスできないページです'
+      flash.now[:alert] = 'コースを作成できませんでした。入力内容をご確認ください。'
+      render 'new'
     end
   end
 
@@ -51,5 +44,9 @@ class CoursesController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def auth_check
+    redirect_to root_path, alert: 'アクセスできないページです' unless current_user.admin? || current_user.promoter?
   end
 end
