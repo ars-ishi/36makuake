@@ -1,9 +1,8 @@
 class CoursesController < ApplicationController
-  before_action :set_project, only: [:new, :create]
+  before_action :set_instances, only: [:new, :create]
   before_action :auth_check, only: [:new, :create]
 
   def new
-    @course = @project.courses.new
     @course.course_images.new
     course_questions = @course.course_questions.new
     3.times {course_questions.course_question_answers.new}
@@ -11,7 +10,6 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = @project.courses.new(courses_params)
     if @course.save
       redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'コースを追加しました。'
     else
@@ -42,8 +40,9 @@ class CoursesController < ApplicationController
    )
   end
 
-  def set_project
+  def set_instances
     @project = Project.find(params[:project_id])
+    @course = action_name == 'create' ? @project.courses.new(courses_params) : @course = @project.courses.new
   end
 
   def auth_check
