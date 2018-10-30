@@ -85,9 +85,9 @@
             %a.myLink01{:href => "/users/#{current_user.id}"}
               %div
                 - if current_user.image.present?
-                  = image_tag("#{current_user.image}", class: 'user_image userImage02')
+                  = image_tag current_user.image, class: 'user_image userImage02'
                 - else
-                  = image_tag('http://image.36project.com/icon_yellow.png', class: 'user_image userImage02')
+                  = image_tag 'http://image.36project.com/icon_yellow.png', class: 'user_image userImage02'
               %div マイページ
           %li#header_dashboard
           - if can? :promoter, current_user
