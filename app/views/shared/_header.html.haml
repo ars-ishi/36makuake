@@ -71,8 +71,10 @@
                   %use{"xlink:href" => "#icon-bell_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               %span#unread_notification_cnt.bell-after-num{:style => "display:none;"}
           %li
-            %img.user_image.link03After{:src => "#{current_user.image}"}/
-
+            - if current_user.image.present?
+              %img.user_image.link03After{:src => "#{current_user.image}"}/
+            -else
+              = image_tag('http://image.36project.com/icon_yellow.png', class: 'user_image link03After')
       #toolTipsPjt
         .toolTipsPjtIn
           #notice-scroll.toolTipsPjt03
@@ -85,6 +87,12 @@
                 %img.user_image.userImage02{:src => "#{current_user.image}"}/
               %div マイページ
           %li#header_dashboard
+          - if can? :promoter, current_user
+            - unless current_user.promoter_profile == nil
+              %li.links
+                = link_to 'プロジェクト管理', user_promoter_profile_path(current_user, current_user.promoter_profile), class: 'links-mypage'
+              %li.links
+                = link_to '新規プロジェクト', new_project_path, class: 'links-mypage'
           %li.links
             = link_to '支援・寄附したプロジェクト', invest_user_path(current_user), class:"links-mypage"
           %li.links
@@ -97,8 +105,8 @@
       / ログアウト
       %nav#navigation
         %ul.nav-header-box
-          %li
-            %a.header-link-apply{:href => "/apply/"} プロジェクトを掲載する
+          -# %li
+          -#   %a.header-link-apply{:href => "/apply/"} プロジェクトを掲載する
           %li
             .header-like-box
               %a.header-like{:href => "/favorite/tag/", :onclick => ""}

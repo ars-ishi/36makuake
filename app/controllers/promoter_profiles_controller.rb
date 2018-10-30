@@ -42,6 +42,16 @@ class PromoterProfilesController < ApplicationController
     end
   end
 
+  def show
+    @promoter_profile = current_user.promoter_profile if current_user.promoter_profile.present?
+    if @promoter_profile.id == params[:id].to_i
+      @projects = Project.where(user_id: @promoter_profile.user_id).includes(:user).order("created_at DESC")
+    else
+      redirect_to root_path, alert: 'アクセスできないページです'
+    end
+    render layout: 'account'
+  end
+
   private
     def promoter_profile_params
     params.require(:promoter_profile).permit(

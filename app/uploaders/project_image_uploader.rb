@@ -1,10 +1,7 @@
-class UserImageUploader < CarrierWave::Uploader::Base
+class ProjectImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-
-  # デフォルト画像は175x175に収まるようリサイズ
   include CarrierWave::MiniMagick
-  process resize_to_fit: [175, 175]
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -12,8 +9,6 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-
-  # 保存するディレクトリ
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -34,21 +29,17 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-
-  # 保存可能なファイル拡張子
-  def extension_whitelist
-     %w(jpg jpeg gif png)
-  end
+  # def extension_whitelist
+  #   %w(jpg jpeg gif png)
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
+  process resize_to_fit: [690, 388]
 end

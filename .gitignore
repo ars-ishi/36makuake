@@ -18,3 +18,4 @@ public/uploads/*
 /yarn-error.log
 
 .byebug_history
+config/secrets.yml

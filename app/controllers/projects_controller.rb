@@ -22,9 +22,33 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    if current_user.admin? || current_user.promoter?
+      @project = current_user.projects.new
+      @project.project_tags.new
+      @project.project_movies.new
+      4.times {@project.project_images.new}
+      courses = @project.courses.new
+      courses.course_images.new
+      course_questions = courses.course_questions.new
+      3.times {course_questions.course_question_answers.new}
+      render layout: 'account'
+    else
+      redirect_to root_path, alert: 'アクセスできないページです'
+    end
   end
 
   def create
+    if current_user.admin? || current_user.promoter?
+      @project = current_user.projects.new(projects_params)
+      if @project.save
+        redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'プロジェクトを作成しました。'
+      else
+        flash.now[:alert] = 'プロジェクトを作成できませんでした。入力内容をご確認ください。'
+        render 'new'
+      end
+    else
+      redirect_to root_path, alert: 'アクセスできないページです'
+    end
   end
 
   def show
@@ -51,5 +75,32 @@ class ProjectsController < ApplicationController
     @categories = Category.order("id ASC")
   end
 
+  private
+  def projects_params
+    params.require(:project).permit(
+      :name,
+      :summary,
+      :content,
+      :support_type,
+      :deadline,
+      :target_sales,
+      :total_sales,
+      :thumbnail,
+      :category_id,
+      tag_ids: [],
+      project_images_attributes: [:image],
+      project_movies_attributes: [:movie],
+      courses_attributes: [
+        :name,
+        :content,
+        :price,
+        :due_date,
+        :stock,
+        :sales_type,
+        { course_images_attributes: [:image] },
+        { course_questions_attributes: [:content, { course_question_answers_attributes: [:content] } ] }
+      ]
+    )
+  end
 
 end
