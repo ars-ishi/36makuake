@@ -29,5 +29,5 @@
         支援者数
       #{supporter_array(project).uniq.length} 人
 - if controller.controller_name == 'promoter_profiles'
-  = link_to new_project_course_path(project), { class:'add-course-btn' } do
+  = link_to new_project_course_path(project), class:'add-course-btn' do
     コースを追加する
