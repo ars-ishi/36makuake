@@ -57,7 +57,7 @@
             に表示されますので、個人情報は記載しないでください。
         %section.comment-box__wrapper
           .comment-box__contents
-            = form_tag("/projects/#{@project.id}/project_comments", method: :post) do
+            = form_tag("/projects/#{@project.id}/project_comments", method: :post, id:"comment_form") do
               .left-side
                 %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "content", :placeholder => "応援しています！頑張ってください！", :rows => ""}
                 = hidden_field_tag :user_id, current_user.id
@@ -66,22 +66,7 @@
                 .right-side__counter
                   %span.js-cnt 0
                   %span /140
-                = submit_tag "投稿する", id:"post_message", class:"submit-btn"
-                / %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
-
-
-              .submit-btn__loader{:style => "display:block;"}
-            .after-comment-box{:style => "display: block;"}
-              %p.after-comment-box__title THANK YOU!
-              %a.after-comment-box__pj-link{:href => "//"} 投稿したコメントへ
-              %p.app-dl-description
-                支援したプロジェクトの最新情報を
-                %br>/
-                受け取るにはアプリが便利です
-        %a.comment-box__back-to-pj{:href => "", :style => "display:none;"}
-          プロジェクトページへ
-          %svg.comment-box__back-to-pj__right-arrow
-            %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                = submit_tag "投稿する", id:"post_message", class:"submit-btn modal"
         %section
           %h2.tag-recommend-ttl あなたへおすすめのタグ
           %p.tag-recommend-ttl-hint

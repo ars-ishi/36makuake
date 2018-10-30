@@ -1,1 +1,10 @@
-#{current_user.id}
+%section.comment-box__wrapper
+  #modal.after-comment-box{:style => "display: block;"}
+    %p.after-comment-box__title THANK YOU!
+    %a.after-comment-box__pj-link{:href => "//"} 投稿したコメントへ
+    %p.app-dl-description
+      支援したプロジェクトの最新情報を
+      %br>/
+      受け取るにはアプリが便利です
+  %a.comment-box__back-to-pj{:href => "#modal", :style => "display:block;"}
+    プロジェクトページへ

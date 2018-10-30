@@ -1,4 +1,7 @@
 $(document).on('turbolinks:load', function() {
+
+$('.modal').modaal();
+
 $(function() {
 
   //ヘッダーのマイページボックスの表示

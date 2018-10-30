@@ -14,7 +14,30 @@ class Project < ApplicationRecord
   has_one    :project_pickup, dependent: :destroy
   has_one    :project_slider, dependent: :destroy
 
+  mount_uploader :thumbnail, ProjectMainImageUploader
+
   enum support_type: { all_in: 1, all_or_nothing: 2 }
+
+  accepts_nested_attributes_for :project_images, reject_if: :reject_project_images
+  accepts_nested_attributes_for :project_movies, reject_if: :reject_project_movies
+  accepts_nested_attributes_for :courses, reject_if: :reject_courses
+  accepts_nested_attributes_for :project_tags, reject_if: :reject_project_tags
+
+  def reject_project_images(attributed)
+    attributed['image'].blank?
+  end
+
+  def reject_project_movies(attributed)
+    attributed['movie'].blank?
+  end
+
+  def reject_courses(attributed)
+    attributed['content'].blank?
+  end
+
+  def reject_project_tags(attributed)
+    attributed['tag_id'].blank?
+  end
 
   def bar
     total_sales*100 / target_sales

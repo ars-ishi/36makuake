@@ -24,6 +24,12 @@
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.investment.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exchecker-ja.js"}
     %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exvalidation.js"}
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    = csrf_meta_tags
+    = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
   %body
     = render "shared/svg"
 
@@ -121,7 +127,6 @@
                   %span.omit
                     = @course.content
                   / ここまでコース詳細欄
-                  / コースの質問のレンダー
           - if @questions
             = render partial: 'courseTemplate/question', collection: @questions
           .clearfix

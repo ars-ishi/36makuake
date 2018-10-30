@@ -1,0 +1,182 @@
+.gray_base
+  .content-promoter
+    .content-promoter__title プロジェクトを新規作成
+    .content-promoter__main
+      .main__caption 必須項目は全てご記入ください。
+      .main__promoter-form
+        = form_for [@project] do |f|
+          .left__promoter-form
+            .promoter-form__caption プロジェクト情報
+            .promoter-form__field
+              = f.label :name do
+                .field-title
+                  %i.fas.fa-check-circle.check-icon#check-project_name
+                  プロジェクト名
+                  %span.required 必須
+              = f.text_field :name, required: 'required', class: 'field-input', placeholder: '例）たまご屋さんが本気で作るたまごプリンギフト「まるっとたまごプリン」'
+            .promoter-form__field
+              .field-short
+                = f.label :category_id do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_category_id
+                    カテゴリ
+                    %span.required 必須
+                  .field-title-sub 1つだけ選択
+                .field-select
+                  = f.select :category_id, Category.all.map{ |t| [t.name, t.id.to_i] }, { include_blank: '選択してください' }, required: true, class: 'field-select-inner'
+              .field-short
+                = f.label :support_type do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_support_type
+                    実施パターン
+                    %span.required 必須
+                  .field-title-sub.qa
+                    詳しく
+                    %i.fas.fa-question-circle
+                    .form-description
+                      .title プロジェクト実施パターン
+                      .main
+                        .lead All or Nothing 方式 （達成後支援型）
+                        %p 予め設定した期間内に目標金額を達成しないと、集まった資金を獲得できません。目標金額に到達しなかった場合、支援者からの申込みはキャンセルされ全額返金されます。またリターン（商品）も発生しません。『最低いくら集まったらこれができる』という必要な資金が明確なプロジェクトに有効です。
+                        .lead All in 方式 （即時支援型）
+                        %p 目標金額に達成しなかったとしても、終了日までに調達した金額（弊社手数料を除く）が獲得できます。支援者へは必ずリターンが必要です。目標達成しなかったとしてもプロジェクトが実行可能な場合、少しでも資金があった方がいいプロジェクトに有効です。
+                .field-select
+                  = f.select :support_type, [['All in', 'all_in'], ['All or Nothing', 'all_or_nothing']], { include_blank: '選択してください' }, required: true, class: 'field-select-inner'
+            .promoter-form__field
+              = f.label :deadline do
+                .field-title
+                  %i.fas.fa-check-circle.check-icon#check-project_deadline_5i
+                  終了日時
+                  %span.required 必須
+              .field-datetime
+                = f.datetime_select :deadline, {}, class: 'form-control', required: 'required', class: 'field-datetime-inner', value: ""
+            .promoter-form__field
+              = f.label :target_sales do
+                .field-title
+                  %i.fas.fa-check-circle.check-icon#check-project_target_sales
+                  目標金額
+                  %span.required 必須
+              = f.number_field :target_sales, required: 'required', class: 'field-input', placeholder: '例) 500000'
+            .promoter-form__field
+              = f.label :content do
+                .field-title
+                  %i.fas.fa-check-circle.check-icon#check-project_content
+                  紹介文
+                  %span.required 必須
+                .field-title-sub 最大1500文字
+              = f.text_area :content, required: 'required', class: 'field-textarea', maxlength: 1500, placeholder: '例）濃厚な卵黄とすっきり甘い白身を２層仕立てのプリンで再現しました。スイーツではなく、たまごのおいしさで勝負したプリンです。原料のたまごは西尾の茶葉で育って生まれたたまご、茶らんです。北海道産生クリーム・牛乳・砂糖・わずかなバニラ香料のみで、保存料や凝固剤など添加物を一切使わない、加熱による卵の固まる力だけを利用して作りました。'
+            .promoter-form__field
+              .field-title
+                %i.fas.fa-check-circle.check-icon#check-project_thumbnail
+                メインイメージ画像
+                %span.required 必須
+              .field-title-sub 690×388以上のサイズ, makuakeトップページ・プロジェクト詳細ページに掲載
+              .field-file
+                = f.label :thumbnail do
+                  .project-thumbnail-file-preview
+                    = f.file_field :thumbnail, required: 'required', class:'input-file-hidden'
+            .promoter-form__field
+              .field-title
+                サブイメージ画像
+                %span.either 任意
+              .field-title-sub 690×388以上のサイズ, プロジェクト詳細ページに掲載
+              .field-file
+                = f.fields_for :project_images do |project_image|
+                  = project_image.label :image do
+                    %div{class: "project-image-file-preview-#{project_image.options[:child_index]}"}
+                      = project_image.file_field :image, class:'input-file-hidden'
+            .promoter-form__field
+              .field-title
+                タグ
+                %span.either 任意
+              .field-title-sub 1つ以上選択可
+              .field-checkbox
+                = f.collection_check_boxes :tag_ids, Tag.all, :id, :name, include_hidden: false do |t|
+                  .check-box-outer
+                    = t.label(class: 'check_box_label') do
+                      = t.check_box(class: 'check_box_input') + t.text
+            = f.fields_for :project_movies do |project_movie|
+              .promoter-form__field
+                = project_movie.label :movie do
+                  .field-title
+                    プロモーションムービー
+                    %span.either 任意
+                  .field-title-sub youtubeのURL
+                = project_movie.text_field :movie, class: 'field-input', placeholder: 'https://www.youtube.com/watch?v=9xizkYCwzTY'
+            .promoter-form__field
+              = f.label :summary do
+                .field-title
+                  おすすめポイント
+                  %span.either 任意
+                .field-title-sub 最大3つ、カンマ(,)区切りで記入
+              = f.text_area :summary, class: 'field-textarea short', maxlength: 300, placeholder: '例）個性豊かな香りを贅沢に楽しめる,「香りの飲み比べ」という新しい楽しみ方,「おいしさ」と「手軽さ」を両立'
+          .right__promoter-form
+            .promoter-form__caption コース情報
+            = f.fields_for :courses do |course|
+              .promoter-form__field
+                = course.label :name do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_courses_attributes_0_name
+                    コース名
+                    %span.required 必須
+                = course.text_field :name, required: 'required', class: 'field-input', placeholder: '例）プリン ６個セット'
+              .promoter-form__field
+                = course.label :content do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_courses_attributes_0_content
+                    説明文
+                    %span.required 必須
+                  .field-title-sub 最大500文字
+                = course.text_area :content, required: 'required', class: 'field-textarea middle', maxlength: 500, placeholder: '例）タマゴ農家が作るこだわりのプリンです。濃厚な卵黄プリン、すっきり甘い白身のプリンを重ねた２層仕立て。'
+              .promoter-form__field
+                = course.label :price do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_courses_attributes_0_price
+                    価格
+                    %span.required 必須
+                = course.number_field :price, required: 'required', class: 'field-input', placeholder: '例) 5000'
+              .promoter-form__field
+                = course.label :due_date do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_courses_attributes_0_due_date
+                    発送予定
+                    %span.required 必須
+                = course.text_field :due_date, required: 'required', class: 'field-input', placeholder: '例) 2018年12月末'
+              .promoter-form__field
+                = course.label :stock do
+                  .field-title
+                    %i.fas.fa-check-circle.check-icon#check-project_courses_attributes_0_stock
+                    コースの在庫数
+                    %span.required 必須
+                = course.number_field :stock, required: 'required', class: 'field-input', placeholder: '例) 100'
+              = course.fields_for :course_images do |course_image|
+                .promoter-form__field
+                  = course_image.label :content do
+                    .field-title
+                      %i.fas.fa-check-circle.check-icon#check-project_courses_attributes_0_course_images_attributes_0_image
+                      コースのイメージ画像
+                      %span.required 必須
+                    .field-title-sub 280×165以上のサイズ
+                  .field-file
+                    = course_image.label :image do
+                      .course-image-file-preview
+                        = course_image.file_field :image, required: 'required', class:'input-file-hidden'
+              = course.fields_for :course_questions do |question|
+                .promoter-form__field
+                  = question.label :content do
+                    .field-title
+                      質問事項
+                      %span.either 任意
+                    .field-title-sub 支援者へ質問がある場合は記入
+                  = question.text_field :content, class: 'field-input', placeholder: '例) 20歳以上ですか？'
+                = question.fields_for :course_question_answers do |answer|
+                  .promoter-form__field
+                    = answer.label :content do
+                      .field-title
+                        回答
+                        %span.either 任意
+                      .field-title-sub 質問がある場合は回答も合わせて記入
+                    = answer.text_field :content, class: 'field-input', placeholder: '例) はい'
+          .wide__promoter-form
+            .promoter-form__field
+              = f.submit "確認して送信", class: 'field-btn'

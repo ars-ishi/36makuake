@@ -1,0 +1,100 @@
+
+%body
+  #threadDetail{:style => "display:none;"}
+    #detail_content
+      #detail_loading_before
+        #infscr-loading_Pop_Wait{:style => ""}
+          %img{:alt => "Loading...", :src => "//cdn-m.makuake.com/rev_2018/10/29/143638/img/infinite_loading.gif"}/
+      #detail_loading_after
+        .threadDetail_In.clearfix
+          .leftInside_Pop
+            %section#modal_thread.post_Pop
+            #modal_thread_comment.messageBase_Pop
+          .rightInside_Pop
+            #heart_area.rightHeart_Pop
+            #modal_thread_heart.rightUserBase_Pop
+          %svg.close-btn{:onclick => "close_btn();"}
+            %use{"xlink:href" => "#icon-close", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      #delete_load{:style => "display:none;"}
+        #infscr-loading_Pop
+          %img{:alt => "Loading...", :src => "//cdn-m.makuake.com/rev_2018/10/29/143638/img/infinite_loading2.gif"}/
+          %div
+            %em 反映しています
+
+  .tab_wrapper_box
+    .tab_wrapper
+      .tabNavigation
+        %ul.tabNav_menu
+          %li{"data-tab_type" => "project"}
+            = link_to "プロジェクト", project_path(@project.id)
+          %li{"data-tab_type" => "owner"}
+            = link_to "#" do
+              活動レポート
+              %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
+          %li{"data-tab_type" => "supporter"}
+            = link_to "#", class:"tabOn" do
+              応援コメント
+              %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
+        .goodBase_tab
+          .goodBaseIn_tab
+            %i.icon_heart_off_tab
+              %svg.icon_heart_off_tab-in
+                %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %span お気に入りに追加
+          .goodBaseIn2_tab{:style => "display:none;"}
+            %i.icon_heart_on_tab
+              %svg.icon_heart_on_tab-in
+                %use{"xlink:href" => "#icon-heart_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %span お気に入り追加中
+
+
+  .com-aside
+    .com-asidein
+      .com-asidein-box01
+        %a{:href => "/project/your-restaurant/"}
+          %img.com-asidein-thumb{:alt => "世界でひとつだけ！星付きシェフが「あなた専用のコース」をつくる会員制レストラン", :src => "//hayabusa.io/makuake/upload/project/4736/main_4736.fit-scale.png?width=290&height=164&quality=95&version=1535689551&format=png&ttl=31536000&force"}/
+      .com-asidein-box02
+        %div
+          %svg.icon-clap
+            %use{"xlink:href" => "#icon-clap"}
+        %div
+          %p.com-count-like 0いいね
+      .com-asidein-box03
+        %div
+          %svg.icon-com-04
+            %use{"xlink:href" => "#icon-com-04"}
+        %div
+          %p.com-count-commnt #{@comments.length} コメント
+  #main.clearfix
+    #comContent
+    .bread-crumb-listBase
+      %ul#bread-crumb-list.clearfix
+        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+          %a{:href => "/", :itemprop => "url"}>
+            %span{:itemprop => "title"} TOP
+           
+          %i> &gt;
+           
+        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+          %a{:href => "/discover/projects/search/", :itemprop => "url"}>
+            %span{:itemprop => "title"} プロジェクト一覧
+           
+          %i> &gt;
+           
+        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+          %a{:href => "/discover/categories/restaurant/", :itemprop => "url"}>
+            %span{:itemprop => "title"} レストラン・バー
+           
+          %i> &gt;
+           
+        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+          %a{:href => "/project/your-restaurant/", :itemprop => "url"}>
+            %span{:itemprop => "title"} 世界でひとつだけ！星付きシェフが「あなた専用のコース」をつくる会員制レストラン
+           
+          %i> &gt;
+           
+        %li{:itemscope => "itemscope", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
+          %a{:href => "/project/your-restaurant/communication/supporter/", :itemprop => "url"}
+            %span{:itemprop => "title"} 応援コメント
+  %input#project_id{:name => "project_id", :type => "hidden", :value => "4736"}/
+
