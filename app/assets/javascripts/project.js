@@ -23,6 +23,16 @@ $(document).on('turbolinks:load', function() {
     $("#toolTipsPjt").css("display","none");
     $("#myMenuBox").css("display","none");
   });
+  $(document).click(function(event) {
+    if(!$(event.target).closest('.header-bell-after').length) {
+      $("#toolTipsPjt").css("display","none");
+    }
+  });
+  $(document).click(function(event) {
+    if(!$(event.target).closest('.link03After').length) {
+      $("#myMenuBox").css("display","none");
+    }
+  });
   //page-topボタン
   $(function() {
     var topBtn = $('#page-top_jq');
