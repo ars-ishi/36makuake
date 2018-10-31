@@ -24,6 +24,18 @@ class DiscoversController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+  def tags
+    @projects = Project.from_tag(params[:id]).page(params[:page]).per(15).order("created_at DESC")
+    @tag = Tag.find(params[:id])
+  end
+
+  def tags_index
+  end
+
+  def location
+    @projects = Project.from_location(params[:id]).page(params[:page]).per(15).order("created_at DESC")
+  end
+
   private
 
   def active_projects
