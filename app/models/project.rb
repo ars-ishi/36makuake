@@ -14,7 +14,7 @@ class Project < ApplicationRecord
   has_one    :project_pickup, dependent: :destroy
   has_one    :project_slider, dependent: :destroy
 
-  mount_uploader :thumbnail, ProjectMainImageUploader
+  # mount_uploader :thumbnail, ProjectMainImageUploader
 
   enum support_type: { all_in: 1, all_or_nothing: 2 }
 
@@ -39,11 +39,11 @@ class Project < ApplicationRecord
     attributed['tag_id'].blank?
   end
 
-  def bar
+  def achievement
     total_sales*100 / target_sales
   end
 
-  def bar_f
+  def achievement_f
     (total_sales*100 / target_sales.to_f).round(1)
   end
 

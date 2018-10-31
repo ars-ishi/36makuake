@@ -28,19 +28,15 @@ $( document ).on('turbolinks:load', function() {
 $(function() {
     var topBtn = $('#page-top_jq');
     topBtn.hide();
-    //スクロールが100に達したらボタン表示
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
-        //ボタンの表示方法
             topBtn.fadeIn();
             $(".tab_wrapper").addClass('tabNavigation_fixed');
         } else {
-        //ボタンの非表示方法
             topBtn.fadeOut();
             $(".tab_wrapper").removeClass('tabNavigation_fixed');
         }
     });
-    //スクロールしてトップ
     topBtn.click(function () {
         $('body,  html').animate({
             scrollTop: 0

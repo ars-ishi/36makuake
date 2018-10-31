@@ -92,11 +92,14 @@
                   #btn-play.r5 ▶ 再生
                 =image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",height:"388", width:"690",style:"object-fit:cover;",class:"video-image")
               .video_area
-            - else
+            - elsif @project.project_images.present?
               .image_area
                 =image_tag("#{@project.project_images.to_a[0].image}",height:"388", width:"690",style:"object-fit:contain;",class:"main-image")
+            - else
+              .image_area
+                =image_tag("https://haginoryokkou.com/wp-content/uploads/2016/09/noimage.png",alt:"no-image",height:"388", width:"690",style:"object-fit:cover;",class:"no-image")
         .pnumBase
-          - if @project.bar >= 100
+          - if @project.achievement >= 100
             %svg.icon_success
               %use{"xlink:href" => "#icon-success", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
           .pnumBaseUp
@@ -113,8 +116,8 @@
                 = number_with_delimiter("#{@project.target_sales}")
                 円
             .stbar
-              .stbarin{"data-investment-info-percent-style" => "", :style => "width:#{@project.bar}%;"}
-                %p{"data-investment-info-percent" => ""} #{@project.bar}%
+              .stbarin{"data-investment-info-percent-style" => "", :style => "width:#{@project.achievement}%;"}
+                %p{"data-investment-info-percent" => ""} #{@project.achievement}%
             .stSupo
               %p.stSupoTtl
                 %svg.stSupoTtlIcon
