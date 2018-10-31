@@ -56,7 +56,6 @@
             = link_to "プロジェクトページ", project_path("#{@project.id}"), target:"_blank"
             に表示されますので、個人情報は記載しないでください。
         %section.comment-box__wrapper
-          = form_tag
           .comment-box__contents
             = form_tag("/projects/#{@project.id}/project_comments", method: :post, id:"comment_form") do
               .left-side
