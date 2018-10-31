@@ -6,24 +6,13 @@
     %meta{content: "E1E1FC54C2FA07FA57AEB0483B623C2E", name: "msvalidate.01"}/
     %meta{content: "07d3c196d17034840db0ed61f2e170941e1f199cc5ad54534f02ed08ea020e1d4d6f683db2f7e2d7a1b9801ed6ba28c09f6693df3046f0eeeccba7dff39a5a62", name: "fuel_csrf_token"}/
     %title Makuake_clone
-    %link{href: "https://www.makuake.com/investment/select/georiem7/41094/", rel: "canonical"}/
-    %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/jquery-ui.min.css", rel: "stylesheet"}/
-    %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/login_regist.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/discover_common.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportindex.css", rel: "stylesheet"}/
+    %link{href: "//css.36project.com/stylesheets/course_alert.css", rel: "stylesheet"}/
     <script src="//cdn-m.makuake.com/rev_2018/10/12/143228/js/html5.js"></script>
-    %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/pc/dest/js/app.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/selectivizr-min.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.investment.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exchecker-ja.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exvalidation.js"}
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
     = csrf_meta_tags
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
@@ -130,7 +119,16 @@
           - if @questions
             = render partial: 'courseTemplate/question', collection: @questions
           .clearfix
-            %input.nextBtn{:type => "submit", :value => "次へ"}/
+            %input.nextBtn{:type => "submit", :value => "次へ", "data-id": "#{current_user.send_addresses.count}"}/
+            #send__address--alert{style: "display:none"}
+              %section.send__address--alert__box
+                .send__address--alert__title
+                  お願い
+                .send__address--alert--message
+                  ご支援の際は、先に送り先住所の登録が必要です。
+                .send__address--registration
+                  = link_to user_path(current_user),{class: "send__address--registration__link"} do
+                    送り先住所登録へ
         .boxHosoku
           %div
             %em ご確認お願いします
@@ -139,7 +137,6 @@
               までに支払いを完了した時点で、支援が成立します。
               %br/
               ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
-        %input#redirect_url{:name => "redirect_url", :type => "hidden", :value => "/investment/skip/"}/
     %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/common.js", :type => "text/javascript"}
     :javascript
       function get_questions() {
