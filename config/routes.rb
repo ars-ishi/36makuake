@@ -22,9 +22,12 @@ Rails.application.routes.draw do
       get :soon
       get :pickup
       get :ranking
+      get :tags_index
     end
     member do
       get :categories
+      get :tags
+      get :location
     end
   end
   get 'pages/privacy' => 'pages#privacy'
