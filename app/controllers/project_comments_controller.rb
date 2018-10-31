@@ -2,7 +2,7 @@ class ProjectCommentsController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
-    @comments = @project.project_comments.all
+    @comments = @project.project_comments.order("created_at DESC")
   end
 
   def create

@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @answer = OrderAnswer.new(new_order_answer_question_params)
     @user = User.find(current_user.id)
     @usersAddresses = @user.send_addresses
-    @address = Order.main_address(current_user.id)
+    @address = @usersAddresses.find_by(main: "1")
     @fullName = Order.full_name(@address.last_name, @address.first_name)
     @course = course_from_show
     @shippingTime = Time.zone.now
