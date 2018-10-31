@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show] do
     resources :courses, only: [:new, :create, :show]
+    resources :project_comments, only: [:index, :create]
     collection{ get "search" }
   end
 

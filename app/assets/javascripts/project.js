@@ -1,5 +1,6 @@
-$( document ).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
 
+$('.modal').modaal();
 
   //ヘッダーのマイページボックスの表示
   $(".link03After").on("click",function(){
@@ -66,4 +67,5 @@ $(function() {
 
 
 
+  })
 });

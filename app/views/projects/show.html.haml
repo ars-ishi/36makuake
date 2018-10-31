@@ -61,11 +61,11 @@
             %li{"data-tab_type" => "project"}
               = link_to "プロジェクト","#", class:"tabOn"
             %li{"data-tab_type" => "owner"}
-              = link_to "#" do
+              = link_to "#modal" do
                 活動レポート
                 %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
             %li{"data-tab_type" => "supporter"}
-              = link_to "#" do
+              = link_to project_project_comments_path(@project.id) do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
           .goodBase_tab
@@ -232,9 +232,10 @@
                       %use{"xlink:href" => "#icon-earth", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-line-divider
               .owner-contact_ask.open_contact_window
-                %svg.owner-contact_message
-                  %use{"xlink:href" => "#icon-mail", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                %span.owner-contact_title 実行者へ問合せ
+                = link_to "#contact_me_box",class:" modal" do
+                  %svg.owner-contact_message
+                    %use{"xlink:href" => "#icon-mail", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                  %span.owner-contact_title 実行者へ問合せ
           / ここまで会社情報
         / ここからプロジェクト内容詳細
         %section
@@ -262,7 +263,7 @@
                     %p.supporting-comment-message
                       #{comment.content}
             .supporting-comment-more{:style => ""}
-              = link_to "すべて見る", "#", id:"support-comment-link"
+              = link_to "すべて見る", project_project_comments_path(@project.id), id:"support-comment-link"
 
 
 
@@ -303,6 +304,9 @@
             「#{@project.name}」プロジェクト詳細ページです。
         .sct
           .go-to-sct 特定商取引法に基づく表記
+
+
+
       #scrollContent{:style => "display: none;"}
         #scrollShienBtnBase
           = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}

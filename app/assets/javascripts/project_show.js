@@ -1,3 +1,4 @@
+
 $(document).on('turbolinks:load', function(){
 
   $(".movieThumb").on("click",function(){
@@ -43,6 +44,5 @@ $(document).on('turbolinks:load', function(){
         });
     });
 
-
-
+  });
 });
