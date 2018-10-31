@@ -76,6 +76,7 @@
             = link_to "プロジェクトページ", project_path("#{@project.id}"), target:"_blank"
             に表示されますので、個人情報は記載しないでください。
         %section.comment-box__wrapper
+          = form_tag
           .comment-box__contents
             .left-side
               %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "comment", :placeholder => "応援しています！頑張ってください！", :rows => ""}
@@ -84,7 +85,6 @@
                 %span.js-cnt 0
                 %span /140
               %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
-
 
               .submit-btn__loader{:style => "display:none;"}
             .after-comment-box{:style => "display: none;"}
