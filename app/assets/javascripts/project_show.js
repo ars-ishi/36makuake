@@ -1,4 +1,4 @@
-
+//スライドショー
 $(document).on('turbolinks:load', function(){
 
   $(".movieThumb").on("click",function(){
@@ -19,14 +19,13 @@ $(document).on('turbolinks:load', function(){
     $("iframe").remove()
   })
 
-
   $(document).on("click","#btn-playBase",function(){
     var id = $(".youtube").attr("id")
     $(".image_area").hide()
     $(".video_area").html(`<iframe width="690" height="388" src="https://www.youtube.com/embed/${id}?rel=0&autoplay=1" frameborder="0" allowfullscreen class="movieMoveBase"></iframe>`)
   })
 
-
+  //動画の移動
   $(document).ready(function(){
     $(window).scroll(function () {
         if ( ($(this).scrollTop() > 540) && ($(".movieMoveBase").length) && ($(".movieReturn").length) ) {

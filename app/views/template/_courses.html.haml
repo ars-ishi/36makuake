@@ -8,7 +8,6 @@
       .lefth4RightNum{:style => "color: #fb2a79; font-size: 18px; text-indent: 2px;"}
         %p
         残り#{course.stock}個
-    = link_to project_course_path(@project.id, course.id), class: "ProjectDetailInRight", "data-investment-info-return-link-to-select-main": "" do
       %h5.lefth5Right #{course.name}
       .photoSectionUp
         - course.course_images.each do |image|
@@ -26,11 +25,10 @@
         %svg.icon_delivery
           %use{"xlink:href" => "#icon-case", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
         #{course.due_date}までにお届け予定です。
-    %aside.detailAside02
-      - if course.stock <= 0
-        = link_to("#", class: "shienBtn02", "data-investment-info-return-link-to-select-btn": "sold-out") do
-          在庫切れ
-      - else
-        = link_to project_course_path(@project.id, course.id), controller: "courses", class: "shienBtn", "data-investment-info-return-link-to-select-btn": "not-sold-out", style: "" do
-          このコースに申込む
-
+      %aside.detailAside02
+        - if course.stock <= 0
+          = link_to "在庫切れ","#", class: "shienBtn02"
+        - elsif user_signed_in?
+          = link_to "このコースに申し込む", project_course_path(@project.id, course.id), controller: "courses", class: "shienBtn"
+        - else
+          = link_to "このコースに申し込む", '#notice', controller: "courses", class: "shienBtn sign_in"
