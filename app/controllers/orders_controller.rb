@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
       ##オーダーを保存する
       @order = Order.new(order_params)
       @project = Project.find(@order.project_id)
-      @bar = @project.bar_f
+      @achievement = @project.achievement_f
       @order.save!
       if order_answer_params[:question].present?
         OrderAnswer.create!(order_answer_params)

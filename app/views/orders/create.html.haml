@@ -44,7 +44,7 @@
             .hero-sub-after-support
               %p{:class => "hero-sub__money—after"}> #{@project.total_sales}
               円 (
-              %p.hero-sub__gauge-after> #{@bar}
+              %p.hero-sub__gauge-after> #{@achievement}
               \%)
 
 
@@ -56,6 +56,7 @@
             = link_to "プロジェクトページ", project_path("#{@project.id}"), target:"_blank"
             に表示されますので、個人情報は記載しないでください。
         %section.comment-box__wrapper
+          = form_tag
           .comment-box__contents
             = form_tag("/projects/#{@project.id}/project_comments", method: :post, id:"comment_form") do
               .left-side
@@ -66,7 +67,12 @@
                 .right-side__counter
                   %span.js-cnt 0
                   %span /140
+<<<<<<< HEAD
                 = submit_tag "投稿する", id:"post_message", class:"submit-btn modal"
+=======
+                = submit_tag "投稿する", id:"post_message", class:"submit-btn"
+
+>>>>>>> master
         %section
           %h2.tag-recommend-ttl あなたへおすすめのタグ
           %p.tag-recommend-ttl-hint
