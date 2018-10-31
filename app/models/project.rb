@@ -14,7 +14,7 @@ class Project < ApplicationRecord
   has_one    :project_pickup, dependent: :destroy
   has_one    :project_slider, dependent: :destroy
 
-  # mount_uploader :thumbnail, ProjectMainImageUploader
+  mount_uploader :thumbnail, ProjectMainImageUploader
 
   enum support_type: { all_in: 1, all_or_nothing: 2 }
 
