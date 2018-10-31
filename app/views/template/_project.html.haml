@@ -22,8 +22,8 @@
                 円
           .media-low
             .media-low-bar-gray
-              .media-low-bar-green{:style => "width:#{project.bar};"}
-            .media-low-bar-num #{project.bar}%
+              .media-low-bar-green{:style => "width:#{project.achievement};"}
+            .media-low-bar-num #{project.achievement}%
         - else
           = link_to project_path(project.id), class:"media-up" do
             %img.media-up-thumb{:alt => "#{project.name}", :height => "142", :src => "#{project.thumbnail}", :width => "252"}/
