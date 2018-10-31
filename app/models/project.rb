@@ -39,7 +39,6 @@ class Project < ApplicationRecord
     attributed['tag_id'].blank?
   end
 
-
   def achievement
     total_sales*100 / target_sales
   end

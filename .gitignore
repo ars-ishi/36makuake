@@ -21,4 +21,3 @@ public/uploads/*
 config/secrets.yml
 
 app/views/orders/create.html.haml
-
