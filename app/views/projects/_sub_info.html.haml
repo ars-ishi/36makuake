@@ -1,0 +1,22 @@
+.heroBtmBaseDown
+  .project_category
+    = link_to categories_discover_path(@project.category_id), class:"projectTag" do
+      %svg.icon-tag
+        %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+      %span.location-name #{@project.category.name}
+  - if @project.user.location.present?
+    .project-location
+      -# = link_to "#" do
+      -# = link_to '/discovers/27/location', class:"projectTag" do
+      = link_to location_discover_path(@project.user.location), class:"projectTag" do
+        %svg.icon-location
+          %use{"xlink:href" => "#icon-location", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+        %span.location-name #{location_string(@project.user.location.to_i)}
+  -# .sns-wrapper
+  -#   %ul
+  -#     %li
+  -#       -# = link_to "#iframeBase",{rel:"leanModal"} do
+  -#       = link_to '#iframeBase', {class: 'iframeBase'} do
+  -#         %svg.icon-widget
+  -#           %use{"xlink:href" => "#icon-widget", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+  -#         %span.title-widget 埋め込み

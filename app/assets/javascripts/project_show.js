@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', function() {
-$(function() {
+
+$(document).on('turbolinks:load', function(){
 
   $(".movieThumb").on("click",function(){
     $(".image_area").html(`

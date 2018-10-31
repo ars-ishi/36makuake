@@ -151,41 +151,15 @@
                 .slideShowThumbnail
                   = image_tag("#{image.image}",alt:"#{image.id}", style:"object-fit:cover",class:"imageThumb")
           %h2.projectTtl #{@project.name}
-          / タグがあれば表示
           .tagWrapper
-            = link_to "#", class:"pjTag" do
-              %span.tag #
-              %span.tagName tag
-          / タグがあれば表示
-        .heroBtmBaseDown
-          / カテゴリー表示
-          .project_category
-            = link_to categories_discover_path(@project.category_id), class:"projectTag" do
-              %svg.icon-tag
-                %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span.location-name #{@project.category.name}
-          .project-location
-            = link_to "#" do
-              %svg.icon-location
-                %use{"xlink:href" => "#icon-location", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span.location-name 所在地
-
-
-
-          / ここまでカテゴリー表示
-          .sns-wrapper
-            %ul
-              %li
-                = link_to "#iframeBase",{rel:"leanModal"} do
-                  %svg.icon-widget
-                    %use{"xlink:href" => "#icon-widget", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                  %span.title-widget 埋め込み
+            = render partial: 'projects/tag', collection: @project.tags, as: 'tag'
+        = render 'sub_info'
     .movieReturn{:style => "display: none;"} 戻す
 
     %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.min.js"}
-    #iframeBase
-      %svg.modal_close
-        %use{"xlink:href" => "#icon-close"}
+    #iframeBase.iframeBase
+      -# %svg.modal_close
+      -#   %use{"xlink:href" => "#icon-close"}
       %p.modal_text
         下方のHTMLコードをコピーして、あなたのWebサイトやブログに用途に
         あわせて様々な形のプロジェクト概要を表示して応援しよう！
@@ -200,7 +174,7 @@
           .bnnerAreaIn.clearfix
             #typeAL.bnnerAreaInL
             .bnnerAreaInR
-              %textarea.wighetText310{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:390px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/"&gt;&lt;/iframe&gt;
+              %textarea.wighetText310{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:390px;" allowtransparency="true" src="http://www.36project.com/projects/#{@project.id}/"&gt;&lt;/iframe&gt;
         .typeB
           .bnnerAreaIn.clearfix
             #typeBL.bnnerAreaInL
@@ -275,7 +249,7 @@
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
               .leftText
-                #{@project.content}
+                = raw @project.content
           #supporting-comment
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper
@@ -374,4 +348,3 @@
            
         %li
           = link_to "#{@project.name}",project_path(params[:id])
-
