@@ -2,9 +2,6 @@ $(document).on('turbolinks:load', function() {
 
 $('.modal').modaal();
 
-
-$(function() {
-
   //ヘッダーのマイページボックスの表示
   $(".link03After").on("click",function(){
    if($("#myMenuBox").css("display") == "none"){
