@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     end
 
     @projects = Project.all
-    @pickups =Project.limit(8)
+    @pickups =Project.order("RAND()").limit(8)
     @new = Project.limit(8).order("created_at DESC")
     @reports = Report.limit(5).includes(project: :user)
     @comments = ProjectComment.limit(5).includes(project: :users)
