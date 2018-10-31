@@ -1,0 +1,38 @@
+:css
+  .tag-block-ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background: #ffffff;
+    padding: 20px 0 20px 32px;
+  }
+  .tag-block-ul li {
+    width: 25%;
+    padding: 12px 0;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+    .tag-block-ul li a {
+      color: #737373;
+      text-decoration: none;
+    }
+    .tag-block-ul li a:hover {
+      color: #4AB3DF;
+    }
+.grayBase
+  .layout-block
+    .nav-block
+      = render 'shared/sidebar'
+    .project-block
+      %section
+        .ttl-block
+          .ttl-block-txt
+            %h2.ttlDetails 全てのタグ
+        %ul.tag-block-ul
+          - Tag.all.each do |tag|
+            %li
+              = link_to tags_discover_path(tag) do
+                \# #{tag.name}
