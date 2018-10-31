@@ -56,7 +56,7 @@ $(document).ready(function () {
           autoplay: {
             delay: 7500,
             disableOnInteraction: false,
-          }
+          },
           pagination: {
             el: '.swiper-pagination',
             type: 'bullets',
