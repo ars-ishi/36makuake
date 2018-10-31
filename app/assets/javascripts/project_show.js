@@ -1,4 +1,4 @@
-
+//スライドショー
 $(document).on('turbolinks:load', function(){
 
   $(".movieThumb").on("click",function(){
@@ -19,7 +19,6 @@ $(document).on('turbolinks:load', function(){
     $("iframe").remove()
   })
 
-
   $(document).on("click","#btn-playBase",function(){
     var id = $(".youtube").attr("id")
     $(".image_area").hide()
@@ -27,6 +26,10 @@ $(document).on('turbolinks:load', function(){
   })
 
 
+
+
+
+//動画の移動
     $(document).ready(function(){
         $(window).scroll(function () {
             if ( ($(this).scrollTop() > 540) && ($(".movieMoveBase").length) && ($(".movieReturn").length) ) {
@@ -37,7 +40,6 @@ $(document).on('turbolinks:load', function(){
                 $(".movieReturn").hide();  //しまうボタンを消す
             }
         });
-            //しまうボタンを押したらこの要素自体を消去するので二度ともどれません　上のif判定で.movireRturnがある時のみ映像が左下にくるようになっています
         $(".movieReturn").click(function(){
             $(this).remove();
             $(".movieMoveBase").removeClass('movieMove');
@@ -45,4 +47,3 @@ $(document).on('turbolinks:load', function(){
     });
 
   });
-});
