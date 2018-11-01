@@ -1,4 +1,5 @@
 = stylesheet_link_tag "http://css.36project.com/stylesheets/comment.css"
+= stylesheet_link_tag    '/../assets/project_froala.css', media: 'all', 'data-turbolinks-track': 'reload'
 :javascript
   $(document).ready(function(){
           var num = $(".projectTtl").offset().top;
@@ -170,7 +171,7 @@
           - else
             .owner-latest_balloon
               %span.owner-latest-post
-                = truncate("#{@project.reports.to_a.last.content}", length: 75, omission: "...")
+                #{@project.reports.to_a.last.content.truncate(75)}
               %svg.right-arrow_inner
                 %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-latest_balloon_triangle
@@ -209,7 +210,8 @@
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
               .leftText
-                = raw @project.content
+                .floaraTextArea
+                  = raw @project.content
           #supporting-comment
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper

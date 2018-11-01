@@ -1,40 +1,9 @@
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/sen/communication/supporter/"}
-      %img.image-thumbnail-s{:alt => "完全会員制 あなただけのプライベートシェフと空間で一期一会の鉄板焼きを！", :src => "https://hayabusa.io/makuake/upload/project/5008/main_5008.jpg?fit=scale&format=jpg&ttl=31536000&version=1537408738&force&width=368&height=206&quality=95"}/
-      %h4.posted 数年前、ケルンでお勤めの頃に何度か伺ってますが、小西さんの焼きを拝見したことがな...
-    .user
-      %img.user-image{:alt => "ミキナギ", :src => "https://hayabusa.io/makuake/upload/user/224432/main_224432.jpg?fit=scale&format=jpg&ttl=31536000&version=1501539079&force&width=130&height=130&quality=95"}/
-      %p.user-name ミキナギ
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/kaddak/communication/supporter/"}
-      %img.image-thumbnail-s{:alt => "キズ付いた車をピカピカに！キズや汚れをきれいに除去するKADDAKスマートタオル", :src => "https://hayabusa.io/makuake/upload/project/4915/main_4915.jpg?fit=scale&format=jpg&ttl=31536000&version=1538637426&force&width=368&height=206&quality=95"}/
-      %h4.posted キズ付いた車をピカピカに！キズや汚れをきれいに除去するKADDAKスマートタオル
-    .user
-      %img.user-image{:alt => "miyasaka62", :src => "https://hayabusa.io/makuake/img/user/icon_blue.png&width=130&height=130&quality=95"}/
-      %p.user-name miyasaka62
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/natty/communication/supporter/"}
-      %img.image-thumbnail-s{:alt => "レジ前でのモタモタを解決！すっきり収納で支払いもスムーズな長財布「Natty」", :src => "https://hayabusa.io/makuake/upload/project/5130/main_5130.jpg?fit=scale&format=jpg&ttl=31536000&version=1539234819&force&width=368&height=206&quality=95"}/
-      %h4.posted 前のシリーズ購入して使い勝手のよさに感動！今回のは小銭入れが使い勝手良さげで...
-    .user
-      %img.user-image{:alt => "前田弥生", :src => "https://hayabusa.io/makuake/upload/user/regist2018/04/06/350949/main_350949.jpg?fit=scale&format=jpg&ttl=31536000&version=1540275283&force&width=130&height=130&quality=95"}/
-      %p.user-name 前田弥生
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/the_dry_lemon/communication/supporter/"}
-      %img.image-thumbnail-s{:alt => "瀬戸内「三角島レモン」を使った半生ドライフルーツ【THE DRY LEMON】", :src => "https://hayabusa.io/makuake/upload/project/4885/main_4885.jpeg?fit=scale&format=jpeg&ttl=31536000&version=1536129765&force&width=368&height=206&quality=95"}/
-      %h4.posted 3度目の応援をさせて頂きました◡̈♥︎本当に凄く美味しい。頑張って下さい。
-    .user
-      %img.user-image{:alt => "ミキナギ", :src => "https://hayabusa.io/makuake/img/user/icon_yellow.png&width=130&height=130&quality=95"}/
-      %p.user-name ミキナギ
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/flexpack/communication/supporter/"}
-      %img.image-thumbnail-s{:alt => "世界で大人気の防犯スマートバッグブランドが手がける新モデル「FlexPack」", :src => "https://hayabusa.io/makuake/upload/project/4817/main_4817.png?fit=scale&format=png&ttl=31536000&version=1538637266&force&width=368&height=206&quality=95"}/
-      %h4.posted 届くのが楽しみです。頑張ってください
-    .user
-      %img.user-image{:alt => "RuRu_Nag", :src => "https://hayabusa.io/makuake/upload/user/regist2018/09/19/457037/main_457037.jpg?fit=scale&format=jpg&ttl=31536000&version=1540274576&force&width=130&height=130&quality=95"}/
-      %p.user-name RuRu_Nag
+- @comments.each do |comment|
+  %li.CommunicationItem
+    %article
+      = link_to project_path(comment.project_id), alt:"#{comment.project}" ,class:"project-link" do
+        = image_tag(comment.project.thumbnail, class:"image-thumbnail-s")
+        %h4.posted #{comment.content.truncate(50)}
+      .user
+        %img.user-image{:alt => "#{comment.user.name}", :src => "#{comment.user.image}"}/
+        %p.user-name #{comment.user.name}
