@@ -211,7 +211,7 @@
           - else
             .owner-latest_balloon
               %span.owner-latest-post
-                = truncate("#{@project.reports.to_a.last.content}", length: 75, omission: "...")
+                #{@project.reports.to_a.last.content.truncate(75)}
               %svg.right-arrow_inner
                 %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-latest_balloon_triangle
@@ -309,8 +309,7 @@
 
 
       #scrollContent{:style => "display: none;"}
-        #scrollShienBtnBase
-          = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
+        = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
       #contact_me_overlay{:style => "display:none;"}
 
       #contact_me_box{:style => "display:none;"}
