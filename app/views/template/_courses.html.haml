@@ -29,6 +29,6 @@
         - if course.stock <= 0
           = link_to "在庫切れ","#", class: "shienBtn02"
         - elsif user_signed_in?
-          = link_to "このコースに申し込む", project_course_path(@project.id, course.id), controller: "courses", class: "shienBtn"
+          = link_to "このコースに申し込む", project_course_path(@project.id, course.id), controller: "courses", class: "shienBtn", data: {"turbolinks" => false}
         - else
           = link_to "このコースに申し込む", '#notice', controller: "courses", class: "shienBtn sign_in"

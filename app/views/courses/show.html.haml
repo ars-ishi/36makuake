@@ -11,13 +11,15 @@
     %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportindex.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/course_alert.css", rel: "stylesheet"}/
-    %script{:src => "https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"}
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
     = csrf_meta_tags
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
   %body
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', 'data-turbolinks-track': 'reload'
     = render "shared/svg"
 
     #header
@@ -63,8 +65,6 @@
           %span.failed Failed
           %span.alert_case05.Batsu01.header_email_auth_alert_close_class ×
           .failedText メールアドレスの認証に失敗しました。ボタンの有効期限が切れています。
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/select.js", type: "text/javascript"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/ellipses.js"}
     / main
     .grayBase
       #contentWrapper.clearfix
@@ -140,15 +140,12 @@
                 #{@course.project.deadline.strftime("%m月%d日")}23:59までに目標金額が達成となる必要があります。
                 %br/
                 ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/investment/common.js", :type => "text/javascript"}
     :javascript
       function get_questions() {
           var ret = [];
           i = 0;
           return ret;
       }
-    %p#page-top_jq{:style => "display: none;"}
-      %a{:href => "#wrap"} PAGE TOP
     %footer.footer{"data-gtm-vis-first-on-screen-657891_163" => "151789", "data-gtm-vis-has-fired-657891_163" => "1", "data-gtm-vis-recent-on-screen-657891_163" => "151789", "data-gtm-vis-total-visible-time-657891_163" => "100"}
       .footer-in
         .footer-bottom
