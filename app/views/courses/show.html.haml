@@ -4,7 +4,6 @@
     %meta{charset: "UTF-8"}/
     %meta{content: "width=device-width", name: "viewport"}/
     %meta{content: "E1E1FC54C2FA07FA57AEB0483B623C2E", name: "msvalidate.01"}/
-    %meta{content: "07d3c196d17034840db0ed61f2e170941e1f199cc5ad54534f02ed08ea020e1d4d6f683db2f7e2d7a1b9801ed6ba28c09f6693df3046f0eeeccba7dff39a5a62", name: "fuel_csrf_token"}/
     %title Makuake_clone
     %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
@@ -12,8 +11,7 @@
     %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportindex.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/course_alert.css", rel: "stylesheet"}/
-    <script src="//cdn-m.makuake.com/rev_2018/10/12/143228/js/html5.js"></script>
-    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    %script{:src => "https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"}
     = csrf_meta_tags
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -29,8 +27,6 @@
             %svg.makuake-logo
               %title Makuake
               %use{"xlink:href" => "#makuakelogo_pc", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-      %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/header_mail_alert.css", rel: "stylesheet"}/
-      %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/email_auth.js"}
       .alertMail_wrap
         .alert_mail.alertMailCheck{style: "display: none;"}
           %span.alert_case01.Batsu01 ×
