@@ -3,6 +3,7 @@
   line-height: 1.8;
   margin-bottom: 15px;
   word-wrap: break-word;
+  word-break: normal;
 }
 .floaraTextArea h1 {
   display: block;
