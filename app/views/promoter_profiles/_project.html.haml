@@ -3,9 +3,9 @@
     = image_tag("http://image.36project.com/ttl_succes.png", class: "project-list-#{success_check(project)}")
     .project-list__thumbbail
       - if project.thumbnail.present?
-        = image_tag(project.thumbnail)
+        = image_tag project.thumbnail, onerror: "this.src='http://image.36project.com/makuake_thumb.png'"
       - else
-        = image_tag("http://image.36project.com/nothingimage.png")
+        = image_tag "http://image.36project.com/nothingimage.png", onerror: "this.src='http://image.36project.com/makuake_thumb.png'"
     .project-list__name
       #{project.name}
     .project-list__deadline
