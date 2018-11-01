@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  if (window.location.href.match(/\/projects\/\d+/)) {
+  if (window.location.href.match(/\/projects\/\d+$/)) {
     $(document).ready(function() {
       var projectId = location.pathname.replace('/projects/', '');
       var cookieName = 'RecentlyViewedProjects';
