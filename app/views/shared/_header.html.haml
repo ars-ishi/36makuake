@@ -95,7 +95,7 @@
               %li.links
                 = link_to 'プロジェクト管理', user_promoter_profile_path(current_user, current_user.promoter_profile), class: 'links-mypage'
               %li.links
-                = link_to '新規プロジェクト', new_project_path, class: 'links-mypage'
+                = link_to '新規プロジェクト', new_project_path, class: 'links-mypage', data: { turbolinks: false }
           %li.links
             = link_to '支援・寄附したプロジェクト', invest_user_path(current_user), class:"links-mypage"
           %li.links
