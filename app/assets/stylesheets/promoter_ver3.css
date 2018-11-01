@@ -508,6 +508,7 @@
 .project-list li a .project-list__thumbbail {
   float: left;
   height: 200px;
+  width: 230px;
 }
 .project-list li a .project-list__thumbbail img {
   width: 230px;
@@ -576,7 +577,9 @@
 }
 .content-promoter .promoter-management .main__right-area .supporter-list .supporter-detail li.detail .detail__user-image img {
   width: 100px;
+  height: 100px;
   border-radius: 3px;
+  object-fit: cover;
 }
 .content-promoter .promoter-management .main__right-area .supporter-list .supporter-detail li.detail .detail__info {
   width: 240px;
@@ -653,6 +656,7 @@
   line-height: 1.8;
   margin-bottom: 15px;
   word-wrap: break-word;
+  word-break: normal;
 }
 .fr-element h1 {
   display: block;
