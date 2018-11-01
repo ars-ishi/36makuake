@@ -50,7 +50,6 @@
         %br>/
         ら
       .toApplyLinkBtn.btncol_03
-  %input#is_shopping{:type => "hidden", :value => "0"}/
   %input#project_id{:type => "hidden", :value => "@project.id"}/
 
 
@@ -61,13 +60,13 @@
         .tabNavigation
           %ul.tabNav_menu
             %li{"data-tab_type" => "project"}
-              = link_to "プロジェクト","#", class:"tabOn"
+              = link_to "プロジェクト", project_path(@project.id),class:"tabOn"
             %li{"data-tab_type" => "owner"}
               = link_to "#modal" do
                 活動レポート
                 %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
             %li{"data-tab_type" => "supporter"}
-              = link_to project_project_comments_path(@project.id) do
+              = link_to project_project_comments_path(@project.id), data: {"turbolinks" => false} do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
           .goodBase_tab
@@ -157,46 +156,6 @@
             = render partial: 'projects/tag', collection: @project.tags, as: 'tag'
         = render 'sub_info'
     .movieReturn{:style => "display: none;"} 戻す
-
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.min.js"}
-    #iframeBase.iframeBase
-      -# %svg.modal_close
-      -#   %use{"xlink:href" => "#icon-close"}
-      %p.modal_text
-        下方のHTMLコードをコピーして、あなたのWebサイトやブログに用途に
-        あわせて様々な形のプロジェクト概要を表示して応援しよう！
-      %ul.tabs
-        %li.typeAfook.baGray 310x390
-        %li.typeBfook 160x420
-        %li.typeCfook 460x200
-        %li.typeDfook 160x160
-        %li.typeEfook 1000x287
-      .boxcDiplay
-        .typeA
-          .bnnerAreaIn.clearfix
-            #typeAL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText310{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:390px;" allowtransparency="true" src="http://www.36project.com/projects/#{@project.id}/"&gt;&lt;/iframe&gt;
-        .typeB
-          .bnnerAreaIn.clearfix
-            #typeBL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText160{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:420px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/length/"&gt;&lt;/iframe&gt;
-        .typeC
-          .bnnerAreaIn.clearfix
-            #typeCL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText460{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:460px; height:200px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/wide/"&gt;&lt;/iframe&gt;
-        .typeD
-          .bnnerAreaIn.clearfix
-            #typeDL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText160_02{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:160px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/square/"&gt;&lt;/iframe&gt;
-        .typeE
-          .bnnerAreaIn
-            #typeEL.mb
-            %div
-              %textarea.wighetText1000{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:287px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/hero/"&gt;&lt;/iframe&gt;
 
     #main.clearfix
       #leftContent

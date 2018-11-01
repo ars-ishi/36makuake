@@ -11,8 +11,8 @@
             = link_to "#" do
               活動レポート
               %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
-          %li{"data-tab_type" => "supporter"}
-            = link_to "#", class:"tabOn" do
+          %li
+            = link_to project_project_comments_path(@project.id), class:"tabOn",data: {"turbolinks" => false} do
               応援コメント
               %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
         .goodBase_tab
