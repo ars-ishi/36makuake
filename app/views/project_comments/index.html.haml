@@ -5,10 +5,10 @@
     .tab_wrapper
       .tabNavigation
         %ul.tabNav_menu
-          %li{"data-tab_type" => "project"}
+          %li
             = link_to "プロジェクト", project_path(@project.id)
-          %li{"data-tab_type" => "owner"}
-            = link_to "#" do
+          %li
+            = link_to report_project_path(@project) do
               活動レポート
               %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
           %li

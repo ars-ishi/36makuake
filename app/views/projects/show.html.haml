@@ -58,14 +58,14 @@
       .tab_wrapper
         .tabNavigation
           %ul.tabNav_menu
-            %li{"data-tab_type" => "project"}
-              = link_to "プロジェクト", project_path(@project.id),class:"tabOn"
-            %li{"data-tab_type" => "owner"}
-              = link_to "#modal" do
+            %li
+              = link_to "プロジェクト", project_path(@project),class:"tabOn"
+            %li
+              = link_to report_project_path(@project) do
                 活動レポート
                 %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
-            %li{"data-tab_type" => "supporter"}
-              = link_to project_project_comments_path(@project.id), data: {"turbolinks" => false} do
+            %li
+              = link_to project_project_comments_path(@project), data: {"turbolinks" => false} do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
           .goodBase_tab
@@ -268,8 +268,7 @@
 
 
       #scrollContent{:style => "display: none;"}
-        #scrollShienBtnBase
-          = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
+        = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
       #contact_me_overlay{:style => "display:none;"}
 
       #contact_me_box{:style => "display:none;"}
