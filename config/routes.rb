@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     patch 'update_omniauth' => 'users#update_omniauth'
   end
 
-  resources :projects, only: [:index, :new, :create, :show] do
+  resources :projects, only: [:index, :new, :create, :show, :edit, :update] do
     resources :courses, only: [:new, :create, :show]
     resources :project_comments, only: [:index, :create]
     collection{ get "search" }
