@@ -12,17 +12,15 @@
       = link_to '支援・寄附したプロジェクト', invest_user_path(current_user)
     %dd
       = link_to '購入履歴(ストア)', consumed_user_path(current_user)
-    -# %dd
-    -#   = link_to 'メッセージ', message_user_path(current_user)
+    %dd
+      = link_to 'メッセージ', message_user_path(current_user)
       %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
   %dl.sideNaviOne
     %dt.sideNaviTitle.sideIconAcnt アカウント情報
     %dd
       = link_to 'プロフィール編集', edit_user_path(current_user)
     %dd
-      = link_to 'お届け先住所', new_user_send_address_path(current_user)
-    %dd
       = link_to 'パスワード変更', edit_user_registration_path
-    -# %dd
-    -#   = link_to 'メール通知設定', popup_user_path(current_user)
+    %dd
+      = link_to 'メール通知設定', popup_user_path(current_user)
   / ./sideNavi
