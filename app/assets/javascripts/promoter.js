@@ -62,6 +62,24 @@ $(document).on('turbolinks:load', function(){
       $('#project_deadline_4i').val('');
       $('#project_deadline_5i').val('');
     });
+    $('#project_content').froalaEditor({
+      language: 'ja',
+      placeholderText: '例）濃厚な卵黄とすっきり甘い白身を２層仕立てのプリンで再現しました。スイーツではなく、たまごのおいしさで勝負したプリンです。',
+      toolbarButtons: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink', '|', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|', 'insertHR', 'selectAll', 'clearFormatting', 'html' ],
+      toolbarButtonsMD: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink', '|', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|', 'insertHR', 'selectAll', 'clearFormatting', 'html' ],
+      toolbarButtonsSM: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink' ],
+      toolbarButtonsXS: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink' ]
+    });
+    $('#project_pattern').hover(function() {
+      $('.form-description').css('display', 'block');
+      },
+      function() {
+        $('.form-description').css('display', 'none');
+      }
+    );
+    $(document).on('input', '.fr-view', function() {
+      $('#check-project_content').css({'opacity': '1', 'color': '#f53a67'});
+    });
   }
   if (window.location.href.match(/\/users\/\d+\/promoter_profiles/)) {
     function tabSwitch(linkId) {
@@ -78,5 +96,21 @@ $(document).on('turbolinks:load', function(){
     };
     tabSwitch('#supporters-link');
     tabSwitch('#projects-link');
+  }
+  if (window.location.href.match(/\/projects\/\d+$/)) {
+    $(document).ready(function () {
+      $('.project-edit-btn').mouseover(function () {
+        $('.project-edit-description').css('display', 'inline-block');
+      })
+      .mouseout(function () {
+        $('.project-edit-description').css('display', 'none');
+      })
+      .mouseenter(function () {
+        $('.project-edit-description').css('display', 'inline-block');
+      })
+      .mouseleave(function () {
+        $('.project-edit-description').css('display', 'none');
+      });
+    });
   }
 });

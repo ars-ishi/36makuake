@@ -1,4 +1,30 @@
 = stylesheet_link_tag "http://css.36project.com/stylesheets/comment.css"
+-# CDN化したら書き換え
+= stylesheet_link_tag    '/../assets/project_froala.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    '//css.36project.com/stylesheets/account.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://use.fontawesome.com/releases/v5.0.6/css/all.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/char_counter.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/fullscreen.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/colors.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/code_view.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/help.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+-# CDN化したら書き換え
+= stylesheet_link_tag    '//css.36project.com/stylesheets/promoter_ver2.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    '/../assets/promoter_ver3', media: 'all', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/languages/ja.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/char_counter.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/fullscreen.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/colors.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/code_view.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/font_size.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/help.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/link.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/lists.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/align.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/paragraph_format.min.js', 'data-turbolinks-track': 'reload'
 :javascript
   $(document).ready(function(){
           var num = $(".projectTtl").offset().top;
@@ -49,7 +75,6 @@
         %br>/
         ら
       .toApplyLinkBtn.btncol_03
-  %input#is_shopping{:type => "hidden", :value => "0"}/
   %input#project_id{:type => "hidden", :value => "@project.id"}/
 
 
@@ -59,14 +84,14 @@
       .tab_wrapper
         .tabNavigation
           %ul.tabNav_menu
-            %li{"data-tab_type" => "project"}
-              = link_to "プロジェクト","#", class:"tabOn"
-            %li{"data-tab_type" => "owner"}
-              = link_to "#modal" do
+            %li
+              = link_to "プロジェクト", project_path(@project),class:"tabOn"
+            %li
+              = link_to report_project_path(@project) do
                 活動レポート
                 %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
-            %li{"data-tab_type" => "supporter"}
-              = link_to project_project_comments_path(@project.id) do
+            %li
+              = link_to project_project_comments_path(@project), data: {"turbolinks" => false} do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
           .goodBase_tab
@@ -157,46 +182,6 @@
         = render 'sub_info'
     .movieReturn{:style => "display: none;"} 戻す
 
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.min.js"}
-    #iframeBase.iframeBase
-      -# %svg.modal_close
-      -#   %use{"xlink:href" => "#icon-close"}
-      %p.modal_text
-        下方のHTMLコードをコピーして、あなたのWebサイトやブログに用途に
-        あわせて様々な形のプロジェクト概要を表示して応援しよう！
-      %ul.tabs
-        %li.typeAfook.baGray 310x390
-        %li.typeBfook 160x420
-        %li.typeCfook 460x200
-        %li.typeDfook 160x160
-        %li.typeEfook 1000x287
-      .boxcDiplay
-        .typeA
-          .bnnerAreaIn.clearfix
-            #typeAL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText310{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:390px;" allowtransparency="true" src="http://www.36project.com/projects/#{@project.id}/"&gt;&lt;/iframe&gt;
-        .typeB
-          .bnnerAreaIn.clearfix
-            #typeBL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText160{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:420px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/length/"&gt;&lt;/iframe&gt;
-        .typeC
-          .bnnerAreaIn.clearfix
-            #typeCL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText460{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:460px; height:200px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/wide/"&gt;&lt;/iframe&gt;
-        .typeD
-          .bnnerAreaIn.clearfix
-            #typeDL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText160_02{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:160px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/square/"&gt;&lt;/iframe&gt;
-        .typeE
-          .bnnerAreaIn
-            #typeEL.mb
-            %div
-              %textarea.wighetText1000{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:287px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/hero/"&gt;&lt;/iframe&gt;
-
     #main.clearfix
       #leftContent
         .owner-latest
@@ -211,7 +196,7 @@
           - else
             .owner-latest_balloon
               %span.owner-latest-post
-                = truncate("#{@project.reports.to_a.last.content}", length: 75, omission: "...")
+                #{@project.reports.to_a.last.content.truncate(75)}
               %svg.right-arrow_inner
                 %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-latest_balloon_triangle
@@ -247,10 +232,20 @@
                 %li.summaryItem
                   #{sum}
           .triangleAfterSummary
+          - if @project.user == current_user
+            .project-edit-area
+              .project-edit-description
+                プロジェクトの紹介文を編集できます。
+                %br
+                このボタンはあなただけに表示されています。
+              .project-edit-btn
+                = link_to edit_project_path(@project), method: :get, remote: true do
+                  %i.fas.fa-edit
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
               .leftText
-                = raw @project.content
+                .floaraTextArea
+                  = raw @project.content
           #supporting-comment
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper
@@ -309,8 +304,7 @@
 
 
       #scrollContent{:style => "display: none;"}
-        #scrollShienBtnBase
-          = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
+        = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
       #contact_me_overlay{:style => "display:none;"}
 
       #contact_me_box{:style => "display:none;"}

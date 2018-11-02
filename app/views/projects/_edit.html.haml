@@ -1,0 +1,13 @@
+= form_for [@project], remote: true do |f|
+  .edit-project-submit-wrap
+    = f.submit "編集内容を反映", class: 'edit-project-submit-btn'
+    #project-edit-cancel.edit-project-submit-btn.cancel キャンセルする
+  .promoter-form__field
+    = f.label :content do
+      .field-title
+        紹介文
+        %span.required 必須
+      .field-title-sub
+        %i.fas.fa-expand.check-icon
+        を押すと全画面入力ができます。
+    = f.text_area :content, required: 'required', class: 'field-textarea', maxlength: 1500

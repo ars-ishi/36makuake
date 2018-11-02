@@ -1,0 +1,18 @@
+%head
+  %link{href: "//css.36project.com/stylesheets/users/popup.css", rel: "stylesheet"}/
+  %link{href: "//css.36project.com/stylesheets/users/edit_profile.css", rel: "stylesheet"}/
+  %link{href: "//css.36project.com/stylesheets/users/sidenavi.css", rel: "stylesheet"}/
+#wrapperMypage
+  / contentWrapper
+  #contentWrapper.clearfix
+    = render '/shared/sidenavi'
+    / rightContentMain
+    #rightContentMain
+      %section#socialDetails
+        = link_to 'お届け住所の追加登録はこちら', new_user_send_address_path(current_user), style: 'float: right', class: 'iconArrow24_02'
+        %h2.ttlReturn お届け先住所の一覧
+        .returnIn
+          = render @send_addresses
+
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'

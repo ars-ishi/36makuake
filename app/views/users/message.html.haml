@@ -4,44 +4,44 @@
 #wrapperMypage
   / contentWrapper
   #contentWrapper.clearfix
-    = render 'sidenavi'
+    = render '/shared/sidenavi'
     / rightContentMain
     #rightContentMain.clearfix
-      %script{:src => "//cdn-m.makuake.com/rev_2018/10/10/132936/js/geenie/message/supporter.js"}
-      %script{:src => "//cdn-m.makuake.com/rev_2018/10/10/132936/js/geenie/message/owner_attach_img.js"}
-      .loadingBase_msg{:style => "display: none;"}
+      %script{src: "//cdn-m.makuake.com/rev_2018/10/10/132936/js/geenie/message/supporter.js"}
+      %script{src: "//cdn-m.makuake.com/rev_2018/10/10/132936/js/geenie/message/owner_attach_img.js"}
+      .loadingBase_msg{style: "display: none;"}
         .loadbg
         .loadingbox
           .loadingboxIn
-            %img{:alt => "", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/owner/load_an.gif"}/
+            %img{alt: "", src: "//cdn-m.makuake.com/rev_2018/10/10/132936/img/owner/load_an.gif"}/
             %p Loading...
       .tabNavigation
         %h2.messageTop_h2 メッセージ
         %ul.selection
-          %li.all{"data-is_read" => "", :style => "display: list-item;"}
-          %li.unopen{"data-is_read" => "0", :style => "display: none;"}
+          %li.all{"data-is_read" => "", style: "display: list-item;"}
+          %li.unopen{"data-is_read" => "0", style: "display: none;"}
       .tabContentMainMypage.clearfix
-        %input#from_url_thread_id{:type => "hidden", :value => ""}/
-        %input#limit{:type => "hidden", :value => "100"}/
-        %input#message_limit{:type => "hidden", :value => "10"}/
-        %input#next_thread_page{:type => "hidden", :value => "2"}/
-        %input#next_message_page{:type => "hidden", :value => "2"}/
-        #no_data_thread.result_msg_thread{:style => "margin: 10px 10px 10px 10px; display:none;"}
+        %input#from_url_thread_id{type: "hidden", value: ""}/
+        %input#limit{type: "hidden", value: "100"}/
+        %input#message_limit{type: "hidden", value: "10"}/
+        %input#next_thread_page{type: "hidden", value: "2"}/
+        %input#next_message_page{type: "hidden", value: "2"}/
+        #no_data_thread.result_msg_thread{style: "margin: 10px 10px 10px 10px; display:none;"}
           まだメッセージはありません。
           %br/
           プロジェクト実行者に質問がある場合は、
           %br/
           プロジェクトページにある【実行者にお問い合わせ】からメッセージをお送りください。
-        #no_more_thread.result_msg_thread{:style => "margin: 10px 10px 10px 10px; display:none;"} すべてのデータを表示しました。
-        #no_read_data_thread.result_msg_thread{:style => "margin: 10px; display: none;"} 未読メッセージはありません。
-        .dmLeft_cover{:style => "height: 0px;"}
-          #shrink_loading.loading_allWhite{:style => "display: none;"}
+        #no_more_thread.result_msg_thread{style: "margin: 10px 10px 10px 10px; display:none;"} すべてのデータを表示しました。
+        #no_read_data_thread.result_msg_thread{style: "margin: 10px; display: none;"} 未読メッセージはありません。
+        .dmLeft_cover{style: "height: 0px;"}
+          #shrink_loading.loading_allWhite{style: "display: none;"}
           .dmLeft
             .dmLeftScroll
               %ul.userList.message--open.BorderNone.b-rightNone
                 %li.userArea.loadAfter{"data-project_id" => "2020", "data-thread_id" => "127439"}
                   .userL
-                    %img{:src => "//hayabusa.io/makuake/upload/user/regist2016/07/19/138080/main_138080.fit-scale.jpg?version=1477876369&format=jpg&ttl=31536000&force&width=36&height=36&quality=70"}/
+                    %img{src: "//hayabusa.io/makuake/upload/user/regist2016/07/19/138080/main_138080.fit-scale.jpg?version=1477876369&format=jpg&ttl=31536000&force&width=36&height=36&quality=70"}/
                   .mailComment
                     #is_read_127439.is_read
                     .date 2017.07.05
@@ -85,7 +85,7 @@
                         Makuake担当
                 %li.userArea.loadAfter{"data-project_id" => "1483", "data-thread_id" => "57308"}
                   .userL
-                    %img{"data-hayabusa-src" => "/upload/user/90089/main_90089.fit-scale.png?version=1505097903&format=png&ttl=31536000&force", :height => "36", :src => "//hayabusa.io/makuake/upload/user/90089/main_90089.fit-scale.png?version=1505097903&format=png&ttl=31536000&force&width=36&height=36&quality=70", :width => "36"}/
+                    %img{"data-hayabusa-src" => "/upload/user/90089/main_90089.fit-scale.png?version=1505097903&format=png&ttl=31536000&force", height: "36", src: "//hayabusa.io/makuake/upload/user/90089/main_90089.fit-scale.png?version=1505097903&format=png&ttl=31536000&force&width=36&height=36&quality=70", width: "36"}/
                   .mailComment
                     #is_read_57308.is_read
                     .date 2017.04.14
@@ -138,13 +138,13 @@
 
                         C by favy
             #moreMessage.moreArea_wrap
-              #more_thread_button.more.moreArea1{:style => "display:none;"} もっとみる
-              #thread_loading_button.more.moreArea1_load{:style => "display:none;"}
+              #more_thread_button.more.moreArea1{style: "display:none;"} もっとみる
+              #thread_loading_button.more.moreArea1_load{style: "display:none;"}
         .dmRight_cover.clearfix
-          .dmRight.visible.b-none{:style => "position: relative; bottom: 0px; top: 0px; height: 25216px;"}
-            #message_loading.loading{:style => "display: none;"}
+          .dmRight.visible.b-none{style: "position: relative; bottom: 0px; top: 0px; height: 25216px;"}
+            #message_loading.loading{style: "display: none;"}
             #message_detail
-      .img-preview__modal{:style => "display: none;"}
+      .img-preview__modal{style: "display: none;"}
         .modal__overlay
           .modal__contents
             .modal__contents__img
@@ -153,7 +153,7 @@
               %img/
       / ▼▼▼hogan.js▼▼▼
       / スレッドテンプレート
-      %script#template_supporter_thread{:type => "text/template"}
+      %script#template_supporter_thread{type: "text/template"}
         :cdata
           {{#threads_data}}
 
@@ -179,7 +179,7 @@
           </li>
           {{/threads_data}}
       / メッセージ上部テンプレート
-      %script#template_supporter_message_header{:type => "text/template"}
+      %script#template_supporter_message_header{type: "text/template"}
         :cdata
           <div class="thread_top clearfix">
           <table>
@@ -203,7 +203,7 @@
           <div id="more_message_loading" class="moreArea2_load" style="display: none;"></div>
           <div id="message_list">
       / メッセージ中身テンプレート
-      %script#template_supporter_message_body{:type => "text/template"}
+      %script#template_supporter_message_body{type: "text/template"}
         :cdata
           {{#messages_data}}
           {{#is_manager_message}}
@@ -271,7 +271,7 @@
           {{/is_supporter_message}}
           {{/messages_data}}
       / メッセージ下部テンプレート
-      %script#template_supporter_message_footer{:type => "text/template"}
+      %script#template_supporter_message_footer{type: "text/template"}
         :cdata
           </div>
           </div>
@@ -297,5 +297,5 @@
     / ./rightContentMain
   / ./contentWrapper
 / Pagetopボタン
-%p#page-top_jq{:style => "display: none;"}
-  %a{:href => "#wrap"} PAGE TOP
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'

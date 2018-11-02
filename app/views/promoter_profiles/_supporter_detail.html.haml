@@ -1,9 +1,9 @@
 %li.detail
   .detail__user-image
     - if User.find(order.user_id).image.present?
-      = image_tag(User.find(order.user_id).image)
+      = image_tag User.find(order.user_id).image, onerror: "this.src='http://image.36project.com/icon_yellow.png'"
     - else
-      = image_tag("http://image.36project.com/icon_yellow.png")
+      = image_tag "http://image.36project.com/icon_yellow.png", onerror: "this.src='http://image.36project.com/icon_yellow.png'"
   .detail__info
     .info__user-name__label
       %i.fas.fa-user

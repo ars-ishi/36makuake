@@ -7,15 +7,17 @@ Rails.application.routes.draw do
     member do
       get :edit_password, :invest, :message, :popup, :consumed, :leave
     end
+    resources :send_addresses, only: [:index, :new, :edit, :create, :update]
     resources :promoter_profiles, only: [:new, :create, :show, :edit, :update, :show]
     get 'edit_omniauth' => 'users#edit_omniauth'
     patch 'update_omniauth' => 'users#update_omniauth'
   end
 
-  resources :projects, only: [:index, :new, :create, :show] do
+  resources :projects, only: [:index, :new, :create, :show, :edit, :update] do
     resources :courses, only: [:new, :create, :show]
     resources :project_comments, only: [:index, :create]
     collection{ get "search" }
+    member{get "report"}
   end
 
   resources :discovers, only: [:index, :new] do

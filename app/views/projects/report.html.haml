@@ -1,0 +1,114 @@
+= stylesheet_link_tag "http://css.36project.com/stylesheets/comment.css"
+%body
+
+  .tab_wrapper_box
+    .tab_wrapper
+      .tabNavigation
+        %ul.tabNav_menu
+          %li
+            = link_to "プロジェクト", project_path(@project.id)
+          %li
+            = link_to report_project_path(@project), class:"tabOn" do
+              活動レポート
+              %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
+          %li
+            = link_to project_project_comments_path(@project.id),data: {"turbolinks" => false} do
+              応援コメント
+              %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
+        .goodBase_tab
+          .goodBaseIn_tab
+            %i.icon_heart_off_tab
+              %svg.icon_heart_off_tab-in
+                %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %span お気に入りに追加
+          .goodBaseIn2_tab{:style => "display:none;"}
+            %i.icon_heart_on_tab
+              %svg.icon_heart_on_tab-in
+                %use{"xlink:href" => "#icon-heart_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %span お気に入り追加中
+
+  #main.clearfix
+    .owner-wrapper
+      / 実行者情報
+      .owner-info
+        %div{style:"display:flex;"}
+          %img.owner-info__icon{:alt => "#{@project.user.name}", :src => "#{@project.user.image}"}
+          %p{style:"margin-top:20px;"} #{@project.user.name}
+      / 活動レポート一覧
+      #app
+        %ul.threads
+          - @reports.each do |report|
+            %li.owner-post
+              .owner-post__thread
+                .owner-post__content
+                  %span.owner-post__title #{report.title}
+                  .owner-post__header
+                    %span.owner-post__date #{report.created_at.strftime("%Y.%m.%d")}
+                  .owner-post__text-wrapper
+                    %span.owner-post__text
+                      #{report.content}
+                    %div{:style => "display: none;"}
+                      %ul.owner-post__img__wrapper
+                        %li.img__wrapper.img__wrapper--single
+                          .img__wrapper__mask
+                            %img.owner-post__img.owner-post__img--single{:src => ""}/
+                .owner-post__sub
+                  %a.iconHeartOff
+                    %svg.owner-post__sub__icon-clap
+                      %use{"xlink:href" => "#icon-clap"}
+                  .like_users__wrapper
+                    %a#heart_thread_num_thread_id.owner-post__sub__comment-clap{:style => "display: none;"}
+                      0
+                      %span.like-users-hint 応援者リスト
+                  %div
+                    %svg.owner-post__sub__icon-com
+                      %use{"xlink:href" => "#icon-com-04"}
+                  %span.owner-post__sub__comment-num 0
+                  .share-wrapper
+                    %a.share-facebook
+                      %span.share-facebook__hint.hint-dialogue Facebookでシェア
+                      %svg.share-facebook
+                        %use{"xlink:href" => "#icon-facebook-02"}
+                    %a.share-twitter
+                      %span.share-twitter__hint.hint-dialogue Twitterでシェア
+                      %svg.share-twitter
+                        %use{"xlink:href" => "#icon-twitter-02"}
+                    %a.share-link
+                      %span.share-link__hint.hint-dialogue リンクをコピー
+                      %svg.share-link
+                        %use{"xlink:href" => "#icon-chain"}
+              .owner-post__comment
+                .comments
+                  .comment__box
+                %div
+                  .comment__post-area
+                    %div{:style => "display: block;"}
+                      .comment__post-area
+                        %span.comment__post-area__hint-text ※支援するとコメントできます。
+
+
+
+  .bread-crumb-listBase
+    %ul#bread-crumb-list.clearfix
+      %li
+        = link_to "TOP", projects_path
+         
+        %i> &gt;
+         
+      %li
+        = link_to "プロジェクト一覧",search_projects_path
+         
+        %i> &gt;
+         
+      %li
+        = link_to "#{@project.category.name}", categories_discover_path(@project.category_id)
+         
+        %i> &gt;
+         
+      %li
+        = link_to "#{@project.name}", project_path(@project)
+         
+        %i> &gt;
+         
+      %li
+        = link_to "活動レポート", project_project_comments_path(@project.id)

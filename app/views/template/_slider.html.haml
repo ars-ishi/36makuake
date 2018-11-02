@@ -4,7 +4,7 @@
     .swiper-wrapper
       / Slides
       - @slider_project.each_with_index do |project, i|
-        .swiper-slide.slide_filter
+        .swiper-slide.slide_filter.slideSwiper
           %img.image-background{:alt => "#{project.name}", :src => "#{@sliders[i].bg_image}"}/
           .HeroItem
             .main--project
@@ -28,55 +28,45 @@
                 %span.bar-percent #{project.achievement}%
             .view-button
               = link_to "VIEW", project_path(project.id), class:"view-button-link"
+            %input{name: "thumbnail_image", tyep:"hidden", value:project.thumbnail, class:"thumbnail_#{i}"}
 
 
 
-
-
-      .swiper-slide
+      .swiper-slide.slide_filter
         %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/121/hero_bg_pc_121.png?format=png&ttl=31536000&version=1538378133&force&quality=95"}/
         .HeroItem
           .main--banner
-            %a.link--banner{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+            %a.link--banner{:href => "https://blog.makuake.com/posts/4910595", :target => "_blank"}
               .img--banner
                 %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/121/hero_thumb_121.png?format=png&ttl=31536000&version=1538378133&force&width=520&height=292&quality=95"}/
               .title
                 %p.title-inner--banner 東急ハンズ渋谷店2Aフロアに「プロデューサーズSTUDIO」がOPEN！
           .view-button
-            %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+            %a.view-button-link{:href => "https://blog.makuake.com/posts/4910595", :target => "_blank"}
               VIEW
       .swiper-slide
         %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/85/hero_bg_pc_85.png?format=png&ttl=31536000&version=1535624113&force&quality=95"}/
         .HeroItem
           .main--banner
-            %a.link--banner{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+            %a.link--banner{:href => "https://blog.makuake.com/posts/4014851", :target => "_blank"}
               .img--banner
                 %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/85/hero_thumb_85.jpg?format=jpg&ttl=31536000&version=1535624113&force&width=520&height=292&quality=95"}/
               .title
                 %p.title-inner--banner アプリのプッシュ通知で『お得リターン＆開始終了プロジェクト』の見逃しをなくそう！
           .view-button
-            %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+            %a.view-button-link{:href => "https://blog.makuake.com/posts/4014851", :target => "_blank"}
               VIEW
       .swiper-slide
         %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/7/hero_bg_pc_7.jpg?format=jpg&ttl=31536000&version=1535624113&force&quality=95"}/
         .HeroItem
           .main--banner
-            %a.link--banner{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_image_1", :target => "_self"}
+            %a.link--banner{:href => "https://www.makuake.com/apply/?from=hero_btn_8", :target => "_blank"}
               .img--banner
-                %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/7/hero_thumb_7.png?format=png&ttl=31536000&version=1535624113&force&width=520&height=292&quality=95"}/
+                %img.image-thumbnail{:alt => "", :src => "https://hayabusa.io/makuake/upload/hero/7/hero_thumb_7.png?format=png&ttl=31536000&version=1535624113&force&width=260&height=146&quality=95"}/
               .title
                 %p.title-inner--banner Makuakeで「世の中をワクワクさせるようなプロジェクト」を掲載してみませんか
           .view-button
-            %a.view-button-link{:href => "https://www.makuake.com/project/your-restaurant/?from=hero_btn_1", :target => "_self"}
+            %a.view-button-link{:href => "https://www.makuake.com/apply/?from=hero_btn_8", :target => "_blank"}
               VIEW
     / If we need pagination
-    .swiper-pagination
-      %ul
-        %li 1
-        %li 2
-        %li 3
-        %li 4
-        %li 5
-        %li 6
-        %li 7
-        %li 8
+    .swiper-pagination{style:"bottom:0;"}
