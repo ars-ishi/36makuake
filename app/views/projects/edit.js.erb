@@ -1,0 +1,17 @@
+$('#leftContentMain').html(
+  "<%= j(render partial: 'projects/edit' ) %>"
+);
+$('#project_content').froalaEditor({
+  language: 'ja',
+  toolbarButtons: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink', '|', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|', 'insertHR', 'selectAll', 'clearFormatting', 'html' ],
+  toolbarButtonsMD: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink', '|', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '|', 'insertHR', 'selectAll', 'clearFormatting', 'html' ],
+  toolbarButtonsSM: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink' ],
+  toolbarButtonsXS: [ 'fullscreen', 'help', 'color', 'fontSize', 'bold', 'insertLink' ]
+});
+$('.project-edit-area').css('display', 'none');
+$('#project-edit-cancel').on("click", function(){
+  $('#leftContentMain').html(
+    "<%= j(render partial: 'projects/update' ) %>"
+  );
+  $('.project-edit-area').css('display', 'block');
+});
