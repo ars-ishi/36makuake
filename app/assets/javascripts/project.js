@@ -65,9 +65,9 @@ $(document).on('turbolinks:load', function() {
     thumb_3,
     thumb_4,
     thumb_5,
-    'https://hayabusa.io/makuake/upload/hero/121/hero_thumb_121.png?format=png&ttl=31536000&version=1538378133&force&width=260&height=146&quality=95',
-    'https://hayabusa.io/makuake/upload/hero/85/hero_thumb_85.jpg?format=jpg&ttl=31536000&version=1535624113&force&width=520&height=292&quality=95',
-    'https://hayabusa.io/makuake/upload/hero/7/hero_thumb_7.png?format=png&ttl=31536000&version=1535624113&force&width=260&height=146&quality=95'
+    'http://image.36project.com/hero_thumb_121.png',
+    'http://image.36project.com/hero_thumb_85.jpg',
+    'http://image.36project.com/makuake_thumb.png'
     ];
 
 
