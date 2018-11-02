@@ -1,0 +1,29 @@
+.cp_ipradio
+  %dl
+    -# %dt
+    -#   %label
+    -#     %input.option-input.radio{name: 'main', checked: 'checked', type: 'radio', value: '1'}/
+    -#     送り先
+    -#   %br
+    %dd
+      = send_address.last_name
+      = send_address.first_name
+      %br
+      = send_address.postal_code
+      %br/
+      = send_address.municipality
+      = send_address.house_number
+      %br/
+      = send_address.building
+      %br/
+      電話番号
+      = send_address.phone_number
+    %dd
+      = link_to '編集', edit_user_send_address_path(@user, send_address.id), style: 'background-color: #f7c600', class: 'updateBtn'
+      %br/
+    %dd
+    :javascript
+      $(".option-input.radio").on("click", function(){
+              $('.option-input.radio').prop('checked', false);  //  全部のチェックを外す
+              $(this).prop('checked', true);  //  押したやつだけチェックつける
+      });
