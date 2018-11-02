@@ -5,12 +5,13 @@
 #wrapperMypage
   / contentWrapper
   #contentWrapper.clearfix
-    = render 'sidenavi'
+    = render '/shared/sidenavi'
     / rightContentMain
     #rightContentMain
       / section01
       %section#profileDetails
-        %h2.ttlProfile プロフィール編集
+        %h2.ttlProfile
+          プロフィール編集
         = form_for(@user) do |f|
           %form
             .profileIn
@@ -79,8 +80,8 @@
                 %dd
                   = f.text_area :introduction, cols: '50', placeholder: 'ここにテキストを入力してください', rows: '10', class: 'textEdit'
             = f.submit '更新', class: 'updateBtn02'
-        #withdrawArea
-          = link_to '退会はこちらから', leave_user_path(current_user), class: 'withdraw'
+        -# #withdrawArea
+        -#   = link_to '退会はこちらから', leave_user_path(current_user), class: 'withdraw'
         / ./section01
     / ./rightContentMain
 / ./contentWrapper
