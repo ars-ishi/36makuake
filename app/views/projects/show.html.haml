@@ -186,7 +186,7 @@
       #leftContent
         .owner-latest
           %h3.owner-latest_title 実行者の最新投稿
-          = link_to "#",class:"owner-latest__more" do
+          = link_to report_project_path(@project),class:"owner-latest__more" do
             %span more
             %svg.right-arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}

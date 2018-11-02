@@ -13,7 +13,7 @@
       .Title
         %h3.subject
           今日のピックアップ
-          %a.TitleLink{:href => "/discover/pickup"}
+          = link_to pickup_discovers_path, class:"TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -25,7 +25,7 @@
       .Title
         %h3.subject
           New!
-          %a.TitleLink{:href => "/discover/new"}
+          = link_to new_discover_path, class:"TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -36,7 +36,7 @@
       .Title
         %h3.subject
           活動レポート
-          %a.TitleLink{:href => "/report/"}
+          = link_to "https://www.makuake.com/report/", class:"TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -59,7 +59,7 @@
       .Title
         %h3.subject
           ストア
-          %a.TitleLink{:href => "/discover/store"}
+          = link_to "https://www.makuake.com/report/", class:"TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -70,7 +70,7 @@
       .Title
         %h3.subject
           Makuakeブログ
-          %a.TitleLink{:href => "http://blog.makuake.com"}
+          = link_to "http://blog.makuake.com", class:"TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
