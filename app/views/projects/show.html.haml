@@ -183,26 +183,27 @@
       #leftContent
         .owner-latest
           %h3.owner-latest_title 実行者の最新投稿
-          = link_to "#",class:"owner-latest__more" do
-            %span more
-            %svg.right-arrow
-              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
           - if @project.reports.length < 1
             .owner-latest_balloon--nopost
-              %span.owner-latest-post--nopost 最新の投稿はありません #{@project.reports.length}
+              %span.owner-latest-post--nopost 最新の投稿はありません
           - else
+            = link_to report_project_path(@project), class: 'owner-latest__more' do
+              %span more
+              %svg.right-arrow
+                %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
             .owner-latest_balloon
               %span.owner-latest-post
-                #{@project.reports.to_a.last.content.truncate(75)}
+                = link_to report_project_path(@project), style: 'color: #808080; text-decoration: none;' do
+                  %span #{@project.reports.to_a.last.content.truncate(75)}
               %svg.right-arrow_inner
                 %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-latest_balloon_triangle
               .owner-latest_balloon_triangle2
           / ここから会社情報
           .owner-info
-            %img.owner-info_thumb{:alt => "#{@project.user.name}", :src => "#{@project.user.image}"}/
+            %img.owner-info_thumb{:alt => "#{@project.user.name}", :src => "#{@project.user.image}", :onerror => "this.src='http://image.36project.com/icon_yellow.png'"}/
             .owner-info_name-wrapper
-              = link_to "#{@project.user.name}", "#"
+              = @project.user.name
             .owner-contact
               %ul
                 %li
@@ -223,12 +224,13 @@
         / ここからプロジェクト内容詳細
         %section
           %h3.story_title このプロジェクトについて
-          .summaryContainer
-            %ol.summaryList
-              - @summary.each do |sum|
-                %li.summaryItem
-                  #{sum}
-          .triangleAfterSummary
+          - if @summary.length > 1
+            .summaryContainer
+              %ol.summaryList
+                - @summary.each do |sum|
+                  %li.summaryItem
+                    #{sum}
+            .triangleAfterSummary
           - if @project.user == current_user
             .project-edit-area
               .project-edit-description
@@ -249,14 +251,18 @@
               - @project.project_comments.order("created_at DESC").first(3).each do |comment|
                 = link_to "#", class:"supporting-comment-content" do
                   .supporting-comment-left
-                    %img.supporting-comment-icon{:src => "#{comment.user.image}"}/
+                    %img.supporting-comment-icon{:src => "#{comment.user.image}", :onerror => "this.src='http://image.36project.com/icon_yellow.png'"}/
                   .supporting-comment-right
                     %p.supporting-comment-name #{comment.user.name}
                     %p.supporting-comment-date #{comment.created_at.strftime("%Y.%m.%d")}
                     %p.supporting-comment-message
                       #{comment.content}
-            .supporting-comment-more{:style => ""}
-              = link_to "すべて見る", project_project_comments_path(@project.id), id:"support-comment-link"
+            - if @project.project_comments.length < 1
+              %p.supporting-comment-more{ style: 'font-weight: normal;'}
+                コメントはまだありません
+            - else
+              .supporting-comment-more{:style => ""}
+                = link_to "すべて見る", project_project_comments_path(@project.id), id:"support-comment-link"
 
 
 
