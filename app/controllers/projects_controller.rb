@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
     @new = Project.limit(8).order("created_at DESC")
     @reports = Report.limit(5).includes(project: :user)
     @comments = ProjectComment.limit(5).order("created_at DESC").includes(project: :users)
+    @reprots = Report.limit(5).order("created_at DESC").includes(project: :users)
     @courses = Course.limit(5)
 
   end
