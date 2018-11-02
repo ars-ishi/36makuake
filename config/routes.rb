@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get :edit_password, :invest, :message, :popup, :consumed, :leave
     end
+    resources :send_addresses, only: [:index, :new, :edit, :create, :update]
     resources :promoter_profiles, only: [:new, :create, :show, :edit, :update, :show]
     get 'edit_omniauth' => 'users#edit_omniauth'
     patch 'update_omniauth' => 'users#update_omniauth'
