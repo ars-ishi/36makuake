@@ -82,14 +82,5 @@
       / ./rightContentMain
     / ./contentWrapper
 / Pagetopボタン
-%p#page-top_jq{:style => "display: none;"}
-  %a{:href => "#wrap"} PAGE TOP
-
--# %label
--#   = f.radio_button :sex, "1"
--#   男
--# %label
--#   = f.radio_button :sex, "2"
--#   女
-
-
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'
