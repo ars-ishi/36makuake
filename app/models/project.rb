@@ -18,6 +18,9 @@ class Project < ApplicationRecord
 
   enum support_type: { all_in: 1, all_or_nothing: 2 }
 
+  scope :from_tag, -> (tag_id)  { where(id: propject_ids = ProjectTag.where(tag_id: tag_id).select(:project_id))}
+  scope :from_location, -> (location) { where(user_id: user_ids = User.where(location: location).select(:id)) }
+
   accepts_nested_attributes_for :project_images, reject_if: :reject_project_images
   accepts_nested_attributes_for :project_movies, reject_if: :reject_project_movies
   accepts_nested_attributes_for :courses, reject_if: :reject_courses
@@ -39,11 +42,11 @@ class Project < ApplicationRecord
     attributed['tag_id'].blank?
   end
 
-  def bar
+  def achievement
     total_sales*100 / target_sales
   end
 
-  def bar_f
+  def achievement_f
     (total_sales*100 / target_sales.to_f).round(1)
   end
 

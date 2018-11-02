@@ -1,0 +1,14 @@
+%section.ProjectNew.headline
+  .Title
+    %h3.subject
+      閲覧履歴
+  - viewed_project_ids = cookies[:RecentlyViewedProjects].split(",").reverse unless cookies[:RecentlyViewedProjects].nil?
+  - unless viewed_project_ids.blank?
+    %ul.projects.articles
+      = render partial: "template/history_detail", collection: viewed_project_ids, as: "id"
+  - else
+    = link_to discovers_path, class: 'TitleLink', style: 'line-height: 36px' do
+      すべてのプロジェクト
+      %svg.arrow
+        %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+    %p.description 履歴はまだありません。興味のあるプロジェクトを探してみましょう。

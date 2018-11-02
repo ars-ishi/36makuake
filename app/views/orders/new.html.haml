@@ -4,7 +4,6 @@
     %meta{charset: "UTF-8"}/
     %meta{content: "width=device-width", name: "viewport"}/
     %meta{content: "E1E1FC54C2FA07FA57AEB0483B623C2E", name: "msvalidate.01"}/
-    %meta{content: "667f9ec4a8a3ccfaf75391822432898779292be76a7a50068be8d64682492f381b55c0d0d2aa4886a2f731e9b75888dd3f312ea41fc5a7f33ca63b15cffa00d5", name: "fuel_csrf_token"}/
     %title 決済 Makuake_clone
     %link{href: "//css.36project.com/stylesheets/modules/reset.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/commons/common.css", rel: "stylesheet"}/
@@ -12,49 +11,8 @@
     %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportcheck.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/order.css", rel: "stylesheet"}/
-    %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/jquery-ui.min.css", rel: "stylesheet"}/
-    %link{href: "//cdn-m.makuake.com/rev_2018/10/12/143228/css/login_regist.css", rel: "stylesheet"}/
-    /[if lt IE 9]
-      <script src="//cdn-m.makuake.com/rev_2018/10/12/143228/js/html5.js"></script>
-    %script{async: "", src: "https://connect.facebook.net/signals/config/114657922702647?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/546705148766404?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/signals/config/1959839670709071?v=2.8.30&r=stable"}
-    %script{async: "", src: "https://connect.facebook.net/en_US/fbevents.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/pc/dest/js/app.js"}
-    %script{src: "//cdn-m.makuake.com/js/geenie/makuake_ga.js"}
-    :javascript
-      function fuel_csrf_token()
-      {
-        if (document.cookie.length > 0)
-        {
-          var c_name = "fuel_csrf_token";
-          c_start = document.cookie.indexOf(c_name + "=");
-          if (c_start != -1)
-          {
-            c_start = c_start + c_name.length + 1;
-            c_end = document.cookie.indexOf(";" , c_start);
-            if (c_end == -1)
-            {
-              c_end=document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-          }
-        }
-        return "";
-      }
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/me/favorite.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/gtm_data_layer.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/userstatus.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.investment.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_regist.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exchecker-ja.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/lib/exvalidation.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/login_logout.js"}
   %body
     = render "shared/svg"
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/api/notification.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/header.js"}
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/geenie/attention_header.js"}
     #header
       %header#headerIn
         %a#siteId.siteId{href: "/"}
@@ -205,11 +163,18 @@
         .boxHosoku
           %div
             %em ご確認お願いします
-            %p
-              このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の12月26日 23:59までに支払いを完了した時点で、支援が成立します。
-              %br/
-              ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
-
+            -if @course.project.support_type == 1
+              %p
+                このプロジェクトはAll in形式です。目標金額の達成に関わらず、プロジェクト終了日の
+                までに支払いを完了した時点で、支援が成立します。
+                %br/
+                ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます
+            -else
+              %p
+                このプロジェクトはAll or Nothing型です。プロジェクト成立のためにはプロジェクト終了日の
+                #{@course.project.deadline.strftime("%m月%d日")}23:59までに目標金額が達成となる必要があります。
+                %br/
+                ※Makuakeは、プロジェクトオーナーのプロジェクトが必ず成功することや、プロジェクトの品質、リターン内容を保証するものではありません。従って、プロジェクト進行中に関するトラブル、返金要求、リターン返品要求はプロジェクトオーナーの責任のもと行われます。
     %input#investment_data_store{"data-geenie-is-self-support" => "", type: "hidden"}/
     %p#page-top_jq{style: "display: none;"}
       %a{href: "#wrap"} PAGE TOP

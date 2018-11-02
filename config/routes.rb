@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:index, :new, :create, :show] do
     resources :courses, only: [:new, :create, :show]
+    resources :project_comments, only: [:index, :create]
     collection{ get "search" }
+    member{get "report"}
   end
 
   resources :discovers, only: [:index, :new] do
@@ -23,9 +25,12 @@ Rails.application.routes.draw do
       get :soon
       get :pickup
       get :ranking
+      get :tags_index
     end
     member do
       get :categories
+      get :tags
+      get :location
     end
   end
   get 'pages/privacy' => 'pages#privacy'

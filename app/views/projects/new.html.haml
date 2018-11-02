@@ -30,7 +30,7 @@
                     %i.fas.fa-check-circle.check-icon#check-project_support_type
                     実施パターン
                     %span.required 必須
-                  .field-title-sub.qa
+                  .field-title-sub.qa#project_pattern
                     詳しく
                     %i.fas.fa-question-circle
                     .form-description
@@ -63,7 +63,9 @@
                   %i.fas.fa-check-circle.check-icon#check-project_content
                   紹介文
                   %span.required 必須
-                .field-title-sub 最大1500文字
+                .field-title-sub
+                  %i.fas.fa-expand.check-icon
+                  を押すと全画面入力ができます。最大1500文字
               = f.text_area :content, required: 'required', class: 'field-textarea', maxlength: 1500, placeholder: '例）濃厚な卵黄とすっきり甘い白身を２層仕立てのプリンで再現しました。スイーツではなく、たまごのおいしさで勝負したプリンです。原料のたまごは西尾の茶葉で育って生まれたたまご、茶らんです。北海道産生クリーム・牛乳・砂糖・わずかなバニラ香料のみで、保存料や凝固剤など添加物を一切使わない、加熱による卵の固まる力だけを利用して作りました。'
             .promoter-form__field
               .field-title

@@ -1,13 +1,3 @@
-/ %h1 プロジェクトのindexページです
-/ - if user_signed_in?
-/   %p
-/     = link_to 'ログアウト', destroy_user_session_path, method: :delete
-/ - else
-/   %p
-/     = link_to '新規登録', new_user_registration_path, method: :get
-/   %p
-/     = link_to 'ログイン', new_user_session_path, method: :get
-/ ヘッダー
 #wrapper
   / スライドショー
   = render "template/slider"
@@ -17,32 +7,7 @@
       %h2.title 新たなチャレンジを応援しよう。
       %p.description 世の中を良くする新しいチャレンジが毎日続々と登場。
     / 閲覧履歴
-    %section.watched-section.headline
-      .Title
-        %h3.subject
-          閲覧履歴
-          %a.TitleLink{:href => "/favorite/watched/"}
-            すべて見る
-            %svg.arrow
-              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-      %ul.watched.articles
-        %li.watched-item
-          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
-            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
-
-        %li.watched-item
-          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
-            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
-        %li.watched-item
-          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
-            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
-        %li.watched-item
-          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
-            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
-        %li.watched-item
-          %a{:href => "https://www.makuake.com/project/virtual-musicfes/"}
-            %img.watched-thumb{:alt => "「私たちだってVRライブを盛り上げたい！」バーチャル音楽フェス 制作プロジェクト", :height => "106", :src => "https://hayabusa.io/makuake/upload/project/5086/main_5086.png?fit=scale&format=png&ttl=31536000&version=1538102181&force&width=376&height=212&quality=95", :width => "188"}
-
+    = render "template/history"
     / ピックアップ
     %section.ProjectPickup.headline
       .Title

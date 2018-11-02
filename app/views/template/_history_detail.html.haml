@@ -1,0 +1,7 @@
+%li.ProjectItem.ProjectItem--4column
+  = link_to project_path(id), class:"link link--without-detail" do
+    - project = Project.find(id)
+    %article
+      .image
+        = image_tag project.thumbnail, class: "img image-thumbnail-m", alt: "#{project.name}", onerror: "this.src='http://image.36project.com/makuake_thumb.png'"
+      %h4.new_title.title #{project.name}

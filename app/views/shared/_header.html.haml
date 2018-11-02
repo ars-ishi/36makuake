@@ -72,7 +72,7 @@
               %span#unread_notification_cnt.bell-after-num{:style => "display:none;"}
           %li
             - if current_user.image.present?
-              %img.user_image.link03After{:src => "#{current_user.image}"}/
+              = image_tag current_user.image, class: 'user_image link03After', onerror: "this.src='http://image.36project.com/icon_yellow.png'"
             -else
               = image_tag('http://image.36project.com/icon_yellow.png', class: 'user_image link03After')
       #toolTipsPjt
@@ -85,7 +85,7 @@
             %a.myLink01{:href => "/users/#{current_user.id}"}
               %div
                 - if current_user.image.present?
-                  = image_tag current_user.image, class: 'user_image userImage02'
+                  = image_tag current_user.image, class: 'user_image userImage02', onerror: "this.src='http://image.36project.com/icon_yellow.png'"
                 - else
                   = image_tag 'http://image.36project.com/icon_yellow.png', class: 'user_image userImage02'
               %div マイページ
@@ -95,7 +95,7 @@
               %li.links
                 = link_to 'プロジェクト管理', user_promoter_profile_path(current_user, current_user.promoter_profile), class: 'links-mypage'
               %li.links
-                = link_to '新規プロジェクト', new_project_path, class: 'links-mypage'
+                = link_to '新規プロジェクト', new_project_path, class: 'links-mypage', data: { turbolinks: false }
           %li.links
             = link_to '支援・寄附したプロジェクト', invest_user_path(current_user), class:"links-mypage"
           %li.links

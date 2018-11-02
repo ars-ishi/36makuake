@@ -29,8 +29,8 @@
               = link_to "支援金ランキング",ranking_discovers_path, class:"footer-link-block-txt"
             %li.footer-link-block-list
               = link_to "ピックアップ", pickup_discovers_path, class:"footer-link-block-txt"
-            %li.footer-link-block-list
-              = link_to "ふるさと納税型", "https://www.makuake.com/discover/government", class:"footer-link-block-txt"
+            -# %li.footer-link-block-list
+            -#   = link_to "ふるさと納税型", "https://www.makuake.com/discover/government", class:"footer-link-block-txt"
         %section
           %h5.footer-column-ttl ストア
           %ul.footer-link-block
@@ -40,33 +40,45 @@
         %section
           %h5.footer-column-ttl
             人気のタグ
-            %a.footer-link-tag{:href => "/discover/tags"}
+            -# %a.footer-link-tag{:href => "/discover/tags"}
+            = link_to tags_index_discovers_path, class: 'footer-link-tag' do
               すべて見る
               %svg.footer-link-tag-arrow
                 %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
           .footer-link
             %ul.footer-link-block.footer-link-block--1
-              %li.footer-link-block-list= link_to "# 便利グッズ", "https://www.makuake.com/discover/tags/203/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# レストラン", "https://www.makuake.com/discover/tags/121/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# ガジェット", "https://www.makuake.com/discover/tags/8/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 映画", "https://www.makuake.com/discover/tags/13/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# プロダクト", "https://www.makuake.com/discover/tags/90/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# フード", "https://www.makuake.com/discover/tags/66/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 会員制", "https:/www.makuake.com/discover/tags/180/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 日本酒", "https:/www.makuake.com/discover/tags/158/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# ファッション", "https:/www.makuake.com/discover/tags/50/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 肉", "https:/www.makuake.com/discover/tags/77/", class:"footer-link-block-txt"
+              - Tag.where( "id < ?" , "11").limit(10).each do |tag|
+                %li.footer-link-block-list
+                  = link_to tags_discover_path(tag), class:'footer-link-block-txt' do
+                    \# #{tag.name}
             %ul.footer-link-block
-              %li.footer-link-block-list= link_to "# テクノロジー", "https:/www.makuake.com/discover/tags/81/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 日本製", "https:/www.makuake.com/discover/tags/184/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# リュック", "https:/www.makuake.com/discover/tags/52/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 音楽", "https:/www.makuake.com/discover/tags/105/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# アウトドア", "https:/www.makuake.com/discover/tags/134/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 子供", "https:/www.makuake.com/discover/tags/109/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 文房具", "https:/www.makuake.com/discover/tags/115/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# アニメ", "https:/www.makuake.com/discover/tags/3/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 伝統", "https:/www.makuake.com/discover/tags/183/", class:"footer-link-block-txt"
-              %li.footer-link-block-list= link_to "# 腕時計", "https:/www.makuake.com/discover/tags/57/", class:"footer-link-block-txt"
+              - Tag.where( "id > ? AND id < ?" , "10", "21").limit(10).each do |tag|
+                %li.footer-link-block-list
+                  = link_to tags_discover_path(tag), class:'footer-link-block-txt' do
+                    \# #{tag.name}
+            -# %ul.footer-link-block.footer-link-block--1
+            -#   %li.footer-link-block-list= link_to "# 便利グッズ", "https://www.makuake.com/discover/tags/203/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 便利グッズ", "https://www.makuake.com/discover/tags/203/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# レストラン", "https://www.makuake.com/discover/tags/121/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# ガジェット", "https://www.makuake.com/discover/tags/8/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 映画", "https://www.makuake.com/discover/tags/13/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# プロダクト", "https://www.makuake.com/discover/tags/90/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# フード", "https://www.makuake.com/discover/tags/66/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 会員制", "https:/www.makuake.com/discover/tags/180/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 日本酒", "https:/www.makuake.com/discover/tags/158/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# ファッション", "https:/www.makuake.com/discover/tags/50/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 肉", "https:/www.makuake.com/discover/tags/77/", class:"footer-link-block-txt"
+            -# %ul.footer-link-block
+            -#   %li.footer-link-block-list= link_to "# テクノロジー", "https:/www.makuake.com/discover/tags/81/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 日本製", "https:/www.makuake.com/discover/tags/184/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# リュック", "https:/www.makuake.com/discover/tags/52/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 音楽", "https:/www.makuake.com/discover/tags/105/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# アウトドア", "https:/www.makuake.com/discover/tags/134/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 子供", "https:/www.makuake.com/discover/tags/109/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 文房具", "https:/www.makuake.com/discover/tags/115/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# アニメ", "https:/www.makuake.com/discover/tags/3/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 伝統", "https:/www.makuake.com/discover/tags/183/", class:"footer-link-block-txt"
+            -#   %li.footer-link-block-list= link_to "# 腕時計", "https:/www.makuake.com/discover/tags/57/", class:"footer-link-block-txt"
       .footer-column-in.footer-column-in--3
         %section
           %h5.footer-column-ttl カテゴリー

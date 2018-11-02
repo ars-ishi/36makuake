@@ -19,11 +19,12 @@ class OrdersController < ApplicationController
   def create
     ##支援金合計の演算処理&更新処理
     set_project.update_total_sales(set_project, order_params[:payment_price])
+    @comment = ProjectComment.new(comment_params)
     ApplicationRecord.transaction do
       ##オーダーを保存する
       @order = Order.new(order_params)
       @project = Project.find(@order.project_id)
-      @bar = @project.bar_f
+      @achievement = @project.achievement_f
       @order.save!
       if order_answer_params[:question].present?
         OrderAnswer.create!(order_answer_params)
@@ -78,6 +79,10 @@ private
       :answer,
       :question
       ).merge(order_detail_id: @order.order_details[0].id)
+  end
+
+  def comment_params
+    params.permit(:project_id, :user_id, :content)
   end
 
   def course_from_show

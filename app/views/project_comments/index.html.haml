@@ -1,0 +1,99 @@
+= stylesheet_link_tag "http://css.36project.com/stylesheets/comment.css"
+%body
+
+  .tab_wrapper_box
+    .tab_wrapper
+      .tabNavigation
+        %ul.tabNav_menu
+          %li
+            = link_to "プロジェクト", project_path(@project.id)
+          %li
+            = link_to report_project_path(@project) do
+              活動レポート
+              %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
+          %li
+            = link_to project_project_comments_path(@project.id), class:"tabOn",data: {"turbolinks" => false} do
+              応援コメント
+              %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
+        .goodBase_tab
+          .goodBaseIn_tab
+            %i.icon_heart_off_tab
+              %svg.icon_heart_off_tab-in
+                %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %span お気に入りに追加
+          .goodBaseIn2_tab{:style => "display:none;"}
+            %i.icon_heart_on_tab
+              %svg.icon_heart_on_tab-in
+                %use{"xlink:href" => "#icon-heart_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+            %span お気に入り追加中
+
+
+  .com-aside
+    .com-asidein
+      .com-asidein-box01
+        = link_to project_path(@project) do
+          = image_tag (@project.thumbnail), alt:"@project.name", class:"com-asidein-thumb"
+      .com-asidein-box02
+        %div
+          %svg.icon-clap
+            %use{"xlink:href" => "#icon-clap"}
+        %div
+          %p.com-count-like 0いいね
+      .com-asidein-box03
+        %div
+          %svg.icon-com-04
+            %use{"xlink:href" => "#icon-com-04"}
+        %div
+          %p.com-count-commnt #{@comments.length} コメント
+  #comContent
+    #comBase
+      - @comments.each do |comment|
+        .item.post{style:"margin:0 10px 10px 10px;"}
+          .postUser
+            .postFirstb
+              %p.postUserPhoto
+                = image_tag (comment.user.image), alt:"#{comment.user.name}", width:"40px", heigth:"40px"
+            .postUserName
+              %p.postUserNameDate #{comment.created_at.strftime("%Y.%m.%d")}
+              %h5 #{comment.user.name}
+            %a.postText{:href => "#threadDetail"}
+              %p.postText-inner #{comment.content}
+          .action
+            .action-com-asidein-box02
+              %i#heart_icon158359.iconHeartOff{:onclick => "heart_icon(158359)"}
+                %svg.action-icon-clap
+                  %use{"xlink:href" => "#icon-clap"}
+              %span#heart_thread_num158359.action-com-count-like{"data-heart_cnt" => "1"}
+            .action-com-asidein-box03
+              %i
+                %a{href: "#threadDetail", class:"modal"}
+                  %svg.action-icon-com-04
+                    %use{"xlink:href" => "#icon-com-04"}
+              %span.action-com-count-commnt
+
+
+
+  .bread-crumb-listBase
+    %ul#bread-crumb-list.clearfix
+      %li
+        = link_to "TOP", projects_path
+         
+        %i> &gt;
+         
+      %li
+        = link_to "プロジェクト一覧",search_projects_path
+         
+        %i> &gt;
+         
+      %li
+        = link_to "#{@project.category.name}", categories_discover_path(@project.category_id)
+         
+        %i> &gt;
+         
+      %li
+        = link_to "#{@project.name}", project_path(@project)
+         
+        %i> &gt;
+         
+      %li
+        = link_to "応援コメント", project_project_comments_path(@project.id)

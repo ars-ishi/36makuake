@@ -1,3 +1,5 @@
+= stylesheet_link_tag "http://css.36project.com/stylesheets/comment.css"
+= stylesheet_link_tag    '/../assets/project_froala.css', media: 'all', 'data-turbolinks-track': 'reload'
 :javascript
   $(document).ready(function(){
           var num = $(".projectTtl").offset().top;
@@ -48,7 +50,6 @@
         %br>/
         ら
       .toApplyLinkBtn.btncol_03
-  %input#is_shopping{:type => "hidden", :value => "0"}/
   %input#project_id{:type => "hidden", :value => "@project.id"}/
 
 
@@ -58,14 +59,14 @@
       .tab_wrapper
         .tabNavigation
           %ul.tabNav_menu
-            %li{"data-tab_type" => "project"}
-              = link_to "プロジェクト","#", class:"tabOn"
-            %li{"data-tab_type" => "owner"}
-              = link_to "#" do
+            %li
+              = link_to "プロジェクト", project_path(@project),class:"tabOn"
+            %li
+              = link_to report_project_path(@project) do
                 活動レポート
                 %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
-            %li{"data-tab_type" => "supporter"}
-              = link_to "#" do
+            %li
+              = link_to project_project_comments_path(@project), data: {"turbolinks" => false} do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
           .goodBase_tab
@@ -92,11 +93,14 @@
                   #btn-play.r5 ▶ 再生
                 =image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",height:"388", width:"690",style:"object-fit:cover;",class:"video-image")
               .video_area
-            - else
+            - elsif @project.project_images.present?
               .image_area
                 =image_tag("#{@project.project_images.to_a[0].image}",height:"388", width:"690",style:"object-fit:contain;",class:"main-image")
+            - else
+              .image_area
+                =image_tag("https://haginoryokkou.com/wp-content/uploads/2016/09/noimage.png",alt:"no-image",height:"388", width:"690",style:"object-fit:cover;",class:"no-image")
         .pnumBase
-          - if @project.bar >= 100
+          - if @project.achievement >= 100
             %svg.icon_success
               %use{"xlink:href" => "#icon-success", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
           .pnumBaseUp
@@ -113,8 +117,8 @@
                 = number_with_delimiter("#{@project.target_sales}")
                 円
             .stbar
-              .stbarin{"data-investment-info-percent-style" => "", :style => "width:#{@project.bar}%;"}
-                %p{"data-investment-info-percent" => ""} #{@project.bar}%
+              .stbarin{"data-investment-info-percent-style" => "", :style => "width:#{@project.achievement}%;"}
+                %p{"data-investment-info-percent" => ""} #{@project.achievement}%
             .stSupo
               %p.stSupoTtl
                 %svg.stSupoTtlIcon
@@ -148,76 +152,10 @@
                 .slideShowThumbnail
                   = image_tag("#{image.image}",alt:"#{image.id}", style:"object-fit:cover",class:"imageThumb")
           %h2.projectTtl #{@project.name}
-          / タグがあれば表示
           .tagWrapper
-            = link_to "#", class:"pjTag" do
-              %span.tag #
-              %span.tagName tag
-          / タグがあれば表示
-        .heroBtmBaseDown
-          / カテゴリー表示
-          .project_category
-            = link_to categories_discover_path(@project.category_id), class:"projectTag" do
-              %svg.icon-tag
-                %use{"xlink:href" => "#icon-tag", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span.location-name #{@project.category.name}
-          .project-location
-            = link_to "#" do
-              %svg.icon-location
-                %use{"xlink:href" => "#icon-location", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span.location-name 所在地
-
-
-
-          / ここまでカテゴリー表示
-          .sns-wrapper
-            %ul
-              %li
-                = link_to "#iframeBase",{rel:"leanModal"} do
-                  %svg.icon-widget
-                    %use{"xlink:href" => "#icon-widget", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                  %span.title-widget 埋め込み
+            = render partial: 'projects/tag', collection: @project.tags, as: 'tag'
+        = render 'sub_info'
     .movieReturn{:style => "display: none;"} 戻す
-
-    %script{:src => "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.min.js"}
-    #iframeBase
-      %svg.modal_close
-        %use{"xlink:href" => "#icon-close"}
-      %p.modal_text
-        下方のHTMLコードをコピーして、あなたのWebサイトやブログに用途に
-        あわせて様々な形のプロジェクト概要を表示して応援しよう！
-      %ul.tabs
-        %li.typeAfook.baGray 310x390
-        %li.typeBfook 160x420
-        %li.typeCfook 460x200
-        %li.typeDfook 160x160
-        %li.typeEfook 1000x287
-      .boxcDiplay
-        .typeA
-          .bnnerAreaIn.clearfix
-            #typeAL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText310{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:310px; height:390px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/"&gt;&lt;/iframe&gt;
-        .typeB
-          .bnnerAreaIn.clearfix
-            #typeBL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText160{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:420px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/length/"&gt;&lt;/iframe&gt;
-        .typeC
-          .bnnerAreaIn.clearfix
-            #typeCL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText460{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:460px; height:200px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/wide/"&gt;&lt;/iframe&gt;
-        .typeD
-          .bnnerAreaIn.clearfix
-            #typeDL.bnnerAreaInL
-            .bnnerAreaInR
-              %textarea.wighetText160_02{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:160px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/square/"&gt;&lt;/iframe&gt;
-        .typeE
-          .bnnerAreaIn
-            #typeEL.mb
-            %div
-              %textarea.wighetText1000{:onclick => "this.focus();this.select()"} &lt;iframe  scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1000px; height:287px;" allowtransparency="true" src="https://www.makuake.com/widget/project/georiem7/hero/"&gt;&lt;/iframe&gt;
 
     #main.clearfix
       #leftContent
@@ -233,7 +171,7 @@
           - else
             .owner-latest_balloon
               %span.owner-latest-post
-                = truncate("#{@project.reports.to_a.last.content}", length: 75, omission: "...")
+                #{@project.reports.to_a.last.content.truncate(75)}
               %svg.right-arrow_inner
                 %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-latest_balloon_triangle
@@ -255,9 +193,10 @@
                       %use{"xlink:href" => "#icon-earth", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
               .owner-line-divider
               .owner-contact_ask.open_contact_window
-                %svg.owner-contact_message
-                  %use{"xlink:href" => "#icon-mail", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-                %span.owner-contact_title 実行者へ問合せ
+                = link_to "#contact_me_box",class:" modal" do
+                  %svg.owner-contact_message
+                    %use{"xlink:href" => "#icon-mail", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+                  %span.owner-contact_title 実行者へ問合せ
           / ここまで会社情報
         / ここからプロジェクト内容詳細
         %section
@@ -271,7 +210,8 @@
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
               .leftText
-                #{@project.content}
+                .floaraTextArea
+                  = raw @project.content
           #supporting-comment
             %h2#supporting-comment-title 応援コメント
             #supporting-comment-wrapper
@@ -285,7 +225,7 @@
                     %p.supporting-comment-message
                       #{comment.content}
             .supporting-comment-more{:style => ""}
-              = link_to "すべて見る", "#", id:"support-comment-link"
+              = link_to "すべて見る", project_project_comments_path(@project.id), id:"support-comment-link"
 
 
 
@@ -326,9 +266,11 @@
             「#{@project.name}」プロジェクト詳細ページです。
         .sct
           .go-to-sct 特定商取引法に基づく表記
+
+
+
       #scrollContent{:style => "display: none;"}
-        #scrollShienBtnBase
-          = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
+        = link_to "コースを選択","#", {:onclick => "$('html,body').animate({ scrollTop: $('.returnTtl').offset().top - 20 }, 800); return false;",class: "scrollShienBtn"}
       #contact_me_overlay{:style => "display:none;"}
 
       #contact_me_box{:style => "display:none;"}
@@ -367,4 +309,3 @@
            
         %li
           = link_to "#{@project.name}",project_path(params[:id])
-

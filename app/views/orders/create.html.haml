@@ -17,26 +17,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
-    :javascript
-      function fuel_csrf_token()
-      {
-        if (document.cookie.length > 0)
-        {
-          var c_name = "fuel_csrf_token";
-          c_start = document.cookie.indexOf(c_name + "=");
-          if (c_start != -1)
-          {
-            c_start = c_start + c_name.length + 1;
-            c_end = document.cookie.indexOf(";" , c_start);
-            if (c_end == -1)
-            {
-              c_end=document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-          }
-        }
-        return "";
-      }
   %body
     = render "shared/svg"
     #header
@@ -64,7 +44,7 @@
             .hero-sub-after-support
               %p{:class => "hero-sub__money—after"}> #{@project.total_sales}
               円 (
-              %p.hero-sub__gauge-after> #{@bar}
+              %p.hero-sub__gauge-after> #{@achievement}
               \%)
 
 
@@ -77,27 +57,17 @@
             に表示されますので、個人情報は記載しないでください。
         %section.comment-box__wrapper
           .comment-box__contents
-            .left-side
-              %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "comment", :placeholder => "応援しています！頑張ってください！", :rows => ""}
-            .comment-box__bottom
-              .right-side__counter
-                %span.js-cnt 0
-                %span /140
-              %input#post_message.submit-btn{:type => "button", :value => "投稿する"}/
+            = form_tag("/projects/#{@project.id}/project_comments", method: :post, id:"comment_form") do
+              .left-side
+                %textarea#comment.comment-textarea{:autofocus => "", :cols => "", :maxlength => "200", :name => "content", :placeholder => "応援しています！頑張ってください！", :rows => ""}
+                = hidden_field_tag :user_id, current_user.id
+                = hidden_field_tag :project_id, @project.id
+              .comment-box__bottom
+                .right-side__counter
+                  %span.js-cnt 0
+                  %span /140
+                = submit_tag "投稿する", id:"post_message", class:"submit-btn modal"
 
-
-              .submit-btn__loader{:style => "display:none;"}
-            .after-comment-box{:style => "display: none;"}
-              %p.after-comment-box__title THANK YOU!
-              %a.after-comment-box__pj-link{:href => "//"} 投稿したコメントへ
-              %p.app-dl-description
-                支援したプロジェクトの最新情報を
-                %br>/
-                受け取るにはアプリが便利です
-        %a.comment-box__back-to-pj{:href => "", :style => "display:none;"}
-          プロジェクトページへ
-          %svg.comment-box__back-to-pj__right-arrow
-            %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
         %section
           %h2.tag-recommend-ttl あなたへおすすめのタグ
           %p.tag-recommend-ttl-hint
