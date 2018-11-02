@@ -1,13 +1,22 @@
 class OrdersController < ApplicationController
   before_action :set_project, only: [:create]
   before_action :set_course,  only: [:create]
+  before_action :set_user, only: [:index, :new]
   before_action :course_from_show, only: [:new]
+
+  def index
+    @address = set_user.send_addresses.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
   def new
     @order = Order.new(new_order_params)
     @order.order_details.build
     @answer = OrderAnswer.new(new_order_answer_question_params)
-    @user = User.find(current_user.id)
+    @user = set_user
     @usersAddresses = @user.send_addresses
     @address = @usersAddresses.find_by(main: "1")
     @fullName = Order.full_name(@address.last_name, @address.first_name)
@@ -95,5 +104,9 @@ private
 
   def set_course
     set_course = Course.find(order_params[:order_details_attributes].values[0]['course_id'])
+  end
+
+  def set_user
+    set_user = User.find(current_user.id)
   end
 end
