@@ -721,3 +721,83 @@
   display: list-item;
   text-align: -webkit-match-parent;
 }
+.project-edit-area {
+  position: relative;
+}
+.project-edit-btn {
+  background: #FFB314;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(0,0,0,.1);
+  position: absolute;
+  right: 10px;
+  top: -20px;
+}
+.project-edit-btn  a {
+  color: #fff;
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  line-height: 40px;
+  padding-left: 2px;
+}
+.project-edit-btn:hover{
+  opacity: .8;
+}
+.project-edit-description {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: -95px;
+  font-size: .7em;
+  line-height: 1.2em;
+  border-radius: 4px;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1), 0 1px 1px 1px rgba(0,0,0,.1);
+  z-index: 1000;
+}
+.edit-project-submit-btn {
+  width: 200px;
+  font-size: 18px;
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  outline: none;
+  background: #F7C600;
+  color: white;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+  position: relative;
+  float: left;
+}
+.cancel {
+  margin-left: 50px;
+  color: #adadad;
+  background: #fff;
+  border: solid 1px #adadad;
+}
+.edit-project-submit-btn:hover {
+  opacity: .8;
+}
+.edit-project-submit-wrap {
+  width: 450px;
+  margin: 20px auto 40px;
+}
+.edit-project-submit-wrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}

@@ -4,6 +4,7 @@
   margin-bottom: 15px;
   word-wrap: break-word;
   word-break: normal;
+  position: relative;
 }
 .floaraTextArea h1 {
   display: block;

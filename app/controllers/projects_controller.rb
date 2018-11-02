@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
-  def index
+  before_action :auth_check, only: [:new, :create, :edit, :update]
 
+  def index
     projects = Project.all.includes(:project_images)
     @sliders = []
     sliders = ProjectSlider.limit(5)
@@ -22,32 +23,24 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    if current_user.admin? || current_user.promoter?
-      @project = current_user.projects.new
-      @project.project_tags.new
-      @project.project_movies.new
-      4.times {@project.project_images.new}
-      courses = @project.courses.new
-      courses.course_images.new
-      course_questions = courses.course_questions.new
-      3.times {course_questions.course_question_answers.new}
-      render layout: 'account'
-    else
-      redirect_to root_path, alert: 'アクセスできないページです'
-    end
+    @project = current_user.projects.new
+    @project.project_tags.new
+    @project.project_movies.new
+    4.times {@project.project_images.new}
+    courses = @project.courses.new
+    courses.course_images.new
+    course_questions = courses.course_questions.new
+    3.times {course_questions.course_question_answers.new}
+    render layout: 'account'
   end
 
   def create
-    if current_user.admin? || current_user.promoter?
-      @project = current_user.projects.new(projects_params)
-      if @project.save
-        redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'プロジェクトを作成しました。'
-      else
-        flash.now[:alert] = 'プロジェクトを作成できませんでした。入力内容をご確認ください。'
-        render 'new'
-      end
+    @project = current_user.projects.new(projects_params)
+    if @project.save
+      redirect_to user_promoter_profile_path(current_user, current_user.promoter_profile), notice: 'プロジェクトを作成しました。'
     else
-      redirect_to root_path, alert: 'アクセスできないページです'
+      flash.now[:alert] = 'プロジェクトを作成できませんでした。入力内容をご確認ください。'
+      render 'new'
     end
   end
 
@@ -66,6 +59,20 @@ class ProjectsController < ApplicationController
     if ProjectMovie.find_by(project_id: @project.id).present?
       project_movie_path = ProjectMovie.find_by(project_id: @project.id).movie
       @movie_id = project_movie_path.slice!(32..45)
+    end
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+    redirect_to project_path(@project), notice: '編集はできません。' unless @project.user_id == current_user.id
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.user_id == current_user.id
+      @project.update(projects_params)
+    else
+      redirect_to project_path(@project), notice: '編集できませんでした。'
     end
   end
 
@@ -106,6 +113,10 @@ class ProjectsController < ApplicationController
         { course_questions_attributes: [:content, { course_question_answers_attributes: [:content] } ] }
       ]
     )
+  end
+
+  def auth_check
+    redirect_to root_path, alert: 'アクセスできないページです' unless current_user.admin? || current_user.promoter?
   end
 
 end

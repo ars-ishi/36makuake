@@ -1,5 +1,30 @@
 = stylesheet_link_tag "http://css.36project.com/stylesheets/comment.css"
+-# CDN化したら書き換え
 = stylesheet_link_tag    '/../assets/project_froala.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    '//css.36project.com/stylesheets/account.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://use.fontawesome.com/releases/v5.0.6/css/all.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/char_counter.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/fullscreen.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/colors.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/code_view.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/help.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+-# CDN化したら書き換え
+= stylesheet_link_tag    '//css.36project.com/stylesheets/promoter_ver2.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    '/../assets/promoter_ver3', media: 'all', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/languages/ja.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/char_counter.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/fullscreen.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/colors.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/code_view.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/font_size.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/help.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/link.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/lists.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/align.min.js', 'data-turbolinks-track': 'reload'
+= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/plugins/paragraph_format.min.js', 'data-turbolinks-track': 'reload'
 :javascript
   $(document).ready(function(){
           var num = $(".projectTtl").offset().top;
@@ -207,6 +232,15 @@
                 %li.summaryItem
                   #{sum}
           .triangleAfterSummary
+          - if @project.user == current_user
+            .project-edit-area
+              .project-edit-description
+                プロジェクトの紹介文を編集できます。
+                %br
+                このボタンはあなただけに表示されています。
+              .project-edit-btn
+                = link_to edit_project_path(@project), method: :get, remote: true do
+                  %i.fas.fa-edit
           #leftContentMain.leftTextColor
             %section.leftProjectDetail
               .leftText

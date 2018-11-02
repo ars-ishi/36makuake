@@ -97,4 +97,20 @@ $(document).on('turbolinks:load', function(){
     tabSwitch('#supporters-link');
     tabSwitch('#projects-link');
   }
+  if (window.location.href.match(/\/projects\/\d+$/)) {
+    $(document).ready(function () {
+      $('.project-edit-btn').mouseover(function () {
+        $('.project-edit-description').css('display', 'inline-block');
+      })
+      .mouseout(function () {
+        $('.project-edit-description').css('display', 'none');
+      })
+      .mouseenter(function () {
+        $('.project-edit-description').css('display', 'inline-block');
+      })
+      .mouseleave(function () {
+        $('.project-edit-description').css('display', 'none');
+      });
+    });
+  }
 });
