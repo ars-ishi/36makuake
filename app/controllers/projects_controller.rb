@@ -76,6 +76,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def report
+    @project = Project.find(params[:id])
+    @comments = @project.project_comments.order("created_at DESC")
+    @reports = Report.where(project_id: params[:id])
+  end
+
   def search
     @projects = Project.where('name LIKE(?)', "%#{params[:keyword]}%").page(params[:page]).per(15).order("created_at DESC")
     @categories = Category.order("id ASC")

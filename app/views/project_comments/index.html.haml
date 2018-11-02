@@ -5,14 +5,14 @@
     .tab_wrapper
       .tabNavigation
         %ul.tabNav_menu
-          %li{"data-tab_type" => "project"}
+          %li
             = link_to "プロジェクト", project_path(@project.id)
-          %li{"data-tab_type" => "owner"}
-            = link_to "#" do
+          %li
+            = link_to report_project_path(@project) do
               活動レポート
               %i.tabnavicon.tabnavicon--yellow #{@project.reports.length}
-          %li{"data-tab_type" => "supporter"}
-            = link_to "#", class:"tabOn" do
+          %li
+            = link_to project_project_comments_path(@project.id), class:"tabOn",data: {"turbolinks" => false} do
               応援コメント
               %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
         .goodBase_tab
