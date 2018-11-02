@@ -66,7 +66,7 @@ class Project < ApplicationRecord
      hour = deadline.strftime("%H").to_i - Time.now.strftime("%H").to_i
      minute = deadline.strftime("%M").to_i - Time.now.strftime("%M").to_i
     if years > 0
-      days = days + Time.now.strftime("%j").to_i
+      days = days + 365
       return "#{days} 日"
     elsif
       days > 1
