@@ -32,7 +32,7 @@
       / 実行者情報
       .owner-info
         %div{style:"display:flex;"}
-          %img.owner-info__icon{:alt => "#{@project.user.name}", :src => "https://mbdb.jp/wp-content/uploads/2015/07/https-www.pakutaso.com-assets_c-2015-06-MAX_blackpugya-20150207114045-thumb-1000xauto-181691.jpg"}
+          %img.owner-info__icon{:alt => "#{@project.user.name}", :src => "#{@project.user.image}"}
           %p{style:"margin-top:20px;"} #{@project.user.name}
       / 活動レポート一覧
       #app

@@ -11,7 +11,15 @@
     %link{href: "//css.36project.com/stylesheets/commons/discover_project.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/supportcheck.css", rel: "stylesheet"}/
     %link{href: "//css.36project.com/stylesheets/order.css", rel: "stylesheet"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    = stylesheet_link_tag    'http://css.36project.com/stylesheets/selector_address.css'
+    = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js', 'data-turbolinks-track': 'reload'
   %body
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', 'data-turbolinks-track': 'reload'
     = render "shared/svg"
     #header
       %header#headerIn
@@ -58,61 +66,10 @@
           %span.failed Failed
           %span.alert_case05.Batsu01.header_email_auth_alert_close_class ×
           .failedText メールアドレスの認証に失敗しました。ボタンの有効期限が切れています。
-    %script{src: "//cdn-m.makuake.com/rev_2018/10/12/143228/js/jquery.leanModal.min.js"}
-    :javascript
-      $(function() {
-
-          $( 'a[rel*=leanModal]').leanModal({
-              //top:500,
-              overlay : 0.8,             // 背面の透明度
-              closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
-          });
-
-          //クリックしたらある場所まで飛ばす
-          $(".nenwJoin").click(function(){
-              // var target = $("html,body").offset().top;
-              // $("html,body").animate({
-              //  scrollTop: 400
-              // }, 400);
-              $(".typeAfuck").click();
-              return false;
-          });
-
-      });
-    #adrsChenge
-      %section
-        %a.modal_close.posSet{href: "#"}
-        .boxI
-          %h3.ttl
-            お届け先住所
-            %a.btnC{href: "/investment/ship/1566563/"} 新規追加
-        .addList
-          .boxJ.address
-            %i.icon_addNG{"data-user_addressbook_id" => "439626"}
-            .boxK
-              ユーザーネーム
-              = succeed "5660046" do
-                %br/
-              = succeed "\u{6442}\u{6d25}\u{5e02}\u{5225}\u{5e9c}1-6-27" do
-                %br/
-              %br/
-            .boxL
-              %a.btnD{href: "/investment/ship/1566563/439626/"} 編集
-          .boxJ.address
-            %i.icon_addOK{"data-user_addressbook_id" => "441123"}
-            .boxK
-
-              = succeed "5660046" do
-                %br/
-              = succeed "\u{6442}\u{6d25}\u{5e02}\u{5225}\u{5e9c}1-7-27" do
-                %br/
-              %br/
-            .boxL
-              %a.btnD{href: "/investment/ship/1566563/441123/"} 編集
   = form_for [@user, @order] do |f|
     .grayBase
       = f.hidden_field :project_id, value: @order.project_id
-      = f.hidden_field :send_address, value: @address.id
+      = f.hidden_field :send_address, value: @address.id, id: "send_address_id"
       = f.hidden_field :payment, value: "card"
       = f.hidden_field :payment_price, value: @course.price
       = f.fields_for :order_details do |detail|
@@ -147,19 +104,37 @@
             %dl
               %dt
                 お届け先
-                %a.btnA{href: "#adrsChenge", rel: "leanModal"} 変更する
-              %dd
+                %a.btnA{href: "#adrsChenge", class: "select_address"} 変更する
+              %dd#sendAddressArea
                 .boxOrder
-                = @fullName
-                %br>/
-                = @address.postal_code
-                %br>/
-                = @address.municipality + @address.house_number
-                %br>/
-                電話番号
-                = " " + @address.phone_number
+                  = @fullName
+                  %br>/
+                  = @address.postal_code
+                  %br>/
+                  = @address.municipality + @address.house_number
+                  %br>/
+                  電話番号
+                  = " " + @address.phone_number
         .clearfix
           %script{"class" => "stripe-button", "data-amount" => @course.price, "data-description" => "お支払い情報", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-currency" => "jpy", "data-locale" => "ja", :src => "https://checkout.stripe.com/checkout.js", "data-label" => "カード情報を入力へ"}
+        #adrsChenge{style: "display:none;" }
+          %section
+            %a.modal_close.posSet{href: "#"}
+            .boxI
+              %h3.ttl
+                お届け先住所
+            .addList
+            - @usersAddresses.each do |address|
+              .boxJ.address
+                .boxK
+                  = address.last_name + " " + address.first_name
+                  %br>/
+                  = address.postal_code
+                  %br>/
+                  = address.municipality + address.house_number
+                  %br>/
+                .boxL
+                  %a#pointer{"data-id": "#{address.id}","data-user": "#{current_user.id}", class: "btnSelector"} この住所を使う
         .boxHosoku
           %div
             %em ご確認お願いします
