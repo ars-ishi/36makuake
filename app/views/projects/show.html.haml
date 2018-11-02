@@ -113,7 +113,7 @@
               .image_area.youtube{id:"#{@movie_id}"}
                 #btn-playBase
                   #btn-play.r5 ▶ 再生
-                =image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",height:"388", width:"690",style:"object-fit:cover;",class:"video-image")
+                =image_tag("#{@project.thumbnail}",height:"388", width:"690",style:"object-fit:cover;",class:"video-image")
               .video_area
             - elsif @project.project_images.present?
               .image_area
@@ -169,7 +169,7 @@
               - if @project.project_movies.present?
                 - @project.project_movies.each do |movie|
                   .slideShowThumbnail.movieThumbnail
-                    = image_tag("http://i.ytimg.com/vi/#{@movie_id}/mqdefault.jpg",alt:"movie", style:"object-fit:cover",class:"movieThumb")
+                    = image_tag("#{@project.thumbnail}",alt:"movie", style:"object-fit:cover",class:"movieThumb")
               - @project.project_images.each do |image|
                 .slideShowThumbnail
                   = image_tag("#{image.image}",alt:"#{image.id}", style:"object-fit:cover",class:"imageThumb")
