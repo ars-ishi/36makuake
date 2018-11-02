@@ -13,7 +13,7 @@
             = image_tag 'http://image.36project.com/noimage.png', id: 'upload_image'
           %br/
           %br/
-          = form_for @user,:url => {:action => 'update'}, :html => {:multipart => true} do |f|
+          = form_for @user, url: {:action => 'update'}, html: {:multipart => true} do |f|
             = f.file_field :image, id: 'upload_1'
             = f.submit '更新', class: 'updateBtn'
           %br/
@@ -27,28 +27,24 @@
               %ul.alertIconsSns
                 %li
                   = link_to message_user_path(current_user), class: 'mailAlert' do
-                    %img{:alt => "", :src => "//cdn-m.makuake.com/rev_2018/10/10/132936/img/icon_mail_48.gif"}/
+                    %img{alt: "", src: "//cdn-m.makuake.com/rev_2018/10/10/132936/img/icon_mail_48.gif"}/
         .newsListArea
           .oneSection
             .oneSection01
               2018/05/28
             .oneSection02
-              -# %a{:href => "/information/detail/92/"}
               【重要】Makuakeガバメント開始に伴う利用規約変更のお知らせ
           .oneSection
             .oneSection01
               2018/05/25
             .oneSection02
-              -# %a{:href => "/information/detail/91/"}
               【重要】6/2(土) 深夜システムメンテナンスのお知らせ
           .oneSection
             .oneSection01
               2018/03/09
             .oneSection02
-              -# %a{:href => "/information/detail/90/"}
               【重要】3/17(土) 深夜システムメンテナンスのお知らせ
         .archiveMoreLink
-          -# %a.iconArrow24{:href => "/information/"}
             お知らせ一覧を見る
   / ./profileArea
   / contentWrapper
@@ -64,7 +60,7 @@
           = link_to '購入履歴(ストア)', consumed_user_path(current_user)
         %dd
           = link_to 'メッセージ', message_user_path(current_user)
-          %span#side_navi_new_message.newMessage{:style => "display: none;"} 未読あり
+          %span#side_navi_new_message.newMessage{style: "display: none;"} 未読あり
       %dl.sideNaviOne
         %dt.sideNaviTitle.sideIconAcnt
           アカウント情報
@@ -86,15 +82,15 @@
         .DeteilIn{"data-gtm-vis-first-on-screen-657891_277" => "251", "data-gtm-vis-first-on-screen-657891_294" => "243", "data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1", "data-gtm-vis-recent-on-screen-657891_277" => "251", "data-gtm-vis-recent-on-screen-657891_294" => "243", "data-gtm-vis-total-visible-time-657891_277" => "100", "data-gtm-vis-total-visible-time-657891_294" => "100"}
           / 01 in
           %section.projectBox.ttlSuccess
-            %a.projectLinkMypage{:href => "/project/kravas360/"}
-              %img{:alt => "", :height => "198", :src => "//hayabusa.io/makuake/upload/project/4997/main_4997.fit-scale.png?width=308&height=198&quality=95&version=1537322473&format=png&ttl=31536000&force", :width => "308"}/
+            %a.projectLinkMypage{href: "/project/kravas360/"}
+              %img{alt: "", height: "198", src: "//hayabusa.io/makuake/upload/project/4997/main_4997.fit-scale.png?width=308&height=198&quality=95&version=1537322473&format=png&ttl=31536000&force", width: "308"}/
               %h2
                 スマホに簡単装着！1ショットだけでぐるっと全方位３６０度カメラ！KRAVAS
             %aside.projectAside
-              %a.projectThumb{:href => "/member/index/438874/"}
-                %img{:alt => "", :height => "36", :src => "//hayabusa.io/makuake/upload/user/regist2018/09/04/438874/main_438874.fit-scale.jpg?width=36&height=36&quality=95&version=1536972481&format=jpg&ttl=31536000&force", :width => "36"}/
+              %a.projectThumb{href: "/member/index/438874/"}
+                %img{alt: "", height: "36", src: "//hayabusa.io/makuake/upload/user/regist2018/09/04/438874/main_438874.fit-scale.jpg?width=36&height=36&quality=95&version=1536972481&format=jpg&ttl=31536000&force", width: "36"}/
                 %span KRAVAS
-              %a.projectTag{:href => "/discover/categories/product/"}
+              %a.projectTag{href: "/discover/categories/product/"}
                 プロダクト
             .projectFooter
               .projectMoney
@@ -102,7 +98,7 @@
                   %dt 集まっている金額
                   %dd 3,047,220円
               .projectGage
-                .projectGageIn{:style => "width: 100%;"}
+                .projectGageIn{style: "width: 100%;"}
                   %p 1015%
               .projectBottom
                 .projectSupporter
@@ -141,7 +137,7 @@
                   お届け予定 :
                    2018/11
               %p.js-return-desc.return-desc
-                %span.hide{:style => "display: none;"}
+                %span.hide{style: "display: none;"}
                   ・MAKUAKE限定10%OFF（標準価格：4860円）
                   %br/
                   ・KRAVAS 360&amp;deg;VIEW レンズ iPhoneX用 もしくは iPhone7.8用、iPhone 7/8 plus 用１個
@@ -162,7 +158,7 @@
                   回答1 iPhone 7/8 plus 用
               .receipt{"data-investment_id" => "798564", "data-payment_type" => "1", "data-project_id" => "4997", "data-return_id" => "40186"}
                 領収書を発行
-              %a.chageAd{:href => "/my/address/40186/798564/"}
+              %a.chageAd{href: "/my/address/40186/798564/"}
                 お届け先を変更
             / 03-01
           .moneyArea
@@ -190,7 +186,7 @@
                   お届け予定 :
                    2018/11
               %p.js-return-desc.return-desc
-                %span.hide{:style => "display: none;"}
+                %span.hide{style: "display: none;"}
                   ・MAKUAKE限定10%OFF（標準価格：4860円）
                   %br/
                   ・KRAVAS 360&amp;deg;VIEW レンズ iPhoneX用 もしくは iPhone7.8用、iPhone 7/8 plus 用１個
@@ -210,7 +206,7 @@
                   回答1 iPhone 7/8 plus 用
               .receipt{"data-investment_id" => "798614", "data-payment_type" => "1", "data-project_id" => "4997", "data-return_id" => "40186"}
                 領収書を発行
-              %a.chageAd{:href => "/my/address/40186/798614/"} お届け先を変更
+              %a.chageAd{href: "/my/address/40186/798614/"} お届け先を変更
             / 03-01
           / ./03 in
         / ./DeteilIn
@@ -218,21 +214,21 @@
         .DeteilIn{"data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1"}
           / 01 in
           %section.projectBox.ttlSuccess
-            %a.projectLinkMypage{:href => "/project/nastent/"}
-              %img{:alt => "", :height => "198", :src => "//hayabusa.io/makuake/upload/project/2020/main_2020.fit-scale.jpg?width=308&height=198&quality=95&version=1474349940&format=jpg&ttl=31536000&force", :width => "308"}/
+            %a.projectLinkMypage{href: "/project/nastent/"}
+              %img{alt: "", height: "198", src: "//hayabusa.io/makuake/upload/project/2020/main_2020.fit-scale.jpg?width=308&height=198&quality=95&version=1474349940&format=jpg&ttl=31536000&force", width: "308"}/
               %h2 いびきのない快眠で明日のハイパフォーマンスを。鼻腔挿入デバイス【ナステント】
             %aside.projectAside
-              %a.projectThumb{:href => "/member/index/138080/"}
-                %img{:alt => "", :height => "36", :src => "//hayabusa.io/makuake/upload/user/regist2016/07/19/138080/main_138080.fit-scale.jpg?width=36&height=36&quality=95&version=1477876369&format=jpg&ttl=31536000&force", :width => "36"}/
+              %a.projectThumb{href: "/member/index/138080/"}
+                %img{alt: "", height: "36", src: "//hayabusa.io/makuake/upload/user/regist2016/07/19/138080/main_138080.fit-scale.jpg?width=36&height=36&quality=95&version=1477876369&format=jpg&ttl=31536000&force", width: "36"}/
                 %span セブン・ドリーマーズ・ラボラトリーズ株式
-              %a.projectTag{:href => "/discover/categories/product/"} プロダクト
+              %a.projectTag{href: "/discover/categories/product/"} プロダクト
             .projectFooter
               .projectMoney
                 %dl
                   %dt 集まっている金額
                   %dd 12,479,000円
               .projectGage
-                .projectGageIn{:style => "width: 100%;"}
+                .projectGageIn{style: "width: 100%;"}
                   %p 124%
               .projectBottom
                 .projectSupporter
@@ -270,7 +266,7 @@
                   お届け予定 :
                    2017/03
               %p.js-return-desc.return-desc
-                %span.hide{:style => "display: none;"}
+                %span.hide{style: "display: none;"}
                   【定価より7%OFF】
                   %br/
                   ▼ナステント 1week（仮）スターターキット  10,000円相当
@@ -320,7 +316,7 @@
                   ・洗浄液
                   %br/
                   ▼ナステント 1week（仮）2回目以降セット
-                  %a.more{:href => ""} ...もっとみる
+                  %a.more{href: ""} ...もっとみる
               .receiptGray 領収書を発行
               .chageAd-gray お届け先を変更
               .information-aboutbtn-box
@@ -341,21 +337,21 @@
         .DeteilIn{"data-gtm-vis-has-fired-657891_277" => "1", "data-gtm-vis-has-fired-657891_294" => "1"}
           / 01 in
           %section.projectBox.ttlSuccess
-            %a.projectLinkMypage{:href => "/project/cbyfavy/"}
-              %img{:alt => "", :height => "198", :src => "//hayabusa.io/makuake/upload/project/1483/main_1483.fit-scale.jpg?width=308&height=198&quality=95&version=1493631167&format=jpg&ttl=31536000&force", :width => "308"}/
+            %a.projectLinkMypage{href: "/project/cbyfavy/"}
+              %img{alt: "", height: "198", src: "//hayabusa.io/makuake/upload/project/1483/main_1483.fit-scale.jpg?width=308&height=198&quality=95&version=1493631167&format=jpg&ttl=31536000&force", width: "308"}/
               %h2 C by favyがヨーロッパに負けない国産ムール貝の食べ放題会員を募集します！
             %aside.projectAside
-              %a.projectThumb{:href => "/member/index/90089/"}
-                %img{:alt => "", :height => "36", :src => "//hayabusa.io/makuake/upload/user/90089/main_90089.fit-scale.png?width=36&height=36&quality=95&version=1505097903&format=png&ttl=31536000&force", :width => "36"}/
+              %a.projectThumb{href: "/member/index/90089/"}
+                %img{alt: "", height: "36", src: "//hayabusa.io/makuake/upload/user/90089/main_90089.fit-scale.png?width=36&height=36&quality=95&version=1505097903&format=png&ttl=31536000&force", width: "36"}/
                 %span C by favy(シーバイファビー)
-              %a.projectTag{:href => "/discover/categories/restaurant/"} レストラン・バー
+              %a.projectTag{href: "/discover/categories/restaurant/"} レストラン・バー
             .projectFooter
               .projectMoney
                 %dl
                   %dt 集まっている金額
                   %dd 3,573,000円
               .projectGage
-                .projectGageIn{:style => "width: 100%;"}
+                .projectGageIn{style: "width: 100%;"}
                   %p 446%
               .projectBottom
                 .projectSupporter
@@ -393,7 +389,7 @@
                   お届け予定 :
                    2016/02
               %p.js-return-desc.return-desc
-                %span.hide{:style => "display: none;"}
+                %span.hide{style: "display: none;"}
                   【先着300名様】
                   %br/
                   ■日本唯一となる「蒸しムール貝」の食べ放題会員権
@@ -422,7 +418,7 @@
                   ・会員証をお送り致します。
                   %br/
                   ・会員証を提示した方は一人980円で90分間「蒸しムール貝」の食べ放題を利用可能となります。
-                  %a.more{:href => ""} ...もっとみる
+                  %a.more{href: ""} ...もっとみる
               .receiptGray 領収書を発行
               .chageAd-gray お届け先を変更
               .information-aboutbtn-box
@@ -441,26 +437,6 @@
     / ./rightContentMain
 / ./contentWrapper
 / Pagetopボタン
-#page-top_jq{:style => "display:black"}
-  %a{:href => "#wrap"} page top
--# ユーザー機能確認のためリンクおいてます。あとで編集してください。
--# %h1 ユーザーのshowページです
--# - if user_signed_in?
--#   %p
--#     = link_to 'ログアウト', destroy_user_session_path, method: :delete
--#   %p
--#     = link_to 'プロフィール編集', edit_user_path(current_user.id)
--# %p
--#   = @user.name
--# %p
--#   = @user.email
+#page-top_jq{style: "display:black"}
+  = link_to 'page top', id: 'wrap'
 
--# - if can? :promoter, current_user
--#   %p プロモーター用view
-  -# プロモーターだけに表示したい内容は、"if can? :promoter, current_user"内に入れてください。一般ユーザーには表示されません。ただしadminユーザーには見れます。
-
--# - if can? :supporter, current_user
--#   %p 一般ユーザー用view
--#   %p
--#     = link_to 'プロジェクト掲載の相談をする', root_path
-  -# 一般ユーザーだけに表示したい内容は、"if can? :supporter, current_user"内に入れてください。プロモーターには表示されません。ただしadminユーザーには見れます。
