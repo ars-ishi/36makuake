@@ -1,44 +1,9 @@
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/carcleaner/communication/detail/163210/"}
-      %img.image-thumbnail-s{:alt => "軽くて持ち運びが簡単！車で家でも掃除が楽しくなるサイクロン掃除機「V-Lite」", :src => "https://hayabusa.io/makuake/upload/project/5152/main_5152.jpg?fit=scale&format=jpg&ttl=31536000&version=1540256521&force&width=368&height=206&quality=95"}/
-      %h4.posted 【ご支援のお礼】目標達成致しました！
-    .user
-      %img.user-image{:alt => "株式会社UI", :src => "https://hayabusa.io/makuake/upload/user/regist2018/09/26/431222/main_431222.jpg?fit=scale&format=jpg&ttl=31536000&version=1539309354&force&width=130&height=130&quality=95"}/
-      %p.user-name 株式会社UI
-
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/gyro/communication/detail/163208/"}
-      %img.image-thumbnail-s{:alt => "くせになる回し心地。0.001mmまでこだわった傑作。町工場が提案するボールペン", :src => "https://hayabusa.io/makuake/upload/project/4972/main_4972.jpg?fit=scale&format=jpg&ttl=31536000&version=1538628337&force&width=368&height=206&quality=95"}/
-      %h4.posted Gyroはどんな機械で作られているの？
-    .user
-      %img.user-image{:alt => "YUMOTO ELECTRIC INC.  (湯本電機株式会社)", :src => "https://hayabusa.io/makuake/upload/user/regist2018/08/10/388616/main_388616.png?fit=scale&format=png&ttl=31536000&version=1536572925&force&width=130&height=130&quality=95"}/
-      %p.user-name YUMOTO ELECTRIC INC.  (湯本電機株式会社)
-
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://hayabusa.io/makuake/upload/project/5170/main_5170.png?fit=scale&format=png&ttl=31536000&version=1540170317&force&width=368&height=206&quality=95"}
-      %img.image-thumbnail-s{:alt => "パリの夜景を削って光を灯す！ストレス解消・癒しの『スクラッチライト』", :src => "https://hayabusa.io/makuake/upload/project/5170/main_5170.png?fit=scale&format=png&ttl=31536000&version=1540170317&force&width=368&height=206&quality=95"}/
-      %h4.posted プロジェクト開始2日目、100％達成！ありがとうございます！
-    .user
-      %img.user-image{:alt => "Lagodesign", :src => "https://hayabusa.io/makuake/upload/user/regist2018/10/01/440771/main_440771.png?fit=scale&format=png&ttl=31536000&version=1539140602&force&width=130&height=130&quality=95"}/
-      %p.user-name Lagodesign
-
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/biciflasco/communication/detail/163197/"}
-      %img.image-thumbnail-s{:alt => "バイクとインテリアの調和。オール国産材の室内用バイクラック", :src => "https://hayabusa.io/makuake/upload/project/4879/main_4879.png?fit=scale&format=png&ttl=31536000&version=1536197775&force&width=368&height=206&quality=95"}/
-      %h4.posted 朝日新聞に掲載されました！
-    .user
-      %img.user-image{:alt => "サイクリストの秘密ラボ・flasco  西井匠", :src => "https://hayabusa.io/makuake/upload/user/regist2018/07/31/385364/main_385364.jpg?fit=scale&format=jpg&ttl=31536000&version=1535144730&force&width=130&height=130&quality=95"}/
-      %p.user-name サイクリストの秘密ラボ・flasco  西井匠
-
-%li.CommunicationItem
-  %article
-    %a.project-link{:href => "https://www.makuake.com/project/everwin-yamaichi03/communication/detail/163196/"}
-      %img.image-thumbnail-s{:alt => "高級ナイロンと牛革を使用したEVERWINの「東京製」ボディバック", :src => "https://hayabusa.io/makuake/upload/project/5024/main_5024.jpg?fit=scale&format=jpg&ttl=31536000&version=1537840803&force&width=368&height=206&quality=95"}/
-      %h4.posted 残すところあと2日!!!
-    .user
-      %img.user-image{:alt => "山一インターナショナル株式会社", :src => "https://hayabusa.io/makuake/upload/user/regist2018/04/17/325055/main_325055.jpg?fit=scale&format=jpg&ttl=31536000&version=1536834620&force&width=130&height=130&quality=95"}/
-      %p.user-name 山一インターナショナル株式会社
+- @reports.each do |report|
+  %li.CommunicationItem
+    %article
+      = link_to project_path(report.project_id), alt:"#{report.project}" ,class:"project-link" do
+        = image_tag(report.project.thumbnail, class:"image-thumbnail-s")
+        %h4.posted #{report.title}
+      .user
+        %img.user-image{:alt => "#{report.project.user.name}", :src => "#{report.project.user.image}"}/
+        %p.user-name #{report.project.user.name}

@@ -52,11 +52,11 @@ $(document).on('turbolinks:load', function() {
     swiper.slideTo(index);
     }
 
-    var thumb_1= $('.thumbnail_0').val();
-    var thumb_2= $('.thumbnail_1').val();
-    var thumb_3= $('.thumbnail_2').val();
-    var thumb_4= $('.thumbnail_3').val();
-    var thumb_5= $('.thumbnail_4').val();
+    var thumb_1 = $('.thumbnail_0').val();
+    var thumb_2 = $('.thumbnail_1').val();
+    var thumb_3 = $('.thumbnail_2').val();
+    var thumb_4 = $('.thumbnail_3').val();
+    var thumb_5 = $('.thumbnail_4').val();
     var banner_1 = $('.banner_1').val();
     var banner_2 = $('.banner_2').val();
     var banner_3 = $('.banner_3').val();

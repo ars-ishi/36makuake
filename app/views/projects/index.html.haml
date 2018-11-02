@@ -14,7 +14,7 @@
       .Title
         %h3.subject
           今日のピックアップ
-          %a.TitleLink{:href => "/discover/pickup"}
+          = link_to pickup_discovers_path, class: "TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -26,7 +26,7 @@
       .Title
         %h3.subject
           New!
-          %a.TitleLink{:href => "/discover/new"}
+          = link_to new_discover_path, class: "TitleLink" do
             すべて見る
             %svg.arrow
               %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -37,10 +37,6 @@
       .Title
         %h3.subject
           活動レポート
-          %a.TitleLink{:href => "/report/"}
-            すべて見る
-            %svg.arrow
-              %use{"xlink:href" => "#icon-arrow-right", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
       %ul.communications.articles
         = render "template/report"
     / 応援コメント
