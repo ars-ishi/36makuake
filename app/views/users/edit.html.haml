@@ -5,13 +5,12 @@
 #wrapperMypage
   / contentWrapper
   #contentWrapper.clearfix
-    = render '/shared/sidenavi'
+    = render 'sidenavi'
     / rightContentMain
     #rightContentMain
       / section01
       %section#profileDetails
-        %h2.ttlProfile
-          プロフィール編集
+        %h2.ttlProfile プロフィール編集
         = form_for(@user) do |f|
           %form
             .profileIn
@@ -28,9 +27,9 @@
                 %dd
                   %span 現在のプロフィール画像
                   - if current_user.persisted? && current_user.image?
-                    %img{alt: "", height: "36", src: "#{current_user.image}", width: "36", class: 'image_thumb'}/
+                    %img{:alt => "", :height => "36", :src => "#{current_user.image}", :width => "36", class: 'image_thumb'}/
                   - else
-                    = image_tag 'http://image.36project.com/noimage.png', height: "36", width: "36", class: 'image_thumb'
+                    = image_tag 'http://image.36project.com/noimage.png', :height => "36", :width => "36", class: 'image_thumb'
                   %br/
                   %br/
                   = f.file_field :image, class: 'filetInput', multipart: true, enctype: 'multipart/form-data'
@@ -80,8 +79,8 @@
                 %dd
                   = f.text_area :introduction, cols: '50', placeholder: 'ここにテキストを入力してください', rows: '10', class: 'textEdit'
             = f.submit '更新', class: 'updateBtn02'
-        -# #withdrawArea
-        -#   = link_to '退会はこちらから', leave_user_path(current_user), class: 'withdraw'
+        #withdrawArea
+          = link_to '退会はこちらから', leave_user_path(current_user), class: 'withdraw'
         / ./section01
     / ./rightContentMain
 / ./contentWrapper
