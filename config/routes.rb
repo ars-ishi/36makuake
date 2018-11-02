@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'projects#index'
   resources :users do
-    resources :orders, only: [:new, :create]
+    resources :orders, only: [:index, :new, :create]
     member do
       get :edit_password, :invest, :message, :popup, :consumed, :leave
     end
