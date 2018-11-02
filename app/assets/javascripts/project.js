@@ -57,6 +57,9 @@ $(document).on('turbolinks:load', function() {
     var thumb_3= $('.thumbnail_2').val();
     var thumb_4= $('.thumbnail_3').val();
     var thumb_5= $('.thumbnail_4').val();
+    var banner_1 = $('.banner_1').val();
+    var banner_2 = $('.banner_2').val();
+    var banner_3 = $('.banner_3').val();
 
     var swiper;
     var thumb = [
@@ -65,9 +68,9 @@ $(document).on('turbolinks:load', function() {
     thumb_3,
     thumb_4,
     thumb_5,
-    'http://image.36project.com/hero_thumb_121.png',
-    'http://image.36project.com/hero_thumb_85.jpg',
-    'http://image.36project.com/makuake_thumb.png'
+    banner_1,
+    banner_2,
+    banner_3,
     ];
 
 

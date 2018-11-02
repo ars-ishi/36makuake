@@ -28,7 +28,7 @@
                 %span.bar-percent #{project.achievement}%
             .view-button
               = link_to "VIEW", project_path(project.id), class:"view-button-link"
-            %input{name: "thumbnail_image", tyep:"hidden", value:project.thumbnail, class:"thumbnail_#{i}"}
+            %input{name: "thumbnail_image", type:"hidden", value:project.thumbnail, class:"thumbnail_#{i}"}
 
 
 
@@ -44,6 +44,7 @@
           .view-button
             %a.view-button-link{:href => "https://blog.makuake.com/posts/4910595", :target => "_blank"}
               VIEW
+            %input{name: "thumbnail_image", type:"hidden", value:"http://image.36project.com/hero_thumb_121.png", class:"banner_1"}
       .swiper-slide
         %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/85/hero_bg_pc_85.png?format=png&ttl=31536000&version=1535624113&force&quality=95"}/
         .HeroItem
@@ -56,6 +57,8 @@
           .view-button
             %a.view-button-link{:href => "https://blog.makuake.com/posts/4014851", :target => "_blank"}
               VIEW
+            %input{name: "thumbnail_image", type:"hidden", value:"http://image.36project.com/hero_thumb_85.jpg", class:"banner_2"}
+
       .swiper-slide
         %img.image-background{:alt => "banner1", :src => "https://hayabusa.io/makuake/upload/hero/7/hero_bg_pc_7.jpg?format=jpg&ttl=31536000&version=1535624113&force&quality=95"}/
         .HeroItem
@@ -68,5 +71,6 @@
           .view-button
             %a.view-button-link{:href => "https://www.makuake.com/apply/?from=hero_btn_8", :target => "_blank"}
               VIEW
+            %input{name: "thumbnail_image", type:"hidden", value:"http://image.36project.com/makuake_thumb.png", class:"banner_3"}
     / If we need pagination
     .swiper-pagination{style:"bottom:0;"}
