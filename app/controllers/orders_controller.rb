@@ -26,14 +26,15 @@ class OrdersController < ApplicationController
   end
 
   def create
+    ##達成率演算
+    @project = Project.find(order_params[:project_id])
+    @achievement = @project.achievement_f
     ##支援金合計の演算処理&更新処理
     set_project.update_total_sales(set_project, order_params[:payment_price])
     @comment = ProjectComment.new(comment_params)
     ApplicationRecord.transaction do
       ##オーダーを保存する
       @order = Order.new(order_params)
-      @project = Project.find(@order.project_id)
-      @achievement = @project.achievement_f
       @order.save!
       if order_answer_params[:question].present?
         OrderAnswer.create!(order_answer_params)
