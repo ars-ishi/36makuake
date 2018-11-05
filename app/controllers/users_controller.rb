@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :move_to_email_registration, only: [:show]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
   before_action :set_user, only: [:show, :edit, :edit_password, :update, ]
   before_action :move_to_project_index, only: [:show, :edit, :edit_password, :update]
 
