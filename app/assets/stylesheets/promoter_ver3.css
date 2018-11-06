@@ -372,7 +372,7 @@
   background: #333;
   overflow: auto;
   margin: 0 auto;
-  min-width: 900px;
+  width: 1040px;
   min-height: calc(100vh - 66px);
   border-bottom: 1px solid #eee;
 }
@@ -392,7 +392,11 @@
   background: #333;
   margin-top: 4px;
   height: calc(100vh - 70px);
-  overflow: scroll;
+  overflow-y: auto;
+  -ms-overflow-style:none;
+}
+.content-promoter .promoter-management .main__left-area::-webkit-scrollbar {
+  display: none;
 }
 .content-promoter .promoter-management .main__left-area ul .left-area-list-active {
   background: #4AB3DF;
@@ -465,7 +469,11 @@
   background: #fff;
   margin-top: 4px;
   height: calc(100vh - 70px);
-  overflow: scroll;
+  overflow-y: auto;
+  -ms-overflow-style:none;
+}
+.content-promoter .promoter-management .main__right-area::-webkit-scrollbar {
+  display: none;
 }
 .project-list {
   width: 650px;
