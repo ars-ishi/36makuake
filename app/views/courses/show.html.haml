@@ -100,7 +100,9 @@
                     %svg.icon_shien
                       %use{"xlink:href" => "#icon-user-03", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
                       / 次の支援者数は決済システム実装後にインスタンス変数で表示できるようにする。
-                    %p.descriptionDelivery 【ここに支援者数】
+                    %p.descriptionDelivery
+                      = @supporters
+                      人が支援しています。
                   .boxDelivery
                     %svg.icon_delivery
                       %use{"xlink:href" => "#icon-case", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}

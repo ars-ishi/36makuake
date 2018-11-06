@@ -22,6 +22,7 @@ class CoursesController < ApplicationController
     @course   = Course.find(params[:id])
     @image    = CourseImage.find_by(course_id: @course.id).image
     @questions = CourseQuestion.where(course_id: @course.id, usable: "1")
+    @supporters = OrderDetail.where(course_id: @course.id).length
     render layout: false
   end
 
