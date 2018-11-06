@@ -12,10 +12,10 @@
       -# SNSログイン
       .modal03__leftblock.short
         %p.modal03__block__title SNSでログイン
-        = link_to user_facebook_omniauth_authorize_path, class: 'registFacebook' do
-          %svg.registsns__icon
-            %use{"xlink:href" => "#icon-facebook", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-          Facebook
+        -# = link_to user_facebook_omniauth_authorize_path, class: 'registFacebook' do
+        -#   %svg.registsns__icon
+        -#     %use{"xlink:href" => "#icon-facebook", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+        -#   Facebook
         = link_to user_twitter_omniauth_authorize_path, class: 'registTwitter' do
           %svg.registsns__icon
             %use{"xlink:href" => "#icon-twitter-02", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}

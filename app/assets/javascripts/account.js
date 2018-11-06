@@ -53,28 +53,13 @@ $(function() {
     });
   }
 });
-// メールが正規表現かチェックして、okだったらメールがすでに登録済みでないかチェックする。
+// メールが正規表現かチェック
 function mailFormatValidates(id) {
   var email = document.getElementById(id);
   var emailVal = email.value;
   var format = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
   if (format.test(emailVal)) {
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      dataType: 'json'
-    })
-    .done(function(user_emails) {
-      if ( user_emails.indexOf(emailVal) > 0 ) {
-        email.setCustomValidity('使用できないメールアドレスです');
-      }
-      else {
-        email.setCustomValidity('');
-      }
-    })
-    .fail(function() {
-      alert('通信環境のよいところで再度お試しください');
-    })
+    email.setCustomValidity('');
   } else {
     email.setCustomValidity('メールアドレスの形式が正しくありません');
   }
