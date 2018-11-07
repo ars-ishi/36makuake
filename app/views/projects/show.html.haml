@@ -92,7 +92,9 @@
               = link_to project_project_comments_path(@project), data: {"turbolinks" => false} do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
-          = render 'project_likes/like_links', project: @project
+          %div
+          - if user_signed_in?
+            = render 'project_likes/like_links', project: @project
 
 
 
