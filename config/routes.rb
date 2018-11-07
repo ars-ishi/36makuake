@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     member{get "report"}
   end
 
+  post   '/project_like/:project_id' => 'project_likes#like',   as: 'like'
+  delete '/project_like/:project_id' => 'project_likes#unlike', as: 'unlike'
+
   resources :discovers, only: [:index, :new] do
     collection do
       get :soon

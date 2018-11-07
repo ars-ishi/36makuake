@@ -9,6 +9,7 @@
 = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/colors.min.css', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/code_view.min.css', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/plugins/help.min.css', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag    '/../assets/like', media: 'all', 'data-turbolinks-track': 'reload'
 = stylesheet_link_tag    '//css.36project.com/stylesheets/promoter.css', media: 'all', 'data-turbolinks-track': 'reload'
 = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.min.js', 'data-turbolinks-track': 'reload'
 = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/languages/ja.js', 'data-turbolinks-track': 'reload'
@@ -91,17 +92,8 @@
               = link_to project_project_comments_path(@project), data: {"turbolinks" => false} do
                 応援コメント
                 %i.tabnavicon.tabnavicon--yellow #{@project.project_comments.length}
-          .goodBase_tab
-            .goodBaseIn_tab
-              %i.icon_heart_off_tab
-                %svg.icon_heart_off_tab-in
-                  %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span お気に入りに追加
-            .goodBaseIn2_tab{:style => "display:none;"}
-              %i.icon_heart_on_tab
-                %svg.icon_heart_on_tab-in
-                  %use{"xlink:href" => "#icon-heart_fill", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
-              %span お気に入り追加中
+          - if user_signed_in?
+            = render 'project_likes/like_links', project: @project
 
 
 

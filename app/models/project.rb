@@ -10,7 +10,7 @@ class Project < ApplicationRecord
   has_many   :project_comments, dependent: :destroy
   has_many   :project_comment_responses, through: :project_comments
   has_many   :project_likes, dependent: :destroy
-  has_many   :users, through: :project_likes
+  has_many   :liking_users, through: :project_likes, source: :user
   has_one    :project_pickup, dependent: :destroy
   has_one    :project_slider, dependent: :destroy
 

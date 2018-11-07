@@ -1,0 +1,5 @@
+$("#{@id_name}").html('#{escape_javascript(render('project_likes/like_links', project: @project  )) }');
+$("#{@id_heart}").prop("xlink:href", "#icon-heart_line");
+var before = $("#{@id_heart_word}").text
+var after  = before.toString("お気に入り追加中","お気に入りに追加");
+$("#{@id_heart_word}").text(after);
