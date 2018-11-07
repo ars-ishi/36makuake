@@ -1,0 +1,15 @@
+.goodBase_tab{id: "like-link-#{project.id}"}
+  - if current_user.project_likes.find_by(project_id: project.id)
+    = link_to unlike_path(project.id), method: :delete, class: "like_link_tag", remote: true do
+      .goodBaseIn2_tab
+        %i.icon_heart_on_tab
+          %svg.icon_heart_on_tab-in
+            %use{"xlink:href": "#icon-heart_fill", "xmlns:xlink": "http://www.w3.org/1999/xlink", id: "heart-#{project.id}"}
+        %span{id: "#heart-word-#{@project.id}"} お気に入り追加中
+  - else
+    = link_to like_path(project.id), method: :post, class: "like_link_tag", remote: true do
+      .goodBaseIn_tab
+        %i.icon_heart_off_tab
+          %svg.icon_heart_off_tab-in
+            %use{"xlink:href": "#icon-heart_line", "xmlns:xlink": "http://www.w3.org/1999/xlink", id: "heart-#{project.id}"}
+        %span{id: "#heart-word-#{@project.id}"} お気に入りに追加
