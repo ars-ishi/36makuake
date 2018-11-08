@@ -36,15 +36,15 @@
         .hero-sub
           .hero-sub-wrapper
             .hero-sub-before-support
-              %p{:class => "hero-sub__money—before"}> #{(@project.total_sales) - (@order.payment_price)}
+              %p{:class => "hero-sub__money—before"}> #{@project.total_sales}
               円 (
-              %p.hero-sub__gauge-before> #{(@project.total_sales - @order.payment_price)*100 / @project.target_sales.to_f.round(1)}
+              %p.hero-sub__gauge-before> #{@achievement}
               \%)
             %span.hero-sub__money__triangle
             .hero-sub-after-support
-              %p{:class => "hero-sub__money—after"}> #{@project.total_sales}
+              %p{:class => "hero-sub__money—after"}> #{(@project.total_sales) + (@order.payment_price)}
               円 (
-              %p.hero-sub__gauge-after> #{@achievement}
+              %p.hero-sub__gauge-after> #{@achievement + (@order.payment_price*100 / @project.target_sales.to_f).round(1)}
               \%)
 
 
