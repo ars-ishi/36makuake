@@ -1,5 +1,13 @@
 class ProjectLikesController < ApplicationController
-  before_action :set_variables
+  before_action :set_variables, except: :index
+
+  def index
+    likes = ProjectLike.where(user_id: current_user.id)
+    @projects = []
+    likes.each do |like|
+      @projects << Project.find(like.project_id)
+    end
+  end
 
   def like
     project_like = current_user.project_likes.new(project_id: @project.id)
