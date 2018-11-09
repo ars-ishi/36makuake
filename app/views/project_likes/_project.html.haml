@@ -1,0 +1,25 @@
+%li.pj-boxin-li
+  .media
+    %article
+      =link_to project_path(project.id), class: "media-up" do
+        %img.media-up-thumb{:alt => "#{project.name}", :src => "#{project.thumbnail}", :height => "104", :width => "184"}/
+        %h3.media-up-ttl
+          = project.name
+      .media-middle
+        .media-middle-time
+          %i
+            %svg.media-middle-time-icon
+              %use{"xlink:href" => "#icon-time", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          %p
+            = project.time_limit
+        .media-middle-money
+          %i
+            %svg.media-middle-money-icon
+              %use{"xlink:href" => "#icon-money", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          %p
+            = project.total_sales
+      .media-low
+        .media-low-bar-gray
+          .media-low-bar-green{:style => "width:#{project.achievement};"}
+        .media-low-bar-num
+          = project.achievement
