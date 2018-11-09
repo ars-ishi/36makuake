@@ -1,0 +1,17 @@
+%head
+  = stylesheet_link_tag "//css.36project.com/stylesheets/liking_common.css", media: 'all', 'data-turbolinks-track': 'reload'
+  = stylesheet_link_tag "//css.36project.com/stylesheets/liking_project.css", media: 'all', 'data-turbolinks-track': 'reload'
+.nav-box
+  %ul.nav-box-ul
+    %li
+      %a.nav-box-link.nav-box-link--on{:href => "/favorite/project/"} プロジェクト
+.grayBase
+  .wrapper
+    .pj-box
+      %section
+        .pj-like-ttl-box
+          %h2.pj-like-ttl お気に入りのプロジェクト
+        .pj-boxin
+          %ul.pj-boxin-ul
+            - if @projects
+              = render partial: 'project', collection: @projects

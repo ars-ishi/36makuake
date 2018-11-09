@@ -36,7 +36,7 @@
                   = link_to 'プロジェクト掲載を再度申し込む', edit_user_promoter_profile_path(current_user, current_user.promoter_profile), class: 'header-link-apply-after'
           %li{"data-geenie-favorite-header--hasnot" => "", :style => "display: block"}
             .header-like-box
-              %a.header-like-after{:href => "/favorite/tag/"}
+              = link_to project_likes_path, class: "header-like-after" do
                 %i
                   %svg.like-heart-after
                     %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -51,7 +51,6 @@
                   あなたのお気に入りを
                   %br>/
                   管理するページができました
-                %a.header-like-tooltip-link{:href => "/favorite/tag/"} 詳しくはこちら
           %li{"data-geenie-favorite-header--has" => "", :style => "display: none"}
             %a.header-like-after{:href => "/favorite/tag/"}
               %i
@@ -112,7 +111,7 @@
           -#   %a.header-link-apply{:href => "/apply/"} プロジェクトを掲載する
           %li
             .header-like-box
-              %a.header-like{:href => "/favorite/tag/", :onclick => ""}
+              %a.header-like{:href => "#", :onclick => ""}
                 %i
                   %svg.like-heart
                     %use{"xlink:href" => "#icon-heart_line", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
@@ -130,7 +129,6 @@
                   あなたのお気に入りを
                   %br>/
                   管理するページができました
-                %a.header-like-tooltip-link{:href => "/favorite/tag/"} 詳しくはこちら
           %li
             = link_to 'ログイン', '#sign_in', {class: 'sign_in header-btn-login', id: "login"}
           %li
