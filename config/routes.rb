@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     member{get "report"}
   end
 
+  resources :project_likes, only: :index
   post   '/project_like/:project_id' => 'project_likes#like',   as: 'like'
   delete '/project_like/:project_id' => 'project_likes#unlike', as: 'unlike'
 
